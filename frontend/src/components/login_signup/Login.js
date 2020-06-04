@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { login } from "../../util/firebaseFunctions"
+// import { login } from "../../util/firebaseFunctions"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 
-import "../../css/login.css";
+import "../../CSS/login.css";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ export default function Login() {
 	const handleSignIn = async (e) => {
 		e.preventDefault();
 		try {
-			await login(email, password);
+			// await login(email, password);
 			history.push("/user");
 		} catch (error) {
 			debugger
