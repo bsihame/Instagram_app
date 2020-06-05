@@ -1,14 +1,14 @@
-import React from "react";
-import Footer from "../Footer"
-import { Link } from "react-router-dom";
+// import React from "react";
+// // import Footer from "../Footer"
+// import { Link } from "react-router-dom";
 
-export default function About() {
+// export default function About() {
 
-  return (
-    <div className="container">
+//   return (
+//     <div className="container">
     
-        <Link className="link" href ="/about-us">ABOUT</Link>
+//       <Link className="link" to="//about.instagram.com/about-us" onClick={About}></Link>
     
-    </div>
-  )
-};
+//     </div>
+//   )
+// };
