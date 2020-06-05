@@ -18,7 +18,7 @@ export default function Footer() {
         <NavLink className="link" exact to={"/directory/hashtags/"}>HASHTAGS</NavLink>
         <NavLink className="link" to={"/language"}>LANGUAGE</NavLink>
       </nav>
-        <span className="insFacebook" to={"/press"}>@2020 INSTAGRAM FROM FACEBOOK</span>
+        <span className="insFacebook" to={"/press"}>&copy;{new Date().getFullYear()} INSTAGRAM FROM FACEBOOK</span>
         </div>
     </footer>
   )
