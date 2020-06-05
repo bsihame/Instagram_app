@@ -4,7 +4,7 @@ import Footer from "../navbar_footer/Footer";
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
+      {/* <h1>Home</h1> */}
       <div>
       <Login />
       </div>

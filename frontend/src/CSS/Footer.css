@@ -1,0 +1,51 @@
+.footer {
+  -webkit-box-ordinal-group: 6;
+  order: 5;
+  padding: 0 20px;
+  background-color: #fafafa;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  font: inherit;
+  vertical-align: baseline;
+  
+}
+.footerdiv {
+  max-width: 1012px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 auto;
+  width: 101%;
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  margin-bottom: 20px;
+}
+.link {
+  display: inline-block;
+  margin-bottom: 7px;
+  margin-right: 16px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+
+}
+
+.insFacebook {
+  color: #8e8e8e;
+}
