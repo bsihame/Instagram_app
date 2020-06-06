@@ -1,0 +1,29 @@
+.home {
+  content: url("../images/homeIcon.png");
+  width: 70px;
+  /* margin-left: 10px; */
+}
+
+.directMessage {
+  content: url("../images/directMessage.png");
+  width: 70px;
+  /* margin-left: 5px; */
+}
+
+.explore {
+  content: url("../images/explore.png");
+  width: 70px;
+  /* margin-left: 5px; */
+}
+
+.heart{
+  content: url("../images/heart.png");
+  width: 70px;
+  /* margin-left: 5px; */
+}
+
+.profile{
+  content: url("../images/profile-icon-300x300.png");
+  width: 70px;
+  /* margin-left: 5px; */
+}

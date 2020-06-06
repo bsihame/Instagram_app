@@ -4,7 +4,7 @@ import { logout } from "../../util/firebaseFunctions";
 import Login from "../login_signup/Login";
 import Home from "../pages/Home"
 // import homeIcon  from "../../images/homeIcon.png"
-// import "../css/NavBar.css";
+import "../../CSS/NavBar.css";
 import { AuthContext } from "../../providers/AuthContext"
 
 
@@ -26,13 +26,17 @@ export default function NavBar() {
 	return (
 		<>
 			<nav>
+				<div>
 				<h2>Instagram</h2>
+				</div>
+				<div>
 				<input placeholder="Search" />
-				<NavLink to={"/users"}>homeIcon</NavLink>
-				<NavLink to={"/direct/inbox/"}>arowIconw</NavLink>
-				<NavLink to={"/explore"}>BoussoleIcone</NavLink>
-				<NavLink to={"/activity"}>heartIcone</NavLink>
-				<NavLink to={"/user"}>profilePic</NavLink>
+				<NavLink className="home" to={"/users"}>homeIcon</NavLink>
+				<NavLink className="directMessage" to={"/direct/inbox/"}>arowIconw</NavLink>
+				<NavLink className="explore" to={"/explore"}>BoussoleIcone</NavLink>
+				<NavLink className="heart" to={"/activity"}>heartIcone</NavLink>
+				<NavLink className="profile" to={"/user"}>profilePic</NavLink>
+				</div>
 			</nav>
 			{/* <div>
 				<button onClick={logout}>logout</button>

@@ -36,5 +36,5 @@ export default function DisplayUsers() {
 		);
 	});
 	return <div>{allUsers}</div>;
-	// return <div>{DisplayUsers()}</div>
+	
 }
