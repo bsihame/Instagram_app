@@ -44,7 +44,7 @@ const getSinglePost = async (req, res, next) => {
 		res.status(200).json({
 			status: "ok",
 			message: "Created a new post",
-			payload: newPost,
+			payload: singlePost,
 		});
 	} catch (error) {
 		console.log(error);

@@ -7,17 +7,23 @@ const {
   logIn,
   // signUp,
   getUserById,
+  updateUser,
+  deleteUser
+  
 } = require("../../queries/Users/Users");
 const { checkFirebaseToken } = require("../../middleware/auth")
 
-users.post("/", createNewUser);
-users.get("/", checkFirebaseToken, getAllUsers);
-// userRouters.get('/email/:email', getUserByEmail)
 
-users.get("/", getAllUsers);
+users.get("/", checkFirebaseToken, getAllUsers);
+users.get("/:id", isUserExist, getUserById);
+users.get("/email/:email", getUserByEmail)
+
+users.post("/", createNewUser);
+users.patch("/:id", updateUser);
+users.delete("/:id", deleteUser)
 users.post("/login", logIn);
 // users.post("/signUp, signUp")
-users.get("/:id", isUserExist, getUserById);
+
 
 
 

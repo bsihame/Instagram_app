@@ -38,15 +38,15 @@ const getUserByEmail = async (req, res, next) =>{
 const getAllUsers = async (req, res, next) => {
   try {
     const users = await db.any("SELECT * FROM users ORDER BY id ASC");
-    // if (users.length) {
+    if (users.length) {
       res.status(200).json({
         status: "ok",
         message: "Retrieved all users",
         payload: users
       });
-    // } else {
-    //   throw { status: 404, error: "No users found" };
-    // }
+    } else {
+    throw { status: 404, error: "No users found" };
+     }
   } catch (error) {
     res.status(400).json({
       status: "error",
@@ -118,7 +118,7 @@ const logIn = async (req, res, next) => {
     next(error);
   }
 };
-const UpdateUser = async (req, res, next) => {
+const updateUser = async (req, res, next) => {
   try {
     const updateUser = await db.one(
       `UPDATE SET profile_pic = $1 WHERE id ${req.params.id} RETURNING *`, [req.body.profile_pic]);
@@ -153,6 +153,6 @@ const deleteUser = async (req, res, next) => {
 
 
 
-module.exports = { isUserExist, getAllUsers, logIn, createNewUser,getUserByEmail, getUserById, UpdateUser, deleteUser};
+module.exports = { isUserExist, getAllUsers, logIn, createNewUser,getUserByEmail, getUserById, updateUser, deleteUser};
 
 

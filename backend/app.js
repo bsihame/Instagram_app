@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 const usersRouter = require("./routes/Users/users");
+const postsRouter = require("./routes/Posts/userPost");
 
 
 app.use(cors());
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
-// app.use("/api/posts", postsRouter);
+app.use("/api/posts", postsRouter);
 
 // app.use((err, req, res, next) => {
 //     console.log(err);
