@@ -15,14 +15,14 @@ app.use(bodyParser.json());
 app.use("/api/users", usersRouter);
 // app.use("/api/posts", postsRouter);
 
-app.use((err, req, res, next) => {
-    console.log(err);
-    if(err.status) {
-        res.status(err.status).json(err);
-    } else {
-        res.status(500).json(err);
-    }
-})
+// app.use((err, req, res, next) => {
+//     console.log(err);
+//     if(err.status) {
+//         res.status(err.status).json(err);
+//     } else {
+//         res.status(500).json(err);
+//     }
+// })
 
 app.listen(PORT, () => {
     console.log("Listening to port ", PORT);

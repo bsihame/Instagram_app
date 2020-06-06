@@ -12,22 +12,25 @@ const createNewUser = async (req, res, next) => {
       payload: newUser
     })
   } catch (error) {
-    next(error);
+    res.status(400).json({
+    status: "error",
+    message: "Could not create user",
+  })
   }
 };
 
 const getUserByEmail = async (req, res, next) =>{
-  try{
-      const user = await db.one('SELECT * FROM Users WHERE email= $1', [req.params.email]);
+  try {
+      const user = await db.one("SELECT * FROM Users WHERE email= $1", [req.params.email]);
       res.status(200).json({
-          status: 'success',
-          message: 'retrieves single user by Email',
+          status: "ok",
+          message: "retrieves single user by Email",
           payload: user
       })
   }catch(error){
       res.status(400).json({
-          status: 'error',
-          message: 'could not get single user by Email',
+          status: "error",
+          message: "Could not get single user by Email",
       })
   }
 }
@@ -45,7 +48,10 @@ const getAllUsers = async (req, res, next) => {
     //   throw { status: 404, error: "No users found" };
     // }
   } catch (error) {
-    next(error);
+    res.status(400).json({
+      status: "error",
+      message: "Could not retrieve all users"
+  })
   }
 };
 
@@ -81,12 +87,15 @@ const getUserById = async (req, res, next) => {
   try {
     let user = await db.one("SELECT * FROM users WHERE id=$1", id);
     res.status(200).json({
-      status: "Ok",
-      user,
-      message: "Retrieved user"
+      status: "ok",
+      message: "Retrieved user",
+      payload: user,
     })
   } catch (error) {
-    next(error)
+    res.status(400).json({
+      status: "error",
+      message: "Could not get single user by ID",
+    })
   }
 };
 
@@ -96,8 +105,8 @@ const logIn = async (req, res, next) => {
     let user = await db.any(`SELECT * FROM users WHERE email=$1`, email);
     res.status(200).json({
       status: "ok",
-      user,
-      message: "Retrieved user by email"
+      message: "Retrieved user by email",
+      payload:user
     });
   } catch (error) {
     if (error.received === 0) {
@@ -109,9 +118,41 @@ const logIn = async (req, res, next) => {
     next(error);
   }
 };
+const UpdateUser = async (req, res, next) => {
+  try {
+    const updateUser = await db.one(
+      `UPDATE SET profile_pic = $1 WHERE id ${req.params.id} RETURNING *`, [req.body.profile_pic]);
+    res.status(200).json({
+      status: "ok",
+      message: "Update user",
+      payload: updateUser
+    })
+  } catch (error) {
+    res.status(400).json({
+    status: "error",
+    message: "Could not update User",
+  })
+  }
+};
+const deleteUser = async (req, res, next) => {
+  try {
+    let deletedUser = await db.one("DELETE FROM users WHERE id = $1 RETURNING *", [req.params.id]);
+    res.status(200).json({
+      status: "ok",
+      message: "User is deleted",
+      payload: deletedUser
+    })
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      message: "Could not delete user",
+    })
+  }
+}
 
 
 
-module.exports = { isUserExist, getAllUsers, logIn, createNewUser,getUserByEmail, getUserById };
+
+module.exports = { isUserExist, getAllUsers, logIn, createNewUser,getUserByEmail, getUserById, UpdateUser, deleteUser};
 
 

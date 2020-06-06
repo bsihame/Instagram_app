@@ -1,7 +1,7 @@
 import React from "react";
 
 import Footer from "../navbar_footer/Footer";
-import Footer from "../navbar_footer/NavBar";
+import NavBar from "../navbar_footer/NavBar";
 
 
 
