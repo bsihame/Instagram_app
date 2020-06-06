@@ -1,0 +1,157 @@
+.signup {
+	background-color: #fafafa;
+	display: flex;
+	align-items: center;
+	justify-content: auto;
+	padding-left: 40%;
+	height: 85%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 10px 0;
+}
+
+.signUpContainer {
+	margin: 10px 0;
+	width: 75%;
+	width: 350px;
+	height: 542px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: #ffffff;
+}
+
+.title {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.instagram {
+	font-family: "Lobster Two", cursive;
+	font-size: 50px;
+	height: 51px;
+	width: 313px;
+	justify-content: space-around;
+	text-align: center;
+	align-items: center;
+}
+
+h1,
+h6 {
+	font-family: "Lobster Two", cursive;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.facebookDiv {
+	width: 75%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 24px;
+}
+
+.facebookButton {
+	background-color: #0095f6;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: block;
+	font-size: 15px;
+	font-weight: bolder;
+	padding: 10px 0px;
+	text-align: center;
+	border-radius: 6px;
+	color: #fff;
+	position: relative;
+	width: 324px;
+}
+.facebookIcon {
+	height: 18px;
+	width: 18px;
+	background-color: white;
+	align-items: center;
+	margin-right: 6px;
+}
+
+.or {
+	width: 80%;
+	text-align: center;
+	border-bottom: 1px solid #8f8f8f;
+	line-height: 0.1em;
+	color: #8f8f8f;
+	margin-bottom: 15px;
+}
+
+h4 span {
+	background: #fff;
+	padding: 10px 10px;
+}
+
+p {
+	color: #8f8f8f;
+	font-size: 13px;
+	text-align: center;
+}
+
+input {
+	color: #8f8f8f;
+	font-size: 13px;
+	line-height: 10px;
+	width: 265px;
+	padding: 8px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: #fafafa;
+}
+
+.signUpButton {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: #b3dffc;
+	width: 100%;
+	line-height: 20px;
+	margin-top: 8px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+}
+
+.agreementDiv {
+	color: #8f8f8f;
+	font-size: 13px;
+	line-height: 18px;
+	width: 265px;
+	padding: 12px 20px;
+}
+
+.logInButton {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: #b3dffc;
+	width: 100%;
+	line-height: 20px;
+	margin-top: 8px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+}

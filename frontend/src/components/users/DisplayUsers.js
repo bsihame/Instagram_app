@@ -21,7 +21,7 @@ export default function DisplayUsers() {
 		};
 
 		usersInfo();
-	}, []);
+	}, [API]);
 
 	let allUsers = users.map((user) => {
 		debugger;
@@ -36,4 +36,5 @@ export default function DisplayUsers() {
 		);
 	});
 	return <div>{allUsers}</div>;
+	// return <div>{DisplayUsers()}</div>
 }

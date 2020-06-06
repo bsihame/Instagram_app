@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
-// import firebase from"../firebase"
-// import { getFirebaseToken } from "../util/firebaseFunctions";
-// export const AuthContext = createContext();
+import firebase from"../firebase"
+import { getFirebaseToken } from "../util/firebaseFunctions";
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [ loading, setLoading ] = useState(true);
@@ -33,4 +33,4 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   )
 }
-// export default AuthProvider
+export default AuthProvider

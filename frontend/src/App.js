@@ -1,23 +1,23 @@
 import React from "react";
-// import { Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login_signup/Login";
 import Home from "./components/pages/Home"
 import SignUpForm from "./components/login_signup/SignUp";
 import UsersProfile from "./components/users/UsersProfile";
-// import DisplayUsers from "./components/users/DisplayUsers"
-// import User from "./components/users/";
-//  import AuthProvider from "./providers/AuthContext";
+import DisplayUsers from "./components/users/DisplayUsers"
+import User from "./components/users/User";
+import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil"
 
 function App() {
 	return (
 		<div className="App">
-			{/* <AuthProvider> */}
+			<AuthProvider>
 				
-			<AuthRoute exact path="/">
+			{/* <AuthRoute exact path="/">
 				<Login />
-			</AuthRoute>
+			</AuthRoute> */}
 				
 				<AuthRoute exact path="/">
 				<Home />
@@ -29,11 +29,13 @@ function App() {
 
 			<ProtectedRoute path="/users">
 				<UsersProfile />
-			</ProtectedRoute>
-			{/* <Route path="/user">
+				</ProtectedRoute>
+				
+			<Route path="/user">
 				<User />
-			</Route> */}
-			{/* </AuthProvider> */}
+			</Route>
+				
+			</AuthProvider>
 		</div>
 	);
 }

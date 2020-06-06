@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { apiURL } from "../../util/apiURL";
-// import { signUp } from "../../util/firebaseFunctions";
-// import axios from "axios";
+import { signUp } from "../../util/firebaseFunctions";
+import axios from "axios";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
-// import "../../css/signUp.css";
+import "../../CSS/signUp.css";
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
@@ -16,14 +16,14 @@ export default function SignUpForm() {
 	const [username, setUserName] = useState("");
 	const [error, setError] = useState(null);
 	const history = useHistory();
-	//  const API = apiURL();
+	 const API = apiURL();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			// let res = await signUp(email, password);
+			let res = await signUp(email, password);
 			debugger
-			// await axios.post(`${API}/api/users`, { id: res.user.uid, email, full_name, username })
+			await axios.post(`${API}/api/users`, { id: res.user.uid, email, full_name, username })
 			history.push("/user");
 		} catch (error) {
 			setError(error.message);
