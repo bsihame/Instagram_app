@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 import { apiURL } from "../../util/apiURL";
 import axios from "axios";
 
 export default function DisplayUsers() {
 	const [users, setUsers] = useState([]);
+	const history = useHistory();
+
 	const API = apiURL();
 
 	useEffect(() => {
@@ -12,7 +16,7 @@ export default function DisplayUsers() {
 				method: "get",
 				url: `${API}/api/users`,
 			});
-
+			history.push("/users");
 			setUsers(res.data.payload);
 		};
 
