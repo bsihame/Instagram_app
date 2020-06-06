@@ -44,7 +44,6 @@ img {
 	color: #262626;
 }
 .rightDiv {
-	/* border: 1px solid #dbdbdb; */
 	color: #ffffff;
 	align-items: center;
 	justify-content: center;
@@ -113,7 +112,6 @@ img {
 h4,
 h2 {
 	color: #385185;
-	/* border-bottom: 1px solid #8f8f8f; */
 }
 h6 {
 	color: #262626;

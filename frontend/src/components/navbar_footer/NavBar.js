@@ -25,17 +25,22 @@ export default function NavBar() {
 	};
 	return (
 		<>
-			<nav>
-				<div>
+			<nav className="navbarContainer">
+				<div className="title">
 				<h2>Instagram</h2>
 				</div>
-				<div>
-				<input placeholder="Search" />
-				<NavLink className="home" to={"/users"}>homeIcon</NavLink>
+				<div className="right">
+					<div className="inputDiv">
+					<input placeholder="Search" />
+					</div>
+					<div>
+					<NavLink className="home" to={"/users"}>homeIcon</NavLink>
 				<NavLink className="directMessage" to={"/direct/inbox/"}>arowIconw</NavLink>
 				<NavLink className="explore" to={"/explore"}>BoussoleIcone</NavLink>
 				<NavLink className="heart" to={"/activity"}>heartIcone</NavLink>
 				<NavLink className="profile" to={"/user"}>profilePic</NavLink>
+					</div>
+			
 				</div>
 			</nav>
 			{/* <div>
