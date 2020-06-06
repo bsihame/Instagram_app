@@ -6,8 +6,8 @@ const leftJoinUsersPosts = async (req, res, next) => {
 			"SELECT posts.id, posts.picture, posts.content, users.full_name, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id ORDER BY created_at DESC"
 		);
 		res.status(200).json({
-			status: "success",
-			message: "left join was a success",
+			status: "ok",
+			message: "Left join was a success",
 			payload: leftJoin,
 		});
 	} catch (error) {
@@ -23,8 +23,8 @@ const addNewPost = async (req, res, next) => {
 			`INSERT INTO Posts (poster_id, picture, content) VALUES('${req.body.poster_id}', '${req.body.picture}', '${req.body.content}')RETURNING *`
 		);
 		res.status(200).json({
-			status: "success",
-			message: "created a new post",
+			status: "ok",
+			message: "Created a new post",
 			payload: newPost,
 		});
 	} catch (error) {
@@ -36,4 +36,24 @@ const addNewPost = async (req, res, next) => {
 	}
 };
 
-module.exports = { addNewPost, leftJoinUsersPosts };
+const getSinglePost = async (req, res, next) => {
+	try {
+		let singlePost = await db.one(
+			"SELECT * FROM posts WHERE id= $1", [req.params.id]
+		);
+		res.status(200).json({
+			status: "ok",
+			message: "Created a new post",
+			payload: newPost,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			message: "Could not created the new post",
+		});
+	}
+};
+
+
+module.exports = { addNewPost, leftJoinUsersPosts, getSinglePost };
