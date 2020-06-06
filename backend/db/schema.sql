@@ -1,6 +1,6 @@
--- DROP DATABASE IF EXISTS instagram2_database;
---  CREATE DATABASE instagram2_database;
--- \c instagram2_database
+DROP DATABASE IF EXISTS instagram2_database;
+ CREATE DATABASE instagram2_database;
+\c instagram2_database
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS tags;
 
 CREATE TABLE users
 (
-  -- id VARCHAR PRIMARY KEY,
+  --  id VARCHAR PRIMARY KEY,
   id SERIAL PRIMARY KEY,
   full_name TEXT,
   email VARCHAR UNIQUE,
@@ -46,11 +46,11 @@ CREATE TABLE posts
 
   
 INSERT INTO users
-    (full_name, email, username, bio, profile_pic)
+    (id,full_name, email, username, bio, profile_pic)
   VALUES
-    ('Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', null),
-    ('Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist', null),
-    ('David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', null);
+    (1,'Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', '../../frontend/src/images/covid.png'),
+    (2,'Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist', '../../frontend/src/images/bear.jpeg'),
+    (3,'David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', '../../frontend/src/images/bear.jpeg');
 
   INSERT INTO posts
     (poster_id, picture, content, created_at)
