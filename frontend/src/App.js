@@ -32,7 +32,7 @@ function App() {
 			</AuthRoute>
 
 				<ProtectedRoute path="/users">
-				<NavBar/>
+					<NavBar/>
 					<UsersProfile />
 					<Footer/>
 				</ProtectedRoute>

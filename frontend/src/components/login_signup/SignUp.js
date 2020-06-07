@@ -33,15 +33,13 @@ export default function SignUpForm() {
 	};
 	return (
 		<>
-			<h1>Sign Up Page</h1>
 			<div className="signup">
 				<div className="signUpContainer">
 					<div className="title">
-						<h1 className="instagram">Instagram</h1>
-						<br />
+						<h1 className="instagramSignUp">Instagram</h1>
 						<p>Sign up to see photos and videos from your friends</p>
 					</div>
-					<div className="facebookDiv">
+					<div className="facebookDivSignUp">
 						<button className="facebookButton">
 							<img
 								src={facebookIcon}
@@ -58,28 +56,23 @@ export default function SignUpForm() {
 					</div>
 					{error ? <div>{error}</div> : null}
 
-					<form onSubmit={handleSubmit}>
+					<form className="form" onSubmit={handleSubmit}>
 						<input
 							placeholder="Email"
 							value={email}
 							type="email"
 							onChange={(e) => setEmail(e.currentTarget.value)}
 						/>
-						<br />
 						<input
 							placeholder="Full Name"
 							value={full_name}
 							onChange={(e) => setFullName(e.currentTarget.value)}
 						/>
-						<br />
-
 						<input
 							placeholder="Username"
 							value={username}
 							onChange={(e) => setUserName(e.currentTarget.value)}
 						/>
-						<br />
-
 						<input
 							placeholder="Password"
 							type="password"
@@ -88,8 +81,6 @@ export default function SignUpForm() {
 							autoComplete="on"
 							required
 						/>
-						<br />
-
 						<button type="submit" className="signUpButton">
 							Sign up
 						</button>
@@ -102,19 +93,17 @@ export default function SignUpForm() {
 					</div>
 				</div>
 
-				<div className="logInButton">
-					<button>
+				<div className="logInButtonSignUp">
+					<Link to="/">
 						Have an account?<span>Log in</span>
-					</button>
-
-					<br />
+					</Link>
 					<div>
 						<h4>get the app.</h4>
-						<div>
-							<img src={appleApp} alt="apple_app"></img>
+						<div className="appDiv">
+							<img className="appAppleSignUp" src={appleApp} alt="apple_app"></img>
 						</div>
 						<div>
-							<img src={googlePlayApp} alt="googlePlayApp"></img>
+							<img className="appGoogleSignUp" src={googlePlayApp} alt="googlePlayApp"></img>
 						</div>
 					</div>
 				</div>
