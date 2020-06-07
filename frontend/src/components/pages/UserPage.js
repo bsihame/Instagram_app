@@ -2,11 +2,6 @@ import React from "react";
 
 import Footer from "../navbar_footer/Footer";
 import NavBar from "../navbar_footer/NavBar";
-
-
-
-
-
 export default function UserPage() {
   return (
     <>
