@@ -11,7 +11,6 @@ export const AuthRoute = ({ children, ...rest }) => {
       render={({location}) => {
         return !currentUser ? children : <Redirect to="/user"
         />
-        // check here what you want to do
       }}
     />
   )
@@ -23,7 +22,7 @@ export const ProtectedRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({location }) => {
-        return currentUser ? children : <Redirect to="/accounts/emailsignup/"
+        return currentUser ? children : <Redirect to="/"
         />
       }}
     />

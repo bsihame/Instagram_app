@@ -63,8 +63,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../util/firebaseFunctions";
-import Login from "../login_signup/Login";
-import Home from "../pages/Home";
 import "../../CSS/NavBar.css";
 import { AuthContext } from "../../providers/AuthContext";
 

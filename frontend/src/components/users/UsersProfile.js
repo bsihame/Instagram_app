@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { apiURL } from "../../util/apiURL";
+import { AuthContext, } from "../../providers/AuthContext"
+import { NavLink } from "react-router-dom";
 import axios from "axios";
+import firebase from "../../firebase";
+import { useInputs } from "../../util/customHooks";
 
 export default function UsersProfile() {
-  const [users, setUsers] = useState("");
+  const [users, setUsers] = useState([]);
+ 
   const API = apiURL();
   
 

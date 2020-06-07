@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { login } from "../../util/firebaseFunctions";
-import { useInputs } from "../../util/customHooks"
+// import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
-import { apiURL } from "../../util/apiURL";
+// import { apiURL } from "../../util/apiURL";
 
 import "../../CSS/Login.css";
 
@@ -15,7 +15,7 @@ export default function Login() {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(false);
 	const history = useHistory();
-	const API = apiURL();
+	// const API = apiURL();
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
