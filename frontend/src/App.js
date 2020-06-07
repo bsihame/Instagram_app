@@ -4,6 +4,7 @@ import "./App.css";
 import Login from "./components/login_signup/Login";
 import Home from "./components/pages/Home"
 import SignUpForm from "./components/login_signup/SignUp";
+import Post from "./components/posts/Post";
 import UsersProfile from "./components/users/UsersProfile";
 import UserPage from "./components/pages/UserPage"
 import User from "./components/users/User";
@@ -15,15 +16,15 @@ function App() {
 		<div className="App">
 			<AuthProvider>
 				
-			<AuthRoute exact path="/">
+			{/* <AuthRoute exact path="/">
 				<UserPage />
-			</AuthRoute> 
+			</AuthRoute>  */}
 				
 				<AuthRoute exact path="/">
 				<Home />
 			</AuthRoute>
 
-			<AuthRoute path="/accounts/emailsignup/">
+			<AuthRoute exact path="/accounts/emailsignup/">
 				<SignUpForm />
 			</AuthRoute>
 
@@ -33,6 +34,14 @@ function App() {
 				
 			<Route path="/user">
 				<User />
+				</Route>
+				
+				{/* <Route path="/user">
+				<Upload />
+				</Route> */}
+				
+				<Route path="/user">
+				<Post/>
 			</Route>
 				
 			</AuthProvider>

@@ -123,8 +123,9 @@ h6 {
 	border-top: 1px solid #8f8f8f;
 	line-height: 0.1em;
 	color: #8f8f8f;
-	margin-bottom: 15px;
+	/* margin-bottom: 15px; */
 	color: #385185;
+	margin: 0;
 }
 .forgotPassword {
 	text-align: center;

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { login } from "../../util/firebaseFunctions"
+import { useHistory, Link } from "react-router-dom";
+import { login } from "../../util/firebaseFunctions";
+import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
+import { apiURL } from "../../util/apiURL";
 
 import "../../CSS/Login.css";
 
@@ -13,6 +15,7 @@ export default function Login() {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(false);
 	const history = useHistory();
+	const API = apiURL();
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
@@ -74,10 +77,10 @@ export default function Login() {
 				</div>
 				<div />
 
-				<button className="signUp">
+				<Link to="/accounts/emailsignup/" className="signUp">
 					Don't have an account?
 					<span className="span"> Sign up </span>
-				</button>
+				</Link>
 
 				<div className="getApp">
 					<h4>get the app.</h4>
