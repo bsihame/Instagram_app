@@ -28,23 +28,23 @@ function App() {
 				<SignUpForm />
 			</AuthRoute>
 
-				<ProtectedRoute path="/users">
+				<ProtectedRoute path="/user">
 					<NavBar/>
 					<UsersProfile />
 					<Footer/>
 				</ProtectedRoute>
 				 
-			<Route path="/user">
+			{/* <Route path="/user">
 				<User />
 				</Route>
-				
+				 */}
 				{/* <Route path="/user">
 				<Upload />
 				</Route> */}
 				
-				<Route path="/user">
+				{/* <Route path="/user">
 				<Post/>
-			</Route>
+			</Route> */}
 				
 			</AuthProvider>
 		</div>
