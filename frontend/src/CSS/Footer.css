@@ -1,17 +1,19 @@
 .footer {
   -webkit-box-ordinal-group: 6;
   order: 5;
-  padding: 0 20px;
   background-color: #fafafa;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
-  position: relative;
+  position: fixed;
+  bottom: 0;
   display: flex;
   font: inherit;
   vertical-align: baseline;
-  
+  padding: 0 20px;
+  text-align: center;
+  width: 100%;
 }
 .footerdiv {
   max-width: 1012px;
