@@ -135,12 +135,11 @@ input {
 	justify-content: space-evenly;
 	background-color: #ffffff;
 	line-height: 20px;
-	margin-top: 8px;
 	border-radius: 4px;
 	font-size: 14px;
 	font-weight: bold;
 	color: white;
-	width: 50%;
+	width: 100%;
 }
 .appDiv {
 	display: flex;
