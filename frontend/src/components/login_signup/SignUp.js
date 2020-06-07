@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link} from "react-router-dom";
+import { useInputs } from "../../util/customHooks"
 import { apiURL } from "../../util/apiURL";
 import { signUp } from "../../util/firebaseFunctions";
 import axios from "axios";
@@ -14,16 +15,17 @@ export default function SignUpForm() {
 	const [password, setPassword] = useState("");
 	const [full_name, setFullName] = useState("");
 	const [username, setUserName] = useState("");
+	const [loading, setLoading] = useState("")
 	const [error, setError] = useState(null);
 	const history = useHistory();
-	 const API = apiURL();
+	const API = apiURL();
+	//console.log(email,username, password);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			let res = await signUp(email, password);
-			debugger
-			await axios.post(`${API}/api/users`, { id: res.user.uid, email, full_name, username })
+			await axios.post(`${API}/users`, { id: res.user.uid, email, full_name, username })
 			history.push("/user");
 		} catch (error) {
 			setError(error.message);
@@ -58,8 +60,9 @@ export default function SignUpForm() {
 
 					<form onSubmit={handleSubmit}>
 						<input
-							placeholder="Mobile Number or Email"
+							placeholder="Email"
 							value={email}
+							type="email"
 							onChange={(e) => setEmail(e.currentTarget.value)}
 						/>
 						<br />

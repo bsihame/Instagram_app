@@ -1,7 +1,10 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login_signup/Login";
+import NavBar from "./components/navbar_footer/NavBar";
+import Footer from "./components/navbar_footer/Footer";
+
 import Home from "./components/pages/Home"
 import SignUpForm from "./components/login_signup/SignUp";
 import Post from "./components/posts/Post";
@@ -20,7 +23,7 @@ function App() {
 				<UserPage />
 			</AuthRoute>  */}
 				
-				<AuthRoute exact path="/">
+			<AuthRoute exact path="/">
 				<Home />
 			</AuthRoute>
 
@@ -28,10 +31,12 @@ function App() {
 				<SignUpForm />
 			</AuthRoute>
 
-			<ProtectedRoute path="/users">
-				<UsersProfile />
+				<ProtectedRoute path="/users">
+				<NavBar/>
+					<UsersProfile />
+					<Footer/>
 				</ProtectedRoute>
-				
+				 
 			<Route path="/user">
 				<User />
 				</Route>
