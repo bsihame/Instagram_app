@@ -1,26 +1,30 @@
-const db = require("../../db/index");
 
-const leftJoinUsersPosts = async (req, res, next) => {
+ const db = require("../../db/index");
+
+const getAllPosts = async (req, res, next) => {
 	try {
-		let leftJoin = await db.any(
+		let posts = await db.any(
 			"SELECT posts.id, posts.picture, posts.content, users.full_name, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id ORDER BY created_at DESC"
 		);
 		res.status(200).json({
 			status: "ok",
-			message: "Left join was a success",
-			payload: leftJoin,
+			message: "Retrieve all posts",
+			payload: posts,
 		});
 	} catch (error) {
 		res.status(400).json({
 			status: "error",
-			message: "Left join was not success",
+			message: "Couldn't retrieve all the posts",
 		});
+		next()
 	}
 };
 const addNewPost = async (req, res, next) => {
+// 	console.log(req.body)
 	try {
-		let newPost = await db.one(
-			`INSERT INTO Posts (poster_id, picture, content) VALUES('${req.body.poster_id}', '${req.body.picture}', '${req.body.content}')RETURNING *`
+		await db.one(
+			"INSERT INTO posts(poster_id, picture, content) VALUES(${poster_id}, ${picture}, ${content})RETURNING *",
+			req.body
 		);
 		res.status(200).json({
 			status: "ok",
@@ -33,13 +37,15 @@ const addNewPost = async (req, res, next) => {
 			status: "error",
 			message: "Could not created the new post",
 		});
+		next()
 	}
 };
 
+
 const getSinglePost = async (req, res, next) => {
 	try {
-		let singlePost = await db.one(
-			"SELECT * FROM posts WHERE id= $1", [req.params.id]
+		let posts = await db.any(
+			"SELECT * FROM posts WHERE poster_id= $1", req.params.poster_id
 		);
 		res.status(200).json({
 			status: "ok",
@@ -52,8 +58,13 @@ const getSinglePost = async (req, res, next) => {
 			status: "error",
 			message: "Could not created the new post",
 		});
+		next()
 	}
 };
 
 
-module.exports = { addNewPost, leftJoinUsersPosts, getSinglePost };
+
+
+
+
+module.exports = { addNewPost , getAllPosts, getSinglePost };
