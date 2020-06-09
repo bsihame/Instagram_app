@@ -3,7 +3,7 @@ import { apiURL } from "../../util/apiURL";
 import { AuthContext, } from "../../providers/AuthContext"
 // import { NavLink } from "react-router-dom";
 import axios from "axios";
-//  import firebase from "../../firebase";
+// import firebase from "../../firebase";
 // import { useInputs } from "../../util/customHooks";
 
 export default function UsersProfile() {

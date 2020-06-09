@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthContext";
 
 export const AuthRoute = ({ children, ...rest }) => {
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser)
   return (
     <Route
       {...rest}
@@ -22,7 +23,7 @@ export const ProtectedRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({location }) => {
-        return currentUser ? children : <Redirect to="/"
+        return currentUser ? children : <Redirect to="accounts/emailsignup/"
         />
       }}
     />

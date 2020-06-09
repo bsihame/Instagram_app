@@ -1,7 +1,7 @@
 import React from "react";
-
-import Footer from "../navbar_footer/Footer";
 import NavBar from "../navbar_footer/NavBar";
+import Posts from "../posts/Posts"
+import Footer from "../navbar_footer/Footer";
 export default function UserPage() {
   return (
     <>
@@ -18,7 +18,7 @@ export default function UserPage() {
       <div>help prevent corona</div>
      
       <div>
-          aLL Post here
+         <Posts />
       </div>
         ></div>
       

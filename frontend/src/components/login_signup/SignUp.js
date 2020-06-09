@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link} from "react-router-dom";
-import { useInputs } from "../../util/customHooks"
+// import { useInputs } from "../../util/customHooks"
 import { apiURL } from "../../util/apiURL";
 import { signUp } from "../../util/firebaseFunctions";
 import axios from "axios";
@@ -15,7 +15,7 @@ export default function SignUpForm() {
 	const [password, setPassword] = useState("");
 	const [full_name, setFullName] = useState("");
 	const [username, setUserName] = useState("");
-	const [loading, setLoading] = useState("")
+	// const [loading, setLoading] = useState("")
 	const [error, setError] = useState(null);
 	const history = useHistory();
 	const API = apiURL();
