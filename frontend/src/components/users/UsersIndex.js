@@ -32,8 +32,6 @@ export default function UsersIndex() {
 	return (
 		<>
       <div className=" allUsersContainerIndex">
-
-        {/* <div className="leftRightDiv"> */}
         
 				<div className="leftDivUsersIndex">
           <h1>All users if logged in</h1>
