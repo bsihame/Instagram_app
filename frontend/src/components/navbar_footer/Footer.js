@@ -14,9 +14,9 @@ export default function Footer() {
         <a className="link" href={"https://help.instagram.com/519522125107875"} target="_blank" rel="noopener noreferrer">PRIVACY</a>
         <a className="link" href={"https://help.instagram.com/581066165581870"} target="_blank" rel="noopener noreferrer">TERMS</a>
         <a className="link" href={"https://www.instagram.com/explore/locations/"} target="_blank" rel="noopener noreferrer">LOCATIONS</a>
-        <a className="link" exact href={"https://www.instagram.com/directory/profiles/"} target="_blank" rel="noopener noreferrer">TOP ACCOUNTS</a>
-        <a className="link" exact href={"https://www.instagram.com/directory/hashtags/"} target="_blank" rel="noopener noreferrer">HASHTAGS</a>
-        <a className="language" >LANGUAGE</a>
+        <a className="link" href={"https://www.instagram.com/directory/profiles/"} target="_blank" rel="noopener noreferrer">TOP ACCOUNTS</a>
+        <a className="link" href={"https://www.instagram.com/directory/hashtags/"} target="_blank" rel="noopener noreferrer">HASHTAGS</a>
+        <p className="language" >LANGUAGE</p>
       </>
         <span className="insFacebook" to={"/press"}>&copy;{new Date().getFullYear()} INSTAGRAM FROM FACEBOOK</span>
         </div>

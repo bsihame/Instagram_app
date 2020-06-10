@@ -1,5 +1,5 @@
 import React from "react";
-import { Route} from "react-router-dom";
+// import { Route, NavLink} from "react-router-dom";
 import "./App.css";
 
 import Home from "./components/pages/Home"
@@ -7,8 +7,10 @@ import SignUpForm from "./components/login_signup/SignUp";
 // import posts from "./components/posts/Posts";
 import UsersIndex from "./components/users/UsersIndex";
 import UserProfile from "./components/pages/UserProfile";
+import NavBar from "./components/navbar_footer/NavBar"
+import Footer from "./components/navbar_footer/Footer"
 
-import User from "./components/users/User";
+// import User from "./components/users/User";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil"
 
@@ -32,13 +34,15 @@ function App() {
 				{/* <ProtectedRoute path="/users"> */}
 
 				<ProtectedRoute path="/user">
+					<NavBar/>
 					<UsersIndex />
+					<Footer/>
 				</ProtectedRoute>
 				 
-				<Route path="/user">
+				{/* <Route path="/user">
 			
 				<User />
-				</Route>
+				</Route> */}
 
 				<AuthRoute path="/user/userProfile">
 				<UserProfile />
