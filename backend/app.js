@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+// const path = require('path');
 const PORT = process.env.PORT;
 const usersRouter = require("./routes/Users/users");
 const postsRouter = require("./routes/Posts/post");
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
+// app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((err, req, res, next) => {
     console.log(err);

@@ -3,13 +3,14 @@ const db = require("../../db/index");
 
 const createNewUser = async (req, res, next) => {
   try {
-    const newUser = await db.none(
+    // const newUser =
+      await db.none(
       "INSERT INTO users( full_name, email, username) VALUES( ${full_name}, ${email}, ${username})", req.body
     );
     res.status(200).json({
       status: "ok",
       message: "New User Created",
-      payload: newUser
+      // payload: newUser
     })
   } catch (error) {
     res.status(400).json({

@@ -92,7 +92,7 @@ export default function NavBar() {
 						<input placeholder="Search" />
 					</div>
 					<div>
-						<NavLink className="home" to={"/users"}>
+						<NavLink className="home" to={"/user"}>
 							homeIcon
 						</NavLink>
 						<NavLink className="directMessage" to={"/direct/inbox/"}>
@@ -104,7 +104,7 @@ export default function NavBar() {
 						<NavLink className="heart" to={"/activity"}>
 							heart
 						</NavLink>
-						<NavLink className="profile" to={"/user"}>
+						<NavLink className="profile" to={"/userProfile"}>
 							profilePic
 						</NavLink>
 					</div>

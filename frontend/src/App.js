@@ -1,12 +1,13 @@
 import React from "react";
 import { Route} from "react-router-dom";
 import "./App.css";
-// import NavBar from "./components/navbar_footer/NavBar";
-// import Footer from "./components/navbar_footer/Footer";
+
 import Home from "./components/pages/Home"
 import SignUpForm from "./components/login_signup/SignUp";
 // import posts from "./components/posts/Posts";
-import UsersProfile from "./components/users/UsersProfile";
+import UsersIndex from "./components/users/UsersIndex";
+import UserProfile from "./components/pages/UserProfile";
+
 import User from "./components/users/User";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil"
@@ -21,8 +22,7 @@ function App() {
 			</AuthRoute>  */}
 				
 			<AuthRoute exact path="/">
-					<Home />
-					
+					<Home />	
 			</AuthRoute>
 
 			<AuthRoute exact path="/accounts/emailsignup/">
@@ -32,15 +32,18 @@ function App() {
 				{/* <ProtectedRoute path="/users"> */}
 
 				<ProtectedRoute path="/user">
-					{/* <NavBar/> */}
-					{/* <Footer/> */}
-					<UsersProfile />
+					<UsersIndex />
 				</ProtectedRoute>
 				 
 				<Route path="/user">
 			
 				<User />
 				</Route>
+
+				<AuthRoute path="/user/userProfile">
+				<UserProfile />
+				</AuthRoute>
+				
 				
 				{/* <Route path="/user">
 				<Upload />

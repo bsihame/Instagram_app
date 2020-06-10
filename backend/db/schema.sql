@@ -48,9 +48,9 @@ CREATE TABLE posts
 INSERT INTO users
     (full_name, email, username, bio, profile_pic)
   VALUES
-    ('Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', '../../frontend/src/images/covid.png'),
-    ('Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist', '../../frontend/src/images/bear.jpeg'),
-    ('David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', '../../frontend/src/images/bear.jpeg');
+    ('Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', null),
+    ('Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist',null),
+    ('David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', null);
 
   INSERT INTO posts
     (poster_id, picture, content, created_at)
