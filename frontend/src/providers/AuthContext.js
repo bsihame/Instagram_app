@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import firebase from"../firebase"
-import { getFirebaseToken } from "../util/firebaseFunctions";
+import { getFirebaseIdToken } from "../util/firebaseFunctions";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -8,12 +8,16 @@ const AuthProvider = ({ children }) => {
   const [ currentUser, setCurrentUser ] = useState(null);
   const [token, setToken] = useState(null);
 
+
   const updateUser = (user) => {
     if (user) {
       const { email, uid } = user;
+      
       const lastLogin = user.metadata.lastLogin;
       setCurrentUser({ email, lastLogin, id: uid });
-      getFirebaseToken().then(token => {
+      
+
+      getFirebaseIdToken().then(token => {
         setToken(token);
         setLoading(false);
       })

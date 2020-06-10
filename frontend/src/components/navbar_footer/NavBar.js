@@ -1,22 +1,22 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { logout } from "../../util/firebaseFunctions";
+// import { logout } from "../../util/firebaseFunctions";
 import "../../CSS/NavBar.css";
-import { AuthContext } from "../../providers/AuthContext";
+// import { AuthContext } from "../../providers/AuthContext";
 
 export default function NavBar() {
-	const { currentUser } = useContext(AuthContext);
+	// const { currentUser } = useContext(AuthContext);
 
-	const displayButton = () => {
-		if (currentUser) {
-			return <button onClick={logout}>Logout</button>;
-		} else {
-			return (
-				<>
-				</>
-			);
-		}
-	};
+	// const displayButton = () => {
+	// 	if (currentUser) {
+	// 		return <button onClick={logout}>Logout</button>;
+	// 	} else {
+	// 		return (
+	// 			<>
+	// 			</>
+	// 		);
+	// 	}
+	// };
 	return (
 		<>
 			<nav className="navbarContainer">
@@ -46,7 +46,7 @@ export default function NavBar() {
 					</div>
 				</div>
 			</nav>
-			{displayButton()}
+			{/* {displayButton()} */}
 		</>
 	);
 }

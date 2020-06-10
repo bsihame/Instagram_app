@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 // import { useInputs } from "../../util/customHooks"
 import { apiURL } from "../../util/apiURL";
 import { signUp } from "../../util/firebaseFunctions";
@@ -25,7 +25,12 @@ export default function SignUpForm() {
 		e.preventDefault();
 		try {
 			let res = await signUp(email, password);
-			await axios.post(`${API}/users`, { id: res.user.uid, email, full_name, username })
+			await axios.post(`${API}/api/user`, {
+				id: res.user.uid,
+				email: email,
+				full_name: full_name,
+				userName: username,
+			});
 			history.push("/user");
 		} catch (error) {
 			setError(error.message);
@@ -100,10 +105,18 @@ export default function SignUpForm() {
 					<div>
 						<h4>get the app.</h4>
 						<div className="appDiv">
-							<img className="appAppleSignUp" src={appleApp} alt="apple_app"></img>
+							<img
+								className="appAppleSignUp"
+								src={appleApp}
+								alt="apple_app"
+							></img>
 						</div>
 						<div>
-							<img className="appGoogleSignUp" src={googlePlayApp} alt="googlePlayApp"></img>
+							<img
+								className="appGoogleSignUp"
+								src={googlePlayApp}
+								alt="googlePlayApp"
+							></img>
 						</div>
 					</div>
 				</div>

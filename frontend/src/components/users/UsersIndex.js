@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+// import React, { useState, useEffect } from "react";
+
 import { apiURL } from "../../util/apiURL";
 import UsersList from "./UsersList";
 import { AuthContext } from "../../providers/AuthContext";
@@ -8,6 +10,7 @@ import axios from "axios";
 // import { useInputs } from "../../util/customHooks";
 import "../../CSS/UsersIndex.css";
 import healthIcon from "../../images/healthIcon.png";
+import Logout from "../login_signup/Logout"
 
 export default function UsersIndex() {
 	const [users, setUsers] = useState([]);
@@ -20,17 +23,21 @@ export default function UsersIndex() {
 				method: "get",
 				url: `${API}/api/users`,
 				headers: {
-					AuthToken: token,
-				},
+				AuthToken: token,
+				 },
 			});
 
 			setUsers(res.data.payload);
 		};
 		getAllUsers();
-	}, [API]);
+	},[]);
 
 	return (
 		<>
+			<div>
+			<Logout/>
+
+			</div>
       <div className=" allUsersContainerIndex">
         
 				<div className="leftDivUsersIndex">
@@ -45,7 +52,7 @@ export default function UsersIndex() {
             <h4>Health Insurance May Be Available </h4>
             <h4 className="insuranceInfo">Millions have recently lost their jobs and health insurance. If you or someone you know is looking for coverage, visit healthcare.gov to see who’s eligible.</h4>
         <div className="linkBtn">
-              <a className="healthInsuranceLinkAn" href="{https://www.healthcare.gov/}" target="_blank" rel="noopener noreferrer" >Go to healthcare.gov</a>
+              <a className="healthInsuranceLinkAn" href={"https://www.healthcare.gov/"} target="_blank" rel="noopener noreferrer" >Go to healthcare.gov</a>
               </div>
 					</div>
 

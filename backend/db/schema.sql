@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS instagram2_database;
- CREATE DATABASE instagram2_database;
-\c instagram2_database
+-- DROP DATABASE IF EXISTS instagram2_database;
+--  CREATE DATABASE instagram2_database;
+-- \c instagram2_database
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
