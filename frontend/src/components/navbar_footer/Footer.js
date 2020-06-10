@@ -1,23 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import "../../CSS/Footer.css"
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footerdiv">
-      <nav>
-        <NavLink className="link" to={"/about-us"}>ABOUT</NavLink>
-        <NavLink className="link" to={"/help"}>HELP</NavLink>
-        <NavLink className="link" to={"/blog"}>PRESS</NavLink>
-        <NavLink className="link" to={"/developer"}>API</NavLink>
-        <NavLink className="link" to={"/about/jobs/"}>JOBS</NavLink>
-        <NavLink className="link" to={"/519522125107875"}>PRIVACY</NavLink>
-        <NavLink className="link" to={"/581066165581870"}>TERMS</NavLink>
-        <NavLink className="link" to={"/explore/locations/"}>LOCATIONS</NavLink>
-        <NavLink className="link" exact to={"/directory/profiles/"}>TOP ACCOUNTS</NavLink>
-        <NavLink className="link" exact to={"/directory/hashtags/"}>HASHTAGS</NavLink>
-        <NavLink className="link" to={"/language"}>LANGUAGE</NavLink>
-      </nav>
+      <>
+        <a className="link" href={"https://about.instagram.com/about-us"} target="_blank" rel="noopener noreferrer" >ABOUT</a>
+        <a className="link" href={"https://help.instagram.com/"} target="_blank" rel="noopener noreferrer">HELP</a>
+        <a className="link" href={"https://about.instagram.com/blog/"} target="_blank" rel="noopener noreferrer">PRESS</a>
+        <a className="link" href={"https://www.instagram.com/developer/"} target="_blank" rel="noopener noreferrer">API</a>
+        <a className="link" href={"https://www.instagram.com/about/jobs/"} target="_blank" rel="noopener noreferrer">JOBS</a>
+        <a className="link" href={"https://help.instagram.com/519522125107875"} target="_blank" rel="noopener noreferrer">PRIVACY</a>
+        <a className="link" href={"https://help.instagram.com/581066165581870"} target="_blank" rel="noopener noreferrer">TERMS</a>
+        <a className="link" href={"https://www.instagram.com/explore/locations/"} target="_blank" rel="noopener noreferrer">LOCATIONS</a>
+        <a className="link" exact href={"https://www.instagram.com/directory/profiles/"} target="_blank" rel="noopener noreferrer">TOP ACCOUNTS</a>
+        <a className="link" exact href={"https://www.instagram.com/directory/hashtags/"} target="_blank" rel="noopener noreferrer">HASHTAGS</a>
+        <a className="language" >LANGUAGE</a>
+      </>
         <span className="insFacebook" to={"/press"}>&copy;{new Date().getFullYear()} INSTAGRAM FROM FACEBOOK</span>
         </div>
     </footer>

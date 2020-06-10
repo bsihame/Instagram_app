@@ -47,7 +47,16 @@ nav {
   vertical-align: baseline;
 
 }
+.language {
+  color:#551A8B;
+  padding-bottom: 7px; 
+  font-size: 12px;
+  font-weight: 600;
+  padding-right: 10px;
+  text-decoration: underline;
+}
 
 .insFacebook {
   color: #8e8e8e;
+  padding-bottom: 7px;
 }

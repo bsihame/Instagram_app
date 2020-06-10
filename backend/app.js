@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
-// app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((err, req, res, next) => {
     console.log(err);
