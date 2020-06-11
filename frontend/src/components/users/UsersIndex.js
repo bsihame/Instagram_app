@@ -4,13 +4,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { apiURL } from "../../util/apiURL";
 import UsersList from "./UsersList";
 import { AuthContext } from "../../providers/AuthContext";
-// import { NavLink } from "react-router-dom";
 import axios from "axios";
-// import firebase from "../../firebase";
-// import { useInputs } from "../../util/customHooks";
+
 import "../../CSS/UsersIndex.css";
 import healthIcon from "../../images/healthIcon.png";
-import Logout from "../login_signup/Logout"
+import Logout from "../login_signup/Logout";
 
 export default function UsersIndex() {
 	const [users, setUsers] = useState([]);
@@ -23,37 +21,46 @@ export default function UsersIndex() {
 				method: "get",
 				url: `${API}/api/users`,
 				headers: {
-				AuthToken: token,
-				 },
+					AuthToken: token,
+				},
 			});
-
+			debugger;
 			setUsers(res.data.payload);
 		};
 		getAllUsers();
-	},[]);
+	}, []);
 
 	return (
 		<>
 			<div>
-			<Logout/>
-
+				<Logout />
 			</div>
-      <div className=" allUsersContainerIndex">
-        
+			<div className=" allUsersContainerIndex">
 				<div className="leftDivUsersIndex">
-          <h1>All users if logged in</h1>
+					<h1>All users if logged in</h1>
 					<div className="otherUsersIndex">
 						<p>display Other users </p>
-            <h2>Need All users pictures profile and username</h2>
+						<h2>Need All users pictures profile and username</h2>
 					</div>
 
 					<div className="healthInsuranceLink">
 						<img src={healthIcon} alt="healthIcon" className="healthIcon"></img>
-            <h4>Health Insurance May Be Available </h4>
-            <h4 className="insuranceInfo">Millions have recently lost their jobs and health insurance. If you or someone you know is looking for coverage, visit healthcare.gov to see who’s eligible.</h4>
-        <div className="linkBtn">
-              <a className="healthInsuranceLinkAn" href={"https://www.healthcare.gov/"} target="_blank" rel="noopener noreferrer" >Go to healthcare.gov</a>
-              </div>
+						<h4>Health Insurance May Be Available </h4>
+						<h4 className="insuranceInfo">
+							Millions have recently lost their jobs and health insurance. If
+							you or someone you know is looking for coverage, visit
+							healthcare.gov to see who’s eligible.
+						</h4>
+						<div className="linkBtn">
+							<a
+								className="healthInsuranceLinkAn"
+								href={"https://www.healthcare.gov/"}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Go to healthcare.gov
+							</a>
+						</div>
 					</div>
 
 					<div className="allUsersIndex">
@@ -65,14 +72,14 @@ export default function UsersIndex() {
 						</ul>
 					</div>
 				</div>
-				
-        <div className=" rightDivUsersIndex">
+
+				<div className=" rightDivUsersIndex">
 					<div className="userProfileIndex">
 						<h2>User Profile</h2>
 					</div>
 				</div>
-        {/* </div> */}
-        </div>
+				{/* </div> */}
+			</div>
 		</>
 	);
 }

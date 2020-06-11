@@ -25,13 +25,14 @@ export default function SignUpForm() {
 		e.preventDefault();
 		try {
 			let res = await signUp(email, password);
-			await axios.post(`${API}/api/user`, {
+			await axios.post(`${API}/api/users`, {
 				id: res.user.uid,
 				email: email,
 				full_name: full_name,
-				userName: username,
+				username: username,
 			});
 			history.push("/user");
+			debugger
 		} catch (error) {
 			setError(error.message);
 		}

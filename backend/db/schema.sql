@@ -1,6 +1,6 @@
--- DROP DATABASE IF EXISTS instagram2_database;
---  CREATE DATABASE instagram2_database;
--- \c instagram2_database
+DROP DATABASE IF EXISTS instagram2_database;
+ CREATE DATABASE instagram2_database;
+\c instagram2_database
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS tags;
 
 CREATE TABLE users
 (
-  --  id VARCHAR PRIMARY KEY,
-  id SERIAL PRIMARY KEY,
+   id VARCHAR UNIQUE,
   full_name TEXT,
   email VARCHAR UNIQUE,
   username TEXT UNIQUE,
@@ -21,7 +20,7 @@ CREATE TABLE users
 CREATE TABLE posts
 (
   id SERIAL PRIMARY KEY,
-  poster_id INT REFERENCES users (id) ON DELETE CASCADE,
+  poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
   picture TEXT,
   content VARCHAR,
   created_at TIMESTAMP
@@ -31,7 +30,7 @@ CREATE TABLE posts
   CREATE TABLE tags
   (
     id SERIAL PRIMARY KEY,
-    poster_id INT REFERENCES Users(id),
+    poster_id VARCHAR  REFERENCES Users(id),
     post_id  INT REFERENCES Posts(id),
     tag TEXT
   );
@@ -39,18 +38,18 @@ CREATE TABLE posts
    CREATE TABLE likes
    (
     id SERIAL PRIMARY KEY,
-    liker_id INT REFERENCES Users(id),
+    liker_id VARCHAR  REFERENCES Users(id),
     post_id  INT REFERENCES Posts(id),
     CONSTRAINT UC_like UNIQUE (liker_id, post_id)
    );
 
   
 INSERT INTO users
-    (full_name, email, username, bio, profile_pic)
+    (id, full_name, email, username, bio, profile_pic)
   VALUES
-    ('Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', null),
-    ('Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist',null),
-    ('David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', null);
+    (1, 'Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', null),
+    (2, 'Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist',null),
+    (3, 'David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', null);
 
   INSERT INTO posts
     (poster_id, picture, content, created_at)

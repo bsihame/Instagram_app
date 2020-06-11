@@ -5,6 +5,7 @@ const checkFirebaseToken = async (req, res, next) => {
 		const token = req.headers.authtoken;
 		const decodedToken = await admin.auth().verifyIdToken(token);
 		const uid = decodedToken.uid
+		debugger
 		req.user_id = uid;
 		next();
 	} catch (error) {
