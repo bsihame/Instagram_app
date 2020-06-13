@@ -1,33 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { logout } from "../../util/firebaseFunctions";
 import "../../CSS/NavBar.css";
-// import { AuthContext } from "../../providers/AuthContext";
+import Logout from "../login_signup/Logout";
 
 export default function NavBar() {
-	// const { currentUser } = useContext(AuthContext);
-
-	// const displayButton = () => {
-	// 	if (currentUser) {
-	// 		return <button onClick={logout}>Logout</button>;
-	// 	} else {
-	// 		return (
-	// 			<>
-	// 			</>
-	// 		);
-	// 	}
-	// };
 	return (
 		<>
 			<nav className="navbarContainer">
 				<div className="title">
-					<h2>Instagram</h2>
+					<h2 className="inst">Instagram</h2>
 				</div>
 				<div className="right">
 					<div className="inputDiv">
 						<input placeholder="Search" />
 					</div>
-					<div>
+					<div className="navLinkDiv">
 						<NavLink className="home" to={"/user"}>
 							homeIcon
 						</NavLink>
@@ -43,10 +30,10 @@ export default function NavBar() {
 						<NavLink className="profile" to={"/userProfile"}>
 							profilePic
 						</NavLink>
+						<Logout />
 					</div>
 				</div>
 			</nav>
-			{/* {displayButton()} */}
 		</>
 	);
 }

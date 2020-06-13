@@ -1,0 +1,32 @@
+/* .toggle-button {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  background-color:transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+.toggle-button {
+  outline : none;
+}
+
+.toggle-button_line {
+  width: 40px;
+  height: 1px;
+
+}
+.profileIcon{
+  content: url("../images/profile-icon-300x300.png");
+  width: 30px;
+  margin-left: 5px;
+}
+
+.saved{
+  content: url("../images/saved.png");
+  width: 30px;
+  margin-left: 5px;
+} */
