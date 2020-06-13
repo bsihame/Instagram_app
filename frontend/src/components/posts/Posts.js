@@ -8,8 +8,6 @@ export default function Posts() {
   const [Posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   // const API = apiURL();
-  
-   
   useEffect(() => {
     const API = apiURL();
 
@@ -36,8 +34,8 @@ export default function Posts() {
   return (
     <main>
         {error ? <div>{error}</div> : null}
-      <CreatePostForm updatePosts={fetchPosts} />
-      <PostsIndex Posts={Posts} />
+      {/* <CreatePostForm updatePosts={fetchPosts} />
+      <PostsIndex Posts={Posts} /> */}
     </main>
   );
 };

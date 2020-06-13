@@ -32,9 +32,9 @@ export default function UsersIndex() {
 
 	return (
 		<>
-			<div>
+			{/* <div>
 				<Logout />
-			</div>
+			</div> */}
 			<div className=" allUsersContainerIndex">
 				<div className="leftDivUsersIndex">
 					<h1>All users if logged in</h1>

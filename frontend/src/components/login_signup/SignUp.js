@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-// import { useInputs } from "../../util/customHooks"
 import { apiURL } from "../../util/apiURL";
 import { signUp } from "../../util/firebaseFunctions";
 import axios from "axios";
@@ -32,7 +31,7 @@ export default function SignUpForm() {
 				username: username,
 			});
 			history.push("/user");
-			debugger
+			debugger;
 		} catch (error) {
 			setError(error.message);
 		}

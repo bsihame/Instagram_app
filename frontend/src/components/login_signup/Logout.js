@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { NavLink } from "react-router-dom";
 import { logout } from "../../util/firebaseFunctions";
- import "../../CSS/Logout.css";
+import "../../CSS/Logout.css";
 import { AuthContext } from "../../providers/AuthContext";
 
 export default function Logout() {

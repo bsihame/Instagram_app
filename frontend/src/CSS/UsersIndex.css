@@ -1,98 +1,79 @@
 .allUsersContainerIndex {
-  
-  display: flex;
-  justify-content: center; 
-  width: 100%;
-  text-align: center; 
-  align-items: center; 
-  flex-flow: row nowrap;
-  max-width: 935px;
-  margin-left: 318px
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	align-items: center;
+	flex-flow: row nowrap;
+	max-width: 935px;
+	margin-left: 318px;
 }
 
 .leftDivUsersIndex {
-  width: 100%;
-  float: left;
-  margin-right: 28px;
-  max-width: 614px;
+	width: 100%;
+	float: left;
+	margin-right: 28px;
+	max-width: 614px;
 }
-.otherUsersIndex{
-  background: pink;
-  align-content: center;
-  width: 100%;
+.otherUsersIndex {
+	align-content: center;
+	width: 100%;
 }
 
 .rightDivUsersIndex {
-  width: 100%;
+	width: 100%;
 }
 
 .healthInsuranceLink {
-  background: #FFFFFF;
-  width: 100%;
-  margin-bottom: 10px;
-  align-items: center;
-  padding-bottom: 20px;
-  
+	background: #ffffff;
+	width: 100%;
+	margin-bottom: 10px;
+	align-items: center;
+	padding-bottom: 20px;
 }
 
 .healthInsuranceLinkAn {
-  background-color: #1595F6;
-  text-decoration: none;
-  color: #FFFFFF;
-  margin-top: 10px;
- 
+	text-decoration: none;
+	color: #ffffff;
+	margin-top: 10px;
 }
 .linkBtn {
-  background-color: #1595F6;
-  width: 80%;
-  margin-left: 35px;
-  border-radius: 4px;
-  height: 30px;
-  text-align: center;
-  
+	background-color: #1595f6;
+	width: 80%;
+	margin-left: 35px;
+	border-radius: 4px;
+	height: 30px;
+	text-align: center;
 }
-
 
 .healthIcon {
-  width: 80px;
-  height: 80px;
- 
+	width: 80px;
+	height: 80px;
 }
 
-h4{
-  color:black;
-  font-size: 16px;
-  font-weight: bolder;
-  font-weight: b;
+h4 {
+	color: black;
+	font-size: 16px;
+	font-weight: bolder;
+	font-weight: b;
 }
 .insuranceInfo {
-  color:#B5B5B5;
-  font-size: small;
-  margin: 10%;
+	color: #b5b5b5;
+	font-size: small;
+	margin: 10%;
 }
 
-
-
-
 .allUsersContainerIndex {
-  width: 100%;
-  text-align: center;
-  align-content: start;
+	width: 100%;
+	text-align: center;
+	align-content: start;
 }
 
 .allUsersIndex {
-  background: blueviolet;
- width: 100%;
-
+	width: 100%;
 }
-
-
-
 
 .userProfileIndex {
-  background: chartreuse;
- font-size: 100px;
- width: 90%;
+	font-size: 100px;
+	width: 90%;
 }
-
-

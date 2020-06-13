@@ -48,8 +48,8 @@ nav {
 
 }
 .language {
-  color:#551A8B;
-  padding-bottom: 7px; 
+   color:#1595F6;
+  padding-bottom: -10px;  
   font-size: 12px;
   font-weight: 600;
   padding-right: 10px;
@@ -58,5 +58,5 @@ nav {
 
 .insFacebook {
   color: #8e8e8e;
-  padding-bottom: 7px;
+  padding-bottom: 4px;
 }
