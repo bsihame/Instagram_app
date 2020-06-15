@@ -14,7 +14,7 @@ function App() {
 	return (
 		<div className="App">
 			<AuthProvider>
-				<AuthRoute exact path="/">
+				<AuthRoute exact path="user/userProfile">
 					<UserPage />
 				</AuthRoute>
 				<AuthRoute exact path="/">
@@ -28,8 +28,8 @@ function App() {
 					<UsersIndex />
 					<Footer />
 				</ProtectedRoute>
-				<AuthRoute path="/user/userProfile">
-					<UserProfile />
+				<AuthRoute path="/userProfile">
+					<UserPage />
 				</AuthRoute>
 			</AuthProvider>
 		</div>

@@ -4,6 +4,13 @@ import "../../CSS/NavBar.css";
 import Logout from "../login_signup/Logout";
 
 export default function NavBar() {
+	const handleClick=()=>{
+		return (
+			<div>
+				i have being clicked
+			</div>
+		)
+	}
 	return (
 		<>
 			<nav className="navbarContainer">
@@ -27,7 +34,7 @@ export default function NavBar() {
 						<NavLink className="heart" to={"/activity"}>
 							heart
 						</NavLink>
-						<NavLink className="profile" to={"/userProfile"}>
+						<NavLink className="profile" exact to={"/user/userProfile"}>
 							profilePic
 						</NavLink>
 						<Logout />
@@ -37,3 +44,4 @@ export default function NavBar() {
 		</>
 	);
 }
+

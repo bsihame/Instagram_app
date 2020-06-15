@@ -14,7 +14,7 @@ export default function UserPage() {
 			<h2>Username</h2>
 			<div>
 				<Row className="show-grid text-center">
-					<Col xs={12} sm={4} className="imageWrapper">
+					<Col xs={12} sm={4} circle className="imageWrapper">
 						<Image
 							src="assets/cake-wedding-love-19640.jpg"
 							circle
