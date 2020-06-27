@@ -13,6 +13,7 @@ const postsRouter = require("./routes/Posts/post");
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use("/images", express.static('public'))
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);

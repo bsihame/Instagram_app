@@ -24,7 +24,6 @@ export default function UsersIndex() {
 					AuthToken: token,
 				},
 			});
-			debugger;
 			setUsers(res.data.payload);
 		};
 		getAllUsers();

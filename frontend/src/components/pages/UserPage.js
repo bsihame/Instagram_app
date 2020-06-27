@@ -1,9 +1,67 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import NavBar from "../navbar_footer/NavBar";
 import { Row, Image, Col } from "react-bootstrap";
 // import Posts from "../posts/Posts"
 import Footer from "../navbar_footer/Footer";
-export default function UserPage() {
+// import UsersIndex from "../users/UsersIndex";
+import { apiURL } from "../../util/apiURL";
+import { AuthContext } from "../../providers/AuthContext";
+
+import axios from "axios";
+
+export default function UserPage({ user }) {
+	const [id, setUserId] = useState("")
+	const [users, setUsers] = useState([]);
+	const [fullName, setFullName] = useState("");
+	const [userName, setUserName] = useState("");
+	const [bio, setBio] = useState("");
+	const [profilePic, setProfilePic] = useState("");
+	const history = useHistory();
+	const { token, currentUser } = useContext(AuthContext);
+	// id, full_name, email, username, bio, profile_pic
+	const API = apiURL();
+
+	useEffect(() => {
+		const userInfo = async () => {
+			try {
+				let res = await axios({
+					method: "get",
+					url: `${API}/api/users/${currentUser.uid}`,
+					headers: {
+						AuthToken: token,
+					},
+				});
+				debugger;
+				setUserId(res.data.singleUser.id);
+				setUsers(res.data.singleUser);
+				setFullName(res.data.singleUser.full_name);
+				setUserName(res.data.singleUser.username);
+				setBio(res.data.singleUser.bio);
+			} catch (error) {
+				console.log(error);
+			}
+			// )
+
+			// history.push("/users");
+			// setUsers(res.data.payload);
+			// console.log(res.data.payload.username)
+		};
+		userInfo();
+	}, []);
+	// users.map((user) => {
+	// 	debugger;
+	// 	return (
+	// 		<ul key={user.id}>
+	// 			<li>{user.id}</li>
+	// 			<li>{user.full_name}</li>
+	// 			<li>{user.username}</li>
+	// 			<li>{user.bio}</li>
+	// 			<li>{user.profile_pic}</li>
+	// 		</ul>
+	// );
+	// });
+
 	return (
 		<>
 			<div>
@@ -11,13 +69,12 @@ export default function UserPage() {
 			</div>
 
 			<h2>UserPage</h2>
-			<h2>Username</h2>
+			
 			<div>
 				<Row className="show-grid text-center">
-					<Col xs={12} sm={4} circle className="imageWrapper">
+					<Col xs={12} sm={4} className="imageWrapper">
 						<Image
 							src="assets/cake-wedding-love-19640.jpg"
-							circle
 							className="profile-pic"
 						/>
 					</Col>
@@ -28,6 +85,7 @@ export default function UserPage() {
 				<h2>right div</h2>
 
 				<h2> User Pictures and username</h2>
+
 
 				<div>help prevent corona</div>
 

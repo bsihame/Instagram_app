@@ -90,17 +90,19 @@ const isUserExist = async (req, res, next) => {
 const getUserById = async (req, res, next) => {
 	const { id } = req.params;
 	try {
-		let user = await db.one("SELECT * FROM users WHERE id=$1", id);
+		const singleUser = await db.one("SELECT * FROM users WHERE id=$1", id);
 		res.status(200).json({
 			status: "ok",
+			singleUser,
 			message: "Retrieved user",
-			payload: user,
 		});
+		console.log(singleUser)
 	} catch (error) {
 		res.status(400).json({
 			status: "error",
 			message: "Could not get single user by ID",
 		});
+		next(error)
 	}
 };
 
@@ -141,6 +143,7 @@ const updateUser = async (req, res, next) => {
 		});
 	}
 };
+
 const deleteUser = async (req, res, next) => {
 	try {
 		let deletedUser = await db.one(

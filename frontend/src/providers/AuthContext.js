@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
+import Loader from "../images/loader.gif"
+import "../CSS/Loading.css"
 import firebase from "../firebase";
 import { getFirebaseIdToken } from "../util/firebaseFunctions";
 export const AuthContext = createContext();
@@ -11,9 +13,8 @@ const AuthProvider = ({ children }) => {
 	const updateUser = (user) => {
 		if (user) {
 			const { email, uid } = user;
-
 			const lastLogin = user.metadata.lastLogin;
-			setCurrentUser({ email, lastLogin, id: uid });
+			setCurrentUser({ email, uid, lastLogin });
 
 			getFirebaseIdToken().then((token) => {
 				setToken(token);
@@ -28,7 +29,12 @@ const AuthProvider = ({ children }) => {
 		const unsubscribe = firebase.auth().onAuthStateChanged(updateUser);
 		return unsubscribe;
 	}, []);
-	if (loading) return <div>Loading ...</div>;
+	if (loading) return <div className="loader-container">
+		<div className="loader">
+			<img src={Loader} />
+			<div>Loading ...</div>
+		</div>
+		</div>
 	return (
 		<AuthContext.Provider value={{ currentUser, token }}>
 			{children}

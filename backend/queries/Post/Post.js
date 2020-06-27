@@ -40,17 +40,35 @@ const addNewPost = async (req, res, next) => {
 		next()
 	}
 };
+// const addNewPicture = async (req, res, next) => {
+// 	try {
+// 		let displayPicture = await db.one("INSERt WHERE poster_id = $1", req.params);
+// 		res.status(200).json({
+// 			status: "ok",
+// 			message: "Created a new picture",
+// 			payload: displayPicture
+// 		})
+// 	} catch (error) {
+// 		console.log(error);
+// 		res.status(400).json({
+// 			status: "error",
+// 			message: "Could not display a picture"
+
+// 		});
+// 		next()
+// 	}
+// }
 
 
 const getSinglePost = async (req, res, next) => {
 	try {
-		let posts = await db.any(
+		let post = await db.any(
 			"SELECT * FROM posts WHERE poster_id= $1", req.params.poster_id
 		);
 		res.status(200).json({
 			status: "ok",
 			message: "Created a new post",
-			payload: singlePost,
+			payload: post,
 		});
 	} catch (error) {
 		console.log(error);
@@ -67,4 +85,7 @@ const getSinglePost = async (req, res, next) => {
 
 
 
-module.exports = { addNewPost , getAllPosts, getSinglePost };
+module.exports = {
+	addNewPost, getAllPosts, getSinglePost
+	// ,addNewPicture
+};

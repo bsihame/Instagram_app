@@ -11,12 +11,14 @@ const {
   deleteUser
   
 } = require("../../queries/Users/Users");
-// const { checkFirebaseToken } = require("../../middleware/auth")
+const { checkFirebaseToken } = require("../../middleware/auth")
 
-// users.get("/", checkFirebaseToken, getAllUsers);
+users.get("/:id",checkFirebaseToken, getUserById);
+users.get("/",checkFirebaseToken , getAllUsers);
 
-users.get("/", getAllUsers);
-users.get("/:id", isUserExist, getUserById);
+// users.get("/", getAllUsers);
+// users.get("/:id", isUserExist, getUserById);
+
 users.get("/email/:email", getUserByEmail)
 
 users.post("/", createNewUser);

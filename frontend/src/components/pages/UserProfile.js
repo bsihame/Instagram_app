@@ -1,17 +1,22 @@
 import React from "react";
-import { Row, Image } from "react-bootstrap";
+import { Col, Row, Image } from "react-bootstrap";
+import NavBar from "../navbar_footer/NavBar";
 
 export default function UserProfile() {
 	return (
 		<>
+		
 			<h2>User profile</h2>
+			<h2>This Page Is UserProfile.js</h2>
 			<Row className="show-grid text-center">
-				<Image
-					src="assets/cake-wedding-love-19640.jpg"
-					circle
-					className="profile-pic"
-				/>
+			<Col xs={12} sm={4} className="imageWrapper">
+						<Image
+							src="assets/sihame.jpg"
+							className="profile-pic"
+						/>
+			</Col>
 			</Row>
 		</>
 	);
 }
+

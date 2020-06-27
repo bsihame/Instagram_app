@@ -30,7 +30,7 @@ export default function SignUpForm() {
 				full_name: full_name,
 				username: username,
 			});
-			history.push("/user");
+		
 			debugger;
 		} catch (error) {
 			setError(error.message);

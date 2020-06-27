@@ -1,12 +1,16 @@
 const posts = require("express").Router();
+// const upload = require("express").Router();
 //  const { isUserExisting } = require("../../queries/Users/Users");
 
-const { addNewPost , getAllPosts, getSinglePost  } = require("../../queries/Post/Post");
+const { addNewPost, getAllPosts, getSinglePost
+  // , addNewPicture
+} = require("../../queries/Post/Post");
 
 
-posts.post("/", addNewPost)
+// posts.post("/", addNewPost)
 
 posts.get("/:poster_id", getSinglePost)
-posts.get("/:poster_id",getAllPosts)
+posts.get("/:poster_id", getAllPosts)
+// upload.post("/:poster_id/upload",  addNewPicture)
 
 module.exports = posts; 
