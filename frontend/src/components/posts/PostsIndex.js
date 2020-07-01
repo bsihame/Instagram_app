@@ -5,8 +5,9 @@ export default function PostsIndex({ posts }) {
 		<div>
 			<h1>Users Posts</h1>
 			<ul>
+				debugger
 				{posts.map((post) => (
-					<li key={post.id}>{post.body}</li>
+				<li key={post.id}>{post.body}</li>
 				))}
 			</ul>
 		</div>

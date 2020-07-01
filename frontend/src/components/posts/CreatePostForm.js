@@ -9,10 +9,9 @@ export default function CreatePostForm({ updatePosts }) {
 		e.preventDefault();
 		await axios({
 			method: "post",
-			url: `${API}/api/todos`,
+			url: `${API}/api/posts`,
 			data: {
 				body,
-				poster_id: 1,
 			},
 		});
 		setBody("");

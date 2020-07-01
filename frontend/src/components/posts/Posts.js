@@ -34,8 +34,8 @@ export default function Posts() {
   return (
     <main>
         {error ? <div>{error}</div> : null}
-      {/* <CreatePostForm updatePosts={fetchPosts} />
-      <PostsIndex Posts={Posts} /> */}
+      {/* <CreatePostForm updatePosts={fetchPosts} /> */}
+      <PostsIndex Posts={Posts} />
     </main>
   );
 };

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import NavBar from "../navbar_footer/NavBar";
-import { Row, Image, Col } from "react-bootstrap";
+import { Row, Image, Col, Navbar } from "react-bootstrap";
 // import Posts from "../posts/Posts"
 import Footer from "../navbar_footer/Footer";
 // import UsersIndex from "../users/UsersIndex";
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
+
 
 import axios from "axios";
 import UserProfile from "./UserProfile";
@@ -147,6 +148,7 @@ export default function UserPage({ user }) {
 	// }
 	return (
 		<>
+				<Navbar/>
 			<div>
 				<h2>this is UserPage and UserProfile</h2>
 				</div>
