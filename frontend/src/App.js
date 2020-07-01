@@ -15,31 +15,35 @@ function App() {
 	return (
 		<div className="App">
 			<AuthProvider>
-				{/* <AuthRoute exact path="user/userProfile">
-					<UserPage />
-				</AuthRoute> */}
+				
 				<AuthRoute exact path="/">
 					<Home />
 				</AuthRoute>
+
 				<AuthRoute exact path="/accounts/emailsignup/">
 					<SignUpForm />
 				</AuthRoute>
-				{/* <AuthRoute exact path="/userProfile">
-					<UserPage/>
-				</AuthRoute> */}
+
 				<ProtectedRoute exact path="/userProfile">
-					<UserPage/>
-				
-					{/* <UserProfile/> */}
+					<UserPage />
 				</ProtectedRoute>
+
 				<ProtectedRoute path="/user">
 					<NavBar />
 					<UsersIndex />
 					<Footer />
 				</ProtectedRoute>
-			</AuthProvider>
-			
 
+			</AuthProvider>
+
+			{/* <AuthRoute exact path="user/userProfile">
+					<UserPage />
+				</AuthRoute> */}
+			{/* <AuthRoute exact path="/userProfile">
+					<UserPage/>
+				</AuthRoute> */}
+
+			{/* <UserProfile/> */}
 		</div>
 	);
 }
