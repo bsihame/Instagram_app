@@ -14,6 +14,7 @@ import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 function App() {
 	return (
 		<div className="App">
+		
 			<AuthProvider>
 				
 				<AuthRoute exact path="/">
@@ -25,6 +26,7 @@ function App() {
 				</AuthRoute>
 
 				<ProtectedRoute exact path="/userProfile">
+					<NavBar />
 					<UserPage />
 				</ProtectedRoute>
 
@@ -32,6 +34,9 @@ function App() {
 					<NavBar />
 					<UsersIndex />
 					<Footer />
+				</ProtectedRoute>
+				<ProtectedRoute path="/posts">
+					<Posts/>
 				</ProtectedRoute>
 
 			</AuthProvider>

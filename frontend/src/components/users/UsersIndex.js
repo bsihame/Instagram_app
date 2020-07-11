@@ -23,9 +23,14 @@ export default function UsersIndex() {
 				headers: {
 					AuthToken: token,
 				},
+			
 			});
-			setUsers(res.data.payload);
+		
+			console.log(res.data)
+			// setUsers(res.data.payload);
 		};
+	
+	
 		getAllUsers();
 	}, []);
 

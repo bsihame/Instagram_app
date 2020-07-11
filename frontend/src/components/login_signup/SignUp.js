@@ -22,6 +22,7 @@ export default function SignUpForm() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		
 		try {
 			let res = await signUp(email, password);
 			await axios.post(`${API}/api/users`, {
