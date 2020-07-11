@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { apiURL } from "../../util/apiURL";
 import UsersList from "./UsersList";
 import { AuthContext } from "../../providers/AuthContext";
+import Posts from "../posts/Posts"
 import axios from "axios";
 
 import "../../CSS/UsersIndex.css";
@@ -42,6 +43,7 @@ export default function UsersIndex() {
 			<div className=" allUsersContainerIndex">
 				<div className="leftDivUsersIndex">
 					<h1>All users if logged in</h1>
+					<Posts/>
 					<div className="otherUsersIndex">
 						<p>display Other users </p>
 						<h2>Need All users pictures profile and username</h2>
