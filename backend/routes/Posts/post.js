@@ -9,8 +9,8 @@ const { addNewPost, getAllPosts, getSinglePost
 
 // posts.post("/", addNewPost)
 
-posts.get("/:poster_id", getSinglePost)
-posts.get("/:poster_id", getAllPosts)
+posts.get("/:poster_i", getSinglePost)
+posts.get("/", getAllPosts)
 // upload.post("/:poster_id/upload",  addNewPicture)
 
 module.exports = posts; 
