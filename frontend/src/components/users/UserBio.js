@@ -9,7 +9,7 @@ export default function UserBio({ user }) {
     <>
       <h2>Bio</h2>
       <div>
-        {/* <img src={profilePicture} alt={user.name} /> */}
+        <img src={profilePicture} alt={user.name} />
       </div>
       
       <div>

@@ -19,9 +19,12 @@ export default function CreatePostForm({ updatePosts }) {
 	};
 
 	return (
+		<>
+		<h2>This is create Post Form</h2>
 		<form onSubmit={handleSubmit}>
 			<textarea value={body} onChange={(e) => setBody(e.target.value)} />
 			<button type="submit">Create Post</button>
-		</form>
+			</form>
+			</>
 	);
 }

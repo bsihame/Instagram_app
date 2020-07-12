@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { apiURL } from "../../util/apiURL"
 import { Col, Row, Image, Navbar } from "react-bootstrap";
-
+import profileIcon from "../../images/profile-icon-300x300.png"
 
 export default function UserProfile({ updateBio}) {
 	const [bio, setBio] = useState("");
@@ -17,8 +17,10 @@ export default function UserProfile({ updateBio}) {
 							}
 					})
 					setBio("");
-					updateBio();
+				updateBio();
+				console.log(bio)
 			}
+	
 	
 	return (
 		<>

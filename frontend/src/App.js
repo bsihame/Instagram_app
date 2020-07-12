@@ -11,6 +11,7 @@ import Footer from "./components/navbar_footer/Footer";
 import UserPage from "./components/pages/UserPage";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
+import UserBio from "./components/users/UserBio";
 function App() {
 	return (
 		<div className="App">
@@ -32,6 +33,7 @@ function App() {
 
 				<ProtectedRoute path="/user">
 					<NavBar />
+					<UserBio/>
 					<UsersIndex />
 					<Footer />
 				</ProtectedRoute>
