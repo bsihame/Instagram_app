@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import TodosIndex from './TodosIndex';
+
 import CreateBioForm from './CreateBioForm';
 import { apiURL } from "../util/apiURL";
 
-export default function Todos() {
+export default function Bio() {
   const [Bio, setBio] = useState([]);
   const [error, setError] = useState(null);
   const API = apiURL();

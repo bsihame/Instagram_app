@@ -4,14 +4,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { apiURL } from "../../util/apiURL";
 import UsersList from "./UsersList";
 import { AuthContext } from "../../providers/AuthContext";
-import Posts from "../posts/Posts"
+import Posts from "../posts/Posts";
 import axios from "axios";
 
 import "../../CSS/UsersIndex.css";
 import healthIcon from "../../images/healthIcon.png";
 import Logout from "../login_signup/Logout";
 
-export default function UsersIndex() {
+export default function UsersIndex({ loggedUser }) {
 	const [users, setUsers] = useState([]);
 	const API = apiURL();
 	const { token } = useContext(AuthContext);
@@ -24,14 +24,12 @@ export default function UsersIndex() {
 				headers: {
 					AuthToken: token,
 				},
-			
 			});
-		
-			console.log(res.data)
+
+			console.log(res.data);
 			// setUsers(res.data.payload);
 		};
-	
-	
+
 		getAllUsers();
 	}, []);
 
@@ -43,7 +41,7 @@ export default function UsersIndex() {
 			<div className=" allUsersContainerIndex">
 				<div className="leftDivUsersIndex">
 					<h1>All users if logged in</h1>
-					<Posts/>
+					<Posts loggedUser={loggedUser} />
 					<div className="otherUsersIndex">
 						<p>display Other users </p>
 						<h2>Need All users pictures profile and username</h2>
@@ -76,7 +74,6 @@ export default function UsersIndex() {
 								return <UsersList key={user.id} user={user} />;
 							})}
 						</ul>
-						
 					</div>
 				</div>
 

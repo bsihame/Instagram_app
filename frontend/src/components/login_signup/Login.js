@@ -19,9 +19,9 @@ export default function Login() {
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
-		
+
 		try {
-			await login(email, password);
+			const res = await login(email, password);
 			history.push("/user");
 		} catch (error) {
 			debugger;

@@ -6,7 +6,7 @@ const getAllUsersFirebase = async (req, res) => {
     status: "ok",
     payload: displayUsersF
   })
-  console.log(displayUsersF)
+  // console.log(1, displayUsersF)
 }
 
 module.exports={getAllUsersFirebase}

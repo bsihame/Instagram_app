@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
@@ -12,17 +12,22 @@ import UserPage from "./components/pages/UserPage";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import UserBio from "./components/users/UserBio";
+
 function App() {
+	const [loggedUser, setLoggedUser] = useState({});
+
 	return (
 		<div className="App">
-		
 			<AuthProvider>
-				
-				<AuthRoute exact path="/">
-					<Home />
+				<AuthRoute exact path="/" setLoggedUser={setLoggedUser}>
+					<Home loggedUser={loggedUser} />
 				</AuthRoute>
 
-				<AuthRoute exact path="/accounts/emailsignup/">
+				<AuthRoute
+					exact
+					path="/accounts/emailsignup/"
+					setLoggedUser={setLoggedUser}
+				>
 					<SignUpForm />
 				</AuthRoute>
 
@@ -33,20 +38,19 @@ function App() {
 
 				<ProtectedRoute path="/user">
 					<NavBar />
-					<UserBio/>
-					<UsersIndex />
+					<UserBio />
+					<UsersIndex loggedUser={loggedUser}/>
 					<Footer />
 				</ProtectedRoute>
 				<ProtectedRoute path="/posts">
-					<Posts/>
+					<Posts loggedUser={loggedUser} />
 				</ProtectedRoute>
-
 			</AuthProvider>
 
-			{/* <AuthRoute exact path="user/userProfile">
+			{/* <AuthRoute exact path="user/userProfile" setLoggedUser={setLoggedUser} >
 					<UserPage />
 				</AuthRoute> */}
-			{/* <AuthRoute exact path="/userProfile">
+			{/* <AuthRoute exact path="/userProfile" setLoggedUser={setLoggedUser} >
 					<UserPage/>
 				</AuthRoute> */}
 

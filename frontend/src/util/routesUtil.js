@@ -3,8 +3,9 @@ import { Route, Redirect} from "react-router-dom";
 import { AuthContext } from "../providers/AuthContext";
 
 
-export const AuthRoute = ({ children, ...rest }) => {
+export const AuthRoute = ({ children, setLoggedUser, ...rest }) => {
   const { currentUser } = useContext(AuthContext);
+  setLoggedUser(currentUser)
   console.log(currentUser)
   return (
     <Route
