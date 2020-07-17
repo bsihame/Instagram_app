@@ -12,8 +12,8 @@ CREATE TABLE users
   id VARCHAR UNIQUE,
   full_name TEXT,
   email VARCHAR UNIQUE,
-  username TEXT UNIQUE,
-  bio TEXT ,
+  username VARCHAR UNIQUE,
+  bio VARCHAR,
   profile_pic VARCHAR
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE posts
 (
   id SERIAL PRIMARY KEY,
   poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
-  picture TEXT,
+  picture VARCHAR,
   content VARCHAR,
   created_at TIMESTAMP
   WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP

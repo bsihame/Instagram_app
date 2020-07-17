@@ -6,7 +6,8 @@ const getAllPosts = async (req, res, next) => {
 		let userId = req.params.user_id;
 		let posts = await db.any(
 			`
-			SELECT 
+			SELECT
+			DISTINCT 
 					posts.id, 
 					posts.picture, 
 					posts.content, 
@@ -55,24 +56,24 @@ const addNewPost = async (req, res, next) => {
 		next();
 	}
 };
-// const addNewPicture = async (req, res, next) => {
-// 	try {
-// 		let displayPicture = await db.one("INSERt WHERE poster_id = $1", req.params);
-// 		res.status(200).json({
-// 			status: "ok",
-// 			message: "Created a new picture",
-// 			payload: displayPicture
-// 		})
-// 	} catch (error) {
-// 		console.log(error);
-// 		res.status(400).json({
-// 			status: "error",
-// 			message: "Could not display a picture"
+const addNewPicture = async (req, res, next) => {
+	try {
+		let displayPicture = await db.one("INSERt WHERE poster_id = $1", req.params);
+		res.status(200).json({
+			status: "ok",
+			message: "Created a new picture",
+			payload: displayPicture
+		})
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			message: "Could not display a picture"
 
-// 		});
-// 		next()
-// 	}
-// }
+		});
+		next()
+	}
+}
 
 const getSinglePost = async (req, res, next) => {
 	try {
@@ -94,10 +95,28 @@ const getSinglePost = async (req, res, next) => {
 		next();
 	}
 };
+const updatePosts = async (req, res, next) => {
+	try {
+		let { picture } = req.body;
+		 let { posts } = req.body
+		let { userId } = req.params;
+		let post = await db.one("UPDATE posts SET picture= $1, post = $2, WHERE = $3", [picture, posts, userId])
+		
+	
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			message: "Could not update posts",
+		})
+		next()
+	}
+	};
 
 module.exports = {
 	addNewPost,
 	getAllPosts,
 	getSinglePost,
-	// ,addNewPicture
+	addNewPicture,
+	updatePosts
 };
