@@ -16,11 +16,12 @@ export default function Bio() {
             url: `${API}/api/bio`,
           });
   
-          setBio(res.data.Bio);
+        setBio(res.data.Bio);
+        
           setError(null);
       } catch (err) {
           setError(err.message)
-          setBio([]);
+          setBio();
       }
   };
 

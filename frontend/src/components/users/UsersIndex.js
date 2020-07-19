@@ -17,6 +17,7 @@ export default function UsersIndex({ loggedUser }) {
 	const { token } = useContext(AuthContext);
 
 	useEffect(() => {
+		debugger
 		const getAllUsers = async () => {
 			let res = await axios({
 				method: "get",
@@ -25,6 +26,7 @@ export default function UsersIndex({ loggedUser }) {
 					AuthToken: token,
 				},
 			});
+			debugger
 
 			console.log(res.data);
 			// setUsers(res.data.payload);
@@ -35,16 +37,13 @@ export default function UsersIndex({ loggedUser }) {
 
 	return (
 		<>
-			{/* <div>
-				<Logout />
-			</div> */}
 			<div className=" allUsersContainerIndex">
 				<div className="leftDivUsersIndex">
 					<h1>All users if logged in</h1>
 					<Posts loggedUser={loggedUser} />
 					<div className="otherUsersIndex">
 						<p>display Other users </p>
-						<h2>Need All users pictures profile and username</h2>
+				
 					</div>
 
 					<div className="healthInsuranceLink">
@@ -71,18 +70,14 @@ export default function UsersIndex({ loggedUser }) {
 						<h2>Display Posts of Users</h2>
 						<ul>
 							{users.map((user) => {
+							
 								return <UsersList key={user.id} user={user} />;
 							})}
 						</ul>
 					</div>
 				</div>
 
-				<div className=" rightDivUsersIndex">
-					<div className="userProfileIndex">
-						<h2>User Profile</h2>
-					</div>
-				</div>
-				{/* </div> */}
+			
 			</div>
 		</>
 	);

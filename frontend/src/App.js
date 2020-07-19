@@ -12,6 +12,7 @@ import UserPage from "./components/pages/UserPage";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import UserBio from "./components/users/UserBio";
+import User from "./components/users/User";
 
 function App() {
 	const [loggedUser, setLoggedUser] = useState({});
@@ -31,18 +32,20 @@ function App() {
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path="/userProfile">
-					<NavBar />
-					<UserPage />
+				<ProtectedRoute exact path="/userProfile/:uid" loggedUser={loggedUser}>
+					{/* <NavBar /> */}
+					<User/>
+					{/* <UserPage /> */}
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">
 					<NavBar />
 					<UserBio />
-					<UsersIndex loggedUser={loggedUser}/>
+					{/* <UsersIndex loggedUser={loggedUser}/> */}
 					<Footer />
 				</ProtectedRoute>
-				<ProtectedRoute path="/posts">
+				
+				<ProtectedRoute path="/posts"  setLoggedUser={setLoggedUser}>
 					<Posts loggedUser={loggedUser} />
 				</ProtectedRoute>
 			</AuthProvider>

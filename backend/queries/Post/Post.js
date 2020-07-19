@@ -2,30 +2,36 @@ const db = require("../../db/index");
 
 const getAllPosts = async (req, res, next) => {
 	try {
-		console.log(3333);
-		let userId = req.params.user_id;
-		let posts = await db.any(
-			`
-			SELECT
-			DISTINCT 
-					posts.id, 
-					posts.picture, 
-					posts.content, 
-					users.full_name, 
-					users.profile_Pic 
-			FROM Posts 
-			    LEFT JOIN Users ON posts.poster_id = users.id
-			    JOIN friends ON users.id = friend_id
-			WHERE user_id = $1
-			ORDER BY created_at DESC
-			`,
-			[userId]
-		);
+		let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
 		res.status(200).json({
-			status: "ok",
-			message: "Retrieve all friends posts",
-			payload: posts,
-		});
+				status: "ok",
+				message: "Retrieve all friends posts",
+				payload: posts,
+			});
+		// console.log(3333);
+		// let userId = req.params.user_id;
+		// let posts = await db.any(
+		// 	`
+		// 	SELECT
+		// 	DISTINCT 
+		// 			posts.id, 
+		// 			posts.picture, 
+		// 			posts.content, 
+		// 			users.full_name, 
+		// 			users.profile_Pic 
+		// 	FROM Posts 
+		// 	    LEFT JOIN Users ON posts.poster_id = users.id
+		// 	    JOIN friends ON users.id = friend_id
+		// 	WHERE user_id = $1
+		// 	ORDER BY created_at DESC
+		// 	`,
+		// 	[userId]
+		// );
+		// res.status(200).json({
+		// 	status: "ok",
+		// 	message: "Retrieve all friends posts",
+		// 	payload: posts,
+		// });
 	} catch (error) {
 		console.log(error);
 		res.status(400).json({
@@ -39,8 +45,8 @@ const addNewPost = async (req, res, next) => {
 	// 	console.log(req.body)
 	try {
 		await db.one(
-			"INSERT INTO posts(poster_id, picture, content) VALUES(${poster_id}, ${picture}, ${content})RETURNING *",
-			req.body
+			"INSERT INTO posts(poster_id, picture, content) VALUES($1, $2, $3)RETURNING *",
+			[poster_id, picture, content]
 		);
 		res.status(200).json({
 			status: "ok",
@@ -111,12 +117,52 @@ const updatePosts = async (req, res, next) => {
 		})
 		next()
 	}
-	};
-
-module.exports = {
-	addNewPost,
-	getAllPosts,
-	getSinglePost,
-	addNewPicture,
-	updatePosts
 };
+const getUsersPosts = async (req, res, next) => {
+	try {
+		let posts = await db.any(
+			`SELECT * FROM where poster_id=$1`, [req.params.id]
+		);
+		res.status(200).json({
+			status: "ok",
+			message: "Get all users post",
+			payload: posts,
+		});
+			
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			message: "Could not get users posts",
+		});
+		next();
+	}
+};
+const deletePost = async (req, res, next) => {
+	try {
+		let { postsId } = req.params.id;
+		let post = ("DELETE FROM posts WHERE id =$1 RETURNING *", postsId);
+		res.status(200).json({
+			status: "ok",
+			message: "Delete post",
+			payload: post,
+		});
+	} catch (err) {
+		res.status(400).json({
+			status: "error",
+			message: "Could not delete posts",
+		});
+		next();
+	}
+};
+	
+
+	module.exports = {
+		addNewPost,
+		getAllPosts,
+		getSinglePost,
+		addNewPicture,
+		updatePosts,
+		getUsersPosts,
+		deletePost
+	};

@@ -6,13 +6,20 @@ const {
 	addNewPost,
 	getAllPosts,
 	getSinglePost,
-	addNewPicture
+	addNewPicture,
+	updatePosts,
+	getUsersPosts,
+	deletePost
 } = require("../../queries/Post/Post");
 
-posts.post("/", addNewPost)
-
+posts.post("/:poster_id", addNewPost);
+posts.get("/:id", getUsersPosts);
+posts.patch("/:id", updatePosts);
 posts.get("/:poster_id", getSinglePost);
-posts.get("/:user_id", getAllPosts);
-upload.post("/:poster_id/upload",  addNewPicture)
+posts.get("/", getAllPosts);
+upload.post("/:poster_id/upload", addNewPicture);
+posts.delete("/:id", deletePost);
 
 module.exports = posts;
+
+		

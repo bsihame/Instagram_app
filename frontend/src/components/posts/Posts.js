@@ -1,40 +1,71 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import PostsIndex from "./PostsIndex";
-import CreatePostForm from "./CreatePostForm";
-import { apiURL } from "../../util/apiURL";
+// import React, { useState, useEffect, useContext } from "react";
+// import axios from "axios";
+// import PostsIndex from "./PostsIndex";
+// import CreatePostForm from "./CreatePostForm";
+// import { apiURL } from "../../util/apiURL";
+// import {AuthContext} from "../../providers/AuthContext"
 
-export default function Posts({ loggedUser }) {
-	const [Posts, setPosts] = useState([]);
-	const [error, setError] = useState(null);
+// // import { getFirebaseIdToken } from "../../util/firebaseFunctions"
+// // import token from "../../providers/AuthContext"
 
-	const API = apiURL();
-	console.log(API);
+// export default function Posts() {
+// 	const [currentUser, token] = useState(AuthContext);
+// 	const [posts, setPosts] = useState([]);
+// 	const [error, setError] = useState(null);
+	
+// 	const API = apiURL();
+// 	console.log(API);
 
-	useEffect(() => {
-		const userId = loggedUser.uid || "0";
-		axios({
-			method: "get",
-			url: `${API}/api/posts/${userId}`,
-		})
-			.then((res) => {
-				console.log(1000, res.data.payload);
-				setPosts(res.data.payload);
-				setError(null);
-			})
-			.catch((err) => {
-				console.log(2222);
-				setError(err.message);
-				setPosts([]);
-			});
-	}, [API, loggedUser.uid]);
+// 	useEffect(() => {
+// 		const allPost = async () => {
+// 			debugger
+// 			let res = await axios({
+// 				method: "get",
+// 				url: `${API}/posts`,
+// 				headers: {
+// 					"AuthToken": token
+// 				}
+// 			})
 
-	return (
-		<main>
-			{error ? <div>{error}</div> : null}
-			{/* <CreatePostForm updatePosts={fetchPosts} /> */}
-			<PostsIndex posts={Posts} />
-			<div></div>
-		</main>
-	);
-}
+// 			setPosts(res.data.payload);
+// 			console.log(res.data)
+// 		}
+// 		allPost();
+// 		// const userId = loggedUser.uid || "0";
+// 		// axios({
+// 		// 	method: "get",
+// 		// 	url: `${API}/api/posts`,
+// 		// })
+// 		// 	.then((res) => {
+// 		// 		console.log(1000, res.data.payload);
+// 		// 		setPosts(res.data.payload);
+// 		// 		setError(null);
+// 		// 	})
+// 		// 	.catch((err) => {
+// 		// 		console.log(2222);
+// 		// 		setError(err.message);
+// 		// 		setPosts([]);
+// 		// 	});
+// 	}, [API])
+	
+// 	const displayPosts = posts.map((post) => {
+// 		return (
+// 			<div>
+// 				<PostsIndex username={post.username}/>
+// 			</div>
+// 		)
+// 	})
+
+// 	return (
+// 		<main>
+// 			{error ? <div>{error}</div> : null}
+// 			{/* <CreatePostForm updatePosts={updatePosts} /> */}
+// 			{/* <CreatePostForm />
+// 			<PostsIndex username={post.username}  /> */}
+			
+// 			<div>
+// 				{displayPosts}
+// 			</div>
+// 		</main>
+// 	);
+// }

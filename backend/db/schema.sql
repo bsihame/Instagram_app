@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS tags;
 CREATE TABLE users
 (
   id VARCHAR UNIQUE,
-  full_name TEXT,
+  full_name VARCHAR,
   email VARCHAR UNIQUE,
   username VARCHAR UNIQUE,
   bio VARCHAR,

@@ -14,6 +14,7 @@ export default function CreatePostForm({ updatePosts }) {
 				body,
 			},
 		});
+		debugger
 		setBody("");
 		updatePosts();
 	};
