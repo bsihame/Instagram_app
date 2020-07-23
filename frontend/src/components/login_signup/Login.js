@@ -23,7 +23,6 @@ export default function Login() {
 		try {
 			const res = await login(email, password);
 		} catch (error) {
-			debugger;
 			setError(error.message);
 		}
 	};

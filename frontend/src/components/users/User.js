@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom"
 import NavBar from "../navbar_footer/NavBar";
 import Footer from "../navbar_footer/Footer";
 import { AuthContext } from "../../providers/AuthContext";
@@ -13,7 +12,7 @@ export default function User() {
 		try {
 			const res = await getUserById(id);
 			debugger
-			setLoggedUser(res.user)
+			setLoggedUser(res)
 		} catch (error) {
 			console.log(error)
 		}
@@ -26,7 +25,8 @@ export default function User() {
 		<>
 			<NavBar />
 			<h1>This is user Profile</h1>
-			<p>{loggedUser.full_name}</p>
+			<img src={loggedUser.profile_pic} alt="User profile picture"/>
+			<p>{loggedUser.username}</p>
       {/* <Posts/> */}
 			<Footer />
 		</>
