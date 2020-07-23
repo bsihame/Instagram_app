@@ -6,16 +6,14 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
 // import Posts from "../posts/Posts"
 export default function User() {
-	const { id } = useParams();
-	console.log(id);
 	const { currentUser } = useContext(AuthContext);
-	console.log(currentUser)
+   let id = currentUser.id
 	const [loggedUser, setLoggedUser] = useState({});
 	const getSingleUser = async () => {
 		try {
-			const data = await getUserById(id);
+			const res = await getUserById(id);
 			debugger
-			setLoggedUser(data.user)
+			setLoggedUser(res.user)
 		} catch (error) {
 			console.log(error)
 		}
@@ -23,7 +21,7 @@ export default function User() {
 
 	useEffect(() => {
 		getSingleUser()
-	}, []);
+	},[]);
 	return (
 		<>
 			<NavBar />

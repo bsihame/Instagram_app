@@ -1,25 +1,25 @@
-import React from "react";
+// import React from "react";
 
-export default function Story({ posts }) {
-	return (
-		<div>
-			<h1>story</h1>
+// export default function Story({ posts }) {
+// 	return (
+// 		<div>
+// 			<h1>story</h1>
 
-			{posts.map((user) => {
-				{
-					debugger 
-				}
+// 			{posts.map((user) => {
+// 				{
+// 					debugger 
+// 				}
 
-				return (
-					<div key={user.postId} className="post">
-						<div className="postDiv">
-							<h3>{user.username}</h3>
-							<img src={user.user_pic} />
-						</div>
-						<p>{user.post}</p>
-					</div>
-				);
-			})}
-		</div>
-	);
-}
+// 				return (
+// 					<div key={user.postId} className="post">
+// 						<div className="postDiv">
+// 							<h3>{user.username}</h3>
+// 							<img src={user.user_pic} />
+// 						</div>
+// 						<p>{user.post}</p>
+// 					</div>
+// 				);
+// 			})}
+// 		</div>
+// 	);
+// }

@@ -22,7 +22,6 @@ export default function Login() {
 
 		try {
 			const res = await login(email, password);
-			history.push("/user");
 		} catch (error) {
 			debugger;
 			setError(error.message);

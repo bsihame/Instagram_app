@@ -1,52 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
 import Posts from "./components/posts/Posts";
-import UsersIndex from "./components/users/UsersIndex";
+// import UsersIndex from "./components/users/UsersIndex";
 // import UserPage from "./components/pages/UserPage";
 import UserProfile from "./components/pages/UserProfile";
 import NavBar from "./components/navbar_footer/NavBar";
 import Footer from "./components/navbar_footer/Footer";
-import UserPage from "./components/pages/UserPage";
+// import UserPage from "./components/pages/UserPage";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
+// import { useHistory } from "react-router-dom";
 
 function App() {
-	const [loggedUser, setLoggedUser] = useState({});
-
+	// const [loggedUser, setLoggedUser] = useState({});
+	// const history = useHistory();
+	
 	return (
 		<div className="App">
 			<AuthProvider>
-				<AuthRoute exact path="/" setLoggedUser={setLoggedUser}>
-					<Home loggedUser={loggedUser} />
+				<AuthRoute exact path="/" >
+					<Home  />
 				</AuthRoute>
 
 				<AuthRoute
 					exact
 					path="/accounts/emailsignup/"
-					setLoggedUser={setLoggedUser}
+				
 				>
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path="/userProfile/:uid" loggedUser={loggedUser}>
+				<ProtectedRoute exact path="/userProfile/:uid" >
 					{/* <NavBar /> */}
-					<User/>
+					{/* <User/> */}
 					{/* <UserPage /> */}
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">
-					<NavBar />
-					<UserBio />
+					{/* <NavBar /> */}
+					<User/>
+					{/* <UserBio /> */}
 					{/* <UsersIndex loggedUser={loggedUser}/> */}
 					<Footer />
 				</ProtectedRoute>
 				
-				<ProtectedRoute path="/posts"  setLoggedUser={setLoggedUser}>
-					<Posts loggedUser={loggedUser} />
+				<ProtectedRoute path="/posts"  >
+					{/* <Posts  /> */}
 				</ProtectedRoute>
 			</AuthProvider>
 

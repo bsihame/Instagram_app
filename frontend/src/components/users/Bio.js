@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
+// import React, { useState, useEffect } from 'react';
+// import axios from "axios";
 
-import CreateBioForm from './CreateBioForm';
-import { apiURL } from "../util/apiURL";
+// import CreateBioForm from './CreateBioForm';
+// import { apiURL } from "../util/apiURL";
 
-export default function Bio() {
-  const [Bio, setBio] = useState([]);
-  const [error, setError] = useState(null);
-  const API = apiURL();
+// export default function Bio() {
+//   const [Bio, setBio] = useState([]);
+//   const [error, setError] = useState(null);
+//   const API = apiURL();
 
-  const fetchBio = async () => {
-      try {
-          let res = await axios({
-            method: "get",
-            url: `${API}/api/bio`,
-          });
+//   const fetchBio = async () => {
+//       try {
+//           let res = await axios({
+//             method: "get",
+//             url: `${API}/api/bio`,
+//           });
   
-        setBio(res.data.Bio);
+//         setBio(res.data.Bio);
         
-          setError(null);
-      } catch (err) {
-          setError(err.message)
-          setBio();
-      }
-  };
+//           setError(null);
+//       } catch (err) {
+//           setError(err.message)
+//           setBio();
+//       }
+//   };
 
 
-  useEffect(() => {
-    fetchBio();
-    return () => {
+//   useEffect(() => {
+//     fetchBio();
+//     return () => {
       
-    };
-  }, []); 
-  return (
-    <main>
-        {error ? <div>{error}</div> : null}
-      <CreateBioForm updateBio={fetchBio} />
-      <BioIndex Bio={Bio} />
-    </main>
-  );
-};
+//     };
+//   }, []); 
+//   return (
+//     <main>
+//         {error ? <div>{error}</div> : null}
+//       <CreateBioForm updateBio={fetchBio} />
+//       <BioIndex Bio={Bio} />
+//     </main>
+//   );
+// };

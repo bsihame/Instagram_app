@@ -25,6 +25,8 @@ export default function SignUpForm() {
 		
 		try {
 			let res = await signUp(email, password);
+			//  await signUp(email, password);
+
 			await axios.post(`${API}/api/users`, {
 				id: res.user.uid,
 				email: email,
