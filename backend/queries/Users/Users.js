@@ -3,7 +3,7 @@ const db = require("../../db/index");
 const createNewUser = async (req, res, next) => {
   try {
     const  {id, full_name, email, username } = req.body
-		await db.none(
+		let user = await db.none(
 			// "INSERT INTO users(id, full_name, email, username) VALUES(${id}, ${full_name}, ${email}, ${username})", req.body
 			`INSERT INTO users(id, full_name, email, username) VALUES($1, $2, $3, $4)`, [id, full_name, email, username]
       
@@ -60,41 +60,15 @@ const getAllUsers = async (req, res, next) => {
 	}
 };
 
-const isUserExist = async (req, res, next) => {
-	const getUserId = req.params.id;
-	const postUserId = req.body.poster_id;
-
-	const id = getUserId ? getUserId : postUserId;
-	try {
-		if (!id) {
-			throw {
-				status: 400,
-				error: "There is no ID",
-			};
-		} else {
-			user = await db.one("SELECT * FROM user WHERE id=$1", id);
-			next();
-		}
-	} catch (error) {
-		if (error.received === 0) {
-			res.status(400).json({
-				status: 404,
-				error: "User ID doesn't exist",
-			});
-		} else {
-			next(error);
-		}
-	}
-};
 
 const getUserById = async (req, res, next) => {
-	const { id } = req.params;
 	try {
+		const id  = req.params.id;
 		const singleUser = await db.one("SELECT * FROM users WHERE id=$1", id);
 		res.status(200).json({
 			status: "ok",
-			singleUser,
 			message: "Retrieved user",
+			payload: singleUser,
 		});
 		console.log(singleUser)
 	} catch (error) {
@@ -109,7 +83,7 @@ const getUserById = async (req, res, next) => {
 const logIn = async (req, res, next) => {
 	const { email } = req.body;
 	try {
-		let user = await db.any(`SELECT * FROM users WHERE email=$1`, email);
+		let user = await db.any("SELECT * FROM users WHERE email=$1", email);
 		res.status(200).json({
 			status: "ok",
 			message: "Retrieved user by email",
@@ -164,7 +138,6 @@ const deleteUser = async (req, res, next) => {
 };
 
 module.exports = {
-	isUserExist,
 	getAllUsers,
 	logIn,
 	createNewUser,

@@ -12,20 +12,20 @@ const {
   
 } = require("../../queries/Users/Users");
 const { checkFirebaseToken } = require("../../middleware/auth");
-const { getAllUsersFirebase } = require("../../firebaseUtil/firebaseUtil");
+// const { getAllUsersFirebase } = require("../../firebaseUtil/firebaseUtil");
 
-users.get("/:id",checkFirebaseToken, getUserById);
-users.get("/",checkFirebaseToken , getAllUsersFirebase);
+//  users.get("/:id", checkFirebaseToken, getUserById);
+// users.get("/",checkFirebaseToken , getAllUsersFirebase);
 
 // users.get("/", getAllUsers);
-// users.get("/:id", isUserExist, getUserById);
-
-users.get("/email/:email", getUserByEmail)
 
 users.post("/", createNewUser);
-users.patch("/:id", updateUser);
-users.delete("/:id", deleteUser)
 users.post("/login", logIn);
+
+users.get("/:id", getUserById);
+users.get("/email/:email", getUserByEmail)
+users.patch("/:id",checkFirebaseToken, updateUser);
+users.delete("/:id", checkFirebaseToken, deleteUser)
 // users.post("/signUp, signUp")
 
 
