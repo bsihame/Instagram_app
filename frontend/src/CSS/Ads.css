@@ -1,0 +1,27 @@
+.healthInsuranceLink {
+  background: white;
+  display: block;
+  width: 40%;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  border: 0 solid #8e8e8e;
+  border-width: 0.05rem;
+  position: relative;
+
+}
+
+.adTitleAd {
+  font-weight: 600px;
+  font-family: serif;
+}
+
+.healthIcon {
+  color: #262626;
+  width: 100px;
+  height: 100px;
+}
+.InsuranceInfoAd {
+  color: #8e8e8e;
+  font-family: serif;
+}

@@ -13,6 +13,7 @@ import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
+import Ads from "./components/ad/Ads";
 // import { useHistory } from "react-router-dom";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 				<ProtectedRoute path="/user">
 					{/* <NavBar /> */}
 					<User/>
+					<Ads/>
 					{/* <UserBio /> */}
 					{/* <UsersIndex loggedUser={loggedUser}/> */}
 					<Footer />

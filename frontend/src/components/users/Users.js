@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../navbar_footer/NavBar";
 import Footer from "../navbar_footer/Footer";
-import { AuthContext } from "../../providers/AuthContext";
 import { getAllUsers } from "../../util/getRequests";
 
 

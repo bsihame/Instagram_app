@@ -11,7 +11,6 @@ export default function User() {
 	const getSingleUser = async () => {
 		try {
 			const res = await getUserById(id);
-			debugger
 			setLoggedUser(res)
 		} catch (error) {
 			console.log(error)
