@@ -6,11 +6,11 @@ import { getAllUsers } from "../../util/getRequests";
 
 export default function Users() {
 	
-	const [users, setUsers] = useState({});
+	
+	const [users, setUsers] = useState([]);
 	const getUsers = async () => {
 		try {
-			const res = await getAllUsers(id);
-			debugger
+			const res = await getAllUsers();
 			setUsers(res)
 		} catch (error) {
 			console.log(error)
@@ -18,16 +18,23 @@ export default function Users() {
 	}
 
 	useEffect(() => {
-		getUsers()
+    getUsers()
 	},[]);
 	return (
 		<>
-			<NavBar />
-			<h1>This is user Profile</h1>
-			<img src={users.profile_pic} alt="User profile picture"/>
-			<p>{users.username}</p>
-      {/* <Posts/> */}
-			<Footer />
+		
+			<h1>This all user Profile</h1>
+      <div>
+        {users.map((user) => {
+          return <div key={user.id}>
+            <p>{user.username}</p>
+            <p>{user.profile_picture}</p>
+                 </div> 
+        })}
+      </div>
+			{/* <p>{users.username}</p> */}
+
+
 		</>
 	);
 }

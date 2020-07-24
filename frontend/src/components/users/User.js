@@ -3,10 +3,11 @@ import NavBar from "../navbar_footer/NavBar";
 import Footer from "../navbar_footer/Footer";
 import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
+import Users from "./Users";
 // import Posts from "../posts/Posts"
 export default function User() {
 	const { currentUser } = useContext(AuthContext);
-   let id = currentUser.id
+  let id = currentUser.id
 	const [loggedUser, setLoggedUser] = useState({});
 	const getSingleUser = async () => {
 		try {
@@ -23,10 +24,11 @@ export default function User() {
 	return (
 		<>
 			<NavBar />
+			<Users/>
 			<h1>This is user Profile</h1>
 			<img src={loggedUser.profile_pic} alt="User profile picture"/>
 			<p>{loggedUser.username}</p>
-      {/* <Posts/> */}
+      {/* <Posts/>  */}
 			<Footer />
 		</>
 	);
