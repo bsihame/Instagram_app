@@ -14,6 +14,8 @@ import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
 import Ads from "./components/ad/Ads";
+import Users from "./components/users/Users";
+import ProfilePic from "./components/upload/ProfilePic"
 // import { useHistory } from "react-router-dom";
 
 function App() {
@@ -42,11 +44,9 @@ function App() {
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">
-					{/* <NavBar /> */}
-					<User/>
+					<User />
+					<ProfilePic />
 					<Ads/>
-					{/* <UserBio /> */}
-					{/* <UsersIndex loggedUser={loggedUser}/> */}
 					<Footer />
 				</ProtectedRoute>
 				
