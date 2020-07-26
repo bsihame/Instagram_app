@@ -4,6 +4,7 @@ import Footer from "../navbar_footer/Footer";
 import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
 import Users from "./Users";
+import ProfilePic from "../upload/ProfilePic";
 // import Posts from "../posts/Posts"
 export default function User() {
 	const { currentUser } = useContext(AuthContext);
@@ -27,8 +28,9 @@ export default function User() {
 			<NavBar />
 			<Users/>
 			<h1>This is user Profile</h1>
-			{/* <img src={loggedUser.profile_pic} alt="User profile picture"/> */}
-			{/* <p>{loggedUser.username}</p> */}
+			<ProfilePic />
+			<img src={loggedUser.profile_pic} alt="User profile picture"/>
+			<p>{loggedUser.username}</p>
       {/* <Posts/>  */}
 			<Footer />
 		</>

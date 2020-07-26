@@ -45,7 +45,7 @@ function App() {
 
 				<ProtectedRoute path="/user">
 					<User />
-					<ProfilePic />
+					{/* <ProfilePic /> */}
 					<Ads/>
 					<Footer />
 				</ProtectedRoute>

@@ -4,8 +4,7 @@ import { storage } from "../../firebase"
 export default function ProfilePic() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
-  const [progress, setProgress] = useState([0]);
-  const fileInput = React.createRef()
+  const [progress, setProgress] = useState(0);
   
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -13,7 +12,7 @@ export default function ProfilePic() {
     }
   };
   const handleUpload = () => {
-    const uploadTask = storage.ref(`image/${image.name}`).put(image);
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
       snapshot => {
@@ -31,24 +30,23 @@ export default function ProfilePic() {
           .child(image.name)
           .getDownloadURL()
           .then(url => {
-            setUrl(url)
+            setUrl(url); 
           })
       }
     );
   }
-  console.log("image", image);
+  console.log("image: ", image);
 
   return (
     <div >
       <progress value={progress} max="100" />
       <br />
       <br />
-      <input type="file" ref={fileInput} onChange={handleChange} />
+      <input type="file"
+        onChange={handleChange} />
       <button onClick={handleUpload}>Upload Image</button>
       <br />
-      {url}
-      <br />
-      <img src={url} alt="firebase-image" />
+       <img src={url} alt="firebase-image"/>
     </div>
   );
 }

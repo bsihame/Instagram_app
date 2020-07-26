@@ -63,7 +63,8 @@ const getAllUsers = async (req, res, next) => {
 
 const getUserById = async (req, res, next) => {
 	try {
-		const id  = req.params.id;
+		const id = req.params.id;
+		debugger
 		const singleUser = await db.one("SELECT * FROM users WHERE id=$1", id);
 		res.status(200).json({
 			status: "ok",
