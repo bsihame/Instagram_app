@@ -80,6 +80,25 @@ const getUserById = async (req, res, next) => {
 	}
 };
 
+const getUserByUserName = async (req, res, next) => {
+	try {
+		const { username } = req.params;
+		let user = await db.any("SELECT * FROM users WHERE username = $1", username)
+		if (user.length) {
+			res.status(200).json({
+				status: "OK",
+				message: "Retrieve user by username",
+				payload: user[0],
+			})
+		}
+	} catch (error) {
+		res.status(400).json({
+			status: "error",
+			message: "Could not get single user by username",
+		});
+	}
+}
+
 const logIn = async (req, res, next) => {
 	const { email } = req.body;
 	try {
@@ -145,4 +164,5 @@ module.exports = {
 	getUserById,
 	updateUser,
 	deleteUser,
+	getUserByUserName,
 };

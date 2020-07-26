@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-// import "firebase/auth";
+import "firebase/auth";
 import "firebase/storage"
 
 const {
@@ -21,12 +21,14 @@ const config = {
 	messagingSenderId: REACT_APP_MESSAGINGSENDERID,
 	appId: REACT_APP_ID,
 };
-console.log(process.env);
-firebase.initializeApp(config);
+	console.log(process.env);
+ firebase.initializeApp(config);
 
-const storage = firebase.storage()
 
+
+export const storage = firebase.storage()
 
 export default firebase;
+
 
 

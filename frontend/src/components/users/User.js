@@ -13,6 +13,7 @@ export default function User() {
 		try {
 			const res = await getUserById(id);
 			setLoggedUser(res)
+			debugger
 		} catch (error) {
 			console.log(error)
 		}
@@ -26,8 +27,8 @@ export default function User() {
 			<NavBar />
 			<Users/>
 			<h1>This is user Profile</h1>
-			<img src={loggedUser.profile_pic} alt="User profile picture"/>
-			<p>{loggedUser.username}</p>
+			{/* <img src={loggedUser.profile_pic} alt="User profile picture"/> */}
+			{/* <p>{loggedUser.username}</p> */}
       {/* <Posts/>  */}
 			<Footer />
 		</>
