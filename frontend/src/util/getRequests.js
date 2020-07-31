@@ -25,6 +25,18 @@ export const getUserById = async(id) => {
 
 }
 
+export const getUsersPosts = async() => {
+  try {
+    let res = await axios.get(API + `/api/posts`);
+    debugger
+    console.log(res.data.payload);
+    return res.data.payload
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
 export const ifUserNameExist = async (username) => {
   try {
     await axios.get(API + "/ api/users/username" + username)

@@ -13,16 +13,16 @@ export default function CreatePostForm() {
 			url: `${API}/api/posts`,
 			data: {
 				body,
+				// Poster_id,
+				// picture,
+				// content,
 			},
 		});
 		debugger
 		setBody("");
-		// updatePosts();
+	
   };
-  // const UploadPicture = () {
-
-  // }
-
+  
 	return (
 		<>
 		<h2>This is create Post Form</h2>
