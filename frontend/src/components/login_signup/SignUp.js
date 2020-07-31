@@ -8,12 +8,15 @@ import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
 import "../../CSS/signUp.css";
+import  ProfilePic  from "../upload/ProfilePic";
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [full_name, setFullName] = useState("");
 	const [username, setUserName] = useState("");
+	const [bio, setBio] = useState("");
+
 	// const [loading, setLoading] = useState("")
 	const [error, setError] = useState(null);
 	const history = useHistory();
@@ -29,16 +32,20 @@ export default function SignUpForm() {
 
 			await axios.post(`${API}/api/users`, {
 				id: res.user.uid,
-				email: email,
 				full_name: full_name,
+				email: email,
 				username: username,
+				bio: bio,
+				// profile_pic: profile_pic
 			});
 		
 			debugger;
 		} catch (error) {
 			setError(error.message);
 		}
+		
 	};
+
 	return (
 		<>
 			<div className="signup">
@@ -81,6 +88,7 @@ export default function SignUpForm() {
 							value={username}
 							onChange={(e) => setUserName(e.currentTarget.value)}
 						/>
+						<input placeholder="Bio: " value={bio} onChange={(e)=> setBio(e.currentTarget.value)}/>
 						<input
 							placeholder="Password"
 							type="password"
@@ -89,6 +97,9 @@ export default function SignUpForm() {
 							autoComplete="on"
 							required
 						/>
+						{/* <div><ProfilePic/></div> */}
+						
+
 						<button type="submit" className="signUpButton">
 							Sign up
 						</button>

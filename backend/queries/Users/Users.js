@@ -2,10 +2,10 @@ const db = require("../../db/index");
 
 const createNewUser = async (req, res, next) => {
   try {
-    const  {id, full_name, email, username } = req.body
+    const  {id, full_name, email, username,bio , profile_pic } = req.body
 		let user = await db.none(
 			// "INSERT INTO users(id, full_name, email, username) VALUES(${id}, ${full_name}, ${email}, ${username})", req.body
-			`INSERT INTO users(id, full_name, email, username) VALUES($1, $2, $3, $4)`, [id, full_name, email, username]
+			`INSERT INTO users(id, full_name, email, username, bio, profile_pic) VALUES($1, $2, $3, $4, $5, $6)`, [id, full_name, email, username, bio, profile_pic]
       
 		);
 		res.status(200).json({
@@ -64,7 +64,7 @@ const getAllUsers = async (req, res, next) => {
 const getUserById = async (req, res, next) => {
 	try {
 		const id = req.params.id;
-		debugger
+		console.log(id)
 		const singleUser = await db.one("SELECT * FROM users WHERE id=$1", id);
 		res.status(200).json({
 			status: "ok",

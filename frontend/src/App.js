@@ -37,10 +37,11 @@ function App() {
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path="/userProfile/:uid" >
+				<ProtectedRoute exact path="/userProfile/:id" >
 					{/* <NavBar /> */}
 					{/* <User/> */}
 					{/* <UserPage /> */}
+					{/* <UserProfile/> */}
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">
@@ -51,7 +52,7 @@ function App() {
 				</ProtectedRoute>
 				
 				<ProtectedRoute path="/posts"  >
-					{/* <Posts  /> */}
+					<Posts  />
 				</ProtectedRoute>
 			</AuthProvider>
 

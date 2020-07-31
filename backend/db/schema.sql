@@ -54,15 +54,15 @@ CREATE TABLE posts
   INSERT INTO users
     (id, full_name, email, username, bio, profile_pic)
   VALUES
-    (1, 'Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', null),
-    (2, 'Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist', null),
-    (3, 'David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', null);
+    (1, 'Sihame Bazi', 'sihamebazi@gmail.com', 'bsihame', 'Full stack develloper', 'https://cdn1.iconfinder.com/data/icons/instagram-ui-colored/48/JD-18-512.png'),
+    (2, 'Pamela Benis', 'pam@gmail.com', 'crazy', 'Artist', 'https://cdn1.iconfinder.com/data/icons/instagram-ui-colored/48/JD-18-512.png'),
+    (3, 'David Kimble', 'kimbel@yahoo.com', 'gravity', 'Teacher', 'https://cdn1.iconfinder.com/data/icons/instagram-ui-colored/48/JD-18-512.png');
 
   INSERT INTO posts
     (poster_id, content, picture, created_at)
   VALUES
-    (2, 'Hi', '../../frontend/src/images/covid.png', 'May 29, 2020 2:39:58 AM'),
-    (1, 'Thank you 4 sharing your  experiance', '../../frontend/src/images/bear.jpeg', 'Dec 2, 2020 2:39:58 AM');
+    (2, 'Hi', 'https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'May 29, 2020 2:39:58 AM'),
+    (1, 'Thank you 4 sharing your  experiance', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQE7D0W-VZtz5s-z_kpunYe8Z7iARwaqgLwJQ&usqp=CAU', 'Dec 2, 2020 2:39:58 AM');
 
   INSERT INTO friends
     (user_id, friend_id)

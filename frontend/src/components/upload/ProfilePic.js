@@ -46,7 +46,18 @@ export default function ProfilePic() {
         onChange={handleChange} />
       <button onClick={handleUpload}>Upload Image</button>
       <br />
-       <img src={url} alt="firebase-image"/>
+      <div>
+     
+        {url ?
+          <img src={url} alt="firebase-image" />
+          :
+          <img src="/images/profile-icon-300x300.png" alt="User Profile " />
+        }
+     
+      
+        </div>
+      
+       
     </div>
   );
 }

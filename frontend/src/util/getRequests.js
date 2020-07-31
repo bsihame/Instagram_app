@@ -16,6 +16,7 @@ export const getAllUsers = async () => {
 export const getUserById = async(id) => {
   try {
     let res = await axios.get(API + `/api/users/${id}`);
+    debugger
     console.log(res.data.payload);
     return res.data.payload
   } catch (error) {

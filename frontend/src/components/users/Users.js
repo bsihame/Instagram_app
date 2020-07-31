@@ -2,7 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../navbar_footer/NavBar";
 import Footer from "../navbar_footer/Footer";
 import { getAllUsers } from "../../util/getRequests";
-
+import "../../CSS/Users.css"
+import User from "./User";
 
 export default function Users() {
 	
@@ -21,20 +22,16 @@ export default function Users() {
     getUsers()
 	},[]);
 	return (
-		<>
-		
-			<h1>This all user Profile</h1>
-      <div>
+		<div className="UsersContainer" >
+      <div className="displayAllUsers">
         {users.map((user) => {
           return <div key={user.id}>
-            <p>{user.username}</p>
-            <p>{user.profile_picture}</p>
+            <img src={user.profile_pic} alt="User Profile" className="userProfile" />
+            <p className="usersUserName">{user.username}</p>
                  </div> 
         })}
       </div>
-			{/* <p>{users.username}</p> */}
 
-
-		</>
+		</div>
 	);
 }

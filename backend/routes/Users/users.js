@@ -26,6 +26,7 @@ users.post("/login", logIn);
 users.get("/:id", getUserById);
 users.get("/username/:username", getUserByUserName)
 users.get("/email/:email", getUserByEmail)
+
 users.patch("/:id",checkFirebaseToken, updateUser);
 users.delete("/:id", checkFirebaseToken, deleteUser)
 // users.post("/signUp, signUp")

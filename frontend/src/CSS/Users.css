@@ -1,0 +1,35 @@
+.UsersContainer {
+  display: flex;
+  flex-direction: left;
+  width: 50%;
+  float: write;
+  margin: 1rem;
+  
+}
+
+.displayAllUsers {
+  width: 80%;
+  justify-content: center;
+  display: inline-flex; 
+  margin: 1rem;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  border: 2px solid #dbdbdb;
+}
+
+.userProfile {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: white;
+  border-style: double;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.usersUserName {
+  margin-right: 1rem;
+  font-size: medium;
+  color: black;
+}
