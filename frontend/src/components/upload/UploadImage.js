@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { storage } from "../../firebase"
 
-export default function ProfilePic() {
+export default function UploadImage() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);

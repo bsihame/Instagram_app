@@ -8,7 +8,7 @@ import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
 import "../../CSS/signUp.css";
-import  ProfilePic  from "../upload/ProfilePic";
+// import  UploadImage  from "../upload/UploadImage";
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");

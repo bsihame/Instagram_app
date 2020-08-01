@@ -37,6 +37,22 @@ export const getUsersPosts = async() => {
 
 }
 
+export const createPost = async (postObject, user) => {
+  const {
+    // Poster_id: {}
+    content: { value: content },
+    picture: { value: picture },
+    
+    // Poster_id,
+    // picture,
+    // content,
+  } = postObject;
+  const poster_id = user.id;
+  console.log(poster_id)
+  const res = await axios.post(API + "/api/posts", { content, picture })
+  debugger
+}
+
 export const ifUserNameExist = async (username) => {
   try {
     await axios.get(API + "/ api/users/username" + username)
