@@ -38,12 +38,13 @@ export const getUsersPosts = async() => {
 
 }
 
-export const createPost = async (dataObj) => {
+export const createPost = async (dataObj, url) => {
   
   try {
-    const res = await axios.post(API + `/api/posts`, dataObj)
+    const res = await axios.post(API + `/api/posts`, dataObj, url)
     debugger
     return res
+    
 
   } catch (error) {
     console.log(error)

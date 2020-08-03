@@ -16,7 +16,9 @@ import User from "./components/users/User";
 import Ads from "./components/ad/Ads";
 import Users from "./components/users/Users";
 import CreatePostForm from "./components/posts/CreatePostForm";
-import UploadImage from "./components/upload/UploadImage";
+import UploadPostImage from "./components/posts/UploadPostImage";
+
+
 // import ProfilePic from "./components/upload/ProfilePic"
 // import { useHistory } from "react-router-dom";
 
@@ -60,7 +62,7 @@ function App() {
 				<ProtectedRoute path="/createPost"  >
 					<NavBar />
 					<CreatePostForm />
-					<UploadImage />
+					{/* <UploadPostImage /> */}
 					<Footer />
 				</ProtectedRoute>
 
