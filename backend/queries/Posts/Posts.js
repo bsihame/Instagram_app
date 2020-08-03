@@ -47,7 +47,7 @@ const createPost = async (req, res, next) => {
 		);
 		res.status(200).json({
 			status: "ok",
-			message: "Create post",
+			message: "Create  a new post",
 		});
 	} catch (error) {
 		console.log(error);
@@ -67,7 +67,7 @@ const getSinglePost = async (req, res, next) => {
 		);
 		res.status(200).json({
 			status: "ok",
-			message: "Created a new post",
+			message: "Display a user Postpost",
 			payload: post,
 		});
 	} catch (error) {
