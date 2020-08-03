@@ -15,6 +15,8 @@ import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
 import Ads from "./components/ad/Ads";
 import Users from "./components/users/Users";
+import CreatePostForm from "./components/posts/CreatePostForm";
+import UploadImage from "./components/upload/UploadImage";
 // import ProfilePic from "./components/upload/ProfilePic"
 // import { useHistory } from "react-router-dom";
 
@@ -54,6 +56,14 @@ function App() {
 				<ProtectedRoute path="/posts"  >
 					<Posts  />
 				</ProtectedRoute>
+			
+				<ProtectedRoute path="/createPost"  >
+					<NavBar />
+					<CreatePostForm />
+					<UploadImage />
+					<Footer />
+				</ProtectedRoute>
+
 			</AuthProvider>
 
 			{/* <AuthRoute exact path="user/userProfile" setLoggedUser={setLoggedUser} >

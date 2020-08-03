@@ -1,5 +1,7 @@
-import react from "react"
+import React from "react"
 import axios from "axios";
+
+
 import { apiURL } from "../util/apiURL";
 
 const API = apiURL();
@@ -22,7 +24,6 @@ export const getUserById = async(id) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const getUsersPosts = async() => {
@@ -37,20 +38,16 @@ export const getUsersPosts = async() => {
 
 }
 
-export const createPost = async (postObject, user) => {
-  const {
-    // Poster_id: {}
-    content: { value: content },
-    picture: { value: picture },
-    
-    // Poster_id,
-    // picture,
-    // content,
-  } = postObject;
-  const poster_id = user.id;
-  console.log(poster_id)
-  const res = await axios.post(API + "/api/posts", { content, picture })
-  debugger
+export const createPost = async (dataObj) => {
+  
+  try {
+    const res = await axios.post(API + `/api/posts`, dataObj)
+    debugger
+    return res
+
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const ifUserNameExist = async (username) => {
