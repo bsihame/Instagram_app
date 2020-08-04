@@ -24,8 +24,7 @@ CREATE TABLE posts
   poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
   picture VARCHAR,
   content VARCHAR,
-  created_at TIMESTAMP
-  WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
   CREATE TABLE comments
@@ -33,9 +32,9 @@ CREATE TABLE posts
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES Posts(id),
     poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
-    comment TEXT,
+    content TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-  )
+  );
 
   CREATE TABLE tags
   (
@@ -75,10 +74,10 @@ CREATE TABLE posts
     (1, 'Thank you 4 sharing your  experiance', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQE7D0W-VZtz5s-z_kpunYe8Z7iARwaqgLwJQ&usqp=CAU', 'Dec 2, 2020 2:39:58 AM');
 
   INSERT INTO comments
-    (post_id, poster_id, comment, created_at)
+    (post_id, poster_id, content, created_at)
   VALUES
-    (1, 2, 'Nice','May 29, 2020 2:39:58 AM' ),
-    (2, 1, 'Beautifull',' Dec 2, 2020 2:39:58 AM' )
+    (1, 2, 'Nice', 'May 29, 2020 2:39:58 AM' ),
+    (2, 1, 'Beautifull', 'Dec 2, 2020 2:39:58 AM' );
 
   INSERT INTO friends
     (user_id, friend_id)
