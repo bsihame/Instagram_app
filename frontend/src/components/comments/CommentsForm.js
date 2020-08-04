@@ -13,14 +13,15 @@ export default function CommentsForm(post_id) {
 		e.preventDefault();
 
 		let dataObj = {
+      post_id,
 			poster_id: id,
-			commenter_id,
-      body,
+      content,
       created_at,
 		}
 		
     try {
-      const res = await createComments(dataObj);
+			const res = await createComments(dataObj);
+			debugger
 			setComments(res.data)
 		} catch (error) {
 			console.log(error)
@@ -31,7 +32,7 @@ export default function CommentsForm(post_id) {
 
 	return (
 		<>
-			<h2>This is create Post Form</h2>
+			<h2>This is create comments Form</h2>
 			<div className="createComments">
 				<form onSubmit={handleSubmit} className="displayComment">
 					<input type="text" name="comments" value={comments} onChange={(e) =>setComments(e.currentTarget.value)} />

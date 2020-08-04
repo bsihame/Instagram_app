@@ -8,7 +8,8 @@ import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
 import "../../CSS/signUp.css";
-// import  UploadImage  from "../upload/UploadImage";
+import { storage } from "../../firebase"
+
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
@@ -16,12 +17,35 @@ export default function SignUpForm() {
 	const [full_name, setFullName] = useState("");
 	const [username, setUserName] = useState("");
 	const [bio, setBio] = useState("");
+	const [url, setUrl] = useState("");
+	const [image, setImage] = useState(null);
 
 	// const [loading, setLoading] = useState("")
 	const [error, setError] = useState(null);
 	const history = useHistory();
 	const API = apiURL();
 	//console.log(email,username, password);
+
+	const handleChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+	const handleUpload = () => {
+		const uploadTask = storage.ref(`images/${image.name}`).put(image);
+		uploadTask.on(
+			"state_changed",
+			() => {
+				storage
+					.ref("images")
+					.child(image.name)
+					.getDownloadURL()
+					.then(url => {
+						setUrl(url);
+					})
+			}
+		);
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -36,7 +60,7 @@ export default function SignUpForm() {
 				email: email,
 				username: username,
 				bio: bio,
-				// profile_pic: profile_pic
+				profile_pic: url
 			});
 		
 			debugger;
@@ -88,7 +112,13 @@ export default function SignUpForm() {
 							value={username}
 							onChange={(e) => setUserName(e.currentTarget.value)}
 						/>
-						<input placeholder="Bio: " value={bio} onChange={(e)=> setBio(e.currentTarget.value)}/>
+						<input placeholder="Bio: " value={bio} onChange={(e) => setBio(e.currentTarget.value)} />
+						
+						<input type="file"
+        onChange={handleChange} />
+      <button onClick={handleUpload}>Upload Image</button>
+      <br />
+
 						<input
 							placeholder="Password"
 							type="password"
