@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
 import Users from "./Users";
 import Posts from "../posts/Posts";
-import UploadImage from "../upload/UploadImage";
+// import UploadImage from "../upload/UploadImage";
 export default function User() {
 	const { currentUser } = useContext(AuthContext);
   let id = currentUser.id
@@ -28,7 +28,7 @@ export default function User() {
 			<Users />
 			<Posts/>
 			<h1>This is user Profile</h1>
-			<UploadImage />
+			{/* <UploadImage /> */}
 			
 			<Footer />
 		</>

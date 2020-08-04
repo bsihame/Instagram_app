@@ -29,7 +29,6 @@ export const getUserById = async(id) => {
 export const getUsersPosts = async() => {
   try {
     let res = await axios.get(API + `/api/posts`);
-    debugger
     console.log(res.data.payload);
     return res.data.payload
   } catch (error) {
@@ -38,18 +37,24 @@ export const getUsersPosts = async() => {
 
 }
 
-export const createPost = async (dataObj, url) => {
+export const createPost = async (dataObj) => {
   
   try {
-    const res = await axios.post(API + `/api/posts`, dataObj, url)
-    debugger
+    const res = await axios.post(API + `/api/posts`, dataObj)
     return res
-    
-
   } catch (error) {
     console.log(error)
   }
 }
+
+export const createComments = async (dataObj) => {
+  try {
+    const res = await axios.post(API + `/api/comments`, dataObj)
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+ }
 
 export const ifUserNameExist = async (username) => {
   try {

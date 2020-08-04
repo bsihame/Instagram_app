@@ -17,6 +17,8 @@ import Ads from "./components/ad/Ads";
 import Users from "./components/users/Users";
 import CreatePostForm from "./components/posts/CreatePostForm";
 import UploadPostImage from "./components/posts/UploadPostImage";
+import CommentsForm from "./components/comments/CommentsForm";
+
 
 
 // import ProfilePic from "./components/upload/ProfilePic"
@@ -62,7 +64,12 @@ function App() {
 				<ProtectedRoute path="/createPost"  >
 					<NavBar />
 					<CreatePostForm />
-					{/* <UploadPostImage /> */}
+					<Footer />
+				</ProtectedRoute>
+
+				<ProtectedRoute path="/createComments"  >
+					<NavBar />
+					<CommentsForm />
 					<Footer />
 				</ProtectedRoute>
 

@@ -3,7 +3,6 @@ import { apiURL } from "../../util/apiURL";
 import { AuthContext } from '../../providers/AuthContext';
 import { createPost } from "../../util/getRequests";
 import { useHistory } from 'react-router-dom';
-// import UploadPostImage from "../upload/UploadPostImage";
 import { storage } from "../../firebase"
 
 export default function CreatePostForm() {
@@ -30,13 +29,11 @@ export default function CreatePostForm() {
 					.getDownloadURL()
 					.then(url => {
 						setUrl(url);
-						debugger
 					})
 			}
 		);
 	}
 	const handleSubmit = async (e) => {
-		debugger
 		e.preventDefault();
 
 		let dataObj = {
@@ -46,9 +43,8 @@ export default function CreatePostForm() {
 		}
 		
 		try {
-			const res = await createPost(dataObj, url);
+			const res = await createPost(dataObj);
 			setUrl(url)
-			//  setUrl(res.config[0])
 			console.log(url)
 			setContent(res.data)
 		} catch (error) {
@@ -71,8 +67,6 @@ export default function CreatePostForm() {
 				<button type="submit">Create Post</button>
 				</form>
 			</div>
-
-		
 		</>
 	);
 }
