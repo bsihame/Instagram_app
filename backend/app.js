@@ -11,6 +11,7 @@ const { checkFirebaseToken } = require("./middleware/auth");
 
 const usersRouter = require("./routes/Users/users");
 const postsRouter = require("./routes/Posts/posts");
+const commentsRouter = require("./routes/Comments/Comments");
 const likesRouter = require("./routes/Likes/likes")
 
 app.use(cors());
@@ -20,6 +21,7 @@ app.use("/images", express.static('public'))
 
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
+app.use("/api/comments", commentsRouter);
 app.use("/api/likes", likesRouter)
 
 app.use((err, req, res, next) => {
