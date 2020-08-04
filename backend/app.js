@@ -11,7 +11,7 @@ const { checkFirebaseToken } = require("./middleware/auth");
 
 const usersRouter = require("./routes/Users/users");
 const postsRouter = require("./routes/Posts/posts");
-const commentsRouter = require("./routes/Comments/Comments");
+const commentsRouter = require("./routes/Comments/comments");
 const likesRouter = require("./routes/Likes/likes")
 
 app.use(cors());

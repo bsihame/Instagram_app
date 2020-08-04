@@ -1,22 +1,13 @@
 const comments = require("express").Router();
-
-const {
-	getAllComments,
-	getUsersComments,
-	createComment,
-	// updateComments,
-	deleteComment,
-	// getSinglePost,
-} = require("../../queries/Comments/Comments");
-const { post } = require("../Users/users");
 const { checkFirebaseToken } = require("../../middleware/auth");
 
-comments.get("/", getAllComments);
-comments.get("/:id", getUsersComments);
-// comments.get("/", getSinglePost)
-comments.post("/", createComment);
-// comments.patch("/:id", updateComments);
-comments.delete("/:id", deleteComments);
+const {
+	createComment,
+	getAllComments,
+} = require("../../queries/Comments/Comments");
+
+comments.post("/:post_id", checkFirebaseToken,createComment);
+comments.get("/:post_id", getAllComments)
 
 
 module.exports = comments;

@@ -2,7 +2,7 @@ const db = require("../../db/index");
 
 const getAllComments = async (req, res, next) => {
 	try {
-		let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
+		let posts = await db.any("SELECT * FROM comments ORDER BY id DESC");
 		res.status(200).json({
 			status: "ok",
 			message: "Retrieve all friends comments",
@@ -22,7 +22,7 @@ const getAllComments = async (req, res, next) => {
 const createComment = async (req, res, next) => {
 	try {
 		let post = await db.none(
-			"INSERT INTO posts(post_id, poster_id, content, created_at) VALUES(${poste_id}, ${poster_id}, ${comment}, ${created_at})",
+			"INSERT INTO comments(post_id, poster_id, content, created_at) VALUES(${poste_id}, ${poster_id}, ${content}, ${created_at})",
 			req.body
 		);
 		res.status(200).json({
@@ -42,5 +42,5 @@ const createComment = async (req, res, next) => {
 
 module.exports = {
 	createComment,
-	getAlComments,
+	getAllComments,
 };
