@@ -4,6 +4,7 @@ CREATE DATABASE instagram2_database;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS tags;
 
@@ -26,6 +27,15 @@ CREATE TABLE posts
   created_at TIMESTAMP
   WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+  CREATE TABLE comments
+  (
+    id SERIAL PRIMARY KEY,
+    post_id INT REFERENCES Posts(id),
+    poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
+    comment TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+  )
 
   CREATE TABLE tags
   (
@@ -63,6 +73,12 @@ CREATE TABLE posts
   VALUES
     (2, 'Hi', 'https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'May 29, 2020 2:39:58 AM'),
     (1, 'Thank you 4 sharing your  experiance', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQE7D0W-VZtz5s-z_kpunYe8Z7iARwaqgLwJQ&usqp=CAU', 'Dec 2, 2020 2:39:58 AM');
+
+  INSERT INTO comments
+    (post_id, poster_id, comment, created_at)
+  VALUES
+    (1, 2, 'Nice','May 29, 2020 2:39:58 AM' ),
+    (2, 1, 'Beautifull',' Dec 2, 2020 2:39:58 AM' )
 
   INSERT INTO friends
     (user_id, friend_id)
