@@ -56,6 +56,16 @@ export const createComments = async (dataObj) => {
   }
  }
 
+export const getAllLikes = async (url) => {
+  try {
+    const res = await axios.get(API + `api/likes`, url);
+    debugger
+    return res.data.payload
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const ifUserNameExist = async (username) => {
   try {
     await axios.get(API + "/ api/users/username" + username)
