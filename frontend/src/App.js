@@ -58,21 +58,18 @@ function App() {
 				</ProtectedRoute>
 				
 				<ProtectedRoute path="/posts"  >
-					<Posts  />
+					<Posts />
+					
 				</ProtectedRoute>
 			
 				<ProtectedRoute path="/createPost"  >
 					<NavBar />
 					<CreatePostForm />
+				
 					<Footer />
 				</ProtectedRoute>
 
-				<ProtectedRoute path="/createComments"  >
-					<NavBar />
-					<CommentsForm />
-					<Footer />
-				</ProtectedRoute>
-
+			
 			</AuthProvider>
 
 			{/* <AuthRoute exact path="user/userProfile" setLoggedUser={setLoggedUser} >

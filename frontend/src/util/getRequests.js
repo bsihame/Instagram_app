@@ -54,7 +54,16 @@ export const createComments = async (dataObj) => {
   } catch (error) {
     console.log(error)
   }
- }
+}
+
+export const getCommentsByPostId = async (postId) => {
+  try {
+    const res = await axios.get(API + `/api/comments/${postId}`)
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export const getAllLikes = async (url) => {
   try {

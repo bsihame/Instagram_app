@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import CommentsForm from '../comments/CommentsForm'
 
 export default function PostsIndex({ posts }) {
 	console.log(posts);
@@ -17,7 +18,7 @@ export default function PostsIndex({ posts }) {
 					{/* <li>{post.full_name}</li> */}
 					{/* <li>{post.profile_pic}</li> */}
 					</ul>
-							
+							<CommentsForm post_id={post.id}/>
 						</>
 					)
 				})}

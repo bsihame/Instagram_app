@@ -5,7 +5,7 @@ import PostsIndex from "./PostsIndex";
 import { apiURL } from "../../util/apiURL";
 import { getUsersPosts } from "../../util/getRequests";
 // import {AuthContext} from "../../providers/AuthContext"
-
+import CommentsForm from '../comments/CommentsForm'
 // import { getFirebaseIdToken } from "../../util/firebaseFunctions"
 // import token from "../../providers/AuthContext"
 
@@ -13,7 +13,7 @@ export default function Posts() {
 	// const [currentUser, token] = useState(AuthContext);
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState(null);
-	
+	const [ comment, setComment ] = useState("")
 	const API = apiURL();
 	const getPosts = async () => {
 		try {
@@ -26,6 +26,10 @@ export default function Posts() {
 			setPosts([])
 		 }
 	}
+
+	
+
+
 	useEffect(() => {
 		getPosts();
 		return () => {
@@ -37,6 +41,9 @@ export default function Posts() {
 			{error ? <div>{error}</div> : null}
 			{/* <CreatePostForm updatePosts={getPosts} /> */}
 			<PostsIndex posts={posts} />
+			{/* <div>
+				<CommentsForm />
+			</div> */}
 		</div>
 	)
 }
