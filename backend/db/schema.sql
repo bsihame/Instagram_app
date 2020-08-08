@@ -27,14 +27,14 @@ CREATE TABLE posts
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-  CREATE TABLE comments
-  (
+CREATE TABLE comments
+(
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES Posts(id),
     poster_id VARCHAR REFERENCES users (id) ON DELETE CASCADE,
     content TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-  );
+);
 
   CREATE TABLE tags
   (

@@ -4,10 +4,11 @@ const { checkFirebaseToken } = require("../../middleware/auth");
 const {
 	createComment,
 	getAllComments,
+	getAllCommentsByPostId
 } = require("../../queries/Comments/Comments");
 
-comments.post("/:post_id", checkFirebaseToken,createComment);
-comments.get("/:post_id", getAllComments)
+comments.post("/", createComment);
+comments.get("/:post_id", getAllCommentsByPostId)
 
 
 module.exports = comments;
