@@ -58,6 +58,7 @@ function App() {
 				</ProtectedRoute>
 				
 				<ProtectedRoute path="/posts"  >
+					<NavBar/>
 					<Posts />
 					
 				</ProtectedRoute>

@@ -15,8 +15,8 @@ export default function PostsIndex({ posts }) {
 								<li key={post.id}>{post.content}</li>
 								{/* <li>{post.created_at}</li> */}
 								
-					{/* <li>{post.full_name}</li> */}
-					{/* <li>{post.profile_pic}</li> */}
+					{/* <li>{post.full_name}</li> 
+					 <li>{post.profile_pic}</li> */}
 					</ul>
 							<CommentsForm post_id={post.id}/>
 						</>

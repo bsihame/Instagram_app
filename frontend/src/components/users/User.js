@@ -28,8 +28,6 @@ export default function User() {
 			<Users />
 			<Posts/>
 			<h1>This is user Profile</h1>
-			{/* <UploadImage /> */}
-			
 			<Footer />
 		</>
 	);

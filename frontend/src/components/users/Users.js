@@ -11,6 +11,7 @@ export default function Users() {
 	const getUsers = async () => {
 		try {
 			const res = await getAllUsers();
+			debugger
 			setUsers(res)
 		} catch (error) {
 			console.log(error)
