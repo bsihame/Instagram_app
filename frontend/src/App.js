@@ -44,10 +44,8 @@ function App() {
 				</AuthRoute>
 
 				<ProtectedRoute exact path="/userProfile/:id" >
-					{/* <NavBar /> */}
-					{/* <User/> */}
-					{/* <UserPage /> */}
-					{/* <UserProfile/> */}
+					<NavBar />
+					<UserProfile/>
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">

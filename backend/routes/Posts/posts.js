@@ -13,7 +13,7 @@ const { checkFirebaseToken } = require("../../middleware/auth");
 
 posts.get("/", getAllPosts);
 posts.get("/:id", getUsersPosts);
-// posts.get("/", getSinglePost)
+posts.get("/:id", getSinglePost)
 posts.post("/", createPost);
 // posts.patch("/:id", updatePosts);
 posts.delete("/:id", deletePost);
