@@ -1,4 +1,4 @@
-import React from "react"
+
 import axios from "axios";
 
 
@@ -72,16 +72,33 @@ export const getCommentsByPostId = async (postId) => {
     console.log(error)
   }
 }
-
-export const getAllLikes = async (url) => {
+export const createLikes = async (postId) => {
   try {
-    const res = await axios.get(API + `api/likes`, url);
-    debugger
-    return res.data.payload
+    const res = await axios.post(API + `/api/likes`)
+    return res
   } catch (error) {
     console.log(error)
   }
 }
+export const getLikeCommentByPostId = async (postId) => {
+  try {
+    const res = await axios.get(API + `/api/likes/${postId}`)
+    return res
+     
+  } catch (error) {
+    console.log(error)
+   }
+ }
+
+// export const getAllLikes = async (url) => {
+//   try {
+//     const res = await axios.get(API + `api/likes`, url);
+//     debugger
+//     return res.data.payload
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 
 export const ifUserNameExist = async (username) => {
   try {

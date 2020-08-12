@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from "react";
-import CommentsForm from '../comments/CommentsForm'
+import React from "react";
+import CommentsForm from "../comments/CommentsForm";
+
+import Likes from "../../components/likes/Likes";
 
 export default function PostsIndex({ posts }) {
 	console.log(posts);
 	return (
 		<div>
-			<h1>Users Posts</h1>
-			<div>{posts.map(post => {
-
-					return(
-						<>
-					<ul key={post.id}>
+			<div>
+				{posts.map((post) => {
+					return (
+						<div>
+							<ul key={post.id}>
 								<img key={post.id} src={post.picture} alt="user_Post" />
 								<li key={post.id}>{post.content}</li>
-								{/* <li>{post.created_at}</li> */}
-								
-					{/* <li>{post.full_name}</li> 
-					 <li>{post.profile_pic}</li> */}
-					</ul>
-							<CommentsForm post_id={post.id}/>
-						</>
-					)
+							</ul>
+							<CommentsForm post_id={post.id} />
+							<Likes />
+						</div>
+					);
 				})}
 			</div>
 		</div>

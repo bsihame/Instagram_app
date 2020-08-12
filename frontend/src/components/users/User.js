@@ -5,30 +5,41 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
 import Users from "./Users";
 import Posts from "../posts/Posts";
-// import UploadImage from "../upload/UploadImage";
+import "../../CSS/User.css"
+
 export default function User() {
 	const { currentUser } = useContext(AuthContext);
-  let id = currentUser.id
+	let id = currentUser.id;
 	const [loggedUser, setLoggedUser] = useState({});
+
 	const getSingleUser = async () => {
 		try {
 			const res = await getUserById(id);
-			setLoggedUser(res)
+			setLoggedUser(res);
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
-	}
+	};
 
 	useEffect(() => {
-		getSingleUser()
-	},[]);
+		getSingleUser();
+	}, []);
 	return (
 		<>
 			<NavBar />
-			<Users />
-			<Posts/>
-			<h1>This is user Profile</h1>
+		<div className="userContainer">
+			<div className="rightDiv">
+				<Users />
+				<Posts />
+			</div>
+			<div  className="leftDiv">
+				<img src={loggedUser.profile_pic} alt="User_Profile_picture" className="userProfile" />
+				<p>
+					{loggedUser.username}
+				</p>
 			<Footer />
-		</>
+			</div>
+			</div>
+			</>
 	);
 }

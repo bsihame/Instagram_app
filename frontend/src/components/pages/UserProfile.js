@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
 import { getUserById } from "../../util/getRequests";
-// import axios from "axios";
-// import { apiURL } from "../../util/apiURL"
-// import { Col, Row, Image, Navbar } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthContext";
 import UserPost from "../posts/UserPost";
 
@@ -27,8 +23,8 @@ export default function UserProfile() {
 		<>
       <div>
         <h2>Welcome {user.full_name}</h2>
-		
-           <img src={user.profile_pic} alt="User_Profile_picture" />
+
+           <img src={user.profile_pic} alt="User_Profile_picture" className="userProfile"/>
         </div>
       
       <div className="aboutParagraph">

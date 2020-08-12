@@ -1,3 +1,29 @@
-/* body {
+.userContainer {
+  display: flex;
+  width: 100%;
+
+}
+
+.rightDiv {
+  width: 100%;
+  display: flex;
+  
+
+ }
+
+.leftDiv {
+ width: 100%;
+ display: flex;
+
+}
+
+.userProfile {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: white;
+  border-style: double;
   overflow: hidden;
-} */
+  margin-right: 1rem;
+}
+
