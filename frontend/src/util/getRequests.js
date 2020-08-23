@@ -18,7 +18,6 @@ export const getAllUsers = async () => {
 export const getUserById = async(id) => {
   try {
     let res = await axios.get(API + `/api/users/${id}`);
-    debugger
     console.log(res.data.payload);
     return res.data.payload
   } catch (error) {
@@ -29,7 +28,7 @@ export const getUserById = async(id) => {
 export const getUsersPosts = async() => {
   try {
     let res = await axios.get(API + `/api/posts`);
-    console.log(res.data.payload);
+    // console.log(res.data.payload);
     return res.data.payload
   } catch (error) {
     console.log(error)
@@ -84,7 +83,7 @@ export const getLikeCommentByPostId = async (postId) => {
   try {
     const res = await axios.get(API + `/api/likes/${postId}`)
     return res
-     
+    debugger
   } catch (error) {
     console.log(error)
    }

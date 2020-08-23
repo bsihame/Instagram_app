@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
 import { createComments, getCommentsByPostId } from "../../util/getRequests";
+import "../../CSS/CommentsForm.css"
 
 export default function CommentsForm({ post_id }) {
 	const API = apiURL();
@@ -28,7 +29,6 @@ export default function CommentsForm({ post_id }) {
 			post_id,
 			poster_id: id,
 			content,
-			// created_at,
 		};
 
 		try {
@@ -56,7 +56,7 @@ export default function CommentsForm({ post_id }) {
 				</form>
 			</div>
 			{comments.map((comment) => {
-				return <li key={comment.id}>{comment.content}</li>;
+				return <li key={comment.id} className="displayComments">{comment.content}</li>;
 			})}
 		</>
 	);

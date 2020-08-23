@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
 import PostsIndex from "./PostsIndex";
 import { apiURL } from "../../util/apiURL";
 import { getUsersPosts } from "../../util/getRequests";

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-
-import { getLikeCommentByPostId,  createLikes } from "../../util/getRequests"
+import { getLikeCommentByPostId, createLikes } from "../../util/getRequests"
+// import { createLikes } from "../../util/getRequests"
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
 
@@ -10,14 +10,17 @@ export default function Likes({ post_id }) {
   const API = apiURL();
   const { currentUser } = useContext(AuthContext)
   let liker_id = currentUser.id;
-  console.log(liker_id)
+  console.log(currentUser)
+  console.log(liker_id);
+
   const [likes, setLikes] = useState([]);
+  const [ count, setCount ] = useState(0)
   const [likesArray, setLikesArray] = useState(null)
   
   const getLikes = async () => {
     try {
-      const res = await getLikeCommentByPostId(post_id);
       debugger
+      const res = await getLikeCommentByPostId(post_id);
       if (res) {
         setLikes(res.length);
         setLikesArray(res)
@@ -36,12 +39,12 @@ export default function Likes({ post_id }) {
     e.preventDefault();
 
     let dataObj = {
-    
       liker_id,
       postId:post_id
     };
     try {
       const res = createLikes(dataObj);
+      debugger
       if (res) {
         getLikes()
       }
@@ -77,21 +80,27 @@ export default function Likes({ post_id }) {
   return (
     <>
       <h2>This is likes</h2>
-      {/* <div className="createLikes">
-
-      </div> */}
+      <div className="CreateLikes">
+      </div>
       <div>
-        <form  onclick={handleSubmit}>
-      {likesArray ?
-        
-        likedArray(likesArray) ?
-          <button onClick={likeIcon}>Like</button>
-          :
-          <button onClick={likeIcon}>Unlike</button>
-        : <p> 0 </p>
-      }
-      <p>{likes}</p>
-      </form>
+         <form
+          onclick={handleSubmit}
+        >
+          {likesArray ?
+            likedArray(likesArray) ?
+              <button
+                onClick={likeIcon}
+              >Like</button>
+              :
+              <button onClick={likeIcon}>Unlike</button> 
+            : <p> 0 </p>
+         
+            }
+            <div>
+              
+              <p>{likes}</p>
+      </div>
+      </form> 
       </div>
       </>
   )

@@ -10,10 +10,10 @@ export default function PostsIndex({ posts }) {
 			<div>
 				{posts.map((post) => {
 					return (
-						<div>
-							<ul key={post.id}>
-								<img key={post.id} src={post.picture} alt="user_Post" />
-								<li key={post.id}>{post.content}</li>
+						<div key={post.id}>
+							<ul >
+								<img  src={post.picture} alt="user_Post" />
+								<li>{post.content}</li>
 							</ul>
 							<CommentsForm post_id={post.id} />
 							<Likes />
