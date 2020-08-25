@@ -16,7 +16,7 @@ export default function PostsIndex({ posts }) {
 								<li>{post.content}</li>
 							</ul>
 							<CommentsForm post_id={post.id} />
-							<Likes />
+							{/* <Likes /> */}
 						</div>
 					);
 				})}

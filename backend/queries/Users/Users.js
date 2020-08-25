@@ -121,14 +121,39 @@ const logIn = async (req, res, next) => {
 };
 const updateUser = async (req, res, next) => {
 	try {
-		const updateUser = await db.one(
-			`UPDATE SET profile_pic = $1 WHERE id ${req.params.id} RETURNING *`,
-			[req.body.profile_pic]
-		);
+		const {
+			full_name,
+			username,
+			bio,
+			profile_pic
+		} = req.body;
+
+		const { id } = req.params;
+
+		if (full_name) {
+			let updated = await db.one("UPDATE users SET full_name=$1 WHERE id=$2 RETURNING *", [full_name, id]);
+			user = updated
+		}
+
+
+		if(username) {
+			let updated = await db.one("UPDATE users SET username=$1 WHERE id=$2 RETURNING *", [username, id]);
+			user = updated;
+		}
+
+		if (bio) {
+			let updated = await db.one("UPDATE users SET bio=$1 WHERE id=$2 RETURNING *", [bio, id]);
+			user = updated;
+		}
+
+		if (profile_pic) {
+			let updated = await db.one("UPDATE users SET profile_pic=$1 WHERE id=$2 RETURNING *", [profile_pic, id]);
+			user = updated;
+		}
 		res.status(200).json({
 			status: "ok",
 			message: "Update user",
-			payload: updateUser,
+			payload: user,
 		});
 	} catch (error) {
 		res.status(400).json({

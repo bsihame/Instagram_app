@@ -29,7 +29,7 @@ users.get("/email/:email", getUserByEmail)
 
 users.patch("/:id",checkFirebaseToken, updateUser);
 users.delete("/:id", checkFirebaseToken, deleteUser)
-// users.post("/signUp, signUp")
+
 
 
 

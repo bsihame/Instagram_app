@@ -1,4 +1,4 @@
-import React, {useContext,useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
@@ -11,7 +11,7 @@ import Footer from "./components/navbar_footer/Footer";
 // import UserPage from "./components/pages/UserPage";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
-import UserBio from "./components/users/UserBio";
+// import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
 import Ads from "./components/ad/Ads";
 import Users from "./components/users/Users";
@@ -20,67 +20,55 @@ import UploadPostImage from "./components/posts/UploadPostImage";
 import CommentsForm from "./components/comments/CommentsForm";
 import { AuthContext } from "./providers/AuthContext";
 import { getUserById } from "./util/getRequests";
-
-
-
-// import ProfilePic from "./components/upload/ProfilePic"
-// import { useHistory } from "react-router-dom";
-
+import UserPageEdit from "./components/users/UserPageEdit";
 function App() {
 	const [firstName, setFirstName] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	const getFirstName = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger
 		setFirstName(data.full_name.split(" ")[0]);
 	};
-	
-	// const [loggedUser, setLoggedUser] = useState({});
-	// const history = useHistory();
 	useEffect(() => {
 		getFirstName();
 	}, []);
 	return (
 		<div className="App">
 			<AuthProvider>
-				<AuthRoute exact path="/" >
-					<Home  />
+				<AuthRoute exact path="/">
+					<Home />
 				</AuthRoute>
 
-				<AuthRoute
-					exact
-					path="/accounts/emailsignup/"
-				
-				>
+				<AuthRoute exact path="/accounts/emailsignup/">
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path={`/${firstName}`} >
+				<ProtectedRoute exact path={`/${firstName}`}>
 					<NavBar />
-					<UserProfile/>
+					<UserProfile />
 				</ProtectedRoute>
+
+				{/* <ProtectedRoute exact path={`/${firstName}/edit`}>
+					<NavBar />
+					<UserPageEdit />
+				</ProtectedRoute> */}
 
 				<ProtectedRoute path="/user">
 					<User />
-					{/* <ProfilePic /> */}
-					<Ads/>
-					<Footer />
-				</ProtectedRoute>
-				
-				<ProtectedRoute path="/posts"  >
-					<NavBar/>
-					<Posts />
-					
-				</ProtectedRoute>
-			
-				<ProtectedRoute path="/createPost"  >
-					<NavBar />
-					<CreatePostForm />
-				
+					<Ads />
 					<Footer />
 				</ProtectedRoute>
 
-			
+				<ProtectedRoute path="/posts">
+					<NavBar />
+					<Posts />
+				</ProtectedRoute>
+
+				<ProtectedRoute path="/createPost">
+					<NavBar />
+					<CreatePostForm />
+
+					<Footer />
+				</ProtectedRoute>
 			</AuthProvider>
 
 			{/* <AuthRoute exact path="user/userProfile" setLoggedUser={setLoggedUser} >
