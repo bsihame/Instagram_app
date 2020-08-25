@@ -19,6 +19,7 @@ export const getUserById = async(id) => {
   try {
     let res = await axios.get(API + `/api/users/${id}`);
     console.log(res.data.payload);
+    debugger
     return res.data.payload
   } catch (error) {
     console.log(error)
