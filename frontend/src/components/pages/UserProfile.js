@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { getUserById } from "../../util/getRequests";
 import { AuthContext } from "../../providers/AuthContext";
 import { useHistory } from "react-router-dom";
+import "../../CSS/UserProfile.css"
 
 
 export default function UserProfile() {
@@ -48,30 +49,32 @@ export default function UserProfile() {
 
 	return (
     <>
-      
-			<div>
-				<h2>Welcome {user.full_name}</h2>
-
+			<div className="userProfileDiv">
+				<h2 className="greeting">Welcome {user.full_name}</h2>
+				<div class="image-area">
+				<div class="img-wrapper">
 				<img
 					src={user.profile_pic}
 					alt="User_Profile_picture"
-					className="userProfile"
-				/>
+					className="userProfilePicture"/>
+				</div>
+				</div>
 			</div>
 
 			<div className="aboutParagraph">
-				<p>
+				
+				<p className="profileP">
 					<span className="boldFont">Full Name: </span>
 					{user.full_name}
 				</p>
-				<p>
+				<p className="profileP">
 					<span className="boldFont">UserName: </span>
 					{user.username}
 				</p>
-				<p>
+				<p className="profileP">
 					<span className="boldFont">Email: </span> {user.email}
 				</p>
-				<p>
+				<p className="profileP">
 					<span className="boldFont">Bio: </span>
 					{user.bio}
         </p>

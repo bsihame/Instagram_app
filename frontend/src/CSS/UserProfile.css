@@ -1,0 +1,88 @@
+.userProfileDiv {
+  margin-top: 30px;
+}
+.greeting {
+  margin-bottom: 20px;
+  color: #212529;
+}
+
+.userProfilePicture {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 20%;
+  background: black;
+  margin-bottom: 30px;
+}
+
+
+.image-area{
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+}
+
+.img-wrapper{
+	width: 300px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+.img-wrapper:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 180%;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.486);
+	z-index: 1;
+	transform: skew(45deg);
+	transition: .5s;
+}
+
+.img-wrapper:hover:before
+{
+	left: -180%;
+}
+
+.img-wrapper img {
+  height: 270px;
+  width: 264px;
+  filter: grayscale(10%);
+  transition: 2s;
+  margin-top: 111px;
+}
+
+.img-wrapper:hover img
+{
+	filter: grayscale(0%);
+	transform: scale(1.1);
+}
+
+
+.aboutParagraph:hover
+{
+	filter: grayscale(0%);
+	transform: scale(1.1);
+}
+.aboutParagraph {
+  /* margin: 10%; */
+  font-weight: 400px;
+  line-height: 1.5;
+  color: #212529;
+  border: 10px solid #75797e;
+  ;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+  margin-top: 23%;
+}
+
+
+.profileP {
+  color: black;
+  font-size: 20px;
+  text-align: center
+}
