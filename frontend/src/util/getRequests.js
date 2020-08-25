@@ -8,7 +8,6 @@ const API = apiURL();
 export const getAllUsers = async () => {
   try {
     let res = await axios.get(API + "/api/users");
-    console.log(res.data.payload)
     return res.data.payload;
   } catch (error) {
       console.log(error);
@@ -18,8 +17,6 @@ export const getAllUsers = async () => {
 export const getUserById = async(id) => {
   try {
     let res = await axios.get(API + `/api/users/${id}`);
-    console.log(res.data.payload);
-    debugger
     return res.data.payload
   } catch (error) {
     console.log(error)
@@ -29,7 +26,6 @@ export const getUserById = async(id) => {
 export const getUsersPosts = async() => {
   try {
     let res = await axios.get(API + `/api/posts`);
-    // console.log(res.data.payload);
     return res.data.payload
   } catch (error) {
     console.log(error)
@@ -84,7 +80,6 @@ export const getLikeCommentByPostId = async (postId) => {
   try {
     const res = await axios.get(API + `/api/likes/${postId}`)
     return res
-    debugger
   } catch (error) {
     console.log(error)
    }
@@ -93,7 +88,6 @@ export const getLikeCommentByPostId = async (postId) => {
 // export const getAllLikes = async (url) => {
 //   try {
 //     const res = await axios.get(API + `api/likes`, url);
-//     debugger
 //     return res.data.payload
 //   } catch (error) {
 //     console.log(error)
@@ -103,7 +97,6 @@ export const getLikeCommentByPostId = async (postId) => {
 export const ifUserNameExist = async (username) => {
   try {
     await axios.get(API + "/ api/users/username" + username)
-    debugger
   } catch (error) {
     console.log(error)
   }

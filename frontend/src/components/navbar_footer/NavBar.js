@@ -1,17 +1,16 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../../CSS/NavBar.css";
 import Logout from "../login_signup/Logout";
 import { AuthContext } from "../../providers/AuthContext";
-import { getUserById } from "../../util/getRequests"
+import { getUserById } from "../../util/getRequests";
 
 export default function NavBar() {
 	const { currentUser } = useContext(AuthContext);
-	console.log(currentUser)
+	console.log(currentUser);
 	const [firstName, setFirstName] = useState("");
 	const getFirstName = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger
 		setFirstName(data.full_name.split(" ")[0]);
 	};
 	useEffect(() => {
@@ -41,31 +40,27 @@ export default function NavBar() {
 						<NavLink className="heart" to={"/activity"}>
 							heart
 						</NavLink>
-						<NavLink className="profile"  to={"/userProfile"}>
+						<NavLink className="profile" to={"/userProfile"}>
 							profilePic
 						</NavLink>
 						<a
-						className="nav-link dropdown-toggle"
-						data-toggle="dropdown"
-						href="/trips"
-						role="button"
-						aria-expanded="false"
-					>
-						Hi, {firstName}
-					</a>
-					<div className="dropdown-menu">
-						<a className="dropdown-item" href="/user/${currentUser.id}">
-							PROFILE
+							className="nav-link dropdown-toggle"
+							data-toggle="dropdown"
+							// href="/trips"
+							role="button"
+							aria-expanded="false"
+						>
+							Hi, {firstName}
 						</a>
-						<div className="dropdown-divider"></div>
-						<a className="dropdown-item" href="/messages">
-							MESSAGES
-						</a>
-						<div className="dropdown-divider"></div>
-						{/* <a className="dropdown-item" onClick={redirect}>
+						<div className="dropdown-menu">
+							<a className="dropdown-item" href={`/${firstName}`}>
+								PROFILE
+							</a>
+							<div className="dropdown-divider"></div>
+							<a className="dropdown-item" onClick={Logout}>
 							LOG OUT
-						</a> */}
-					</div>
+						</a>
+						</div>
 						<Logout />
 					</div>
 				</div>
@@ -73,4 +68,3 @@ export default function NavBar() {
 		</>
 	);
 }
-

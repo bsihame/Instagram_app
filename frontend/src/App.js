@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext,useState, useEffect} from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
@@ -18,6 +18,8 @@ import Users from "./components/users/Users";
 import CreatePostForm from "./components/posts/CreatePostForm";
 import UploadPostImage from "./components/posts/UploadPostImage";
 import CommentsForm from "./components/comments/CommentsForm";
+import { AuthContext } from "./providers/AuthContext";
+import { getUserById } from "./util/getRequests";
 
 
 
@@ -25,9 +27,19 @@ import CommentsForm from "./components/comments/CommentsForm";
 // import { useHistory } from "react-router-dom";
 
 function App() {
+	const [firstName, setFirstName] = useState("");
+	const { currentUser } = useContext(AuthContext);
+	const getFirstName = async () => {
+		const data = await getUserById(currentUser.id);
+		debugger
+		setFirstName(data.full_name.split(" ")[0]);
+	};
+	
 	// const [loggedUser, setLoggedUser] = useState({});
 	// const history = useHistory();
-	
+	useEffect(() => {
+		getFirstName();
+	}, []);
 	return (
 		<div className="App">
 			<AuthProvider>
@@ -43,7 +55,7 @@ function App() {
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path="/userProfile/:id" >
+				<ProtectedRoute exact path={`/${firstName}`} >
 					<NavBar />
 					<UserProfile/>
 				</ProtectedRoute>
