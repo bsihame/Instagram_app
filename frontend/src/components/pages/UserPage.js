@@ -8,7 +8,6 @@
 // import { apiURL } from "../../util/apiURL";
 // import { AuthContext } from "../../providers/AuthContext";
 
-
 // import axios from "axios";
 // import UserProfile from "./UserProfile";
 
@@ -36,7 +35,7 @@
 // 	// 				"AuthToken": token
 // 	// 			}
 // 	// 		})
-// 	// 		debugger
+// 	//
 // 	// 		setPosts(res.data.payload)
 // 	// 		console.log(res.data)
 // 	// 	}
@@ -48,11 +47,11 @@
 // 	// // const showPosts = posts.map((post) => {
 // 	// // 	return (
 // 	// // 		<div>
-			
+
 // 	// // 		</div>)
 // 	// // })
 // 	// 	// useEffect(() => {
-// 	// 	// 	const userInfo = async () => { 
+// 	// 	// 	const userInfo = async () => {
 // 	// 	// 		try {
 // 	// 	// 			let res = await axios({
 // 	// 	// 				method: "get",
@@ -63,7 +62,7 @@
 // 	// 	// 					AuthToken: token,
 // 	// 	// 				},
 // 	// 	// 			});
-// 	// 	// 			debugger;
+// 	// 	// 			;
 
 // 	// 	// 			// setUserId(res.data.singleUser.id);
 // 	// 	// 			// setUsers(res.data.singleUser);
@@ -82,7 +81,7 @@
 // 	// 	// 	userInfo();
 // 	// 	// }, []);
 // 	// 	// users.map((user) => {
-// 	// 	// 	debugger;
+// 	// 	// 	;
 // 	// 	// 	return (
 // 	// 	// 		<ul key={user.id}>
 // 	// 	// 			<li>{user.id}</li>
@@ -101,7 +100,7 @@
 // 	// 			</div>
 
 // 	// 			<h2>UserPage</h2>
-			
+
 // 	// 			<div>
 // 	// 				<Row className="show-grid text-center">
 // 	// 					<Col xs={12} sm={4} className="imageWrapper">
@@ -114,20 +113,18 @@
 // 	// 			</div>
 // 	// 			{/* <div> {post.username}</div>
 // 	//            {/* imageUrl={API + post.pictures} */}
-// 	// 					 {/* <div>{post.content}</div> */} 
+// 	// 					 {/* <div>{post.content}</div> */}
 // 	// 			<div>
-// 	// 				Bio  
+// 	// 				Bio
 // 	// 				<input
-// 	// 				// onchange={handleChange} 
+// 	// 				// onchange={handleChange}
 // 	// 				/>
 // 	// 				<h2>right div</h2>
 
 // 	// 				<h2> User Pictures and username</h2>
 
-
 // 	// 				<div>help prevent corona</div>
-// 	// 				{/* <div className="gallery-image">{showPosts}</div> 
-             
+// 	// 				{/* <div className="gallery-image">{showPosts}</div>
 
 // 	// 				{/* <Posts /> */}
 // 	// 			</div>

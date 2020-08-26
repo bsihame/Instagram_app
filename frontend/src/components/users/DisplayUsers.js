@@ -24,7 +24,7 @@
 // 	}, [API]);
 
 // 	let allUsers = users.map((user) => {
-// 		debugger;
+// 		;
 // 		return (
 // 			<ul key={user.id}>
 // 				<li>user.id</li>
@@ -36,5 +36,5 @@
 // 		);
 // 	});
 // 	return <div>{allUsers}</div>;
-	
+
 // }

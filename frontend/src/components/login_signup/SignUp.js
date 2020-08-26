@@ -8,8 +8,7 @@ import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
 import "../../CSS/signUp.css";
-import { storage } from "../../firebase"
-
+import { storage } from "../../firebase";
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
@@ -27,29 +26,26 @@ export default function SignUpForm() {
 	//console.log(email,username, password);
 
 	const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
+		if (e.target.files[0]) {
+			setImage(e.target.files[0]);
+		}
+	};
 	const handleUpload = () => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on(
-			"state_changed",
-			() => {
-				storage
-					.ref("images")
-					.child(image.name)
-					.getDownloadURL()
-					.then(url => {
-						setUrl(url);
-					})
-			}
-		);
-	}
+		uploadTask.on("state_changed", () => {
+			storage
+				.ref("images")
+				.child(image.name)
+				.getDownloadURL()
+				.then((url) => {
+					setUrl(url);
+				});
+		});
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		
+
 		try {
 			let res = await signUp(email, password);
 			//  await signUp(email, password);
@@ -60,14 +56,11 @@ export default function SignUpForm() {
 				email: email,
 				username: username,
 				bio: bio,
-				profile_pic: url
+				profile_pic: url,
 			});
-		
-			debugger;
 		} catch (error) {
 			setError(error.message);
 		}
-		
 	};
 
 	return (
@@ -112,12 +105,15 @@ export default function SignUpForm() {
 							value={username}
 							onChange={(e) => setUserName(e.currentTarget.value)}
 						/>
-						<input placeholder="Bio: " value={bio} onChange={(e) => setBio(e.currentTarget.value)} />
-						
-						<input type="file"
-        onChange={handleChange} />
-      <button onClick={handleUpload}>Upload Image</button>
-      <br />
+						<input
+							placeholder="Bio: "
+							value={bio}
+							onChange={(e) => setBio(e.currentTarget.value)}
+						/>
+
+						<input type="file" onChange={handleChange} />
+						<button onClick={handleUpload}>Upload Image</button>
+						<br />
 
 						<input
 							placeholder="Password"
@@ -128,7 +124,6 @@ export default function SignUpForm() {
 							required
 						/>
 						{/* <div><ProfilePic/></div> */}
-						
 
 						<button type="submit" className="signUpButton">
 							Sign up

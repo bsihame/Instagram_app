@@ -21,7 +21,7 @@ export default function Users() {
 			<div className="displayAllUsers">
 				{users.map((user) => {
 					return (
-						<div key={user.id}>
+						<div className="usersInfo" key={user.id}>
 							<img
 								src={user.profile_pic}
 								alt="User Profile"

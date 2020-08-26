@@ -1,105 +1,81 @@
-// import React, { useState, useContext, useEffect } from "react";
-// import { getLikeCommentByPostId, createLikes } from "../../util/getRequests"
-// // import { createLikes } from "../../util/getRequests"
-// import { apiURL } from "../../util/apiURL";
-// import { AuthContext } from "../../providers/AuthContext";
+import React, { useState, useContext, useEffect } from "react";
+import { getLikeCommentByPostId, createLikes } from "../../util/getRequests";
+// import { createLikes } from "../../util/getRequests"
+import { apiURL } from "../../util/apiURL";
+import { AuthContext } from "../../providers/AuthContext";
 
+export default function Likes({ post_id }) {
+	const API = apiURL();
+	const { currentUser } = useContext(AuthContext);
+	let liker_id = currentUser.id;
+	console.log(currentUser);
+	console.log(liker_id);
 
+	const [likes, setLikes] = useState([]);
+	// const [ count, setCount ] = useState(0)
+	// const [likesArray, setLikesArray] = useState(null)
 
-// export default function Likes({ post_id }) {
-//   const API = apiURL();
-//   const { currentUser } = useContext(AuthContext)
-//   let liker_id = currentUser.id;
-//   console.log(currentUser)
-//   console.log(liker_id);
+	const getLikes = async () => {
+		try {
+			//
+			const res = await getLikeCommentByPostId(post_id);
+			console.log(1000, "RESPONSE", res);
+			if (res) {
+				setLikes(res);
 
-//   const [likes, setLikes] = useState([]);
-//   const [ count, setCount ] = useState(0)
-//   const [likesArray, setLikesArray] = useState(null)
-  
-//   const getLikes = async () => {
-//     try {
-//       debugger
-//       const res = await getLikeCommentByPostId(post_id);
-//       if (res) {
-//         setLikes(res.length);
-//         setLikesArray(res)
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       setLikes([])
-//     }
-//   };
+				//setLikesArray(res)
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-//   useEffect(() => {
-//     getLikes()
-//   }, []);
+	useEffect(() => {
+		getLikes();
+	}, []);
 
-//   const handleSubmit = async (e) =>{
-//     e.preventDefault();
+	const handleLike = async () => {
+		let dataObj = {
+			liker_id,
+			post_id,
+		};
 
-//     let dataObj = {
-//       liker_id,
-//       postId:post_id
-//     };
-//     try {
-//       const res = createLikes(dataObj);
-//       debugger
-//       if (res) {
-//         getLikes()
-//       }
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-//   const likeIcon = async (e) => {
-//     if (e.target.innerText === "Like") {
-//       e.target.innerText = "Unlike";
-//       try {
-//         const res = await getLikes();
-//         getLikes()
-//       } catch (error) {
-//         console.log(error)
-//       }
-//     } else {
-//       e.target.innerText = "Like";
-      
-//     }
-//   }
-//   const likedArray = (arr) => {
-//     return arr.every(liked => {
-//        return liked.length
-//     })
-//   }
+		try {
+			const res = await createLikes(dataObj);
+			if (res) {
+				getLikes();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-//   useEffect(() => {
-//     getLikes()
-//   }, []);
-//   return (
-//     <>
-//       <h2>This is likes</h2>
-//       <div className="CreateLikes">
-//       </div>
-//       <div>
-//          <form
-//           onclick={handleSubmit}
-//         >
-//           {likesArray ?
-//             likedArray(likesArray) ?
-//               <button
-//                 onClick={likeIcon}
-//               >Like</button>
-//               :
-//               <button onClick={likeIcon}>Unlike</button> 
-//             : <p> 0 </p>
-         
-//             }
-//             <div>
-              
-//               <p>{likes}</p>
-//       </div>
-//       </form> 
-//       </div>
-//       </>
-//   )
-// }
+	// const likeIcon = async (e) => {
+	//   if (e.target.innerText === "Like") {
+	//     e.target.innerText = "Unlike";
+	//     try {
+	//       const res = await getLikes();
+	//       getLikes()
+	//     } catch (error) {
+	//       console.log(error)
+	//     }
+	//   } else {
+	//     e.target.innerText = "Like";
+
+	//   }
+	// }
+	// const likedArray = (arr) => {
+	//   return arr.every(liked => {
+	//      return liked.length
+	//   })
+	// }
+
+	// useEffect(() => {
+	//   getLikes()
+	// }, []);
+	return (
+		<>
+			<h2 onClick={handleLike}>Icon : {likes.length}</h2>
+		</>
+	);
+}

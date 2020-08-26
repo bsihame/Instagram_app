@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
-	const [currentUser, setCurrentUser] = useState(null);
+	const [currentUser, setCurrentUser] = useState({});
 	const [token, setToken] = useState(null);
 
 	const updateUser = (user) => {
@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
 				setLoading(false);
 			});
 		} else {
-			setCurrentUser(null);
+			setCurrentUser({});
 			setLoading(false);
 		}
 	};

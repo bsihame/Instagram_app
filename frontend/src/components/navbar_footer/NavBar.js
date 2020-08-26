@@ -40,13 +40,9 @@ export default function NavBar() {
 						<NavLink className="heart" to={"/activity"}>
 							heart
 						</NavLink>
-						<NavLink className="profile" to={"/userProfile"}>
-							profilePic
-						</NavLink>
 						<a
-							className="nav-link dropdown-toggle"
+							className="nav-link dropdown-toggle "
 							data-toggle="dropdown"
-							// href="/trips"
 							role="button"
 							aria-expanded="false"
 						>
@@ -58,8 +54,8 @@ export default function NavBar() {
 							</a>
 							<div className="dropdown-divider"></div>
 							<a className="dropdown-item" onClick={Logout}>
-							LOG OUT
-						</a>
+								LOG OUT
+							</a>
 						</div>
 						<Logout />
 					</div>

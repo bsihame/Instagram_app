@@ -24,13 +24,18 @@ import UserPageEdit from "./components/users/UserPageEdit";
 function App() {
 	const [firstName, setFirstName] = useState("");
 	const { currentUser } = useContext(AuthContext);
+
 	const getFirstName = async () => {
 		const data = await getUserById(currentUser.id);
 		setFirstName(data.full_name.split(" ")[0]);
 	};
+
 	useEffect(() => {
-		getFirstName();
-	}, []);
+		if (currentUser.id) {
+			getFirstName();
+		}
+	}, [currentUser]);
+
 	return (
 		<div className="App">
 			<AuthProvider>

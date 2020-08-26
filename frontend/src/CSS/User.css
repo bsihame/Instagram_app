@@ -7,14 +7,14 @@
 .rightDiv {
   width: 100%;
   display: flex;
-  
 
  }
 
 .leftDiv {
  width: 100%;
  display: flex;
-
+ margin-top: 5%;
+ align-items: center;
 }
 
 .userProfile {
@@ -25,5 +25,11 @@
   border-style: double;
   overflow: hidden;
   margin-right: 1rem;
+}
+.userUsername{
+  text-align: center;
+  margin-right: 1rem;
+  font-size: medium;
+  color: black;
 }
 

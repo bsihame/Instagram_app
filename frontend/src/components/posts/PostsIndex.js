@@ -15,8 +15,8 @@ export default function PostsIndex({ posts }) {
 								<img  src={post.picture} alt="user_Post" />
 								<li>{post.content}</li>
 							</ul>
+							<Likes post_id={post.id}/>
 							<CommentsForm post_id={post.id} />
-							{/* <Likes /> */}
 						</div>
 					);
 				})}

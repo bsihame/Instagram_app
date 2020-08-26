@@ -1,21 +1,26 @@
 .UsersContainer {
   display: flex;
   flex-direction: left;
-  width: 50%;
+  width: 100%;
   float: write;
   margin: 1rem;
   
 }
 
+.usersInfo{
+  border-top: #dbdbdb solid 0.05rem;
+  border-bottom: #dbdbdb solid 0.05rem;
+}
+
 .displayAllUsers {
-  width: 80%;
+  width: 100%;
   justify-content: center;
   display: inline-flex; 
-  margin: 1rem;
+  margin: 2rem;
   align-content: center;
   align-self: center;
   text-align: center;
-  border: 2px solid #dbdbdb;
+ 
 }
 
 .userProfile {

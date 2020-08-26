@@ -17,7 +17,7 @@
 // 	const { token } = useContext(AuthContext);
 
 // 	useEffect(() => {
-// 		debugger
+//
 // 		const getAllUsers = async () => {
 // 			let res = await axios({
 // 				method: "get",
@@ -26,7 +26,7 @@
 // 					AuthToken: token,
 // 				},
 // 			});
-// 			debugger
+//
 
 // 			console.log(res.data);
 // 			// setUsers(res.data.payload);
@@ -43,7 +43,7 @@
 // 					<Posts loggedUser={loggedUser} />
 // 					<div className="otherUsersIndex">
 // 						<p>display Other users </p>
-				
+
 // 					</div>
 
 // 					<div className="healthInsuranceLink">
@@ -70,14 +70,13 @@
 // 						<h2>Display Posts of Users</h2>
 // 						<ul>
 // 							{users.map((user) => {
-							
+
 // 								return <UsersList key={user.id} user={user} />;
 // 							})}
 // 						</ul>
 // 					</div>
 // 				</div>
 
-			
 // 			</div>
 // 		</>
 // 	);
