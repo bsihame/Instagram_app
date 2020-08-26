@@ -3,6 +3,7 @@ import { getLikeCommentByPostId, createLikes } from "../../util/getRequests";
 // import { createLikes } from "../../util/getRequests"
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
+import {heartIcon} from "../../images/heart.png"
 
 export default function Likes({ post_id }) {
 	const API = apiURL();
@@ -75,7 +76,7 @@ export default function Likes({ post_id }) {
 	// }, []);
 	return (
 		<>
-			<h2 onClick={handleLike}>Icon : {likes.length}</h2>
+			<h2 onClick={handleLike}><img src="heartIcon" alt="heartIcon"/> : {likes.length}</h2>
 		</>
 	);
 }
