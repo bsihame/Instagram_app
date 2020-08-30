@@ -32,7 +32,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		if (currentUser.id) {
+		if (currentUser) {
 			getFirstName();
 		}
 	}, [currentUser]);
