@@ -7,7 +7,7 @@ export default function Explore() {
   
   return (
     
-		<div>
+		<div className="exploreDiv">
 			<section id="showcase">
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<ol className="carousel-indicators">
