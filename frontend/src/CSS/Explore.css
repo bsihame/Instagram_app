@@ -1,0 +1,78 @@
+/* body {
+ background-color: deepskyblue;
+} */
+
+image {
+  height: 80%;
+  width:80%;
+}
+
+.carousel-item {
+  height: 750px;
+}
+ 
+.carousel-image-1 {
+  background: url('../images/image-1.jpg');
+  background-size: cover;
+}
+
+.carousel-image-2 {
+  background: url('../images/image-2.jpg');
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background: url('../images/image-3.jpg');
+  background-size: cover;
+}
+.carousel-image-4 {
+  background: url('../images/image-4.jpg');
+  background-size: cover;
+}
+
+.carousel-image-5 {
+  background: url('../images/image-5.jpg');
+  background-size: cover;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  color: black;
+}
+
+.carousel-indicators {
+ margin-top: 4rem;
+  background-color: gray;
+}
+
+carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+    transition: opacity .10s ease;
+    /* background: gray; */
+}
+
+#video-play {
+  position: relative;
+  min-height: 200px;
+  background: url('../images/lights.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+  text-align: center;
+  color: #fff;
+}
+
+#video-play a {
+  color: #fff;
+}
+
+

@@ -21,6 +21,7 @@ import CommentsForm from "./components/comments/CommentsForm";
 import { AuthContext } from "./providers/AuthContext";
 import { getUserById } from "./util/getRequests";
 import UserPageEdit from "./components/users/UserPageEdit";
+import Explore from "./components/pages/Explore"
 function App() {
 	const [firstName, setFirstName] = useState("");
 	const { currentUser } = useContext(AuthContext);
@@ -48,8 +49,12 @@ function App() {
 				</AuthRoute>
 
 				<ProtectedRoute exact path={`/${firstName}`}>
+				{/* <AuthRoute exact path={`/user`}> */}
+
 					<NavBar />
 					<UserProfile />
+					{/* </AuthRoute> */}
+
 				</ProtectedRoute>
 
 				{/* <ProtectedRoute exact path={`/${firstName}/edit`}>
@@ -71,6 +76,15 @@ function App() {
 				<ProtectedRoute path="/createPost">
 					<NavBar />
 					<CreatePostForm />
+
+					<Footer />
+				</ProtectedRoute>
+			{/* </AuthProvider> */}
+
+
+			<ProtectedRoute path="/explore">
+					<NavBar />
+					<Explore />
 
 					<Footer />
 				</ProtectedRoute>

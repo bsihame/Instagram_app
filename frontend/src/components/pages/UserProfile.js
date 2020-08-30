@@ -49,8 +49,8 @@ export default function UserProfile() {
 		<>
 			<div className="userProfileDiv">
 				<h2 className="greeting">Welcome {user.full_name}</h2>
-				<div class="image-area">
-					<div class="img-wrapper">
+				<div className="image-area">
+					<div className="img-wrapper">
 						<img
 							src={user.profile_pic}
 							alt="User_Profile_picture"

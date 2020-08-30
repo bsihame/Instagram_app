@@ -18,7 +18,7 @@ export default function User() {
 			console.log("HERE", id);
 			const res = await getUserById(id);
 			//;
-			setLoggedUser(res);
+			// setLoggedUser(res);
 			console.log(10000, "THIS", res);
 		} catch (error) {
 			console.log("ISSUE");

@@ -8,14 +8,14 @@ import { getUserById } from "../../util/getRequests";
 export default function NavBar() {
 	const { currentUser } = useContext(AuthContext);
 	console.log(currentUser);
-	const [firstName, setFirstName] = useState("");
-	const getFirstName = async () => {
-		const data = await getUserById(currentUser.id);
-		setFirstName(data.full_name.split(" ")[0]);
-	};
-	useEffect(() => {
-		getFirstName();
-	}, []);
+	// const [firstName, setFirstName] = useState("");
+	// const getFirstName = async () => {
+	// 	const data = await getUserById(currentUser.id);
+	// 	setFirstName(data.full_name.split(" ")[0]);
+	// };
+	// useEffect(() => {
+	// 	getFirstName();
+	// }, []);
 
 	return (
 		<>
@@ -40,7 +40,7 @@ export default function NavBar() {
 						<NavLink className="heart" to={"/activity"}>
 							heart
 						</NavLink>
-						<a
+						{/* <a
 							className="nav-link dropdown-toggle "
 							data-toggle="dropdown"
 							role="button"
@@ -55,8 +55,8 @@ export default function NavBar() {
 							<div className="dropdown-divider"></div>
 							<a className="dropdown-item" onClick={Logout}>
 								LOG OUT
-							</a>
-						</div>
+							</a> */}
+						{/* </div> */}
 						<Logout />
 					</div>
 				</div>
