@@ -1,0 +1,5 @@
+.heart {
+	content: url("../images/heart.png");
+	width: 30px;
+	margin-left: 5px;
+}
