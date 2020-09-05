@@ -57,10 +57,10 @@ function App() {
 
 				</ProtectedRoute>
 
-				{/* <ProtectedRoute exact path={`/${firstName}/edit`}>
+				<ProtectedRoute exact path={`/${firstName}/edit`}>
 					<NavBar />
 					<UserPageEdit />
-				</ProtectedRoute> */}
+				</ProtectedRoute>
 
 				<ProtectedRoute path="/user">
 					<User />

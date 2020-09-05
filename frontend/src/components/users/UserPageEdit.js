@@ -2,16 +2,19 @@
 // import { AuthContext } from '../../providers/AuthContext';
 // import { getUserById, updateUser } from '../../util/getRequests';
 // import { useInput } from '../../util/customHooks';
-// import { uploadPicture } from '../../util/firebaseFunctions';
+// import { uploadPicture, getFirebaseIdToken } from '../../util/firebaseFunctions';
 // import { useHistory } from 'react-router-dom';
 
-// export default function UserPageEdit (firstName) {
+
+// export default function UserPageEdit(firstName) {
+  
 //     const history = useHistory();
 //     const { currentUser } = useContext(AuthContext);
 //     const [ user, setUser ] = useState({})
 //     const [ currentFullName, setCurrentFullName] = useState("");
 //     const [ currentUserName, setCurrentUserName ] = useState("");
-//     const [ currentBio, setCurrentBio] = useState("");
+//     const [currentBio, setCurrentBio] = useState("");
+//     const token = getFirebaseIdToken(); 
 
 //     const fullName = useInput("");
 //     const userName = useInput("");
@@ -26,21 +29,30 @@
 //       setCurrentBio(data.bio)
 //       setUser(data);
 //     }
-//     useEffect(() => {
-//       getUserCall();
-//       updateUserCall();
-//     }, [])
-//   const updateUserCall = async () => {
-//         const userData = {
-//             full_name: fullName.value,
-//             username: userName.value ,
-//             bio: bio.value
-//         }
-//     const response = await updateUser(currentUser.id);
-//     }
+    
+//   // const updateUserCall = async () => {
+//   //       const userData = {
+//   //           full_name: fullName.value,
+//   //           username: userName.value ,
+//   //           bio: bio.value
+//   //       }
+//     // const response = await updateUser(currentUser.id,{
+// 		// 	headers: {
+// 		// 		authtoken: token,
+//     //   },
+// 		// });
+   
+// // }
+    
+
+
 //     // const handleFileSelect = ( e ) => {
 // 		// setProfilePic(e.target.files[0]);
 //     // }
+//   useEffect(() => {
+// 		getUserCall();
+// 		// updateUserCall();
+// 	}, []);
 //     return (
 //         <div className="up-edit">
 //                 <div className="editContainer">
@@ -68,7 +80,7 @@
 //                     <textarea rows="7" cols="40" placeholder="Bio" {...bio} />
 //                 </div>
 //             <div >
-//                 <button type="submit" onClick={updateUserCall()}>Update</button>
+//                 {/* <button type="submit" onClick={updateUserCall}>Update</button> */}
 //             </div>
 //         </div>
 //     )
