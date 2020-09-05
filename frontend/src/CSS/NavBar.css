@@ -8,14 +8,12 @@
 	border-bottom: 2px solid #dbdbdb;
 }
 .search {
-
 }
 
 .navLinkDiv {
 	display: flex;
 	align-items: center;
 }
-
 
 .title {
 	font-family: "Lobster Two", cursive;
@@ -27,10 +25,9 @@
 }
 
 .search {
-    width: auto;
-		margin-left: 40%;	
+	width: auto;
+	margin-left: 40%;
 }
-
 
 .right {
 	width: 70%;
@@ -68,4 +65,10 @@
 	content: url("../images/profile-icon-300x300.png");
 	height: 30px;
 	margin-left: 5px;
+}
+
+.logout {
+	padding-left: 0px;
+	margin-left: auto;
+	color: #007bff;
 }

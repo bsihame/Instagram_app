@@ -99,8 +99,15 @@
 
 
 
-import React from 'react';
-import { NavLink }  from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthContext";
+import { getUserById } from "../../util/getRequests";
+// import Logout from "../login_signup/Logout";
+import { logout } from "../../util/firebaseFunctions";
+
+ 
+
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -187,12 +194,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+	const { currentUser } = useContext(AuthContext);
+	const [firstName, setFirstName] = useState("");
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+	const getFirstName = async () => {
+		const data = await getUserById(currentUser.id);
+		setFirstName(data.full_name.split(" ")[0]);
+	};
+	// const logoutFunction = async () => {
+	// 	await Logout();
+	// };
+	useEffect(() => {
+		getFirstName();
+	}, []);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -222,11 +241,17 @@ export default function PrimarySearchAppBar() {
 			open={isMenuOpen}
 			onClose={handleMenuClose}
 		>
-			<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-			<MenuItem onClick={handleMenuClose}>Settings</MenuItem>
-			<MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+			<NavLink className="profile" to={`/${firstName}`}>
+				<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+			</NavLink>
+			<NavLink className="profile" to={`/${firstName}/edit`}>
+				<MenuItem onClick={handleMenuClose}>Settings</MenuItem>
+			</NavLink>
+			
+			<MenuItem onClick={logout} className="logout">Log Out</MenuItem>
 		</Menu>
 	);
+	
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -314,19 +339,27 @@ export default function PrimarySearchAppBar() {
 							</IconButton>
 						</NavLink>
 
-						<NavLink className="directMessage" to={"/direct/inbox/"} >
-						<IconButton aria-label="show 4 new mails" color="inherit">
-							<Badge badgeContent={4} color="secondary">
-								<MailIcon />
-							</Badge>
+						<NavLink className="directMessage" to={"/direct/inbox/"}>
+							<IconButton aria-label="show 4 new mails" color="inherit">
+								<Badge badgeContent={4} color="secondary">
+									<MailIcon />
+								</Badge>
 							</IconButton>
 						</NavLink>
-						
-						<IconButton aria-label="show 17 new notifications" color="inherit">
-							<Badge badgeContent={17} color="secondary">
-								<NotificationsIcon />
-							</Badge>
-						</IconButton>
+						<NavLink className="directMessage" to={"/direct/inbox/"}>
+							<IconButton
+								aria-label="show 17 new notifications"
+								color="inherit"
+							>
+								<Badge badgeContent={17} color="secondary">
+									<NotificationsIcon />
+								</Badge>
+							</IconButton>
+						</NavLink>
+						{/* <NavLink className="logOut" onClick={logoutFunction}>
+							Log Out
+						</NavLink> */}
+
 						<IconButton
 							edge="end"
 							aria-label="account of current user"
@@ -353,6 +386,7 @@ export default function PrimarySearchAppBar() {
 			</AppBar>
 			{renderMobileMenu}
 			{renderMenu}
+			{/* <Logout /> */}
 		</div>
 	);
 }

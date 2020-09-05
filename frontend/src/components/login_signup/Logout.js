@@ -9,7 +9,11 @@ export default function Logout() {
 
 	const displayButton = () => {
 		if (currentUser) {
-			return <button onClick={logout}>Logout</button>;
+			return (
+				<button onClick={logout} className="buttonLogout2">
+					Logout
+				</button>
+			);
 		} else {
 			return <></>;
 		}
