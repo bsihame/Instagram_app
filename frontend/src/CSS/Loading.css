@@ -1,20 +1,25 @@
-.loader-container{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #F8F8F8AD;
+.loader-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
-.loader{
-  left: 50%;
-  top: 30%;
-  z-index: 1000;
-  position: absolute;
+.loader {
+	left: 40%;
+	top: 20%;
+	width: 40%;
+	height: 40%;
+	z-index: 1000;
+	position: absolute;
 }
-.profile-pic-uploader{
-  width: 260px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
+.profile-pic-uploader {
+	width: 560px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+}
+
+.text {
+	font-size: xx-large;
 }

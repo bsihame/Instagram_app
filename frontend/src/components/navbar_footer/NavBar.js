@@ -206,9 +206,6 @@ export default function PrimarySearchAppBar() {
 		const data = await getUserById(currentUser.id);
 		setFirstName(data.full_name.split(" ")[0]);
 	};
-	// const logoutFunction = async () => {
-	// 	await Logout();
-	// };
 	useEffect(() => {
 		getFirstName();
 	}, []);
@@ -248,7 +245,7 @@ export default function PrimarySearchAppBar() {
 				<MenuItem onClick={handleMenuClose}>Settings</MenuItem>
 			</NavLink>
 			
-			<MenuItem onClick={logout} className="logout">Log Out</MenuItem>
+			<MenuItem onClick={logout} className="logout" color="inherit">Log Out</MenuItem>
 		</Menu>
 	);
 	
@@ -289,7 +286,7 @@ export default function PrimarySearchAppBar() {
 					aria-haspopup="true"
 					color="inherit"
 				>
-					<AccountCircle />
+					<AccountCircle color="inherit"/>
 				</IconButton>
 				<p>Profile</p>
 			</MenuItem>
