@@ -15,6 +15,7 @@ export default function UserProfile() {
 		const data = await getUserById(currentUser.id);
 		setFirstName(data.full_name.split(" ")[0]);
 	};
+
 	useEffect(() => {
 		getFirstName();
 	}, []);
@@ -28,18 +29,17 @@ export default function UserProfile() {
 		}
 	};
 
-	// const redirect = () => {
-	// 	history.push(`/${firstName}/edit`)
-	// };
+	const redirect = () => {
+		history.push(`/${firstName}/edit`);
+	};
 
-	// const editingUser = () => {
-	//   if (currentUser.id === user.id) {
-	//     return<button onClick={redirect}>Edit Profile</button>
-	//   } else {
-	//    return null
-	//   }
-
-	// }
+	const editingUser = () => {
+		if (currentUser.id === user.id) {
+			return <button className="editButton" onClick={redirect}>Edit Profile</button>;
+		} else {
+			return null;
+		}
+	};
 
 	useEffect(() => {
 		getUser();
@@ -66,7 +66,7 @@ export default function UserProfile() {
 					{user.full_name}
 				</p>
 				<p className="profileP">
-					<span className="boldFont">UserName: </span>
+					<span className="boldFont">User Name: </span>
 					{user.username}
 				</p>
 				<p className="profileP">
@@ -76,10 +76,8 @@ export default function UserProfile() {
 					<span className="boldFont">Bio: </span>
 					{user.bio}
 				</p>
-				{/* <div>
-        {editingUser()}
-        </div> */}
 			</div>
+			<div>{editingUser()}</div>
 		</>
 	);
 }

@@ -30,19 +30,20 @@ export default function UserPageEdit(firstName) {
       setUser(data);
     }
     
-  // const updateUserCall = async () => {
-  //       const userData = {
-  //           full_name: fullName.value,
-  //           username: userName.value ,
-  //           bio: bio.value
-  //       }
-    // const response = await updateUser(currentUser.id,{
-		// 	headers: {
-		// 		authtoken: token,
-    //   },
-		// });
+  const updateUserCall = async () => {
+        const userData = {
+            full_name: fullName.value,
+            username: userName.value ,
+            bio: bio.value
+        }
+    const response = await updateUser(currentUser.id,{
+			headers: {
+				authtoken: token,
+        },
+    });
+    debugger
    
-// }
+}
     
 
 
@@ -86,3 +87,66 @@ export default function UserPageEdit(firstName) {
     )
 }
 
+// import React, { useState, useEffect } from "react";
+// // import axios from " axios";
+// import { useHistory } from "react-router-dom";
+
+// import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
+// export default function UserPageEdit(props) {
+//     const history = useHistory();
+//     const [profilePicture, setProfilePicture] = useState(null)
+//     const[imagePreview, setImagePreview]
+//         = useState(null)
+//     const {
+//         fullName,
+//         userName,
+//         Bio,
+//         profilePic,
+//         handleFileChange,
+//     } = props;
+  
+// 		useEffect(() => {
+// 			getUserCall();
+			
+// 		}, []);
+    
+//     const displayPreviewPicture = profilePic ? (
+// 			<img src={profilePic} alt="new profile picture" />
+//     ) : null;
+//     const handleFileSelect = (e) => {
+// 			setProfilePicture(e.target.files[0]);
+// 			setImagePreview(URL.createObjectURL(e.target.files[0]));
+// 		};
+
+// 		const returnToProfile = () => {
+// 			history.push(`/user/${currentUser.id}`);
+// 		};
+    
+//     return (
+// 			<div
+// 				className="divProfilePic"
+// 				style={{ height: profilePic ? "100vh" : "100vh" }}
+// 			>
+// 				<h2>Profile Update</h2>
+// 				<div className="upe-pfpContainer">
+// 					<label htmlFor="upe-pfp" className="pfpLabel">
+// 						<span className="MuiButton-startIcon MuiButton-iconSizeMedium">
+// 							<CloudUploadIcon />
+// 						</span>
+// 						Upload a profile picture
+// 					</label>
+// 				</div>
+
+// 				<input
+// 					type="file"
+// 					accept=".png, .jpg, .jpeg"
+// 					onChange={handleFileChange}
+// 					name="pfp"
+// 					id="upe-pfp"
+// 				/>
+// 				<b>Preview: </b>
+// 				{displayPreviewPicture}
+// 			</div>
+// 		);
+// }
