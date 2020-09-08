@@ -14,13 +14,9 @@ export const getAllUsers = async () => {
 
 export const getUserById = async (id) => {
 	try {
-		console.log("Called");
-		console.log(API);
 		let res = await axios.get(API + `/api/users/${id}`);
-		console.log("RES", res.data.payload);
 		return res.data.payload;
 	} catch (error) {
-		//console.log(error)
 		console.log("ERROR - get user by id");
 	}
 };
@@ -86,7 +82,6 @@ export const getLikeCommentByPostId = async (postId) => {
 };
 
 export const updateUser = async (id, data) => {
-	
 	try {
 		let res = await axios.patch(API + "/api/users/" + id, data);
 		return res.data.user;

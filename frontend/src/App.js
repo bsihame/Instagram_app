@@ -71,10 +71,10 @@ function App() {
 
 				<ProtectedRoute exact path={`/${firstName}/createPost`}>
 					<NavBar />
-					<CreatePostForm />
+					<CreatePostForm  />
 					<Footer />
 				</ProtectedRoute>
-			
+
 				<ProtectedRoute path="/explore">
 					<NavBar />
 					<Explore />

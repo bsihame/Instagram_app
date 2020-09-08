@@ -1,40 +1,38 @@
 import React, { useState, useContext, useEffect } from "react";
 import { apiURL } from "../../util/apiURL";
-import { AuthContext } from '../../providers/AuthContext';
+import { AuthContext } from "../../providers/AuthContext";
 import { createPost } from "../../util/getRequests";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { storage } from "../../firebase";
+import { Redirect } from "react-router-dom";
 import Button from "@material-ui/icons";
 import "../../CSS/CreatePostForm.css";
 
 export default function CreatePostForm() {
-	const history = useHistory()
+	const history = useHistory();
 	const { currentUser } = useContext(AuthContext);
-	let id = currentUser.id
+	let id = currentUser.id;
 	const [content, setContent] = useState("");
 	const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
-  
-  const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
+	const [url, setUrl] = useState("");
+
+	const handleChange = (e) => {
+		if (e.target.files[0]) {
+			setImage(e.target.files[0]);
+		}
+	};
 	const handleUpload = () => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on(
-			"state_changed",
-			() => {
-				storage
-					.ref("images")
-					.child(image.name)
-					.getDownloadURL()
-					.then(url => {
-						setUrl(url);
-					})
-			}
-		);
-	}
+		uploadTask.on("state_changed", () => {
+			storage
+				.ref("images")
+				.child(image.name)
+				.getDownloadURL()
+				.then((url) => {
+					setUrl(url);
+				});
+		});
+	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -42,19 +40,23 @@ export default function CreatePostForm() {
 			poster_id: id,
 			picture: url,
 			content,
-		}
-		
+		};
+
 		try {
 			const res = await createPost(dataObj);
-			setUrl(url)
-			console.log(url)
-			setContent(res.data)
+			setUrl(url);
+			history.push("/user");
 		} catch (error) {
-			console.log(error)
-		}
 		
-	}
-	
+			console.log(error);
+		}
+
+	};
+
+	//  const returnToUser = () => {
+	// 		history.push("/user");
+	// 	};
+
 
 	return (
 		<div className="postFormDiv">
@@ -62,10 +64,9 @@ export default function CreatePostForm() {
 			<div className="createPost">
 				<div className="uploadDiv">
 					<input className="inputPost" type="file" onChange={handleChange} />
-					<button className="buttomPost"  onClick={handleUpload}>
+					<button className="buttomPost" onClick={handleUpload}>
 						Upload Image
 					</button>
-					{/* <br /> */}
 				</div>
 				<div className="form">
 					<form onSubmit={handleSubmit} className="displayComment">
@@ -76,7 +77,9 @@ export default function CreatePostForm() {
 							value={content}
 							onChange={(e) => setContent(e.currentTarget.value)}
 						/>
-						<button className="buttomPost" type="submit">
+						<button className="buttomPost" type="submit"
+						// onClick={returnToUser}
+						>
 							Create Post
 						</button>
 					</form>

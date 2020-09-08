@@ -31,9 +31,9 @@
 }
 
 .uploadDiv {
-  margin: 2em;
-  align-items: center;
-  padding-left: 20%;
+	margin: 2em;
+	align-items: center;
+	padding-left: 20%;
 }
 
 .form {
@@ -47,8 +47,8 @@
 	align-content: center;
 	justify-content: center;
 	box-sizing: border-box;
-  resize: none;
-  color: black;
+	resize: none;
+	color: black;
 }
 
 .buttomPost {
