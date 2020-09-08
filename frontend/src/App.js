@@ -49,12 +49,8 @@ function App() {
 				</AuthRoute>
 
 				<ProtectedRoute exact path={`/${firstName}`}>
-				{/* <AuthRoute exact path={`/user`}> */}
-
 					<NavBar />
 					<UserProfile />
-					{/* </AuthRoute> */}
-
 				</ProtectedRoute>
 
 				<ProtectedRoute exact path={`/${firstName}/edit`}>
@@ -73,16 +69,13 @@ function App() {
 					<Posts />
 				</ProtectedRoute>
 
-				<ProtectedRoute path="/createPost">
+				<ProtectedRoute exact path={`/${firstName}/createPost`}>
 					<NavBar />
 					<CreatePostForm />
-
 					<Footer />
 				</ProtectedRoute>
-			{/* </AuthProvider> */}
-
-
-			<ProtectedRoute path="/explore">
+			
+				<ProtectedRoute path="/explore">
 					<NavBar />
 					<Explore />
 

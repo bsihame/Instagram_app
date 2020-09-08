@@ -3,7 +3,9 @@ import { apiURL } from "../../util/apiURL";
 import { AuthContext } from '../../providers/AuthContext';
 import { createPost } from "../../util/getRequests";
 import { useHistory } from 'react-router-dom';
-import { storage } from "../../firebase"
+import { storage } from "../../firebase";
+import Button from "@material-ui/icons";
+import "../../CSS/CreatePostForm.css";
 
 export default function CreatePostForm() {
 	const history = useHistory()
@@ -55,18 +57,31 @@ export default function CreatePostForm() {
 	
 
 	return (
-		<>
-			<h2>This is create Post Form</h2>
+		<div className="postFormDiv">
+			<h2 className="postTittle">Create a Post</h2>
 			<div className="createPost">
-      <input type="file"
-        onChange={handleChange} />
-      <button onClick={handleUpload}>Upload Image</button>
-      <br />
-				<form onSubmit={handleSubmit} className="displayComment">
-					<input type="text" name="content" value={content} onChange={(e) =>setContent(e.currentTarget.value)} />
-				<button type="submit">Create Post</button>
-				</form>
+				<div className="uploadDiv">
+					<input className="inputPost" type="file" onChange={handleChange} />
+					<button className="buttomPost"  onClick={handleUpload}>
+						Upload Image
+					</button>
+					{/* <br /> */}
+				</div>
+				<div className="form">
+					<form onSubmit={handleSubmit} className="displayComment">
+						<input
+							className="inputPost textPost"
+							type="text"
+							name="content"
+							value={content}
+							onChange={(e) => setContent(e.currentTarget.value)}
+						/>
+						<button className="buttomPost" type="submit">
+							Create Post
+						</button>
+					</form>
+				</div>
 			</div>
-		</>
+		</div>
 	);
 }

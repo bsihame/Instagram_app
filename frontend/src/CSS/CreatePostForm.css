@@ -1,0 +1,66 @@
+.postFormDiv {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 75%;
+	margin-top: 6em;
+	margin-bottom: 4em;
+	margin-left: 12.5%;
+}
+
+.postTittle {
+	font-weight: 400px;
+	line-height: 1.5;
+	color: #5ba3eb;
+	margin-bottom: 1em;
+}
+
+.createPost {
+	text-align: left;
+	font-weight: 400px;
+	line-height: 1.5;
+	color: #5ba3eb;
+	background-color: #f3f3f3;
+	box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	border-radius: 5px;
+	cursor: default;
+	padding: 2em;
+	width: 75%;
+}
+
+.uploadDiv {
+  margin: 2em;
+  align-items: center;
+  padding-left: 20%;
+}
+
+.form {
+	margin: 2em;
+}
+
+.textPost {
+	width: 120%;
+	height: 120px;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	box-sizing: border-box;
+  resize: none;
+  color: black;
+}
+
+.buttomPost {
+	background-color: #0095f6;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bolder;
+	margin: 2em;
+	text-align: center;
+	border-radius: 6px;
+	color: #fff;
+	width: 150px;
+}
