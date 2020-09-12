@@ -1,5 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { getLikeCommentByPostId, createLikes } from "../../util/getRequests";
+import { AccessAlarm, ThreeDRotation } from "@material-ui/icons";
+import { IconButton } from "@material-ui/core";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 // import { createLikes } from "../../util/getRequests"
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
@@ -13,7 +16,9 @@ export default function Likes({ post_id }) {
 	console.log(liker_id);
 
 	const [likes, setLikes] = useState([]);
-	// const [ count, setCount ] = useState(0)
+	const [love, setLove] = useState([]);
+	const [dislikes,setDislikes]  = useState([])
+		// const [ count, setCount ] = useState(0)
 	// const [likesArray, setLikesArray] = useState(null)
 
 	const getLikes = async () => {
@@ -76,7 +81,22 @@ export default function Likes({ post_id }) {
 	// }, []);
 	return (
 		<>
-			<h2 onClick={handleLike}><img src="heartIcon" alt="heartIcon"/> : {likes.length}</h2>
+			<div>
+				{/* <FavoriteBorderIcon fontSize="large" onClick={handleLike} /> */}
+
+				<IconButton
+				// aria-label="account of current user"
+				// aria-controls="primary-search-account-menu"
+				// aria-haspopup="true"
+				// color="inherit"
+				>
+					<FavoriteBorderIcon fontSize="medium" onClick={handleLike} />
+					<h5>{likes.length}</h5>
+				</IconButton>
+			</div>
 		</>
 	);
-}
+				
+			}
+			
+			{/* <h2 onClick={handleLike}><img src="heartIcon" alt="heartIcon"/> : {likes.length}</h2>  */}
