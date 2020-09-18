@@ -13,6 +13,7 @@ export default function UserProfile() {
 	const [firstName, setFirstName] = useState("");
 	const getFirstName = async () => {
 		const data = await getUserById(currentUser.id);
+		debugger
 		setFirstName(data.full_name.split(" ")[0]);
 	};
 
