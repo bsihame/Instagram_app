@@ -344,7 +344,7 @@ export default function PrimarySearchAppBar() {
 							</IconButton>
 						</NavLink>
 
-						<NavLink className="directMessage" to={"/direct/inbox/"}>
+						<NavLink className="directMessage" to={"/direct/inbox"}>
 							<IconButton
 								aria-label="show 17 new notifications"
 								color="inherit"

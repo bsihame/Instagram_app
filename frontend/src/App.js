@@ -71,26 +71,23 @@ function App() {
 
 				<ProtectedRoute exact path={`/${firstName}/createPost`}>
 					<NavBar />
-					<CreatePostForm  />
+					<CreatePostForm />
 					<Footer />
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/explore">
 					<NavBar />
 					<Explore />
+					<Footer />
+				</ProtectedRoute>
 
+				<ProtectedRoute path={"/direct/inbox"}>
+					<NavBar />
+					<h2>direct message</h2>
+					
 					<Footer />
 				</ProtectedRoute>
 			</AuthProvider>
-
-			{/* <AuthRoute exact path="user/userProfile" setLoggedUser={setLoggedUser} >
-					<UserPage />
-				</AuthRoute> */}
-			{/* <AuthRoute exact path="/userProfile" setLoggedUser={setLoggedUser} >
-					<UserPage/>
-				</AuthRoute> */}
-
-			{/* <UserProfile/> */}
 		</div>
 	);
 }
