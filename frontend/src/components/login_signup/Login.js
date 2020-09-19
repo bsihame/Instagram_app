@@ -7,8 +7,8 @@ import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 // import { apiURL } from "../../util/apiURL";
-
-import "../../CSS/Login.css";
+import Footer from "../navbar_footer/Footer";
+import "../../CSS/login.css";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
