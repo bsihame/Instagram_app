@@ -15,7 +15,6 @@ export const getAllUsers = async () => {
 export const getUserById = async (id) => {
 	try {
 		let res = await axios.get(API + `/api/users/${id}`);
-		debugger
 		return res.data.payload;
 	} catch (error) {
 		console.log("ERROR - get user by id");
@@ -90,15 +89,6 @@ export const updateUser = async (id, data) => {
 		console.log(error);
 	}
 };
-
-// export const getAllLikes = async (url) => {
-//   try {
-//     const res = await axios.get(API + `api/likes`, url);
-//     return res.data.payload
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
 
 export const ifUserNameExist = async (username) => {
 	try {

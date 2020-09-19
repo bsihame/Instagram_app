@@ -2,6 +2,11 @@ body {
 	background-color: #fafafa;
 }
 
+.paper {
+	width: 75%;
+	padding: 	2%;
+}
+
 .logInFormDiv {
 	width: 100%;
 	height: 80%;

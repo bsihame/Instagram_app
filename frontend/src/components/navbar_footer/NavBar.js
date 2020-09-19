@@ -1,106 +1,7 @@
-// import React, { useState, useContext, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
-// import "../../CSS/NavBar.css";
-// import Logout from "../login_signup/Logout";
-// import { AuthContext } from "../../providers/AuthContext";
-// import { getUserById } from "../../util/getRequests";
-
-// export default function NavBar() {
-// 	const { currentUser } = useContext(AuthContext);
-// 	console.log(currentUser);
-// 	const [firstName, setFirstName] = useState("");
-// 	const getFirstName = async () => {
-// 		const data = await getUserById(currentUser.id);
-// 		setFirstName(data.full_name.split(" ")[0]);
-// 	};
-// 	useEffect(() => {
-// 		getFirstName();
-// 	}, []);
-
-// 	return (
-// 		// <>
-// 		// 	<nav className="navbarContainer">
-// 		// 		<div className="title">
-// 		// 			<h2 className="inst">Instagram</h2>
-// 		// 		</div>
-// 		// 		<div className="right">
-// 		// 			<div className="inputDiv">
-// 		// 				<input placeholder="Search" />
-// 		// 			</div>
-// 		// 			<div className="navLinkDiv">
-// 		// 				<NavLink className="home" exact to={"/user"}>
-// 		// 					homeIcon
-// 		// 				</NavLink>
-// 		// 				<NavLink className="directMessage" to={"/direct/inbox/"}>
-// 		// 					message
-// 		// 				</NavLink>
-// 		// 				<NavLink className="explore" to={"/explore"}>
-// 		// 					explore
-// 		// 				</NavLink>
-// 		// 				<NavLink className="heart" to={"/activity"}>
-// 		// 					heart
-// 		// 				</NavLink>
-// 		// 				<a
-// 		// 					className="nav-link dropdown-toggle "
-// 		// 					data-toggle="dropdown"
-// 		// 					role="button"
-// 		// 					aria-expanded="false"
-// 		// 				>
-// 		// 					Hi, {firstName}
-// 		// 				</a>
-// 		// 				<div className="dropdown-menu">
-// 		// 					<a className="dropdown-item" href={`/${firstName}`}>
-// 		// 					PROFILE
-// 		// 					</a>
-// 		// 					<div className="dropdown-divider"></div>
-// 		// 					<a className="dropdown-item" onClick={Logout}>
-// 		// 						LOG OUT
-// 		// 					</a>
-// 		// 				</div>
-// 		// 				<Logout />
-// 		// 			</div>
-// 		// 		</div>
-// 		// 	</nav>
-// 		// </>
-
-// // <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-// //  Brand
-// //   <a class="navbar-brand" href="#">Logo</a>
-// // Links
-// //   <ul class="navbar-nav">
-// //     <li class="nav-item">
-// //       <a class="nav-link" href="#">Link 1</a>
-// //     </li>
-// //     <li class="nav-item">
-// //       <a class="nav-link" href="#">Link 2</a>
-// //     </li>
-
-// //     Dropdown
-// //     <li class="nav-item dropdown">
-// //       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-// //         Dropdown link
-// //       </a>
-// //       <div class="dropdown-menu">
-// //         <a class="dropdown-item" href="#">Link 1</a>
-// //         <a class="dropdown-item" href="#">Link 2</a>
-// //         <a class="dropdown-item" href="#">Link 3</a>
-// //       </div>
-// //     </li>
-// //   </ul>
-// // </nav>
-// 		<>
-
-// 		</>
-// 	);
-//  }
-
 import React, { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthContext";
-import { getUserById } from "../../util/getRequests";
-// import Logout from "../login_signup/Logout";
 import { logout } from "../../util/firebaseFunctions";
-
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -119,8 +20,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import SvgIcon from "@material-ui/core/SvgIcon";
-// import ExploreIcon from "@material-ui/icons/Explore";
-// import { ExploreIcon } from "../../images/explore.png"
+import { getUserById } from "../../util/getRequests";
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -164,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	inputInput: {
 		padding: theme.spacing(1, 1, 1, 0),
-		// vertical padding +font size from searchIcon,
 		paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
 		transition: theme.transitions.create("width"),
 		width: "100%",
@@ -188,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
 	const { currentUser } = useContext(AuthContext);
-	const [firstName, setFirstName] = useState("");
+	const [firstName, setFirstName] = useState(null);
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);

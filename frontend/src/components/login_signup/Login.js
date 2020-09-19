@@ -4,6 +4,11 @@ import { login } from "../../util/firebaseFunctions";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
+import Paper from "@material-ui/core/Paper";
+import withStyles from "@material-ui/core/styles/withStyles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 // import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
@@ -31,56 +36,78 @@ export default function Login() {
 	};
 	return (
 		<div className="logInFormDiv">
-			<div className="leftDiv">
-				<img src={phone} alt="phone_picture" className="homePagePic" />
-			</div>
-			<div className="rightDiv">
-				<div className="logdiv">
-					<div className="title">
-						<h1 className="instagram">Instagram</h1>
-					</div>
-					{error ? <p className="error">{error.message}</p> : null}
-					<form onSubmit={handleSignIn} className="signIn form">
-						<FormControl required fullWidth margin="normal">
-							<InputLabel htmlFor="login-email-input">
-								Enter Your Email
-							</InputLabel>
-							<Input
-								placeholder="Phone number, username, or email"
-								value={email}
-								onChange={(e) => setEmail(e.currentTarget.value)}
-								required
-								className="emailInput"
-							></Input>
-						</FormControl>
-						<input
-							placeholder="Password"
+			<Paper className="paper">
+				<div className="leftDiv">
+					<img src={phone} alt="phone_picture" className="homePagePic" />
+				</div>
+			</Paper>
+
+			<Paper className="paper rightDiv">
+				{/* <div className="rightDiv"> */}
+				{/* <div className="logdiv"> */}
+				<div className="title">
+					<h1 className="instagram">Instagram</h1>
+				</div>
+				{error ? (
+					<Typography className="errorText" component="h5" variant="h6">
+						Incorrect Login Information
+					</Typography>
+				) : null}
+				{/* {error ? <p className="error">{error.message}</p> : null} */}
+				<form onSubmit={handleSignIn} className="signIn form">
+					<FormControl required fullWidth margin="normal">
+						<InputLabel htmlFor="login-email-input">
+							Enter Your Email
+						</InputLabel>
+						<Input
+							value={email}
+							onChange={(e) => setEmail(e.currentTarget.value)}
+							required
+							className="emailInput"
+						></Input>
+					</FormControl>
+
+					<FormControl required fullWidth margin="normal">
+						<InputLabel htmlFor="login-password-input">
+							Enter Your Password
+						</InputLabel>
+						<Input
+							autoComplete="on"
 							type="password"
 							value={password}
 							onChange={(e) => setPassword(e.currentTarget.value)}
-							autoComplete="on"
 							required
-							className="password"
-						/>
-						<button type="submit" className="login">
-							Log in
-						</button>
-						<div className="or">
-							<h4>
-								<span> OR </span>
-							</h4>
-						</div>
-						<div className="facebookDiv">
-							<img
-								src={facebookBlueIcon}
-								alt="facebookBlueIcon"
-								className="facebookIcon"
-							/>
-							<h4>Log in with Facebook</h4>
-						</div>
-						<button className="forgotPassword">Forgot password?</button>
-					</form>
+							className="emailInput"
+							id="login-password-input"
+						></Input>
+					</FormControl>
+					<Button
+						type="submit"
+						variant="contained"
+						color="primary"
+						className="login submit"
+						setError="false"
+					>
+						Log In
+					</Button>
+				</form>
+			
+				<div className="or">
+					<h4>
+						<span> OR </span>
+					</h4>
 				</div>
+				<div className="facebookDiv">
+					<img
+						src={facebookBlueIcon}
+						alt="facebookBlueIcon"
+						className="facebookIcon"
+					/>
+					<h4>Log in with Facebook</h4>
+				</div>
+				<button className="forgotPassword">Forgot password?</button>
+
+				{/* </div> */}
 				<div />
 
 				<Link to="/accounts/emailsignup/" className="signUp">
@@ -99,9 +126,10 @@ export default function Login() {
 						</div>
 					</div>
 				</div>
-			</div>
+				{/* </div> */}
 
-			<div />
+				{/* <div /> */}
+			</Paper>
 		</div>
 	);
 }
