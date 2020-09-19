@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { login } from "../../util/firebaseFunctions";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
 // import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
@@ -37,14 +40,19 @@ export default function Login() {
 						<h1 className="instagram">Instagram</h1>
 					</div>
 					{error ? <p className="error">{error.message}</p> : null}
-					<form onSubmit={handleSignIn} className="signIn">
-						<input
-							placeholder="Phone number, username, or email"
-							value={email}
-							onChange={(e) => setEmail(e.currentTarget.value)}
-							required
-							className="emailInput"
-						/>
+					<form onSubmit={handleSignIn} className="signIn form">
+						<FormControl required fullWidth margin="normal">
+							<InputLabel htmlFor="login-email-input">
+								Enter Your Email
+							</InputLabel>
+							<Input
+								placeholder="Phone number, username, or email"
+								value={email}
+								onChange={(e) => setEmail(e.currentTarget.value)}
+								required
+								className="emailInput"
+							></Input>
+						</FormControl>
 						<input
 							placeholder="Password"
 							type="password"
@@ -70,7 +78,6 @@ export default function Login() {
 							/>
 							<h4>Log in with Facebook</h4>
 						</div>
-
 						<button className="forgotPassword">Forgot password?</button>
 					</form>
 				</div>
