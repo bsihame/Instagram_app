@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { login } from "../../util/firebaseFunctions";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
+import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import Paper from "@material-ui/core/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -16,7 +17,7 @@ import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 // import { apiURL } from "../../util/apiURL";
 import Footer from "../navbar_footer/Footer";
-import "../../CSS/login.css";
+import "../../CSS/Login.css";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -43,55 +44,60 @@ export default function Login() {
 			</Paper>
 
 			<Paper className="paper rightDiv">
-				{/* <div className="rightDiv"> */}
-				{/* <div className="logdiv"> */}
 				<div className="title">
 					<h1 className="instagram">Instagram</h1>
 				</div>
 				{error ? (
 					<Typography className="errorText" component="h5" variant="h6">
-						Incorrect Login Information
+						{error}
 					</Typography>
 				) : null}
-				{/* {error ? <p className="error">{error.message}</p> : null} */}
-				<form onSubmit={handleSignIn} className="signIn form">
-					<FormControl required fullWidth margin="normal">
-						<InputLabel htmlFor="login-email-input">
-							Enter Your Email
-						</InputLabel>
-						<Input
-							value={email}
-							onChange={(e) => setEmail(e.currentTarget.value)}
-							required
-							className="emailInput"
-						></Input>
-					</FormControl>
 
-					<FormControl required fullWidth margin="normal">
-						<InputLabel htmlFor="login-password-input">
-							Enter Your Password
-						</InputLabel>
-						<Input
-							autoComplete="on"
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.currentTarget.value)}
-							required
-							className="emailInput"
-							id="login-password-input"
-						></Input>
-					</FormControl>
+				<form onSubmit={handleSignIn} className="signIn form">
+					<TextField
+						id="outlined-basic"
+						label="	Enter Your Email"
+						variant="outlined"
+						value={email}
+						onFocus={() => setError(false)}
+						onChange={(e) => setEmail(e.currentTarget.value)}
+						required
+						className="emailInput"
+					/>
+					<br/>
+					{/* <TextField
+						id="outlined-password-input"
+						label="Password"
+						type="password"
+						autoComplete="current-password"
+						variant="outlined"
+						value={password}
+						onFocus={() => setError(false)}
+						onChange={(e) => setPassword(e.currentTarget.value)}
+						required
+					/> */}
+					<TextField
+						id="outlined-basic"
+						label="	Enter Your password"
+						variant="outlined"
+						type="password"
+						value={password}
+						onFocus={() => setError(false)}
+						onChange={(e) => setPassword(e.currentTarget.value)}
+						required
+						className="passwordInput"
+					/>
+					<br/>
+
 					<Button
 						type="submit"
 						variant="contained"
-						color="primary"
 						className="login submit"
 						setError="false"
 					>
 						Log In
 					</Button>
 				</form>
-			
 				<div className="or">
 					<h4>
 						<span> OR </span>
