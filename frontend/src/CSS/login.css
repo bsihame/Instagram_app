@@ -1,44 +1,67 @@
 body {
 	background-color: #fafafa;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 100vh;
 }
 
 .paper {
-	width: 75%;
-	padding: 	2%;
+	width: 50%;
+	padding: 2%;
 }
 
 .logInFormDiv {
 	width: 100%;
-	height: 80%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	margin: auto;
-	margin: 50px 0px;
-	background-color: #fafafa;
+	height: 80vh;
 	display: flex;
-}
-
-img {
-	width: 50%;
-	height: 100%;
-	align-items: center;
 }
 
 .leftDiv {
-	/* align-items: center; */
+	width: 50%;
+	display: flex;
 	justify-content: center;
+	padding: 2.5%;
+	margin-right: 2.5%;
+	height: 100%;
+	
+}
+
+.rightDiv {
+	color: #ffffff;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 30%;
 	height: 100%;
 	display: flex;
-	/* flex-basis: 454px; */
 	flex-direction: column;
-	align-content: flex-end ;
-	/* padding-right: 2.5%; */
+	flex-basis: 30%;
+	margin-left: 2.5%;
 }
-/* .logdiv,
+
+.homePagePic {
+	width: 50%;
+	height: 80%;
+	align-items: center;
+	margin-top: 0;
+	margin-bottom: 25%;
+	padding: 0;
+}
+
+img {
+	width: 60%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.logdiv,
 .signup {
 	border: 1px solid #dbdbdb;
 	width: 100%;
-} */
+}
 .instagram {
 	font-family: "Lobster Two", cursive;
 	font-size: 46px;
@@ -47,31 +70,12 @@ img {
 	justify-content: space-around;
 	text-align: center;
 	align-items: center;
-	color: #262626;
-}
-.rightDiv {
-	color: #ffffff;
-	align-items: center;
-	justify-content: center;
-	justify-content: center;
-	margin-top: 12px;
-	width: 50%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	flex-basis: 454px;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-left: 2.5%;
+	color:#1595F6;
 }
 
-.signIn,
-.signUp {
-	width: 100%;
-	height: 75%;
-	align-items: center;
-	margin: 100px;
 
+.signIn, .signUp {
+	align-items: center;
 }
 .span {
 	color: #0095f6;
@@ -79,28 +83,29 @@ img {
 	font-size: 16px;
 }
 
-.emailInput,
-.passwordInput,
-.login {
-	width: 70%;
-	height: 30px;
-	margin: 100px;
-
-}
-.emailInput {
-		padding: 1rem;
-}
 #outlined-basic {
 	padding: 20px;
+	width: 20rem;
+	height: .75rem;
 }
 
-.login {
-	margin-top: 10px;
-	background-color: #b3dffc;
+ .login {
+	width: 22.5rem;
+	height: 2rem;
+	background: #B2DFFC; 
 	color: white;
-	border: 1px solid #dbdbdb;
-	height: 35px;
+	border: 2px solid #B2DFFC;
+	height: 35px; 
+	border-radius: 2.5%;
+	font-size: large;
+	font-weight: bolder ;
 }
+
+/* .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: rgb(21, 149, 246);
+} */
+
 .signUp {
 	font-size: 16px;
 	margin: 10px 0px;
@@ -132,16 +137,25 @@ h6 {
 	color: #262626;
 }
 
-.or {
-	width: 100%;
-	text-align: center;
+/* .orDiv {
+
+	display: flex;
+	
+} */
+
+
+.orSignUp {
+	width: 355px;
 	border-top: 1px solid #8f8f8f;
+	color: # #385185;;
 	line-height: 0.1em;
-	color: #8f8f8f;
-	/* margin-bottom: 15px; */
-	color: #385185;
-	margin: 0;
+
 }
+.orText {
+	padding-top: 10px;
+}
+
+
 .forgotPassword {
 	text-align: center;
 	background-color: white;
@@ -155,8 +169,8 @@ h6 {
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
-	justify-content: space-evenly;
-	width: 100%;
+	justify-content: space-between;
+	width: 80%;
 	margin-top: 8px;
 	border-radius: 4px;
 	font-size: 14px;
@@ -175,7 +189,8 @@ h6 {
 }
 
 .appGoogle {
-	height: 57px;
-	width: 300px;
-	margin-left: -145px;
+	height: 45px;
+	width: 320px;
+	margin-left: 20px
 }
+

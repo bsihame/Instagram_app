@@ -64,18 +64,7 @@ export default function Login() {
 						required
 						className="emailInput"
 					/>
-					<br/>
-					{/* <TextField
-						id="outlined-password-input"
-						label="Password"
-						type="password"
-						autoComplete="current-password"
-						variant="outlined"
-						value={password}
-						onFocus={() => setError(false)}
-						onChange={(e) => setPassword(e.currentTarget.value)}
-						required
-					/> */}
+					<br />
 					<TextField
 						id="outlined-basic"
 						label="	Enter Your password"
@@ -87,21 +76,21 @@ export default function Login() {
 						required
 						className="passwordInput"
 					/>
-					<br/>
+					<br />
 
-					<Button
+					<button
 						type="submit"
 						variant="contained"
+						color="skyblue"
+						// color= "rgb(21, 149, 246)"
 						className="login submit"
 						setError="false"
 					>
 						Log In
-					</Button>
+					</button>
 				</form>
-				<div className="or">
-					<h4>
-						<span> OR </span>
-					</h4>
+				<div className="orSignUpDiv">
+						<h6 className="orSignUp orText"> OR </h6>
 				</div>
 				<div className="facebookDiv">
 					<img
@@ -112,8 +101,6 @@ export default function Login() {
 					<h4>Log in with Facebook</h4>
 				</div>
 				<button className="forgotPassword">Forgot password?</button>
-
-				{/* </div> */}
 				<div />
 
 				<Link to="/accounts/emailsignup/" className="signUp">
