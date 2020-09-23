@@ -24,7 +24,6 @@ body {
 	padding: 2.5%;
 	margin-right: 2.5%;
 	height: 100%;
-	
 }
 
 .rightDiv {
@@ -62,6 +61,7 @@ img {
 	border: 1px solid #dbdbdb;
 	width: 100%;
 }
+
 .instagram {
 	font-family: "Lobster Two", cursive;
 	font-size: 46px;
@@ -70,13 +70,14 @@ img {
 	justify-content: space-around;
 	text-align: center;
 	align-items: center;
-	color:#1595F6;
+	color: #1595f6;
 }
 
-
-.signIn, .signUp {
+.signIn,
+.signUp {
 	align-items: center;
 }
+
 .span {
 	color: #0095f6;
 	font-weight: bolder;
@@ -86,25 +87,20 @@ img {
 #outlined-basic {
 	padding: 20px;
 	width: 20rem;
-	height: .75rem;
+	height: 0.75rem;
 }
 
- .login {
+.login {
 	width: 22.5rem;
 	height: 2rem;
-	background: #B2DFFC; 
+	background: #b2dffc;
 	color: white;
-	border: 2px solid #B2DFFC;
-	height: 35px; 
+	border: 2px solid #b2dffc;
+	height: 35px;
 	border-radius: 2.5%;
 	font-size: large;
-	font-weight: bolder ;
+	font-weight: bolder;
 }
-
-/* .MuiButton-containedPrimary {
-    color: #fff;
-    background-color: rgb(21, 149, 246);
-} */
 
 .signUp {
 	font-size: 16px;
@@ -129,6 +125,7 @@ img {
 	margin-right: 6px;
 	color: #385185;
 }
+
 h4,
 h2 {
 	color: #385185;
@@ -137,24 +134,16 @@ h6 {
 	color: #262626;
 }
 
-/* .orDiv {
-
-	display: flex;
-	
-} */
-
-
 .orSignUp {
 	width: 355px;
 	border-top: 1px solid #8f8f8f;
-	color: # #385185;;
+	color: ##385185;
 	line-height: 0.1em;
-
 }
+
 .orText {
 	padding-top: 10px;
 }
-
 
 .forgotPassword {
 	text-align: center;
@@ -191,6 +180,5 @@ h6 {
 .appGoogle {
 	height: 45px;
 	width: 320px;
-	margin-left: 20px
+	margin-left: 20px;
 }
-

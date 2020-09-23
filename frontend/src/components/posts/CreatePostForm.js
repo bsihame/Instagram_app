@@ -77,7 +77,7 @@ export default function CreatePostForm() {
 							value={content}
 							onChange={(e) => setContent(e.currentTarget.value)}
 						/>
-						<button className="buttomPost" type="submit"
+						<button className="buttonPost" type="submit"
 						// onClick={returnToUser}
 						>
 							Create Post

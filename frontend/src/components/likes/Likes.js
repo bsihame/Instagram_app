@@ -12,22 +12,20 @@ export default function Likes({ post_id }) {
 	const API = apiURL();
 	const { currentUser } = useContext(AuthContext);
 	let liker_id = currentUser.id;
-	console.log(currentUser);
-	console.log(liker_id);
-
 	const [likes, setLikes] = useState([]);
-	const [love, setLove] = useState([]);
-	const [dislikes,setDislikes]  = useState([])
+	// const [love, setLove] = useState([]);
+	const [dislikes,setDislikes]  = useState(false)
 		// const [ count, setCount ] = useState(0)
 	// const [likesArray, setLikesArray] = useState(null)
 
 	const getLikes = async () => {
 		try {
-			//
 			const res = await getLikeCommentByPostId(post_id);
-			console.log(1000, "RESPONSE", res);
+	
 			if (res) {
+
 				setLikes(res);
+				// setDislikes(false)
 
 				//setLikesArray(res)
 			}
@@ -92,7 +90,7 @@ export default function Likes({ post_id }) {
 				>
 					<FavoriteBorderIcon fontSize="medium" onClick={handleLike} />
 					<h5>{likes.length}</h5>
-				</IconButton>
+				</IconButton >
 			</div>
 		</>
 	);
