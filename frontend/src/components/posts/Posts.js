@@ -12,6 +12,8 @@ export default function Posts() {
 	const getPosts = async () => {
 		try {
 			let res = await getUsersPosts()
+			debugger
+		console.log(res)
 			setPosts(res);
 			setError(null)
 		} catch (error) {

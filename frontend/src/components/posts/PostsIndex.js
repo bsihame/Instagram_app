@@ -12,9 +12,7 @@ export default function PostsIndex({ posts }) {
 	const getSingleUser = async () => {
 		try {
 			const res = await getUserById(id);
-			debugger
 			setUser(res)
-			debugger
 		} catch (error) {
 			console.log("ISSUE");
 			console.log(error);
@@ -32,13 +30,13 @@ export default function PostsIndex({ posts }) {
 					{posts.map((post) => {
 						return (
 							<div class="card mb-3" key={post.id}>
-								<div>
-									<h2>{user.username}</h2>
+								<div className="userHeader">
 									<img
 										className="userAvatar"
-										src={user.profile_pic}
+										src={post.profile_pic}
 										alt="user_picture"
 									/>
+									<h2>{post.username}</h2>
 								</div>
 								<img
 									className="card-img-top"

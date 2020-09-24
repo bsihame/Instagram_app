@@ -23,6 +23,7 @@ export default function User() {
 		try {
 			console.log("HERE", id);
 			const res = await getUserById(id);
+			debugger
 			setLoggedUser(res)
 		} catch (error) {
 			console.log(error);
@@ -35,24 +36,24 @@ export default function User() {
 	return (
 		<>
 			<NavBar />
-			
-
 
 			<div className="userContainer">
 				<div className="rightDiv">
 					<Users />
-					<Posts />
+					<div>
+						<Posts />
+					</div>
 				</div>
 				<div className="leftDiv">
-					<img 
-				src={loggedUser.profile_pic}
+					<img
+						src={loggedUser.profile_pic}
 						alt="User_Profile_picture"
 						className="userProfile"
 					/>
 					<p className="userUsername">{loggedUser.username}</p>
 					<Footer />
 				</div>
-			</div> 
+			</div>
 		</>
 	);
 }
