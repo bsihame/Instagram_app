@@ -62,22 +62,21 @@ const getAllUsers = async (req, res, next) => {
 
 
 const getUserById = async (req, res, next) => {
+	console.log("getUserById")
 	try {
 		const id = req.params.id;
-		console.log(id)
 		const singleUser = await db.one("SELECT * FROM users WHERE id=$1", id);
 		res.status(200).json({
 			status: "ok",
 			message: "Retrieved user",
 			payload: singleUser,
 		});
-		console.log(singleUser)
 	} catch (error) {
 		res.status(400).json({
 			status: "error",
 			message: "Could not get single user by ID",
 		});
-		next(error)
+		console.log(error)
 	}
 };
 

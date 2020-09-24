@@ -20,10 +20,11 @@ const getAllPosts = async (req, res, next) => {
 
 const getUsersPosts = async (req, res, next) => {
 	try {
-		let posts = await db.any(
-			`SELECT * FROM where poster_id=$1`,
-			req.params.poster_id
-		);
+		let posts = await db.any("SELECT posts.id, posts.picture, posts.content, users.username, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id LEFT JOIN friends ON users.id = user_id ORDER BY created_at DESC WHERE posts.id= $1, posts.picture= $2, posts.content =$3, users.username =$4, users.profile_pic=$5 "); 
+		console.log(posts)
+			// req.params.poster_id
+			// `SELECT * FROM where poster_id=$1`,
+		console.log(posts)
 		res.status(200).json({
 			status: "ok",
 			message: "Get all users post",
