@@ -33,10 +33,11 @@ export default function PostsIndex({ posts }) {
 								<div className="userHeader">
 									<img
 										className="userAvatar"
-										src={post.profile_pic}
+										src={posts.profile_pic}
 										alt="user_picture"
+										className="userProfile"
 									/>
-									<h2>{post.username}</h2>
+									<h2>{posts.username}</h2>
 								</div>
 								<img
 									className="card-img-top"
@@ -44,9 +45,9 @@ export default function PostsIndex({ posts }) {
 									alt="Card image cap"
 								/>
 								<p>{post.content}</p>
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<div class="card-text">
+								<div className="card-body">
+									<h5 className="card-title">Card title</h5>
+									<div className="card-text">
 										<Likes post_id={post.id} />
 									</div>
 									<CommentsForm post_id={post.id} />

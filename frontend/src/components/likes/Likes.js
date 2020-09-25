@@ -14,13 +14,14 @@ export default function Likes({ post_id }) {
 	let liker_id = currentUser.id;
 	const [likes, setLikes] = useState([]);
 	// const [love, setLove] = useState([]);
-	const [dislikes,setDislikes]  = useState(false)
+	// const [dislikes,setDislikes]  = useState(false)
 		// const [ count, setCount ] = useState(0)
 	// const [likesArray, setLikesArray] = useState(null)
 
 	const getLikes = async () => {
 		try {
 			const res = await getLikeCommentByPostId(post_id);
+			debugger
 	
 			if (res) {
 

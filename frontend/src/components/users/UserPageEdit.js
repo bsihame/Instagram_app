@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 export default function UserPageEdit(firstName) {
 	const history = useHistory();
 	const { currentUser } = useContext(AuthContext);
+	console.log(currentUser)
 	const [user, setUser] = useState({});
 	const[profilePicture, setProfilePicture] = useState(null);
     const [imagePreview, setImagePreview]
@@ -18,7 +19,7 @@ export default function UserPageEdit(firstName) {
 	const [currentBio, setCurrentBio] = useState("");
 	const token = getFirebaseIdToken();
 
-	const fullName = useInput("");
+	const fullName = useInput(user.full_name);
 	const userName = useInput("");
 	const bio = useInput("");
 	let id = currentUser.id;
@@ -26,6 +27,7 @@ export default function UserPageEdit(firstName) {
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
+		debugger
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
 		setCurrentBio(data.bio);
@@ -52,6 +54,7 @@ export default function UserPageEdit(firstName) {
 		const returnToProfile = () => {
 			history.push(`/user/${currentUser.id}`);
 		};
+	
     
 		const response = await updateUser(currentUser.id, {
 			headers: {
@@ -82,21 +85,21 @@ export default function UserPageEdit(firstName) {
 
 				<div className="upe-userInteraction">
 					<label>
-						<span>Full Name:</span>
-						<input type="text" placeholder="Full Name" {...fullName} />
+						<span>Full Name: </span>
+						<input type="text" placeholder={user.full_name} {...fullName} />
 					</label>
 				</div>
 				<div className="upe-userInteraction">
 					<label>
 						<span>User Name:</span>
-						<input type="text" placeholder="User Name" {...userName} />
+						<input type="text" placeholder={user.username} {...userName} />
 					</label>
 				</div>
 			</div>
 
 			<div>
 				<label>Bio: </label>
-				<textarea rows="7" cols="40" placeholder="Bio" {...bio} />
+				<textarea rows="7" cols="40" placeholder={user.bio} {...bio} />
 			</div>
 			<div>
 				<button type="submit" onClick={updateUserCall}>

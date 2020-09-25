@@ -21,9 +21,7 @@ export default function User() {
 
 	const getSingleUser = async () => {
 		try {
-			console.log("HERE", id);
 			const res = await getUserById(id);
-			debugger
 			setLoggedUser(res)
 		} catch (error) {
 			console.log(error);

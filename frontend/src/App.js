@@ -28,12 +28,10 @@ function App() {
 
 	const getFirstName = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger
 		setFirstName(data.full_name.split(" ")[0]);
 	};
 
 	useEffect(() => {
-		debugger
 		if (currentUser) {
 			getFirstName();
 		}

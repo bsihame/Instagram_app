@@ -19,7 +19,10 @@ export default function Users() {
 	return (
 		<div className="UsersContainer">
 			<div className="displayAllUsers">
+
 				{users.map((user) => {
+				
+					debugger
 					return (
 						<div className="usersInfo" key={user.id}>
 							<img
