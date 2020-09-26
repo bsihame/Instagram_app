@@ -1,33 +1,29 @@
- import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../providers/AuthContext';
-import { getUserById, updateUser } from '../../util/getRequests';
-import { useInput } from '../../util/customHooks';
-import { uploadPicture, getFirebaseIdToken } from '../../util/firebaseFunctions';
-import { useHistory } from 'react-router-dom';
-
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthContext";
+import { getUserById, updateUser } from "../../util/getRequests";
+import { useInput } from "../../util/customHooks";
+import {
+	uploadPicture,
+	getFirebaseIdToken,
+} from "../../util/firebaseFunctions";
+import { useHistory } from "react-router-dom";
+import "../../CSS/UserPageEdit.css";
 
 export default function UserPageEdit(firstName) {
 	const history = useHistory();
-	const { currentUser } = useContext(AuthContext);
-	console.log(currentUser)
+	const { currentUser, token } = useContext(AuthContext);
+
+	console.log(currentUser);
 	const [user, setUser] = useState({});
-	const[profilePicture, setProfilePicture] = useState(null);
-    const [imagePreview, setImagePreview]
-        = useState(null);
+	const [profilePicture, setProfilePicture] = useState(null);
+	const [imagePreview, setImagePreview] = useState(null);
 	const [currentFullName, setCurrentFullName] = useState("");
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [currentBio, setCurrentBio] = useState("");
-	const token = getFirebaseIdToken();
-
-	const fullName = useInput(user.full_name);
-	const userName = useInput("");
-	const bio = useInput("");
 	let id = currentUser.id;
-	console.log(id);
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
 		setCurrentBio(data.bio);
@@ -35,42 +31,47 @@ export default function UserPageEdit(firstName) {
 	};
 
 	const updateUserCall = async () => {
-        const userData = {
-            // profilePicture,
-            // handleFileSelect,
-			full_name: fullName.value,
-			username: userName.value,
-			bio: bio.value,
-        };
-        
-        const displayPreviewPicture = profilePicture ? (
-			<img src={profilePicture} alt="new profile picture" />
-    ) : null;
-    const handleFileSelect = (e) => {
-			setProfilePicture(e.target.files[0]);
-			setImagePreview(URL.createObjectURL(e.target.files[0]));
+		const userData = {
+			profilePicture,
+			handleFileSelect,
+			full_name: currentFullName,
+			username: currentUserName,
+			bio: currentBio,
 		};
 
-		const returnToProfile = () => {
-			history.push(`/user/${currentUser.id}`);
-		};
-	
-    
-		const response = await updateUser(currentUser.id, {
-			headers: {
-				authtoken: token,
-			},
-		});
+		const response = await updateUser(currentUser.id, userData, token);
+		returnToProfile();
 		debugger;
 	};
 
+	const displayPreviewPicture = profilePicture ? (
+		<img src={profilePicture} alt="new_profile_picture" />
+	) : null;
+
 	const handleFileSelect = (e) => {
 		setProfilePicture(e.target.files[0]);
+		setImagePreview(URL.createObjectURL(e.target.files[0]));
 	};
+
+	const returnToProfile = () => {
+		history.push(`/user/${currentUser.id}`);
+	};
+
 	useEffect(() => {
 		getUserCall();
-		updateUserCall();
 	}, []);
+
+	const handleChange = (e) => {
+		if (e.target.name === "fullName") {
+			setCurrentFullName(e.target.value);
+		}
+		if (e.target.name === "username") {
+			setCurrentUserName(e.target.value);
+		}
+		if (e.target.name === "bio") {
+			setCurrentBio(e.target.value);
+		}
+	};
 	return (
 		<div className="up-edit">
 			<div className="editContainer">
@@ -86,20 +87,36 @@ export default function UserPageEdit(firstName) {
 				<div className="upe-userInteraction">
 					<label>
 						<span>Full Name: </span>
-						<input type="text" placeholder={user.full_name} {...fullName} />
+						<input
+							type="text"
+							value={currentFullName}
+							onChange={handleChange}
+							name="fullName"
+						/>
 					</label>
 				</div>
 				<div className="upe-userInteraction">
 					<label>
 						<span>User Name:</span>
-						<input type="text" placeholder={user.username} {...userName} />
+						<input
+							type="text"
+							value={currentUserName}
+							onChange={handleChange}
+							name="username"
+						/>
 					</label>
 				</div>
 			</div>
 
 			<div>
 				<label>Bio: </label>
-				<textarea rows="7" cols="40" placeholder={user.bio} {...bio} />
+				<textarea
+					rows="7"
+					cols="40"
+					value={currentBio}
+					onChange={handleChange}
+					name="bio"
+				/>
 			</div>
 			<div>
 				<button type="submit" onClick={updateUserCall}>
@@ -134,12 +151,12 @@ export default function UserPageEdit(firstName) {
 //         profilePic,
 //         handleFileChange,
 //     } = props;
-  
+
 // 		useEffect(() => {
 // 			getUserCall();
-			
+
 // 		}, []);
-    
+
 //     const displayPreviewPicture = profilePic ? (
 // 			<img src={profilePic} alt="new profile picture" />
 //     ) : null;
@@ -151,7 +168,7 @@ export default function UserPageEdit(firstName) {
 // 		const returnToProfile = () => {
 // 			history.push(`/user/${currentUser.id}`);
 // 		};
-    
+
 //     return (
 // 			<div
 // 				className="divProfilePic"
