@@ -24,16 +24,28 @@ export default function UserPageEdit(firstName) {
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
+		debugger;
+		setProfilePicture(data.profile_pic)
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
 		setCurrentBio(data.bio);
 		setUser(data);
 	};
 
+	// const displayPreviewPicture = profilePicture ? (
+	// 	<img src={profilePicture} alt="new profile picture" />
+	// ) : null;
+	// const handleFileSelect = (e) => {
+	// 	debugger
+	// 	setProfilePicture(e.target.files[0]);
+	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
+	// };
+
+
 	const updateUserCall = async () => {
 		const userData = {
-			profilePicture,
-			handleFileSelect,
+			picture:profilePicture,
+			// handleFileSelect,
 			full_name: currentFullName,
 			username: currentUserName,
 			bio: currentBio,
@@ -41,17 +53,18 @@ export default function UserPageEdit(firstName) {
 
 		const response = await updateUser(currentUser.id, userData, token);
 		returnToProfile();
-		debugger;
+
 	};
 
-	const displayPreviewPicture = profilePicture ? (
-		<img src={profilePicture} alt="new_profile_picture" />
-	) : null;
+	
+	// const displayPreviewPicture = profilePicture ? (
+	// 	<img src={profilePicture} alt="new_profile_picture" />
+	// ) : null;
 
-	const handleFileSelect = (e) => {
-		setProfilePicture(e.target.files[0]);
-		setImagePreview(URL.createObjectURL(e.target.files[0]));
-	};
+	// const handleFileSelect = (e) => {
+	// 	setProfilePicture(e.target.files[0]);
+	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
+	// };
 
 	const returnToProfile = () => {
 		history.push(`/user/${currentUser.id}`);
@@ -71,7 +84,11 @@ export default function UserPageEdit(firstName) {
 		if (e.target.name === "bio") {
 			setCurrentBio(e.target.value);
 		}
-	};
+		if (e.target.name === "picture") {
+			setProfilePicture(URL.createObjectURL(e.target.files[0]));
+			// console.log(profilePicture)
+		}
+	 };
 	return (
 		<div className="up-edit">
 			<div className="editContainer">
@@ -79,10 +96,14 @@ export default function UserPageEdit(firstName) {
 					<span>Profile Picture: </span>
 					<input
 						type="file"
-						accept=".png, .jpg, .jpeg"
-						onChange={handleFileSelect}
+						onChange={handleChange}
+						name="picture"
 					/>
 				</label>
+				<div>
+					<b>Preview: </b>
+					<img src={profilePicture} alt="profile_picture" />
+				</div>
 
 				<div className="upe-userInteraction">
 					<label>

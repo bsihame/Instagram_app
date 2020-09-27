@@ -2,7 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { getLikeCommentByPostId, createLikes } from "../../util/getRequests";
 import { AccessAlarm, ThreeDRotation } from "@material-ui/icons";
 import { IconButton } from "@material-ui/core";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+// import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import "semantic-ui-css/semantic.min.css";
+import { Icon } from "semantic-ui-react";
+import { makeStyles } from '@material-ui/core/styles';
+import { action } from '@material-ui/core/colors';
+import FavoriteIcon from "@material-ui/icons/Favorite";
 // import { createLikes } from "../../util/getRequests"
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
@@ -13,23 +18,14 @@ export default function Likes({ post_id }) {
 	const { currentUser } = useContext(AuthContext);
 	let liker_id = currentUser.id;
 	const [likes, setLikes] = useState([]);
-	// const [love, setLove] = useState([]);
-	// const [dislikes,setDislikes]  = useState(false)
-		// const [ count, setCount ] = useState(0)
-	// const [likesArray, setLikesArray] = useState(null)
+	const [isLiked, seIsLiked] = useState(false);
 
 	const getLikes = async () => {
 		try {
 			const res = await getLikeCommentByPostId(post_id);
-			debugger
-	
-			if (res) {
-
-				setLikes(res);
-				// setDislikes(false)
-
-				//setLikesArray(res)
-			}
+			setLikes(res);
+			seIsLiked(res.some((like) => like.liker_id === currentUser.id));
+			
 		} catch (error) {
 			console.log(error);
 		}
@@ -89,9 +85,13 @@ export default function Likes({ post_id }) {
 				// aria-haspopup="true"
 				// color="inherit"
 				>
-					<FavoriteBorderIcon fontSize="medium" onClick={handleLike} />
+					<Icon name="heart" 
+						// fontSize="medium"
+						onClick={handleLike}
+						className={isLiked ? "loveIt" : "disliked"}
+					/>
 					<h5>{likes.length}</h5>
-				</IconButton >
+				</IconButton>
 			</div>
 		</>
 	);

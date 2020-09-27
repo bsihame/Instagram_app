@@ -1,5 +1,9 @@
-/* .heart {
-	content: url("../images/heart.png");
-	width: 30px;
-	margin-left: 5px;
-} */
+.loveIt > i.icons {
+	color: red;
+}
+
+.disliked {
+	color: whitesmoke;
+	background: tomato;
+}
+

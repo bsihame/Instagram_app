@@ -21,8 +21,6 @@ export default function Users() {
 			<div className="displayAllUsers">
 
 				{users.map((user) => {
-				
-					debugger
 					return (
 						<div className="usersInfo" key={user.id}>
 							<img
