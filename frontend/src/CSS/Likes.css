@@ -1,1 +1,7 @@
-
+.likesLength {
+	text-align: center;
+	align-items: center;
+	font-size: 1.25rem;
+	margin: 0.50rem;
+	color: black;
+}

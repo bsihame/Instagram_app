@@ -4,9 +4,9 @@ import { IconButton } from "@material-ui/core";
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
 import { AuthContext } from "../../providers/AuthContext";
+import "../../CSS/Likes.css"
 
 export default function Likes({ post_id }) {
-	// const API = apiURL();
 	const { currentUser } = useContext(AuthContext);
 	let liker_id = currentUser.id;
 	const [likes, setLikes] = useState([]);
@@ -70,7 +70,7 @@ export default function Likes({ post_id }) {
 							className="disliked"
 						/>
 					)}
-					<h5>{likes.length}</h5>
+					<h5 color="black" className="likesLength">{likes.length}</h5>
 				</IconButton>
 			</div>
 		</>
