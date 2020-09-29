@@ -7,6 +7,21 @@
   
 }
 
+.comment-input {
+	width: 80%;
+	background-color: white;
+	box-shadow: silver;
+}
+.create-comments {
+	display: flex;
+	flex-direction: column;
+	flex-flow: column wrap;
+}
+
+.display-comments-form {
+	justify-content: space-around;
+}
+
 .display-comments {
 	color: black;
 	text-align: left;

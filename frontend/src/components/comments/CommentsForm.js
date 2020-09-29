@@ -58,7 +58,7 @@ export default function CommentsForm({ post_id }) {
 		<>
 			{short ? (
 				<>
-					 {" "}
+					{" "}
 					{shortComments.map((comment) => {
 						return (
 							<li key={comment.id} className="display-comments">
@@ -76,16 +76,21 @@ export default function CommentsForm({ post_id }) {
 						</li>
 					);
 				})
-			)} 
-			<div className="create-Comments">
+			)}
+			<div className="create-comments">
 				<form onSubmit={handleSubmit} className="display-comments-form">
 					<input
 						type="text"
 						name="comments"
 						value={content}
+						className="comment-input"
 						onChange={(e) => setContent(e.currentTarget.value)}
 					/>
-					<button type="submit" className="comment-button">Post</button>
+					<span>
+						<button type="submit" className="comment-button">
+							Post
+						</button>
+					</span>
 				</form>
 			</div>
 		</>
