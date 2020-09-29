@@ -54,7 +54,7 @@ export default function UserProfile() {
 					<div className="img-wrapper">
 						<img
 							src={user.profile_pic}
-							alt="User_Profile_picture"
+							alt="User_Profile_Picture"
 							className="userProfilePicture"
 						/>
 					</div>

@@ -4,18 +4,18 @@
 
 }
 
-.rightDiv {
+/* .rightDiv {
   width: 100%;
   display: flex;
 
- }
+ } */
 
-.leftDiv {
+/* .leftDiv {
  width: 100%;
  display: flex;
  margin-top: 5%;
  align-items: center;
-}
+} */
 
 .userProfile {
   width: 5rem;
@@ -33,3 +33,14 @@
   color: black;
 }
 
+.cardGrid {
+  background: red;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+.carsContent {
+
+}

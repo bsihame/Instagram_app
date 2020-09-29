@@ -56,40 +56,38 @@ export default function CommentsForm({ post_id }) {
 
 	return (
 		<>
-			<h2>This is create comments Form</h2>
-			<div className="createComments">
-				<form onSubmit={handleSubmit} className="displayComment">
+			{short ? (
+				<>
+					 {" "}
+					{shortComments.map((comment) => {
+						return (
+							<li key={comment.id} className="display-comments">
+								{comment.content}
+							</li>
+						);
+					})}
+					{/* <button onClick={() => setShort(false)}>+</button> */}
+				</>
+			) : (
+				comments.map((comment) => {
+					return (
+						<li key={comment.id} className="display-comments-list">
+							{comment.content}
+						</li>
+					);
+				})
+			)} 
+			<div className="create-Comments">
+				<form onSubmit={handleSubmit} className="display-comments-form">
 					<input
 						type="text"
 						name="comments"
 						value={content}
 						onChange={(e) => setContent(e.currentTarget.value)}
 					/>
-					<button type="submit">Post</button>
+					<button type="submit" className="comment-button">Post</button>
 				</form>
 			</div>
-
-			{short ? (
-				<>
-					{" "}
-					{shortComments.map((comment) => {
-						return (
-							<li key={comment.id} className="displayComments">
-								{comment.content}
-							</li>
-						);
-					})}
-					<button onClick={() => setShort(false)}>+</button>
-				</>
-			) : (
-				comments.map((comment) => {
-					return (
-						<li key={comment.id} className="displayComments">
-							{comment.content}
-						</li>
-					);
-				})
-			)}
 		</>
 	);
 }

@@ -53,6 +53,7 @@ export default function Likes({ post_id }) {
 					aria-label="account of current user"
 					aria-controls="primary-search-account-menu"
 					aria-haspopup="true"
+					className="icon"
 				>
 					{isLiked ? (
 						<Icon
