@@ -17,7 +17,7 @@ import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 // import { apiURL } from "../../util/apiURL";
 import Footer from "../navbar_footer/Footer";
-import "../../CSS/Login.css";
+import "../../CSS/Login.css"
 
 export default function Login() {
 	const [email, setEmail] = useState("");
