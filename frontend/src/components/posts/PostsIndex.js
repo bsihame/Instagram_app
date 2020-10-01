@@ -52,13 +52,9 @@ export default function PostsIndex({ posts }) {
 										<h4 className="post-content">{post.content}</h4>
 										<Likes className="card-like" post_id={post.id} />
 									</post>
-									{/* <div className="card-body"> */}
-									<div className="card-like">
-									</div>
 									<div className="comments-div">
 										<CommentsForm post_id={post.id} />
 									</div>
-									{/* </div> */}
 								</div>
 							</Box>
 						);

@@ -1,10 +1,9 @@
 .comments-div {
-  width: 100%;
+	width: 100%;
 	margin: 0;
 	padding: 3%;
 	display: flex;
-  flex-direction: column;
-  
+	flex-direction: column;
 }
 
 .comment-input {
@@ -27,10 +26,9 @@
 	text-align: left;
 	list-style: none;
 	padding: 2%;
-
-	
+	margin-left: 5%;
 }
 
 .comment-button {
- margin: 2%;
+	margin: 2%;
 }
