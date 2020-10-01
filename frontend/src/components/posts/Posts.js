@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+
 import PostsIndex from "./PostsIndex";
 import { apiURL } from "../../util/apiURL";
 import { getUsersPosts } from "../../util/getRequests";
@@ -8,7 +8,6 @@ export default function Posts() {
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState(null);
 	const [ comment, setComment ] = useState("")
-	const API = apiURL();
 	const getPosts = async () => {
 		try {
 			let res = await getUsersPosts()
