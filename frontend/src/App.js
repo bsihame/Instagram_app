@@ -21,7 +21,10 @@ import CommentsForm from "./components/comments/CommentsForm";
 import { AuthContext } from "./providers/AuthContext";
 import { getUserById } from "./util/getRequests";
 import UserPageEdit from "./components/users/UserPageEdit";
-import Explore from "./components/pages/Explore"
+import Explore from "./components/pages/Explore";
+import UserPost from "./components/posts/UserPost";
+
+
 function App() {
 	const [firstName, setFirstName] = useState("");
 	const { currentUser } = useContext(AuthContext);
@@ -69,6 +72,11 @@ function App() {
 					<Posts />
 				</ProtectedRoute>
 
+				<ProtectedRoute path="/post/:id">
+					<NavBar />
+					<UserPost />
+				</ProtectedRoute>
+
 				<ProtectedRoute exact path={`/${firstName}/createPost`}>
 					<NavBar />
 					<CreatePostForm />
@@ -84,7 +92,7 @@ function App() {
 				<ProtectedRoute path={"/direct/inbox"}>
 					<NavBar />
 					<h2>direct message</h2>
-					
+
 					<Footer />
 				</ProtectedRoute>
 			</AuthProvider>

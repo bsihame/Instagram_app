@@ -2,10 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContext";
 import { getUserById, updateUser } from "../../util/getRequests";
 import { useInput } from "../../util/customHooks";
-import {
-	uploadPicture,
-	getFirebaseIdToken,
-} from "../../util/firebaseFunctions";
+import { storage } from "../../firebase";
+// import { uploadPicture, getFirebaseIdToken} from "../../util/firebaseFunctions";
 import { useHistory } from "react-router-dom";
 import "../../CSS/UserPageEdit.css";
 
@@ -16,10 +14,11 @@ export default function UserPageEdit(firstName) {
 	console.log(currentUser);
 	const [user, setUser] = useState({});
 	const [profilePicture, setProfilePicture] = useState(null);
-	const [imagePreview, setImagePreview] = useState(null);
+	// const [imagePreview, setImagePreview] = useState(null);
 	const [currentFullName, setCurrentFullName] = useState("");
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [currentBio, setCurrentBio] = useState("");
+	const [url, setUrl] = useState("");
 	let id = currentUser.id;
 
 	const getUserCall = async () => {
@@ -32,20 +31,9 @@ export default function UserPageEdit(firstName) {
 		setUser(data);
 	};
 
-	// const displayPreviewPicture = profilePicture ? (
-	// 	<img src={profilePicture} alt="new profile picture" />
-	// ) : null;
-	// const handleFileSelect = (e) => {
-	// 	debugger
-	// 	setProfilePicture(e.target.files[0]);
-	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
-	// };
-
-
 	const updateUserCall = async () => {
 		const userData = {
-			picture:profilePicture,
-			// handleFileSelect,
+			profile_pic: url,
 			full_name: currentFullName,
 			username: currentUserName,
 			bio: currentBio,
@@ -55,16 +43,19 @@ export default function UserPageEdit(firstName) {
 		returnToProfile();
 
 	};
-
-	
-	// const displayPreviewPicture = profilePicture ? (
-	// 	<img src={profilePicture} alt="new_profile_picture" />
-	// ) : null;
-
-	// const handleFileSelect = (e) => {
-	// 	setProfilePicture(e.target.files[0]);
-	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
-	// };
+	const handleUpload = (image) => {
+		const uploadTask = storage.ref(`images/${image.name}`).put(image);
+		uploadTask.on("state_changed", () => {
+			storage
+				.ref("images")
+				.child(image.name)
+				.getDownloadURL()
+				.then((url) => {
+					console.log(url)
+					setUrl(url);
+				});
+		});
+	};
 
 	const returnToProfile = () => {
 		history.push(`/user/${currentUser.id}`);
@@ -85,8 +76,12 @@ export default function UserPageEdit(firstName) {
 			setCurrentBio(e.target.value);
 		}
 		if (e.target.name === "picture") {
+			const test = handleUpload(e.target.files[0]);
+			console.log(100, test)
+			
 			setProfilePicture(URL.createObjectURL(e.target.files[0]));
-			// console.log(profilePicture)
+
+			// console.log(URL.createObjectURL(e.target.files[0]) + "text");
 		}
 	 };
 	return (
@@ -96,7 +91,7 @@ export default function UserPageEdit(firstName) {
 					<span>Profile Picture: </span>
 					<input
 						type="file"
-						onChange={handleChange}
+						onChange={handleChange} 
 						name="picture"
 					/>
 				</label>

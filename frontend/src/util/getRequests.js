@@ -40,9 +40,12 @@ export const createPost = async (dataObj) => {
 	}
 };
 export const getPostByPostId = async (id) => {
+	
 	try {
-		const res = await axios.get(API + `/api/posts/${id}`);
-		return res;
+		const res = await axios.get(API + `/api/posts/post/${id}`);
+	
+		console.log(res + "45 get request")
+		return res.data.payload;
 	} catch (error) {
 		console.log(error);
 	}

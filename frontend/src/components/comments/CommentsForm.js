@@ -46,8 +46,10 @@ export default function CommentsForm({ post_id }) {
 
 		try {
 			const res = await createComments(dataObj);
+			setContent("")
 			if (res) {
 				getComments();
+
 			}
 		} catch (error) {
 			console.log(error);

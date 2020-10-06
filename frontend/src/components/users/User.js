@@ -10,21 +10,23 @@ import { CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 const useStyles = makeStyles((theme) => ({
-	icon: {
-		marginRight: theme.spacing(2),
-	},
-	cardGrid: {
-		paddingTop: theme.spacing(8),
-		paddingBottom: theme.spacing(8),
-	},
+	// icon: {
+	// 	marginRight: theme.spacing(2),
+	// },
+	// cardGrid: {
+	// 	paddingTop: theme.spacing(8),
+	// 	paddingBottom: theme.spacing(8),
+	// },
 	card: {
 		height: "80%",
 		display: "flex",
 		flexDirection: "column",
+		
+		
 	},
-	cardMedia: {
-		paddingTop: "56.25%",
-	},
+	// cardMedia: {
+	// 	paddingTop: "56.25%",
+	// },
 	cardContent: {
 		flexGrow: 3,
 	},
@@ -57,11 +59,11 @@ export default function User() {
 	return (
 		<>
 			<NavBar />
-			<Container className={classes.cardGrid} maxWidth="md">
+			{/* <Container className={classes.cardGrid} maxWidth="md"> */}
 				<CardContent className={classes.carsContent}>
 					<Posts />
 				</CardContent>
-			</Container>
+			{/* </Container> */}
 			<Footer />
 		</>
 	);

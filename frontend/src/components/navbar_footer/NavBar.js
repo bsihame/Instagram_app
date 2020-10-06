@@ -25,6 +25,7 @@ import { getUserById } from "../../util/getRequests";
 const useStyles = makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
+		width: "100%",
 	},
 	menuButton: {
 		marginRight: theme.spacing(2),
