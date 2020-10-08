@@ -3,7 +3,10 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getUserById, updateUser } from "../../util/getRequests";
 import { useInput } from "../../util/customHooks";
 import { storage } from "../../firebase";
-// import { uploadPicture, getFirebaseIdToken} from "../../util/firebaseFunctions";
+import {
+	uploadPicture,
+	getFirebaseIdToken,
+} from "../../util/firebaseFunctions";
 import { useHistory } from "react-router-dom";
 import "../../CSS/UserPageEdit.css";
 
@@ -14,7 +17,7 @@ export default function UserPageEdit(firstName) {
 	console.log(currentUser);
 	const [user, setUser] = useState({});
 	const [profilePicture, setProfilePicture] = useState(null);
-	// const [imagePreview, setImagePreview] = useState(null);
+	const [imagePreview, setImagePreview] = useState(null);
 	const [currentFullName, setCurrentFullName] = useState("");
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [currentBio, setCurrentBio] = useState("");
@@ -56,6 +59,16 @@ export default function UserPageEdit(firstName) {
 				});
 		});
 	};
+
+	
+	// const displayPreviewPicture = profilePicture ? (
+	// 	<img src={profilePicture} alt="new_profile_picture" />
+	// ) : null;
+
+	// const handleFileSelect = (e) => {
+	// 	setProfilePicture(e.target.files[0]);
+	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
+	// };
 
 	const returnToProfile = () => {
 		history.push(`/user/${currentUser.id}`);
