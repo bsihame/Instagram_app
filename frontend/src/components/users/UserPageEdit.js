@@ -13,8 +13,6 @@ import "../../CSS/UserPageEdit.css";
 export default function UserPageEdit(firstName) {
 	const history = useHistory();
 	const { currentUser, token } = useContext(AuthContext);
-
-	console.log(currentUser);
 	const [user, setUser] = useState({});
 	const [profilePicture, setProfilePicture] = useState(null);
 	const [imagePreview, setImagePreview] = useState(null);
@@ -26,7 +24,6 @@ export default function UserPageEdit(firstName) {
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger;
 		setProfilePicture(data.profile_pic)
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
@@ -46,6 +43,7 @@ export default function UserPageEdit(firstName) {
 		returnToProfile();
 
 	};
+
 	const handleUpload = (image) => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
 		uploadTask.on("state_changed", () => {
@@ -60,18 +58,9 @@ export default function UserPageEdit(firstName) {
 		});
 	};
 
-	
-	// const displayPreviewPicture = profilePicture ? (
-	// 	<img src={profilePicture} alt="new_profile_picture" />
-	// ) : null;
-
-	// const handleFileSelect = (e) => {
-	// 	setProfilePicture(e.target.files[0]);
-	// 	setImagePreview(URL.createObjectURL(e.target.files[0]));
-	// };
-
-	const returnToProfile = () => {
-		history.push(`/user/${currentUser.id}`);
+	const returnToProfile = (user) => {
+		let firstName = currentFullName.split(" ")[0];
+		history.push(`/${firstName}`);
 	};
 
 	useEffect(() => {
@@ -90,13 +79,10 @@ export default function UserPageEdit(firstName) {
 		}
 		if (e.target.name === "picture") {
 			const test = handleUpload(e.target.files[0]);
-			console.log(100, test)
-			
-			setProfilePicture(URL.createObjectURL(e.target.files[0]));
-
-			// console.log(URL.createObjectURL(e.target.files[0]) + "text");
+			setProfilePicture(URL.createObjectURL(e.target.files[0]))
 		}
-	 };
+	};
+	
 	return (
 		<div className="up-edit">
 			<div className="editContainer">
@@ -155,73 +141,3 @@ export default function UserPageEdit(firstName) {
 		</div>
 	);
 }
-
-// import React, { useState, useEffect } from "react";
-// // import axios from " axios";
-// import { useHistory } from "react-router-dom";
-// // import React, { useContext, useEffect, useState } from 'react';
-// import { AuthContext } from '../../providers/AuthContext';
-// import { getUserById, updateUser } from '../../util/getRequests';
-// // import { useInput } from '../../util/customHooks';
-// import { uploadPicture, getFirebaseIdToken } from '../../util/firebaseFunctions';
-// // import { useHistory } from 'react-router-dom';
-
-// import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-
-// export default function UserPageEdit(props) {
-//     const history = useHistory();
-//     const [profilePicture, setProfilePicture] = useState(null)
-//     const[imagePreview, setImagePreview]
-//         = useState(null)
-//     const {
-//         fullName,
-//         userName,
-//         Bio,
-//         profilePic,
-//         handleFileChange,
-//     } = props;
-
-// 		useEffect(() => {
-// 			getUserCall();
-
-// 		}, []);
-
-//     const displayPreviewPicture = profilePic ? (
-// 			<img src={profilePic} alt="new profile picture" />
-//     ) : null;
-//     const handleFileChange = (e) => {
-// 			setProfilePicture(e.target.files[0]);
-// 			setImagePreview(URL.createObjectURL(e.target.files[0]));
-// 		};
-
-// 		const returnToProfile = () => {
-// 			history.push(`/user/${currentUser.id}`);
-// 		};
-
-//     return (
-// 			<div
-// 				className="divProfilePic"
-// 				style={{ height: profilePic ? "100vh" : "100vh" }}
-// 			>
-// 				<h2>Profile Update</h2>
-// 				<div className="upe-pfpContainer">
-// 					<label htmlFor="upe-pfp" className="pfpLabel">
-// 						<span className="MuiButton-startIcon MuiButton-iconSizeMedium">
-// 							<CloudUploadIcon />
-// 						</span>
-// 						Upload a profile picture
-// 					</label>
-// 				</div>
-
-// 				<input
-// 					type="file"
-// 					accept=".png, .jpg, .jpeg"
-// 					onChange={handleFileChange}
-// 					name="pfp"
-// 					id="upe-pfp"
-// 				/>
-// 				<b>Preview: </b>
-// 				{displayPreviewPicture}
-// 			</div>
-// 		);
-// }
