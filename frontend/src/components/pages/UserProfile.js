@@ -8,16 +8,16 @@ export default function UserProfile() {
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
 	const history = useHistory();
-	console.log(currentUser);
 	const [user, setUser] = useState({});
-	const [firstName, setFirstName] = useState("");
-	const getFirstName = async () => {
+	const [username, setUserName] = useState("");
+	const getUserName = async () => {
 		const data = await getUserById(currentUser.id);
-		setFirstName(data.full_name.split(" ")[0]);
+		console.log(data)
+		setUserName(data.username);
 	};
 
 	useEffect(() => {
-		getFirstName();
+		getUserName();
 	}, []);
 
 	const getUser = async () => {
@@ -30,12 +30,16 @@ export default function UserProfile() {
 	};
 
 	const redirect = () => {
-		history.push(`/${firstName}/edit`);
+		history.push(`/${username}/edit`);
 	};
 
 	const editingUser = () => {
 		if (currentUser.id === user.id) {
-			return <button className="editButton" onClick={redirect}>Edit Profile</button>;
+			return (
+				<button className="editButton" onClick={redirect}>
+					Edit Profile
+				</button>
+			);
 		} else {
 			return null;
 		}

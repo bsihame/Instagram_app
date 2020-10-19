@@ -23,22 +23,22 @@ import { getUserById } from "./util/getRequests";
 import UserPageEdit from "./components/users/UserPageEdit";
 import Explore from "./components/pages/Explore";
 import UserPost from "./components/posts/UserPost";
+import Messages from "./components/pages/Messages";
 
 
 function App() {
-	const [firstName, setFirstName] = useState("");
+	const [username, setUserName] = useState("");
 	const { currentUser } = useContext(AuthContext);
-
-	const getFirstName = async () => {
+	const getUserName = async () => {
 		const data = await getUserById(currentUser.id);
-		setFirstName(data.full_name.split(" ")[0]);
+		setUserName(data.username);
 	};
 
 	useEffect(() => {
 		if (currentUser) {
-			getFirstName();
+			getUserName();
 		}
-	}, [currentUser]);
+	}, [username]);
 
 	return (
 		<div className="App">
@@ -51,20 +51,20 @@ function App() {
 					<SignUpForm />
 				</AuthRoute>
 
-				<ProtectedRoute exact path={`/${firstName}`}>
+				<ProtectedRoute exact path={`/${username}`}>
+					<User />
+					<Ads />
+					<Footer />
+				</ProtectedRoute>
+
+				<ProtectedRoute exact path={`/${username}/profile`}>
 					<NavBar />
 					<UserProfile />
 				</ProtectedRoute>
 
-				<ProtectedRoute exact path={`/${firstName}/edit`}>
+				<ProtectedRoute exact path={`/${username}/edit`}>
 					<NavBar />
 					<UserPageEdit />
-				</ProtectedRoute>
-
-				<ProtectedRoute path="/user">
-					<User />
-					<Ads />
-					<Footer />
 				</ProtectedRoute>
 
 				<ProtectedRoute path="/posts">
@@ -77,7 +77,7 @@ function App() {
 					<UserPost />
 				</ProtectedRoute>
 
-				<ProtectedRoute exact path={`/${firstName}/createPost`}>
+				<ProtectedRoute exact path={`/${username}/createPost`}>
 					<NavBar />
 					<CreatePostForm />
 					<Footer />
@@ -92,7 +92,7 @@ function App() {
 				<ProtectedRoute path={"/direct/inbox"}>
 					<NavBar />
 					<h2>direct message</h2>
-
+					{/* <Messages /> */}
 					<Footer />
 				</ProtectedRoute>
 			</AuthProvider>
@@ -100,4 +100,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App;  

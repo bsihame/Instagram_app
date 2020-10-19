@@ -15,6 +15,7 @@ export const getAllUsers = async () => {
 export const getUserById = async (id) => {
 	try {
 		let res = await axios.get(API + `/api/users/${id}`);
+		debugger
 		return res.data.payload;
 	} catch (error) {
 		console.log("ERROR - get user by id");
@@ -24,7 +25,6 @@ export const getUserById = async (id) => {
 export const getUsersPosts = async () => {
 	try {
 		let res = await axios.get(API + `/api/posts`);
-		console.log(res)
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);
@@ -89,12 +89,14 @@ export const updateUser = async (id, data, token) => {
 	try {
 		let res = await axios({
 			method: "PATCH",
-			url: API + "/api/users/" + id,
+			url: API + "/api/users/"+ id ,
 			headers: {
-				AuthToken: token
+				AuthToken: token,
 			},
 			data,
-		})
+		});
+		debugger
+		console.log(99, res.data.user)
 		return res.data.user;
 	} catch (error) {
 		console.log(error);

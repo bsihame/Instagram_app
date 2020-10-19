@@ -10,7 +10,7 @@ import {
 import { useHistory } from "react-router-dom";
 import "../../CSS/UserPageEdit.css";
 
-export default function UserPageEdit(firstName) {
+export default function UserPageEdit(username) {
 	const history = useHistory();
 	const { currentUser, token } = useContext(AuthContext);
 	const [user, setUser] = useState({});
@@ -22,9 +22,11 @@ export default function UserPageEdit(firstName) {
 	const [url, setUrl] = useState("");
 	let id = currentUser.id;
 
+
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
-		setProfilePicture(data.profile_pic)
+		debugger;
+		setProfilePicture(data.profile_pic);
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
 		setCurrentBio(data.bio);
@@ -40,8 +42,8 @@ export default function UserPageEdit(firstName) {
 		};
 
 		const response = await updateUser(currentUser.id, userData, token);
+		debugger;
 		returnToProfile();
-
 	};
 
 	const handleUpload = (image) => {
@@ -52,19 +54,22 @@ export default function UserPageEdit(firstName) {
 				.child(image.name)
 				.getDownloadURL()
 				.then((url) => {
-					console.log(url)
+					console.log(url);
 					setUrl(url);
 				});
 		});
 	};
 
-	const returnToProfile = (user) => {
-		let firstName = currentFullName.split(" ")[0];
-		history.push(`/${firstName}`);
+	const returnToProfile = () => {
+		
+		 let username = currentUserName
+		console.log(username);
+		history.push(`/${username}/profile`);
 	};
 
 	useEffect(() => {
 		getUserCall();
+		
 	}, []);
 
 	const handleChange = (e) => {
@@ -79,20 +84,16 @@ export default function UserPageEdit(firstName) {
 		}
 		if (e.target.name === "picture") {
 			const test = handleUpload(e.target.files[0]);
-			setProfilePicture(URL.createObjectURL(e.target.files[0]))
+			setProfilePicture(URL.createObjectURL(e.target.files[0]));
 		}
 	};
-	
+
 	return (
 		<div className="up-edit">
 			<div className="editContainer">
 				<label>
 					<span>Profile Picture: </span>
-					<input
-						type="file"
-						onChange={handleChange} 
-						name="picture"
-					/>
+					<input type="file" onChange={handleChange} name="picture" />
 				</label>
 				<div>
 					<b>Preview: </b>

@@ -1,40 +1,47 @@
 import React, { useState } from "react";
-import TexField from "@material-ui/TextField";
+import TextField from "@material-ui/core/TextField";
 import Send from "@material-ui/icons/Send";
 
-
 const ChatTextBox = ({
-  submitMessageToFirebase,
-  messageRead,
-  selectedChatText
+	submitMessageToFirebase,
+	messageRead,
+	selectedChatIndex,
 }) => {
-  const userTyping = (e) => {
-    e.keyCode === 13 ? submitMessage() : selectedChatText(e.target.value);
-  };
+	const [chatText, setchatText] = useState("");
 
-  const messageValid = (text) => {
-    if (text && text.replace(/\s/g, "").length) {
-      return true;
-    }
-  };
+	const userTyping = (e) => {
+		e.keyCode === 13 ? submitMessage() : setchatText(e.target.value);
+	};
 
-  const userClickedInput = () => {
-        messageRead(selectedChatIndex)
-    }
+	const messageValid = (text) => {
+		if (text && text.replace(/\s/g, "").length) {
+			return true;
+		}
+	};
 
-    const submitMessage = () => {
-        if(messageValid(chatText)) {
-            submitMessageToFirebase(chatText);
-            document.getElementById("chatTextBox").value = "";
-        }
-    }
+	const userClickedInput = () => {
+		messageRead(selectedChatIndex);
+	};
 
-    return(
-        <div className="chatTextBoxContainer">
-            <TextField placeholder="Type Your Message..." onKeyUp={(e) => userTyping(e)} id="chatTextBox" className="chatTextBox" onFocus={userClickedInput}></TextField>
-            <Send onClick={submitMessage} className="sendButton"></Send>
-      </div>
-    )
-}
+	const submitMessage = () => {
+		if (messageValid(chatText)) {
+			submitMessageToFirebase(chatText);
+			document.getElementById("chatTextBox").value = "";
+		}
+	};
+
+	return (
+		<div className="chatTextBoxContainer">
+			<TextField
+				placeholder="Type Your Message..."
+				onKeyUp={(e) => userTyping(e)}
+				id="chatTextBox"
+				className="chatTextBox"
+				onFocus={userClickedInput}
+			></TextField>
+			<Send onClick={submitMessage} className="sendButton"></Send>
+		</div>
+	);
+};
 
 export default ChatTextBox;

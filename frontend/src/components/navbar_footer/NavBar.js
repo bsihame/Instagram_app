@@ -88,20 +88,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
 	const { currentUser } = useContext(AuthContext);
-	const [firstName, setFirstName] = useState(null);
+	const [username, setUserName] = useState("");
+	// const [firstName, setFirstName] = useState(null);
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-	const getFirstName = async () => {
+	// const getFirstName = async () => {
+	// 	const data = await getUserById(currentUser.id);
+	// 	setFirstName(data.full_name.split(" ")[0]);
+	// };
+	// useEffect(() => {
+	// 	getFirstName();
+	// }, []);
+	
+	const getUserName = async () => {
 		const data = await getUserById(currentUser.id);
-		setFirstName(data.full_name.split(" ")[0]);
+		setUserName(data.username);
 	};
+
 	useEffect(() => {
-		getFirstName();
-	}, []);
+		if (currentUser) {
+			getUserName();
+		}
+	}, [username]);
 
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -131,15 +143,15 @@ export default function PrimarySearchAppBar() {
 			open={isMenuOpen}
 			onClose={handleMenuClose}
 		>
-			<NavLink className="profile" to={`/${firstName}`}>
+			<NavLink className="profile" to={`/${username}/profile`}>
 				<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
 			</NavLink>
 
-			<NavLink className="profile" to={`/${firstName}/edit`}>
+			<NavLink className="profile" to={`/${username}/edit`}>
 				<MenuItem onClick={handleMenuClose}>Edit Profile</MenuItem>
 			</NavLink>
 
-			<NavLink className="profile" to={`/${firstName}/createPost`}>
+			<NavLink className="profile" to={`/${username}/createPost`}>
 				<MenuItem onClick={handleMenuClose}>Create a Post</MenuItem>
 			</NavLink>
 
@@ -220,7 +232,7 @@ export default function PrimarySearchAppBar() {
 
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
-						<NavLink exact to={"/user"}>
+						<NavLink exact to={"/"}>
 							<IconButton aria-label="home" color="inherit">
 								<Badge color="secondary">
 									<HomeIcon />

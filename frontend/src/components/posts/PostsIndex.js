@@ -17,7 +17,6 @@ export default function PostsIndex({ posts }) {
 			const res = await getUserById(id);
 			setUser(res)
 		} catch (error) {
-			console.log("ISSUE");
 			console.log(error);
 		}
 	};
