@@ -30,7 +30,9 @@ export default function UserProfile() {
 	};
 
 	const redirect = () => {
-		history.push(`/${username}/edit`);
+	// let username = currentUserName
+		console.log(username);
+		history.push(`/${username}`);
 	};
 
 	const editingUser = () => {

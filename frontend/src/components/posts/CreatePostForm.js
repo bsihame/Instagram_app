@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
+import { getUserById } from "../../util/getRequests";
 import { createPost } from "../../util/getRequests";
 import { useHistory } from "react-router-dom";
 import { storage } from "../../firebase";
@@ -15,6 +16,8 @@ export default function CreatePostForm() {
 	const [content, setContent] = useState("");
 	const [image, setImage] = useState(null);
 	const [url, setUrl] = useState("");
+	const [currentUserName, setCurrentUserName] = useState("");
+
 
 	const handleChange = (e) => {
 		if (e.target.files[0]) {
@@ -33,6 +36,20 @@ export default function CreatePostForm() {
 				});
 		});
 	};
+
+
+	const getUserCall = async () => {
+		const data = await getUserById(currentUser.id);
+		debugger;
+		
+		setCurrentUserName(data.username);
+
+	};
+	
+	const returnToUserPage = () => {
+		let username = currentUserName;
+		history.push(`/${username}`)
+	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -45,7 +62,7 @@ export default function CreatePostForm() {
 		try {
 			const res = await createPost(dataObj);
 			setUrl(url);
-			history.push("/user");
+			returnToUserPage();
 		} catch (error) {
 		
 			console.log(error);
@@ -53,9 +70,11 @@ export default function CreatePostForm() {
 
 	};
 
-	//  const returnToUser = () => {
-	// 		history.push("/user");
-	// 	};
+	useEffect(() =>{
+		if (currentUser) {
+			getUserCall();
+		}
+	}, []);
 
 
 	return (

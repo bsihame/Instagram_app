@@ -68,8 +68,9 @@ export default function UserPageEdit(username) {
 	};
 
 	useEffect(() => {
-		getUserCall();
-		
+		if (currentUser) {
+			getUserCall();
+		}
 	}, []);
 
 	const handleChange = (e) => {

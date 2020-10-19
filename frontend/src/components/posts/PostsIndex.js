@@ -7,7 +7,8 @@ import Box from "@material-ui/core/Box";
 import "../../CSS/PostsIndex.css"
 import { Container } from "@material-ui/core";
 
-export default function PostsIndex({ posts }) {
+export default function
+	PostsIndex({ posts }) {
 	const [user, setUser] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
