@@ -86,7 +86,6 @@ function App() {
 				<ProtectedRoute path="/explore">
 					<NavBar />
 					<Explore />
-					<Footer />
 				</ProtectedRoute>
 
 				<ProtectedRoute path={"/direct/inbox"}>
