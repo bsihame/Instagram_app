@@ -7,8 +7,6 @@
 	background-color: #ffffff;
 	border-bottom: 2px solid #dbdbdb;
 }
-.search {
-}
 
 .navLinkDiv {
 	display: flex;
@@ -18,23 +16,27 @@
 .title {
 	font-family: "Lobster Two", cursive;
 	color: black;
-	font-size: 20px;
-	margin: 0;
-	width: 30%;
-	padding-right: 40%;
+	font-size: 400px;
+	margin-left: 20%;
+	width: 100%;
 }
 
-.search {
-	width: auto;
-	margin-left: 40%;
+.searchDiv {
+	width: fit-content;
+	margin: auto;
+	color: black;
+	background: aliceblue;
+}
+.icon {
+	margin: 10px;
+	margin-right: inherit;
 }
 
-.right {
-	width: 70%;
-	display: flex;
+.input {
+	margin-left: inherit;
+	justify-content: center;
 	align-items: center;
-	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 
 .home {
