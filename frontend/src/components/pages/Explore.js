@@ -1,22 +1,18 @@
-import React from 'react'
-import "../../CSS/Explore.css"
+import React from "react";
+import "../../CSS/Explore.css";
 
 export default function Explore() {
-  
-    
-  
-  return (
-    
+	return (
 		<div className="exploreDiv">
 			<section id="showcase">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div id="myCarousel" className="carousel slide" data-ride="carousel">
 					<ol className="carousel-indicators">
 						<li
 							data-target="#myCarousel"
 							data-slide-to="0"
 							className="active"
 						></li>
-						<li data-target="#myCarousel" data-slide-to="1" ></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						<li data-target="#myCarousel" data-slide-to="3"></li>
 						<li data-target="#myCarousel" data-slide-to="4"></li>
@@ -49,25 +45,24 @@ export default function Explore() {
 						<span className="carousel-control-next-icon"></span>
 					</a>
 				</div>
-      </section>
-      
+			</section>
 
 			<section id="video-play">
-							<div className="container p-5">
-								<a
-									href="https://www.youtube.com/watch?v=GHF_rfpFacg"
-									className="video"
-							>
-									<i className="fas fa-play fa-3x"></i>
-								</a>
-								<h1>See What We Do</h1>
+				<div className="container p-5">
+					<a
+						href="https://www.youtube.com/watch?v=GHF_rfpFacg"
+						className="video"
+					>
+						<i className="fas fa-play fa-3x"></i>
+					</a>
+					<h1>See What We Do</h1>
 				</div>
 			</section>
 
 			<section id="gallery" className="py-5">
 				<div className="container">
 					<h1 className="text-center">Photo Gallery</h1>
-					{/* <p className="text-center">Check out our photos</p> */}
+					<p className="text-center">Check out our photos</p>
 					<div className="row mb-4">
 						<div className="col-md-4">
 							<a
