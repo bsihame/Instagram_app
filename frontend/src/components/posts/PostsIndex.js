@@ -28,13 +28,27 @@ export default function
 
 	return (
 		<>
-				<Container className="post-container">
-			
-					{posts.map((post) => {
-						return (
-							<Box boxShadow={3} bgcolor="background.paper" m={1} p={1}>
-								<div class="card" key={post.id}>
-									{/* <div className="userHeader">
+			<Container
+				className="post-container"
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				alignContent="center"
+			>
+				{posts.map((post) => {
+					return (
+						<Box
+							boxShadow={3}
+							bgcolor="background.paper"
+							m={4}
+							p={1}
+							display="flex"
+							justifyContent="center"
+							alignItems="center"
+							alignContent="center"
+						>
+							<div class="card" key={post.id}>
+								{/* <div className="userHeader">
 								<img
 									className="userAvatar"
 									src={post.profile_pic}
@@ -43,23 +57,23 @@ export default function
 								/>
 								<h2>{post.username}</h2>
 							</div> */}
-									<post className="post-feed">
-										<img
-											className="card-img-top"
-											src={post.picture}
-											alt="Card image cap"
-										/>
-										<h4 className="post-content">{post.content}</h4>
-										<Likes className="card-like" post_id={post.id} />
-									</post>
-									<div className="comments-div">
-										<CommentsForm post_id={post.id} />
-									</div>
+								<post className="post-feed">
+									<img
+										className="card-img-top"
+										src={post.picture}
+										alt="Card image cap"
+									/>
+									<h4 className="post-content">{post.content}</h4>
+									<Likes className="card-like" post_id={post.id} />
+								</post>
+								<div className="comments-div">
+									<CommentsForm post_id={post.id} />
 								</div>
-							</Box>
-						);
-					})}
-				</Container>
+							</div>
+						</Box>
+					);
+				})}
+			</Container>
 		</>
 	);
 }

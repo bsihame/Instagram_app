@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
 		height: "80%",
 		display: "flex",
 		flexDirection: "column",
+		alignContent: "center",
+		
 	},
 
 	cardContent: {

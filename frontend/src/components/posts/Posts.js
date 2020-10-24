@@ -25,7 +25,7 @@ export default function Posts() {
 	}, []);
 
 	return (
-		<div className="posts">
+		<div className="posts" >
 			{error ? <div>{error}</div> : null}
 			<PostsIndex posts={posts} />
 		</div>
