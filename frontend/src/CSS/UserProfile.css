@@ -1,17 +1,17 @@
 .userProfileDiv {
-	margin-top: 30px;
+	margin-top: 2%;
 }
 
 .greeting {
-	margin-bottom: 20px;
+	margin-bottom: 1.5%;
 	color: black;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .userProfilePicture {
 	border-radius: 20%;
 	background: black;
-	margin-bottom: 30px;
+	margin-bottom: 30%;
 }
 
 .image-area {
@@ -49,7 +49,7 @@
 	width: 264px;
 	filter: grayscale(10%);
 	transition: 2s;
-	margin-top: 111px;
+	margin-top: 50%;
 }
 
 .img-wrapper:hover img {
@@ -64,19 +64,19 @@
 
 .aboutParagraph {
 	font-weight: 400px;
-	line-height: 1.5;
+	line-height: 1.5px;
 	color: #5ba3eb;
 	margin: auto;
 	width: 30%;
-	padding: 2px;
-	margin-top: 25%;
+	padding: 2%;
+	margin-top: 20%;
 }
 
 .profileP {
 	color: black;
 	font-size: 20px;
 	text-align: left;
-	margin-left: 6rem;
+	margin-left: 20%;
 }
 
 .editButton {
@@ -92,5 +92,103 @@
 	color: #fff;
 	position: relative;
 	width: 120px;
-	margin-right: 20px;
+	margin-top: 2%;
+}
+
+@media screen and (max-width: 1172px) {
+	.greeting {
+		font-size: 25px;
+	}
+
+	.image-area {
+		top: 25%;
+	}
+
+	.img-wrapper {
+		position: relative;
+		overflow: hidden;
+		margin-top: 35%;
+	}
+
+	.img-wrapper:before {
+		left: 170%;
+		height: 80%;
+		width: 80%;
+		transform: skew(40deg);
+	}
+
+	.img-wrapper:hover:before {
+		left: -180%;
+	}
+
+	.img-wrapper img {
+		height: 230px;
+		width: 234px;
+	}
+
+	.aboutParagraph {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 1098px) {
+	.img-wrapper {
+		margin-top: 40%;
+	}
+	.img-wrapper:before {
+		left: 170%;
+		height: 80%;
+		width: 80%;
+		transform: skew(40deg);
+	}
+	.img-wrapper img {
+		height: 200px;
+		width: 204px;
+	}
+
+	.aboutParagraph {
+		font-size: 25px;
+		margin-top: 25%;
+	}
+}
+
+@media screen and (max-width: 955px) {
+	.img-wrapper {
+		margin-top: 40%;
+	}
+	.img-wrapper:before {
+		left: 170%;
+		height: 80%;
+		width: 80%;
+		transform: skew(40deg);
+	}
+	.img-wrapper img {
+		height: 210px;
+		width: 214px;
+	}
+
+	.aboutParagraph {
+		font-size: x-small;
+		margin-top: 35%;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.img-wrapper {
+		margin-top: 40%;
+	}
+	.img-wrapper:before {
+		height: 70%;
+		width: 70%;
+		transform: skew(40deg);
+	}
+	.img-wrapper img {
+		height: 200px;
+		width: 204px;
+	}
+
+	.aboutParagraph {
+		font-size: x-small;
+		margin-top: 50%;
+	}
 }

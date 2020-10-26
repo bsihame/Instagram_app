@@ -10,9 +10,10 @@ export default function UserProfile() {
 	const history = useHistory();
 	const [user, setUser] = useState({});
 	const [username, setUserName] = useState("");
+
 	const getUserName = async () => {
 		const data = await getUserById(currentUser.id);
-		console.log(data)
+		console.log(data);
 		setUserName(data.username);
 	};
 
@@ -30,9 +31,8 @@ export default function UserProfile() {
 	};
 
 	const redirect = () => {
-	// let username = currentUserName
 		console.log(username);
-		history.push(`/${username}`);
+		history.push(`/${username}/edit`);
 	};
 
 	const editingUser = () => {
@@ -83,7 +83,7 @@ export default function UserProfile() {
 					{user.bio}
 				</p>
 			</div>
-			<div>{editingUser()}</div>
+			<div className="editProfileButton">{editingUser()}</div>
 		</>
 	);
 }
