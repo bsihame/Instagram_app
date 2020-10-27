@@ -51,9 +51,7 @@ export default function UserPost() {
 };
 	
 	useEffect(() => {
-		getUserPost();
-		// getUserPostCall();
-    
+		getUserPost(); 
 	}, []);
 	if (!post.length) {
 		return <h4>loading</h4>
