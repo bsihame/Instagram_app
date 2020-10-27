@@ -1,22 +1,46 @@
 .up-edit {
-  display: flex;
-  flex-direction: column;
-	margin: 3rem;
-	padding: 2rem;
-  width: 50%;
-  margin: 0.5rem;
-	/* text-align: left; */
+	display: flex;
+	flex-direction: column;
+	margin: 2rem;
 }
-
 .editContainer {
-  flex-direction: column;
+	margin-top: 1.5rem;
 }
 
-.profile_picture{
-  width: 150px;
+.card_area {
+	margin: 1rem;
+}
+.edit_title {
+	padding: 2rem;
+}
+.Picture_input {
+	width: 30rem;
+}
+
+.text_field,
+.edit_button {
+	/* margin: 1rem; */
+	margin: 1.5rem;
+}
+
+.profile_picture {
+	width: 150px;
 	height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
+	border-radius: 50%;
+	object-fit: cover;
 }
-
+#outlined-basic {
+	width: 27rem;
+}
+.edit_submit_button {
+	background-color: #0095f6;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bolder;
+	text-align: center;
+	border-radius: 6px;
+	color: #fff;
+	width: 150px;
+}

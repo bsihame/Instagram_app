@@ -4,6 +4,8 @@ import { getUserById, updateUser } from "../../util/getRequests";
 import { useInput } from "../../util/customHooks";
 import { storage } from "../../firebase";
 import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import TextField from "@material-ui/core/TextField";
 import {
 	uploadPicture,
@@ -12,14 +14,11 @@ import {
 import { useHistory } from "react-router-dom";
 import "../../CSS/UserPageEdit.css";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
 	root: {
-		"& > *": {
-			margin: theme.spacing(1),
-			width: "25ch",
-		},
+		maxWidth: 500,
 	},
-}));
+});
 
 export default function UserPageEdit(username) {
 	const history = useHistory();
@@ -33,8 +32,7 @@ export default function UserPageEdit(username) {
 	const [url, setUrl] = useState("");
 	let id = currentUser.id;
 
-	
-	 const classes = useStyles();
+	const classes = useStyles();
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
@@ -80,15 +78,14 @@ export default function UserPageEdit(username) {
 		}
 	};
 	// const returnToProfile = () => {
-		
+
 	// 	 let username = currentUserName
 	// 	console.log(username);
-	
 
 	useEffect(() => {
 		if (currentUser) {
 			getUserCall();
-		 }
+		}
 	}, []);
 
 	const handleChange = (e) => {
@@ -109,111 +106,72 @@ export default function UserPageEdit(username) {
 
 	return (
 		<div className="up-edit">
-			<h2>Edit Your Profile</h2>
-			<div>
-				<h4>Preview: </h4>
-				<img
-					className="profile_picture"
-					src={profilePicture}
-					alt="profile_picture"
-				/>
-				{/* </div> */}
-				<div className="editContainer">
-					{/* <TextField
-						id="outlined-helperText"
-						label="Profile_Picture"
-						// defaultValue="profile"
-						type="file"
-						onChange={handleChange}
-						name="picture"
-						// helperText="Some important text"
-						variant="outlined"
-					/> */}
+			<Card className={classes.root}>
+				<CardActionArea className="card_area">
+					<h2 className="edit_title">Edit Your Profile</h2>
 
-					{/* <TextField
-						id="outlined-helperText"
-						label="Profile_Picture"
-						variant="outlined"
-						type="file"
-						onChange={handleChange}
-						name="picture"
-					/> */}
-					<label>
-						<h4>Profile Picture: </h4>
-						<input type="file" onChange={handleChange} name="picture" />
-					</label>
-					<TextField
-						id="outlined-basic"
-						label="Full_Name"
-						variant="outlined"
-						type="text"
-						value={currentFullName}
-						onChange={handleChange}
-						name="fullName"
-					/>
-					{/* <div className="upe-userInteraction"> */}
-					{/* <label>
-						<span>Full Name: </span>
-						<input
-							type="text"
-							value={currentFullName}
-							onChange={handleChange}
-							name="fullName"
-						/>
-					</label> */}
-					{/* </div> */}
-					{/* <div className="upe-userInteraction"> */}
-
-					<TextField
-						id="outlined-basic"
-						label="User_Name"
-						variant="outlined"
-						type="text"
-						value={currentUserName}
-						onChange={handleChange}
-						name="username"
-					/>
-					{/* <label>
-						<span>User Name:</span>
-						<input
-							type="text"
-							value={currentUserName}
-							onChange={handleChange}
-							name="username"
-						/>
-					</label> */}
-					{/* </div> */}
-					{/* </div> */}
-
-					{/* <div> */}
-
-					<TextField
-						id="outlined-basic"
-						label="Bio"
-						variant="outlined"
-						rows="7"
-						cols="40"
-						value={currentBio}
-						onChange={handleChange}
-						name="bio"
+					<h4>Preview: </h4>
+					<img
+						className="profile_picture"
+						src={profilePicture}
+						alt="profile_picture"
 					/>
 
-					{/* <label>Bio: </label>
-					<textarea
-						rows="7"
-						cols="40"
-						value={currentBio}
-						onChange={handleChange}
-						name="bio"
-					/> */}
-				</div>
-				<div>
-					<button type="submit" onClick={updateUserCall}>
-						Update
-					</button>
-				</div>
-			</div>
-			{/* </div> */}
+					<div className="editContainer">
+						<label>
+							<h4>Profile Picture: </h4>
+							<input
+								type="file"
+								onChange={handleChange}
+								name="picture"
+								className="Picture_input"
+							/>
+						</label>
+						<div className="text_field">
+							<TextField
+								id="outlined-basic"
+								label="Full_Name"
+								variant="outlined"
+								type="text"
+								value={currentFullName}
+								onChange={handleChange}
+								name="fullName"
+							/>
+						</div>
+
+						<div className="text_field">
+							<TextField
+								id="outlined-basic"
+								label="User_Name"
+								variant="outlined"
+								type="text"
+								value={currentUserName}
+								onChange={handleChange}
+								name="username"
+							/>
+						</div>
+
+						<div className="text_field">
+							<TextField
+								id="outlined-basic"
+								label="Bio"
+								variant="outlined"
+								rows="7"
+								cols="40"
+								value={currentBio}
+								onChange={handleChange}
+								name="bio"
+							/>
+						</div>
+
+						<div className="edit_button">
+							<button type="submit" onClick={updateUserCall} className="edit_submit_button">
+								Update
+							</button>
+						</div>
+					</div>
+				</CardActionArea>
+			</Card>
 		</div>
 	);
 }
