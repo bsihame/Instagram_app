@@ -95,8 +95,7 @@ export const updateUser = async (id, data, token) => {
 			data,
 		});
 		debugger
-		console.log(99, res.data.user)
-		return res.data.user;
+		return res.data.payload;
 	} catch (error) {
 		console.log(error);
 	}

@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Switch } from "react-router-dom"
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
@@ -27,73 +28,74 @@ import Messages from "./components/pages/Messages";
 
 
 function App() {
-	const [username, setUserName] = useState("");
-	const { currentUser } = useContext(AuthContext);
-	const getUserName = async () => {
-		const data = await getUserById(currentUser.id);
-		setUserName(data.username);
-	};
+	// const [username, setUserName] = useState("");
+	// const { currentUser } = useContext(AuthContext);
+	// const getUserName = async () => {
+	// 	const data = await getUserById(currentUser.id);
+	// 	setUserName(data.username);
+	// };
 
-	useEffect(() => {
-		if (currentUser) {
-			getUserName();
-		}
-	}, [username]);
+	// useEffect(() => {
+	// 	if (currentUser) {
+	// 		getUserName();
+	// 	}
+	// }, [username]);
 
 	return (
 		<div className="App">
 			<AuthProvider>
-				<AuthRoute exact path="/">
-					<Home />
-				</AuthRoute>
+				<Switch>
+					<AuthRoute exact path="/">
+						<Home />
+					</AuthRoute>
 
-				<AuthRoute exact path="/accounts/emailsignup/">
-					<SignUpForm />
-				</AuthRoute>
+					<AuthRoute exact path="/accounts/emailsignup/">
+						<SignUpForm />
+					</AuthRoute>
 
-				<ProtectedRoute exact path={`/${username}`}>
-					<User />
-					<Ads />
-					<Footer />
-				</ProtectedRoute>
+					<ProtectedRoute path="/posts">
+						<NavBar />
+						<Posts />
+					</ProtectedRoute>
 
-				<ProtectedRoute exact path={`/${username}/profile`}>
-					<NavBar />
-					<UserProfile />
-				</ProtectedRoute>
+					<ProtectedRoute path="/post/:id">
+						<NavBar />
+						<UserPost />
+					</ProtectedRoute>
+					<ProtectedRoute exact path="/explore">
+						<NavBar />
+						<Explore />
+					</ProtectedRoute>
 
-				<ProtectedRoute exact path={`/${username}/edit`}>
-					<NavBar />
-					<UserPageEdit />
-				</ProtectedRoute>
+					<ProtectedRoute path={"/direct/inbox"}>
+						<NavBar />
+						<h2>direct message</h2>
+						{/* <Messages /> */}
+						<Footer />
+					</ProtectedRoute>
 
-				<ProtectedRoute path="/posts">
-					<NavBar />
-					<Posts />
-				</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username`}>
+						<User />
+						<Ads />
+						<Footer />
+					</ProtectedRoute>
 
-				<ProtectedRoute path="/post/:id">
-					<NavBar />
-					<UserPost />
-				</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/profile`}>
+						<NavBar />
+						<UserProfile />
+					</ProtectedRoute>
 
-				<ProtectedRoute exact path={`/${username}/createPost`}>
-					<NavBar />
-					<CreatePostForm />
-					<Footer />
-				</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/edit`}>
+						<NavBar />
+						<UserPageEdit />
+					</ProtectedRoute>
 
-				<ProtectedRoute path="/explore">
-					<NavBar />
-					<Explore />
-				</ProtectedRoute>
-
-				<ProtectedRoute path={"/direct/inbox"}>
-					<NavBar />
-					<h2>direct message</h2>
-					{/* <Messages /> */}
-					<Footer />
-				</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/createPost`}>
+						<NavBar />
+						<CreatePostForm />
+						<Footer />
+					</ProtectedRoute>
+				</Switch>
 			</AuthProvider>
 		</div>
 	);

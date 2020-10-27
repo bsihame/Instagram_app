@@ -9,21 +9,20 @@ export default function UserProfile() {
 	let id = currentUser.id;
 	const history = useHistory();
 	const [user, setUser] = useState({});
-	const [username, setUserName] = useState("");
+	// const [username, setUserName] = useState("");
 
-	const getUserName = async () => {
-		const data = await getUserById(currentUser.id);
-		console.log(data);
-		setUserName(data.username);
-	};
+	// const getUserName = async () => {
+	// 	const data = await getUserById(currentUser.id);
+	// 	console.log(data);
+	// 	setUserName(data.username);
+	// };
 
-	useEffect(() => {
-		getUserName();
-	}, []);
+
 
 	const getUser = async () => {
 		try {
 			const res = await getUserById(id);
+			debugger
 			setUser(res);
 		} catch (error) {
 			console.log(error);
@@ -31,8 +30,8 @@ export default function UserProfile() {
 	};
 
 	const redirect = () => {
-		console.log(username);
-		history.push(`/${username}/edit`);
+		// console.log(username);
+		history.push(`/${user.username}/edit`);
 	};
 
 	const editingUser = () => {
@@ -48,6 +47,7 @@ export default function UserProfile() {
 	};
 
 	useEffect(() => {
+		// getUserName();
 		getUser();
 	}, []);
 

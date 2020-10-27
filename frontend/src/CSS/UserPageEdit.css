@@ -1,12 +1,22 @@
 .up-edit {
-  margin: 3rem;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+	margin: 3rem;
+	padding: 2rem;
   width: 50%;
-  text-align: left;
-  /* display: flex; */
-
+  margin: 0.5rem;
+	/* text-align: left; */
 }
 
 .editContainer {
-
+  flex-direction: column;
 }
+
+.profile_picture{
+  width: 150px;
+	height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+

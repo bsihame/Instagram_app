@@ -91,7 +91,7 @@ export default function CreatePostForm() {
 						Upload Image
 					</button>
 					<div>
-						{change ? (
+						{url ? (
 							<div>
 								<b>Preview: </b>
 								<img src={url} alt="Image_Preview" />

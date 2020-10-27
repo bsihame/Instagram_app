@@ -51,3 +51,7 @@ image {
 #video-play a {
 	color: #fff;
 }
+.carousel-control-next-icon, .carousel-control-prev-icon {
+   
+    background-color: black;
+}
