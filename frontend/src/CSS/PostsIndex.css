@@ -11,7 +11,8 @@
 	align-content: center;
 	justify-content: center;
 	width: 40rem;
-	height: 30rem;
+	height: 40rem;
+	object-fit: cover;
 }
 
 .card {
@@ -25,6 +26,7 @@
 
 .post-feed {
 	margin: 0.5%;
+	width: 100%;
 }
 
 .post-content {

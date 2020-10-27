@@ -4,9 +4,10 @@
 	align-items: center;
 	justify-content: space-evenly;
 	width: 75%;
-	margin-top: 6em;
+	height: 70%;
+	margin-top: 3em;
 	margin-bottom: 4em;
-	margin-left: 12.5%;
+	/* margin-left: 12.5%; */
 }
 
 .postTittle {
@@ -30,6 +31,12 @@
 	width: 75%;
 }
 
+.profilePic {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
 .uploadDiv {
 	margin: 2em;
 	align-items: center;
@@ -51,7 +58,7 @@
 	color: black;
 }
 
-.buttomPost {
+.buttonPost {
 	background-color: #0095f6;
 	border: 1px solid transparent;
 	box-sizing: border-box;

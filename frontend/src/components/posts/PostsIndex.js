@@ -4,11 +4,10 @@ import { AuthContext } from "../../providers/AuthContext";
 import Likes from "../../components/likes/Likes";
 import { getUserById } from "../../util/getRequests";
 import Box from "@material-ui/core/Box";
-import "../../CSS/PostsIndex.css"
+import "../../CSS/PostsIndex.css";
 import { Container } from "@material-ui/core";
 
-export default function
-	PostsIndex({ posts }) {
+export default function PostsIndex({ posts }) {
 	const [user, setUser] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
@@ -16,7 +15,7 @@ export default function
 	const getSingleUser = async () => {
 		try {
 			const res = await getUserById(id);
-			setUser(res)
+			setUser(res);
 		} catch (error) {
 			console.log(error);
 		}

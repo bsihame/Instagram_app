@@ -6,7 +6,6 @@ import { createPost } from "../../util/getRequests";
 import { useHistory } from "react-router-dom";
 import { storage } from "../../firebase";
 import { Redirect } from "react-router-dom";
-import ImageUploader from "react-images-upload";
 import Button from "@material-ui/icons";
 
 import "../../CSS/CreatePostForm.css";
@@ -20,12 +19,13 @@ export default function CreatePostForm() {
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [image, setImage] = useState(null);
 	const [imagePreview, setImagePreview] = useState(null);
-	const [ hide, setHide] = useState(true)
+	const [ change, setChange] = useState(true)
 	const [url, setUrl] = useState("");
 
 	const handleChange = (e) => {
 		if (e.target.files[0]) {
 			setImage(e.target.files[0]);
+			setChange(true)
 		}
 	};
 	const handleUpload = () => {
@@ -48,7 +48,6 @@ export default function CreatePostForm() {
 		setCurrentUserName(data.username);
 		setProfilePic(data.profile_pic);
 		setCurrentUserName(data.username);
-		setHide()
 	};
 
 	const returnToUserPage = () => {
@@ -72,19 +71,7 @@ export default function CreatePostForm() {
 			console.log(error);
 		}
 	};
-	const onDrop = picture => {
-    setPictures([...pictures, picture]);
-  };
-  return (
-    <ImageUploader
-      {...CreatePostForm}
-      withIcon={true}
-      onChange={onDrop}
-      imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-      maxFileSize={5242880}
-    />
-  );
-};
+	
 
 	useEffect(() => {
 		if (currentUser) {
@@ -95,17 +82,23 @@ export default function CreatePostForm() {
 	return (
 		<div className="postFormDiv">
 			<h2 className="postTittle">Create a Post</h2>
-			<img src={profilePic} alt="profile_picture" />
+			<img className="profilePic" src={profilePic} alt="profile_picture" />
 			<h4 className="userName">{currentUserName}</h4>
 			<div className="createPost">
 				<div className="uploadDiv">
 					<input className="inputPost" type="file" onChange={handleChange} />
-					<button className="buttomPost" onClick={handleUpload}>
+					<button className="buttonPost" onClick={handleUpload}>
 						Upload Image
 					</button>
 					<div>
-						<b>Preview: </b>
-						<img src={url} alt="post_image" />
+						{change ? (
+							<div>
+								<b>Preview: </b>
+								<img src={url} alt="Image_Preview" />
+							</div>
+						) : null}
+						{/* <b>Preview: </b>
+						<img src={url} alt="post_image" /> */}
 					</div>
 				</div>
 				<div className="form">
