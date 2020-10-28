@@ -19,14 +19,6 @@ export default function UserProfile() {
 	});
 	const classes = useStyles();
 
-	// const [username, setUserName] = useState("");
-
-	// const getUserName = async () => {
-	// 	const data = await getUserById(currentUser.id);
-	// 	console.log(data);
-	// 	setUserName(data.username);
-	// };
-
 	const getUser = async () => {
 		try {
 			const res = await getUserById(id);
