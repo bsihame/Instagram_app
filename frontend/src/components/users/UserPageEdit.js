@@ -16,7 +16,7 @@ import "../../CSS/UserPageEdit.css";
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 500,
+		maxWidth: 600,
 	},
 });
 
@@ -77,10 +77,6 @@ export default function UserPageEdit(username) {
 			history.push(`/${username}/profile`);
 		}
 	};
-	// const returnToProfile = () => {
-
-	// 	 let username = currentUserName
-	// 	console.log(username);
 
 	useEffect(() => {
 		if (currentUser) {
@@ -165,7 +161,11 @@ export default function UserPageEdit(username) {
 						</div>
 
 						<div className="edit_button">
-							<button type="submit" onClick={updateUserCall} className="edit_submit_button">
+							<button
+								type="submit"
+								onClick={updateUserCall}
+								className="edit_submit_button"
+							>
 								Update
 							</button>
 						</div>

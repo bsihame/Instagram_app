@@ -1,82 +1,52 @@
+.profile_container {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem;
+	max-height: 80%;
+	width: 500px;
+}
+
 .userProfileDiv {
-	margin-top: 2%;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	align-items: center;
+	margin: 2rem;
 }
 
 .greeting {
-	margin-bottom: 1.5%;
-	color: black;
-	font-size: 40px;
+	font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+	margin: 2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #385185;
 }
 
 .userProfilePicture {
-	border-radius: 20%;
-	background: black;
-	margin-bottom: 30%;
-}
-
-.image-area {
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	position: absolute;
-}
-
-.img-wrapper {
-	position: relative;
-	overflow: hidden;
-	margin-top: 30%;
-}
-
-.img-wrapper:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 180%;
-	height: 100%;
-	width: 100%;
-	background: rgba(255, 255, 255, 0.486);
-	z-index: 1;
-	transform: skew(45deg);
-	transition: 0.5s;
-}
-
-.img-wrapper:hover:before {
-	left: -180%;
-}
-
-.img-wrapper img {
-	height: 270px;
-	width: 264px;
-	filter: grayscale(10%);
-	transition: 2s;
-	margin-top: 50%;
-}
-
-.img-wrapper:hover img {
-	filter: grayscale(0%);
-	transform: scale(1.1);
-}
-
-.aboutParagraph:hover {
-	filter: grayscale(0%);
-	transform: scale(1.1);
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .aboutParagraph {
 	font-weight: 400px;
-	line-height: 1.5px;
 	color: #5ba3eb;
 	margin: auto;
-	width: 30%;
-	padding: 2%;
-	margin-top: 20%;
+	align-content: center;
+	margin-top: 2rem;
+}
+.profile_info {
+	margin-left: 30%;
 }
 
 .profileP {
 	color: black;
 	font-size: 20px;
 	text-align: left;
-	margin-left: 20%;
 }
 
 .editButton {
@@ -86,109 +56,9 @@
 	cursor: pointer;
 	font-size: 15px;
 	font-weight: bolder;
-	padding: 10px 0px;
 	text-align: center;
 	border-radius: 6px;
 	color: #fff;
-	position: relative;
-	width: 120px;
-	margin-top: 2%;
-}
-
-@media screen and (max-width: 1172px) {
-	.greeting {
-		font-size: 25px;
-	}
-
-	.image-area {
-		top: 25%;
-	}
-
-	.img-wrapper {
-		position: relative;
-		overflow: hidden;
-		margin-top: 35%;
-	}
-
-	.img-wrapper:before {
-		left: 170%;
-		height: 80%;
-		width: 80%;
-		transform: skew(40deg);
-	}
-
-	.img-wrapper:hover:before {
-		left: -180%;
-	}
-
-	.img-wrapper img {
-		height: 230px;
-		width: 234px;
-	}
-
-	.aboutParagraph {
-		font-size: 25px;
-	}
-}
-
-@media screen and (max-width: 1098px) {
-	.img-wrapper {
-		margin-top: 40%;
-	}
-	.img-wrapper:before {
-		left: 170%;
-		height: 80%;
-		width: 80%;
-		transform: skew(40deg);
-	}
-	.img-wrapper img {
-		height: 200px;
-		width: 204px;
-	}
-
-	.aboutParagraph {
-		font-size: 25px;
-		margin-top: 25%;
-	}
-}
-
-@media screen and (max-width: 955px) {
-	.img-wrapper {
-		margin-top: 40%;
-	}
-	.img-wrapper:before {
-		left: 170%;
-		height: 80%;
-		width: 80%;
-		transform: skew(40deg);
-	}
-	.img-wrapper img {
-		height: 210px;
-		width: 214px;
-	}
-
-	.aboutParagraph {
-		font-size: x-small;
-		margin-top: 35%;
-	}
-}
-
-@media screen and (max-width: 720px) {
-	.img-wrapper {
-		margin-top: 40%;
-	}
-	.img-wrapper:before {
-		height: 70%;
-		width: 70%;
-		transform: skew(40deg);
-	}
-	.img-wrapper img {
-		height: 200px;
-		width: 204px;
-	}
-
-	.aboutParagraph {
-		font-size: x-small;
-		margin-top: 50%;
-	}
+	width: 150px;
+	margin: 2rem;
 }
