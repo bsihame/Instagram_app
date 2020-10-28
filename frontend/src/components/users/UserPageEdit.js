@@ -1,16 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContext";
 import { getUserById, updateUser } from "../../util/getRequests";
-import { useInput } from "../../util/customHooks";
 import { storage } from "../../firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import TextField from "@material-ui/core/TextField";
-import {
-	uploadPicture,
-	getFirebaseIdToken,
-} from "../../util/firebaseFunctions";
 import { useHistory } from "react-router-dom";
 import "../../CSS/UserPageEdit.css";
 
@@ -25,12 +20,10 @@ export default function UserPageEdit(username) {
 	const { currentUser, token } = useContext(AuthContext);
 	const [user, setUser] = useState({});
 	const [profilePicture, setProfilePicture] = useState(null);
-	const [imagePreview, setImagePreview] = useState(null);
 	const [currentFullName, setCurrentFullName] = useState("");
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [currentBio, setCurrentBio] = useState("");
 	const [url, setUrl] = useState("");
-	let id = currentUser.id;
 
 	const classes = useStyles();
 
