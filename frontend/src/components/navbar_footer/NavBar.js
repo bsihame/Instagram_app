@@ -10,15 +10,14 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-// import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import ExploreIcon from "@material-ui/icons/Explore";
 import MailIcon from "@material-ui/icons/Mail";
 import HomeIcon from "@material-ui/icons/Home";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+// import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-// import SvgIcon from "@material-ui/core/SvgIcon";
+
 import { getUserById } from "../../util/getRequests";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,9 +59,6 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	// inputRoot: {
-	// 	color: "inherit",
-	// },
 	inputInput: {
 		padding: theme.spacing(1, 1, 1, 0),
 		paddingLeft: `calc(0.5em + ${theme.spacing(1)}px)`,
@@ -172,14 +168,7 @@ export default function PrimarySearchAppBar() {
 				</IconButton>
 				<p>Messages</p>
 			</MenuItem>
-			<MenuItem>
-				<IconButton aria-label="show 11 new notifications" color="inherit">
-					<Badge badgeContent={11} color="secondary">
-						<NotificationsIcon />
-					</Badge>
-				</IconButton>
-				<p>Notifications</p>
-			</MenuItem>
+		
 			<MenuItem onClick={handleProfileMenuOpen}>
 				<IconButton
 					aria-label="account of current user"
@@ -226,7 +215,7 @@ export default function PrimarySearchAppBar() {
 							</IconButton>
 						</NavLink>
 
-						<NavLink className="directMessage" to={"/explore"}>
+						<NavLink className="explore" to={"/explore"}>
 							<IconButton aria-label="explore" color="inherit">
 								<Badge color="secondary">
 									<ExploreIcon to={"/explore"} />

@@ -34,12 +34,12 @@ export default function UserPost() {
 	
 	const getUserPost = async () => {
 
-    const res = await getPostByPostId(poster_id, token);
+		const res = await getPostByPostId(poster_id, token);
+		debugger
 
 		setPost(res)
 		try {
 			if (res) {
-		
         setPost(res);
         setError(null)
       }
@@ -73,8 +73,6 @@ export default function UserPost() {
 								<li>{post.content}</li>
 								<li>{new Date(post.created_at).toLocaleString()}</li>
 							</ul>
-
-							{/* <CommentsForm post_id={post.id}/> */}
 						</>
 					);
 				})}
