@@ -19,6 +19,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
 import { getUserById } from "../../util/getRequests";
+import Search from "../search/Search";
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -119,6 +120,11 @@ export default function PrimarySearchAppBar() {
 	const handleMobileMenuOpen = (event) => {
 		setMobileMoreAnchorEl(event.currentTarget);
 	};
+	const onSubmit = () => {
+		return (
+			<Search />
+		)
+	}
 
 	const menuId = "primary-search-account-menu";
 	const renderMenu = (
@@ -192,18 +198,24 @@ export default function PrimarySearchAppBar() {
 					</NavLink>
 
 					<div className={classes.search} id="search">
-						<div className="searchDiv">
+
+						<Search />
+						{/* <div className="searchDiv">
 							<SearchIcon className="icon" />
-							<InputBase
-								className="input"
-								placeholder="Search…"
-								classes={{
-									root: classes.inputRoot,
-									input: classes.inputInput,
-								}}
-								inputProps={{ "aria-label": "search" }}
-							/>
-						</div>
+							<span>
+								
+								<InputBase
+									className="input"
+									placeholder="Search"
+									classes={{
+										root: classes.inputRoot,
+										input: classes.inputInput,
+									}}
+									onSubmit ={onSubmit}
+									inputProps={{ "aria-label": "search" }}
+								/>
+							</span>
+						</div> */}
 					</div>
 
 					<div className={classes.sectionDesktop}>

@@ -7,6 +7,7 @@ import Posts from "../posts/Posts";
 import "../../CSS/User.css";
 import { CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import Users from "./Users";
 
 const useStyles = makeStyles((theme) => ({
 	card: {
@@ -45,6 +46,7 @@ export default function User() {
 			<NavBar />
 
 			<CardContent className={classes.carsContent}>
+				<Users />
 				<Posts />
 			</CardContent>
 
