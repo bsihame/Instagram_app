@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getUserById } from "../../util/getRequests";
+import { getUserByUserName } from "../../util/getRequests";
 import { AuthContext } from "../../providers/AuthContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/UserProfile.css";
 
 export default function UserProfile() {
+	const { username } = useParams()
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
 	const history = useHistory();
@@ -21,7 +22,7 @@ export default function UserProfile() {
 
 	const getUser = async () => {
 		try {
-			const res = await getUserById(id);
+			const res = await getUserByUserName(username);
 			setUser(res);
 		} catch (error) {
 			console.log(error);
@@ -46,7 +47,7 @@ export default function UserProfile() {
 
 	useEffect(() => {
 		getUser();
-	}, []);
+	}, [username]);
 
 	return (
 		<div className="profile_container">

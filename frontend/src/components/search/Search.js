@@ -13,7 +13,6 @@ export default function Search() {
   const getUserInfo = async () => {
 		try {
       const res = await getAllUsers();
-      debugger
 			setUsers(res);
 		} catch (error) {
 			console.log(error);

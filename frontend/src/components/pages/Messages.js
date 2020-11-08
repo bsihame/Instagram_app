@@ -104,14 +104,15 @@ const Messages = () => {
 				history.push("/signUp");
 			} else {
 				await firebase
-					.firestore()
-					.collection("chats")
+				.firestore()
+				.collection("chats")
 					.where("users", "array-contains", user.email)
 					.onSnapshot(async (res) => {
 						const convo = res.docs.map((doc) => doc.data());
 						await setEmail(user.email);
 						await setChats(convo);
 					});
+				console.log("hello")
 			}
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps

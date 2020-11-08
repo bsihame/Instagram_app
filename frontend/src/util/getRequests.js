@@ -94,16 +94,17 @@ export const updateUser = async (id, data, token) => {
 			},
 			data,
 		});
-		debugger
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-export const ifUserNameExist = async (username) => {
+export const getUserByUserName = async (username) => {
 	try {
-		await axios.get(API + "/ api/users/username" + username);
+		let res = await axios.get(API + "/api/users/username/" + username);
+		debugger
+		return res.data.payload;
 	} catch (error) {
 		console.log(error);
 	}

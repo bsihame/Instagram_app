@@ -4,18 +4,18 @@
 
 }
 
-/* .rightDiv {
+#rightDiv {
   width: 100%;
   display: flex;
 
- } */
+ }
 
-/* .leftDiv {
+#leftDiv {
  width: 100%;
  display: flex;
- margin-top: 5%;
- align-items: center;
-} */
+ /* margin-top: 4%; */
+ /* align-items: center; */
+}
 
 .userProfile {
   width: 5rem;
