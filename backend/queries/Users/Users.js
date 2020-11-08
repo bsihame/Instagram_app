@@ -90,6 +90,11 @@ const getUserByUserName = async (req, res, next) => {
 				message: "Retrieve user by username",
 				payload: user[0],
 			})
+		} else {
+			res.status(404).json({
+				status: "Error",
+				message: "User not found"
+			})
 		}
 	} catch (error) {
 		res.status(400).json({

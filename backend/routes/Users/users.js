@@ -24,7 +24,7 @@ users.post("/", createNewUser);
 users.post("/login", logIn);
 
 users.get("/:id", getUserById);
-users.get("/:username", getUserByUserName)
+users.get("/username/:username", getUserByUserName)
 users.get("/email/:email", getUserByEmail)
 
 users.patch("/:id",checkFirebaseToken, updateUser);
