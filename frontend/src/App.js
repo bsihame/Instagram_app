@@ -76,8 +76,8 @@ function App() {
 
 					<ProtectedRoute exact path={`/:username`}>
 						<User />
-						<Ads />
-						<Footer />
+						{/* <Ads /> */}
+						{/* <Footer /> */}
 					</ProtectedRoute>
 
 					<ProtectedRoute exact path={`/:username/profile`}>

@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Users from "./Users";
+import Ads from "../ad/Ads";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -34,11 +35,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function User() {
 	const classes = useStyles();
-
 	const { currentUser } = useContext(AuthContext);
-	let id = currentUser.id;
 	const [loggedUser, setLoggedUser] = useState({});
-	const [ profilePic, setProfilePic ] = useState("")
+	let id = currentUser.id;
+
 
 	const getSingleUser = async () => {
 		try {
@@ -60,13 +60,8 @@ export default function User() {
 				<div className={classes.root} id="rightDiv">
 					<Grid container spacing={2}>
 						<Grid item xs={10}>
-							{/* <Paper className={classes.paper}> */}
-
-							{/* <CardContent className={classes.carsContent}> */}
 							<Users />
 							<Posts />
-							{/* </CardContent> */}
-							{/* </Paper> */}
 						</Grid>
 					</Grid>
 				</div>
@@ -74,10 +69,20 @@ export default function User() {
 				<div className={classes.root} id="leftDiv">
 					<Grid container spacing={3}>
 						<Grid item xs={10}>
-							<Users />
+							<div>
+								<img
+									className="userProfile"
+									src={loggedUser.profile_pic}
+									alt="user_profile_picture"
+								/>
+								<h4>{loggedUser.username}</h4>
+							</div>
+							<div className="random_users">
+								<Users />
+							</div>
+							<Footer />
 						</Grid>
 					</Grid>
-					<Footer />
 				</div>
 			</div>
 		</>
