@@ -9,7 +9,7 @@ import { CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Users from "./Users";
+import FilteredUsers from "./FilteredUsers";
 import Ads from "../ad/Ads";
 
 const useStyles = makeStyles((theme) => ({
@@ -59,8 +59,8 @@ export default function User() {
 			<div className="userContainer ">
 				<div className={classes.root} id="rightDiv">
 					<Grid container spacing={2}>
-						<Grid item xs={10}>
-							<Users />
+						<Grid item md={12}>
+							<FilteredUsers />
 							<Posts />
 						</Grid>
 					</Grid>
@@ -68,7 +68,7 @@ export default function User() {
 
 				<div className={classes.root} id="leftDiv">
 					<Grid container spacing={3}>
-						<Grid item xs={10}>
+						<Grid item xs={12}>
 							<div>
 								<img
 									className="userProfile"
@@ -78,7 +78,7 @@ export default function User() {
 								<h4>{loggedUser.username}</h4>
 							</div>
 							<div className="random_users">
-								<Users />
+								<FilteredUsers />
 							</div>
 							<Footer />
 						</Grid>

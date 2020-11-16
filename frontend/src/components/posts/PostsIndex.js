@@ -27,13 +27,13 @@ export default function PostsIndex({ posts }) {
 
 	return (
 		<>
-			<Container
+			{/* <Container
 				className="post-container"
 				display="flex"
 				justifyContent="center"
 				alignItems="center"
 				alignContent="center"
-			>
+			> */}
 				{posts.map((post) => {
 					return (
 						<Box
@@ -72,7 +72,7 @@ export default function PostsIndex({ posts }) {
 						</Box>
 					);
 				})}
-			</Container>
+			{/* </Container> */}
 		</>
 	);
 }

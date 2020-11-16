@@ -28,19 +28,6 @@ import Messages from "./components/pages/Messages";
 
 
 function App() {
-	// const [username, setUserName] = useState("");
-	// const { currentUser } = useContext(AuthContext);
-	// const getUserName = async () => {
-	// 	const data = await getUserById(currentUser.id);
-	// 	setUserName(data.username);
-	// };
-
-	// useEffect(() => {
-	// 	if (currentUser) {
-	// 		getUserName();
-	// 	}
-	// }, [username]);
-
 	return (
 		<div className="App">
 			<AuthProvider>
@@ -76,8 +63,6 @@ function App() {
 
 					<ProtectedRoute exact path={`/:username`}>
 						<User />
-						{/* <Ads /> */}
-						{/* <Footer /> */}
 					</ProtectedRoute>
 
 					<ProtectedRoute exact path={`/:username/profile`}>
