@@ -3,15 +3,12 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getAllUsers } from "../../util/getRequests";
 
 export default function UsersCarousel() {
-  	// const classes = useStyles();
 	const { currentUser } = useContext(AuthContext);
-	console.log(currentUser);
   const [users, setUsers] = useState([]);
   let id = currentUser.id;
 	const getUsers = async () => {
 		try {
 			const allUsers = await getAllUsers();
-      debugger;
       const filtered = allUsers.filter(user => (user.id !== id) )
 			setUsers(filtered);
 		} catch (error) {

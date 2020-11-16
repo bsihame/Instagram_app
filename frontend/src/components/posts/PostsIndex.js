@@ -27,26 +27,25 @@ export default function PostsIndex({ posts }) {
 
 	return (
 		<>
-			{/* <Container
+			<Container
 				className="post-container"
 				display="flex"
 				justifyContent="center"
 				alignItems="center"
 				alignContent="center"
-			> */}
+			>
 				{posts.map((post) => {
 					return (
 						<Box
-							boxShadow={3}
-							bgcolor="background.paper"
-							m={4}
+							// boxShadow={3}
+							// bgcolor="background.paper"
+							m={1}
 							p={1}
 							display="flex"
 							justifyContent="center"
 							alignItems="center"
 							alignContent="center"
 						>
-							<div class="card" key={post.id}>
 								{/* <div className="userHeader">
 								<img
 									className="userAvatar"
@@ -56,11 +55,12 @@ export default function PostsIndex({ posts }) {
 								/>
 								<h2>{post.username}</h2>
 							</div> */}
+							<div class="card" key={post.id}>
 								<post className="post-feed">
 									<img
-										className="card-img-top"
+										className="img_post"
 										src={post.picture}
-										alt="Card image cap"
+										alt="Card image"
 									/>
 									<h4 className="post-content">{post.content}</h4>
 									<Likes className="card-like" post_id={post.id} />
@@ -72,7 +72,7 @@ export default function PostsIndex({ posts }) {
 						</Box>
 					);
 				})}
-			{/* </Container> */}
+			</Container>
 		</>
 	);
 }

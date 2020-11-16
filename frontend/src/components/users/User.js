@@ -44,7 +44,6 @@ export default function User() {
 		try {
 			const res = await getUserById(id);
 			setLoggedUser(res);
-			debugger
 		} catch (error) {
 			console.log(error);
 		}
