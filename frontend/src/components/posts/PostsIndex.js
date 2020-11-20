@@ -55,7 +55,7 @@ export default function PostsIndex({ posts }) {
 								/>
 								<h2>{post.username}</h2>
 							</div> */}
-							<div class="card" key={post.id}>
+							<div className="card" key={post.id}>
 								<post className="post-feed">
 									<img
 										className="img_post"

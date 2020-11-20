@@ -20,6 +20,7 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 
 import { getUserById } from "../../util/getRequests";
 import Search from "../search/Search";
+import { Header } from "semantic-ui-react";
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -190,35 +191,18 @@ export default function PrimarySearchAppBar() {
 	);
 
 	return (
-		<div className={classes.grow}>
+		<Header className={classes.grow}>
 			<AppBar position="static" color="#fff">
 				<Toolbar className="title">
 					<NavLink exact to={"/"}>
 						<h2 className="title">Instagram</h2>
 					</NavLink>
 
-					<div className={classes.search} id="search">
-
+					<section className={classes.search} id="search">
 						<Search />
-						{/* <div className="searchDiv">
-							<SearchIcon className="icon" />
-							<span>
-								
-								<InputBase
-									className="input"
-									placeholder="Search"
-									classes={{
-										root: classes.inputRoot,
-										input: classes.inputInput,
-									}}
-									onSubmit ={onSubmit}
-									inputProps={{ "aria-label": "search" }}
-								/>
-							</span>
-						</div> */}
-					</div>
+					</section>
 
-					<div className={classes.sectionDesktop}>
+					<nav className={classes.sectionDesktop}>
 						<NavLink exact to={"/"}>
 							<IconButton aria-label="home" color="inherit">
 								<Badge color="secondary">
@@ -253,9 +237,9 @@ export default function PrimarySearchAppBar() {
 						>
 							<AccountCircle />
 						</IconButton>
-					</div>
+					</nav>
 
-					<div className={classes.sectionMobile}>
+					<nav className={classes.sectionMobile}>
 						<IconButton
 							aria-label="show more"
 							aria-controls={mobileMenuId}
@@ -265,11 +249,11 @@ export default function PrimarySearchAppBar() {
 						>
 							<MoreIcon />
 						</IconButton>
-					</div>
+					</nav>
 				</Toolbar>
 			</AppBar>
 			{renderMobileMenu}
 			{renderMenu}
-		</div>
+		</Header>
 	);
 }

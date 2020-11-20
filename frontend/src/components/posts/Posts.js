@@ -21,7 +21,6 @@ export default function Posts() {
 
 	useEffect(() => {
 		getPosts();
-		return () => {};
 	}, []);
 
 	return (

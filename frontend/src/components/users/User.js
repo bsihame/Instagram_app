@@ -77,7 +77,7 @@ export default function User() {
 								<h4>{loggedUser.username}</h4>
 							</div>
 							<div className="random_users">
-								<FilteredUsers />
+								{/* <FilteredUsers /> */}
 							</div>
 							<Footer />
 						</Grid>
