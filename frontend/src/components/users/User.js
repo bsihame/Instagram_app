@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import FilteredUsers from "./FilteredUsers";
 import Ads from "../ad/Ads";
+import RandomUsers from "./RandomUsers";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -26,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		alignContent: "center",
+	},
+
+	postImage: {
+		width: "100%",
+
 	},
 
 	cardContent: {
@@ -68,16 +74,16 @@ export default function User() {
 				<div className={classes.root} id="leftDiv">
 					<Grid container spacing={3}>
 						<Grid item xs={12}>
-							<div>
+							<div className="exploreUsers">
 								<img
-									className="userProfile"
+									className="userProfileLogged"
 									src={loggedUser.profile_pic}
 									alt="user_profile_picture"
 								/>
-								<h4>{loggedUser.username}</h4>
+								<span className="userUsernameLogged">{loggedUser.username}</span>
 							</div>
 							<div className="random_users">
-								{/* <FilteredUsers /> */}
+								<RandomUsers />
 							</div>
 							<Footer />
 						</Grid>

@@ -13,20 +13,18 @@
 #leftDiv {
  width: 100%;
  display: flex;
- /* margin-top: 4%; */
- /* align-items: center; */
 }
 
-.userProfile {
-  width: 5rem;
-  height: 5rem;
+.userProfileLogged {
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   background: white;
   border-style: double;
   overflow: hidden;
-  margin-right: 1rem;
+  margin: 0.5rem;
 }
-.userUsername{
+.userUsernameLogged{
   text-align: center;
   margin-right: 1rem;
   font-size: medium;
@@ -44,4 +42,41 @@
 .random_users{
   
   flex-direction: column;
+}
+
+.suggestUsers {
+    width: 70%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+  align-content: space-between;
+}
+
+.exploreUsers{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ padding: 1rem;
+}
+.suggest .seeAll{
+  padding: 1rem;
+   align-content: space-between;
+}
+
+.exploreImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: white;
+  border-style: double;
+  overflow: hidden;
+  margin: 0.5rem;
+  
+}
+
+.exploreName .userUsernameLogged{
+  text-align: center;
+  margin-right: 1rem;
+  font-size: medium;
+  color: black;
 }

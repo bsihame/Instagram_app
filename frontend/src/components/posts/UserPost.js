@@ -23,20 +23,11 @@ export default function UserPost() {
 	const { currentUser, token } = useContext(AuthContext);
 	const [post, setPost] = useState([]);
 	const [error, setError] = useState(null);
-	// const [content, setContent] = useState("");
-	// const [image, setImage] = useState(null);
-	// const [url, setUrl] = useState([]);
-	// const [data, setData] = useState([])
 	let poster_id = currentUser.id
 	console.log(poster_id)
 
-
-	
 	const getUserPost = async () => {
-
 		const res = await getPostByPostId(poster_id, token);
-		debugger
-
 		setPost(res)
 		try {
 			if (res) {

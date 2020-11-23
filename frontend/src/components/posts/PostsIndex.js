@@ -8,6 +8,7 @@ import "../../CSS/PostsIndex.css";
 import { Container } from "@material-ui/core";
 
 export default function PostsIndex({ posts }) {
+	console.log(posts)
 	const [user, setUser] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
@@ -56,7 +57,7 @@ export default function PostsIndex({ posts }) {
 								<h2>{post.username}</h2>
 							</div> */}
 							<div className="card" key={post.id}>
-								<post className="post-feed">
+								{/* <post className="post-feed"> */}
 									<img
 										className="img_post"
 										src={post.picture}
@@ -64,7 +65,7 @@ export default function PostsIndex({ posts }) {
 									/>
 									<h4 className="post-content">{post.content}</h4>
 									<Likes className="card-like" post_id={post.id} />
-								</post>
+								{/* </post> */}
 								<div className="comments-div">
 									<CommentsForm post_id={post.id} />
 								</div>
