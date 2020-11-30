@@ -50,10 +50,13 @@ const getAllUsers = async (req, res, next) => {
 				payload: users,
 			});
 		} else {
-			throw { status: 404, error: "No users found" };
+			res.status(404).json({
+				status: "404",
+				message: "No users found"
+			})
 		}
 	} catch (error) {
-		res.status(400).json({
+		res.status(500).json({
 			status: "error",
 			message: "Could not retrieve all users",
 		});
@@ -72,7 +75,7 @@ const getUserById = async (req, res, next) => {
 			payload: singleUser,
 		});
 	} catch (error) {
-		res.status(400).json({
+		res.status(500).json({
 			status: "error",
 			message: "Could not get single user by ID",
 		});
@@ -97,7 +100,7 @@ const getUserByUserName = async (req, res, next) => {
 			})
 		}
 	} catch (error) {
-		res.status(400).json({
+		res.status(500).json({
 			status: "error",
 			message: "Could not get single user by username",
 		});
@@ -160,7 +163,7 @@ const updateUser = async (req, res, next) => {
 			payload: user,
 		});
 	} catch (error) {
-		res.status(400).json({
+		res.status(500).json({
 			status: "error",
 			message: "Could not update User",
 		});
@@ -179,7 +182,7 @@ const deleteUser = async (req, res, next) => {
 			payload: deletedUser,
 		});
 	} catch (error) {
-		res.status(400).json({
+		res.status(500).json({
 			status: "error",
 			message: "Could not delete user",
 		});
