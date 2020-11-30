@@ -1,18 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Switch } from "react-router-dom"
+import { Switch,Route } from "react-router-dom"
 import "./App.css";
 import Home from "./components/pages/Home";
 import SignUpForm from "./components/login_signup/SignUp";
 import Posts from "./components/posts/Posts";
-// import UsersIndex from "./components/users/UsersIndex";
-// import UserPage from "./components/pages/UserPage";
 import UserProfile from "./components/pages/UserProfile";
 import NavBar from "./components/navbar_footer/NavBar";
 import Footer from "./components/navbar_footer/Footer";
-// import UserPage from "./components/pages/UserPage";
+import { NotFound }from "./components/pages/NotFound";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
-// import UserBio from "./components/users/UserBio";
 import User from "./components/users/User";
 import Ads from "./components/ad/Ads";
 import Users from "./components/users/Users";
@@ -36,11 +33,11 @@ function App() {
 						<Home />
 					</AuthRoute>
 
-					<AuthRoute exact path="/accounts/emailsignup/">
+					<AuthRoute path="/accounts/emailsignup/">
 						<SignUpForm />
 					</AuthRoute>
 
-					<ProtectedRoute path="/posts">
+					<ProtectedRoute exact path="/posts">
 						<NavBar />
 						<Posts />
 					</ProtectedRoute>
@@ -49,6 +46,7 @@ function App() {
 						<NavBar />
 						<UserPost />
 					</ProtectedRoute>
+
 					<ProtectedRoute exact path="/explore">
 						<NavBar />
 						<Explore />
@@ -80,6 +78,11 @@ function App() {
 						<CreatePostForm />
 						<Footer />
 					</ProtectedRoute>
+
+					<Route>
+						<NotFound />
+					</Route>
+
 				</Switch>
 			</AuthProvider>
 		</div>
