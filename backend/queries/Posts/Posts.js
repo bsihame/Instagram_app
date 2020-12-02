@@ -2,7 +2,8 @@ const db = require("../../db/index");
 
 const getAllPosts = async (req, res, next) => {
 	try {
-		let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
+		let posts = await db.any("SELECT DISTINCT posts.id, posts.picture, posts.content, users.username, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id LEFT JOIN friends ON users.id = user_id LEFT JOIN likes ON posts.poster_id = users.id -- ORDER BY created_at DESC")
+		// let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
 		res.status(200).json({
 			status: "ok",
 			message: "Retrieve all friends posts",
