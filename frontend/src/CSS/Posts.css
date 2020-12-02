@@ -2,7 +2,7 @@
 .posts {
 	display: inline-block;
   flex-direction: unset;
-	width: 75%;
+	width: 100%;
 	align-items: center;
 	justify-content: center;
 	align-items: center;

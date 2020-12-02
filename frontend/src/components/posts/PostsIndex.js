@@ -40,7 +40,7 @@ export default function PostsIndex({ posts }) {
 						<Box
 							// boxShadow={3}
 							// bgcolor="background.paper"
-							m={1}
+							// m={1}
 							p={1}
 							display="flex"
 							justifyContent="center"

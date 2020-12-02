@@ -5,6 +5,7 @@ import Loader from "../images/710.gif";
 import firebase from "../firebase";
 import { getFirebaseIdToken } from "../util/firebaseFunctions";
 import "../CSS/Loading.css";
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {

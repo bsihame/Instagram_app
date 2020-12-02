@@ -1,18 +1,62 @@
+.mainUser {
+  width: 100%;
+  align-items: stretch;
+  position: relative;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
 .userContainer {
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  /* max-width: 935px; */
+  max-width: 80%;
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  border: 0 solid #000;
+ 
+  /* max-width: 935px; */
+  /* width: 100%; */
 
 }
 
 #rightDiv {
   width: 100%;
   display: flex;
-
+  background: pink;
+  height: fit-content;
  }
 
 #leftDiv {
- width: 100%;
+ /* width: 887px;
  display: flex;
+ flex-direction: row;
+ float: left; */
+    /* margin-right: 28px; */
+  max-width: 75%;
+  width: 100%;
+  float: left;
+    /* margin-right: 28px;
+    max-width: 614px;
+    width: 100%; */
+ background: chartreuse;
+}
+.userInfo {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.switchDiv {
+  align-content: center;
 }
 
 .userProfileLogged {
@@ -79,4 +123,13 @@
   margin-right: 1rem;
   font-size: medium;
   color: black;
+}
+
+.userFooter {
+  position: inherit;
+  padding-left: 1rem;
+}
+
+.footerDiv {
+  display: -webkit-inline-box;
 }

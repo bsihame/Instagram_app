@@ -28,7 +28,7 @@ export const AuthRoute = ({ children, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({ location }) => {
+      render={() => {
         return !currentUser ? children : <Redirect to={`/${username}`}
         />
       }}
@@ -41,7 +41,7 @@ export const ProtectedRoute = ({ children, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({location }) => {
+      render={() => {
         return currentUser ? children : <Redirect to="/"
         />
       }}

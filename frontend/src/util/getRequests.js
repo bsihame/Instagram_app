@@ -50,6 +50,17 @@ export const getPostByPostId = async (id) => {
 	}
 };
 
+export const getPostsById = async (id) => {
+	debugger 
+	try {
+		const res = await axios.get(API + `/api/posts/${id}`);
+		return res.data.payload;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+
 export const createComments = async (dataObj) => {
 	try {
 		const res = await axios.post(API + `/api/comments`, dataObj);
