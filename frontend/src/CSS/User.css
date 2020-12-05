@@ -29,26 +29,16 @@
 #rightDiv {
   width: 100%;
   display: flex;
-  background: pink;
   height: fit-content;
  }
 
 #leftDiv {
- /* width: 887px;
- display: flex;
- flex-direction: row;
- float: left; */
-    /* margin-right: 28px; */
-  max-width: 75%;
-  width: 100%;
+  max-width: 60%;
+  width: 60%;
   float: left;
-    /* margin-right: 28px;
-    max-width: 614px;
-    width: 100%; */
- background: chartreuse;
 }
 .userInfo {
-  width: 100%;
+  width: 60%;
   display: flex;
   align-items: flex-start;
   align-content: center;
@@ -60,8 +50,8 @@
 }
 
 .userProfileLogged {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   background: white;
   border-style: double;
@@ -75,6 +65,10 @@
   color: black;
 }
 
+.adds {
+  width: 100%;
+}
+
 .cardGrid {
   background: red;
   display: flex;
@@ -84,16 +78,16 @@
   justify-content: center;
 }
 .random_users{
-  
+
   flex-direction: column;
 }
 
 .suggestUsers {
-    width: 70%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-  align-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .exploreUsers{
@@ -101,10 +95,12 @@
   flex-direction: column;
   align-items: flex-start;
  padding: 1rem;
+ justify-content: space-between;
 }
 .suggest .seeAll{
   padding: 1rem;
    align-content: space-between;
+   font-size: 14px
 }
 
 .exploreImage {
