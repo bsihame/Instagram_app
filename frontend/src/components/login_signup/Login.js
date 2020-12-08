@@ -104,10 +104,11 @@ export default function Login() {
 					<div />
 				</Paper>
 
-				<Paper>
+				<Paper className="redirectButton">
+					
 					<Link to="/accounts/emailsignup/" className="signUp">
 						Don't have an account?
-						<span className="span"> Sign up </span>
+						<span className="spanLink"> Sign up </span>
 					</Link>
 				</Paper>
 
