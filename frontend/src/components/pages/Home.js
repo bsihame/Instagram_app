@@ -8,7 +8,7 @@ export default function Home() {
 				<Login />
 			</div>
 			<div>
-				<Footer />
+				<Footer className="homeFooter"/>
 			</div>
 		</>
 	);

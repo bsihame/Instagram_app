@@ -37,89 +37,93 @@ export default function Login() {
 	};
 	return (
 		<div className="logInFormDiv">
-			<Paper className="paper">
-				<div className="leftDiv">
-					<img src={phone} alt="phone_picture" className="homePagePic" />
-				</div>
-			</Paper>
+			{/* <Paper className="paper"> */}
+			<div className="leftDiv">
+				<img src={phone} alt="phone_picture" className="homePagePic" />
+			</div>
+			{/* </Paper> */}
+			<div className="rightDiv">
+				<Paper className="paper">
+					<div className="title">
+						<h1 className="instagram">Instagram</h1>
+					</div>
+					{error ? (
+						<Typography className="errorText" component="h5" variant="h6">
+							{error}
+						</Typography>
+					) : null}
 
-			<Paper className="paper rightDiv">
-				<div className="title">
-					<h1 className="instagram">Instagram</h1>
-				</div>
-				{error ? (
-					<Typography className="errorText" component="h5" variant="h6">
-						{error}
-					</Typography>
-				) : null}
+					<form onSubmit={handleSignIn} className="signIn form">
+						<TextField
+							id="outlined-basic"
+							label="	Enter Your Email"
+							variant="outlined"
+							value={email}
+							onFocus={() => setError(false)}
+							onChange={(e) => setEmail(e.currentTarget.value)}
+							required
+							className="emailInput"
+						/>
+						<br />
+						<TextField
+							id="outlined-basic"
+							label="	Enter Your password"
+							variant="outlined"
+							type="password"
+							value={password}
+							onFocus={() => setError(false)}
+							onChange={(e) => setPassword(e.currentTarget.value)}
+							required
+							className="passwordInput"
+						/>
+						<br />
 
-				<form onSubmit={handleSignIn} className="signIn form">
-					<TextField
-						id="outlined-basic"
-						label="	Enter Your Email"
-						variant="outlined"
-						value={email}
-						onFocus={() => setError(false)}
-						onChange={(e) => setEmail(e.currentTarget.value)}
-						required
-						className="emailInput"
-					/>
-					<br />
-					<TextField
-						id="outlined-basic"
-						label="	Enter Your password"
-						variant="outlined"
-						type="password"
-						value={password}
-						onFocus={() => setError(false)}
-						onChange={(e) => setPassword(e.currentTarget.value)}
-						required
-						className="passwordInput"
-					/>
-					<br />
-
-					<button
-						type="submit"
-						variant="contained"
-						color="skyblue"
-						// color= "rgb(21, 149, 246)"
-						className="login submit"
-						setError="false"
-					>
-						Log In
-					</button>
-				</form>
-				<div className="orSignUpDiv">
+						<button
+							type="submit"
+							variant="contained"
+							color="skyblue"
+							// color= "rgb(21, 149, 246)"
+							className="login submit"
+							setError="false"
+						>
+							Log In
+						</button>
+					</form>
+					<div className="orSignUpDiv">
 						<h6 className="orSignUp orText"> OR </h6>
-				</div>
-				<div className="facebookDiv">
-					<img
-						src={facebookBlueIcon}
-						alt="facebookBlueIcon"
-						className="facebookIcon"
-					/>
-					<h4>Log in with Facebook</h4>
-				</div>
-				<button className="forgotPassword">Forgot password?</button>
-				<div />
+					</div>
+					<div className="facebookDiv">
+						<img
+							src={facebookBlueIcon}
+							alt="facebookBlueIcon"
+							className="facebookIcon"
+						/>
+						<h4>Log in with Facebook</h4>
+					</div>
+					<button className="forgotPassword">Forgot password?</button>
+					<div />
+				</Paper>
 
-				<Link to="/accounts/emailsignup/" className="signUp">
-					Don't have an account?
-					<span className="span"> Sign up </span>
-				</Link>
+				<Paper>
+					<Link to="/accounts/emailsignup/" className="signUp">
+						Don't have an account?
+						<span className="span"> Sign up </span>
+					</Link>
+				</Paper>
 
 				<div className="getApp">
 					<h4>get the app.</h4>
 					<div className="appDiv">
-						<div className="appApple">
-							<img src={appleApp} alt="apple_app"></img>
+						{/* <div className="appApple"> */}
+						<img src={appleApp} alt="apple_app" className="logo apple"></img>
+						{/* </div> */}
+						{/* <div className="appGoogle"> */}
+						<img src={googlePlayApp} alt="googlePlayApp" className="logo google"></img>
 						</div>
-						<div className="appGoogle">
-							<img src={googlePlayApp} alt="googlePlayApp"></img>
-						</div>
-					</div>
+					{/* </div> */}
 				</div>
-			</Paper>
+				{/* </Paper> */}
+			</div>
 		</div>
 	);
 }

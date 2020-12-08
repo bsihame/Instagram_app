@@ -1,9 +1,9 @@
 import React from "react";
 import "../../CSS/Footer.css";
 
-export default function Footer() {
+export default function Footer({ className }) {
 	return (
-		<footer className="footer">
+		<footer className={className}>
 			<div className="footerDiv">
 				<a
 					className="link"

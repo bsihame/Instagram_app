@@ -6,6 +6,11 @@
 	justify-content: center;
 }
 
+.userHeader {
+	display: flex;
+	flex-direction: column;
+}
+
 .card-img-top {
 	align-items: center;
 	align-content: center;
