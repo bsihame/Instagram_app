@@ -11,8 +11,6 @@ import { NotFound }from "./components/pages/NotFound";
 import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import User from "./components/users/User";
-import Ads from "./components/ad/Ads";
-import Users from "./components/users/Users";
 import CreatePostForm from "./components/posts/CreatePostForm";
 import UploadPostImage from "./components/posts/UploadPostImage";
 import CommentsForm from "./components/comments/CommentsForm";

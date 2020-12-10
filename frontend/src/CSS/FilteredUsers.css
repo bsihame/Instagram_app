@@ -1,17 +1,25 @@
-.displayAllUsers {
-  /* display: inline-table; */
+/* .displayUsersPaper {
+  max-width: 90%;
+  margin-left: 5% ;
+
+  padding: 1rem;
+  flex-wrap: wrap;
+} */
+/* .displayAllUsers {
+  
   background: #FFFFFF;
-  width: 90%;
-  /* width: 50%; */
+  
   justify-content: center;
   align-items: center;
   border: 0 solid #8e8e8e;
   border-width: 0.05rem;
-  /* display: inline-flex; */
-  margin: 4% ;
-  align-self: center;
-  text-align: center;
-}
+  margin: 2rem 0;
+
+  display: inline-flex; 
+   margin: 4% ; */
+  /* align-self: center;
+  text-align: center; */
+/* } */
 
 .userProfile {
   width: 5rem;

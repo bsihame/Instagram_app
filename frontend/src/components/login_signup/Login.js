@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { login } from "../../util/firebaseFunctions";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
+// import FormControl from "@material-ui/core/FormControl";
+// import InputLabel from "@material-ui/core/InputLabel";
 import TextField from "@material-ui/core/TextField";
-import Input from "@material-ui/core/Input";
+// import Input from "@material-ui/core/Input";
 import Paper from "@material-ui/core/Paper";
-import withStyles from "@material-ui/core/styles/withStyles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+// import withStyles from "@material-ui/core/styles/withStyles";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 // import { useInputs } from "../../util/customHooks"
@@ -23,8 +23,7 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(false);
-	const history = useHistory();
-	// const API = apiURL();
+	// const history = useHistory();
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
@@ -37,11 +36,9 @@ export default function Login() {
 	};
 	return (
 		<div className="logInFormDiv">
-			{/* <Paper className="paper"> */}
 			<div className="leftDiv">
 				<img src={phone} alt="phone_picture" className="homePagePic" />
 			</div>
-			{/* </Paper> */}
 			<div className="rightDiv">
 				<Paper className="paper">
 					<div className="title">
@@ -82,7 +79,6 @@ export default function Login() {
 							type="submit"
 							variant="contained"
 							color="skyblue"
-							// color= "rgb(21, 149, 246)"
 							className="login submit"
 							setError="false"
 						>
@@ -105,7 +101,7 @@ export default function Login() {
 				</Paper>
 
 				<Paper className="redirectButton">
-					
+
 					<Link to="/accounts/emailsignup/" className="signUp">
 						Don't have an account?
 						<span className="spanLink"> Sign up </span>
@@ -115,15 +111,10 @@ export default function Login() {
 				<div className="getApp">
 					<h4>get the app.</h4>
 					<div className="appDiv">
-						{/* <div className="appApple"> */}
 						<img src={appleApp} alt="apple_app" className="logo apple"></img>
-						{/* </div> */}
-						{/* <div className="appGoogle"> */}
 						<img src={googlePlayApp} alt="googlePlayApp" className="logo google"></img>
 						</div>
-					{/* </div> */}
 				</div>
-				{/* </Paper> */}
 			</div>
 		</div>
 	);

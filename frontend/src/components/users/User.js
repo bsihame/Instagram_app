@@ -11,7 +11,9 @@ import Grid from "@material-ui/core/Grid";
 import FilteredUsers from "./FilteredUsers";
 import Ads from "../ad/Ads";
 import "../../CSS/Ads.css"
-
+// import { CardContent } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
@@ -24,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function User() {
 	const classes = useStyles();
+	const history = useHistory();
 	const { currentUser } = useContext(AuthContext);
 	const [loggedUser, setLoggedUser] = useState({});
 	const [users, setUsers] = useState([]);
@@ -46,20 +49,32 @@ export default function User() {
 			console.log(error);
 		}
 	};
+	const redirect = () => {
+		history.push(`/${users.username}/edit`);
+	};
 
 	useEffect(() => {
 		getSingleUser();
 		getUsers();
-	}, []);
+	}, [users.username]);
 	return (
 		<>
 			<NavBar />
-
 			<main className="mainUser">
 				<section className="userContainer ">
 					<div className={classes.root} id="leftDiv">
 						<Grid item md={12}>
-							<FilteredUsers />
+							{/* <Paper className="filteredUsers"> */}
+							<Grid
+								item
+								md={12}
+								direction="row"
+								justify="center"
+								alignItems="center"
+							>
+								<FilteredUsers />
+							</Grid>
+							{/* </Paper> */}
 							<Ads className="adds" />
 							<Posts />
 						</Grid>
@@ -72,8 +87,9 @@ export default function User() {
 									className="userProfileLogged"
 									src={loggedUser.profile_pic}
 									alt="user_profile_picture"
+									onClick={redirect}
 								/>
-								<span className="userUsernameLogged">
+								<span className="userUsernameLogged" onClick={redirect}>
 									{loggedUser.username}
 								</span>
 								<Grid item xs={12} sm={6}>
@@ -92,7 +108,15 @@ export default function User() {
 								</div>
 							</div>
 
-							<Grid container spacing={3} alignItems="center">
+							<Grid
+								container
+								spacing={1}
+								// alignItems="left"
+								// container
+								// direction="row"
+								// justify="space-around"
+								// alignItems="baseline"
+							>
 								{users.map((user) => {
 									return (
 										<>
@@ -102,10 +126,13 @@ export default function User() {
 													src={user.profile_pic}
 													alt="User Profile"
 													className="exploreImage"
+													onClick={redirect}
 												/>
-												<span className="exploreName">{user.username}</span>
+												<span className="exploreName" onClick={redirect}>
+													{user.username}
+												</span>
 											</Grid>
-											<Grid item xs={12} sm={6}>
+											<Grid item xs={12} sm={6} width={12}>
 												<a>Follow</a>
 											</Grid>
 										</>

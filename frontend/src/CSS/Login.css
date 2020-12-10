@@ -1,39 +1,38 @@
 .logInFormDiv {
 	margin: 32px auto 0;
-  max-width: 935px;
-  padding-bottom: 32px;
+	max-width: 935px;
+	padding-bottom: 32px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 }
 
 .leftDiv {
-		align-self: center;
-		background-size: 454px 618px;
-		flex-basis: 454px;
-    height: 618px;
-    margin-left: -35px;
-		margin-right: -15px;
+	align-self: center;
+	background-size: 454px 618px;
+	flex-basis: 454px;
+	height: 618px;
+	margin-left: -35px;
+	margin-right: -15px;
 }
 
-
 .rightDiv {
-	color: rgba(var(--i1d,38,38,38),1);
+	color: rgba(var(--i1d, 38, 38, 38), 1);
 	-webkit-box-flex: 1;
 	flex-grow: 1;
 	-webkit-box-pack: center;
 	justify-content: center;
-  margin-top: 12px;
-  max-width: 350px;
+	margin-top: 12px;
+	max-width: 350px;
 }
 
 .paper {
 	align-items: center;
-	background-color: rgba(var(--d87,255,255,255),1);
-	border: 1px solid rgba(var(--b6a,219,219,219),1);
+	background-color: rgba(var(--d87, 255, 255, 255), 1);
+	border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
 	border-radius: 1px;
-  margin: 0 0 10px;
-  padding: 10px 0;
+	margin: 0 0 10px;
+	padding: 10px 0;
 }
 
 .homePagePic {
@@ -70,7 +69,7 @@ img {
 	justify-content: space-around;
 	text-align: center;
 	align-items: center;
-	color:#262626;
+	color: #262626;
 	margin-left: 1rem;
 }
 
@@ -80,15 +79,16 @@ img {
 	align-items: center;
 }
 
-.emailInput, .passwordInput, .login{
+.emailInput,
+.passwordInput,
+.login {
 	margin: 1rem;
- 	max-width: 80%;
+	max-width: 80%;
 }
-.redirectButton{
+.redirectButton {
 	height: 65px;
 	display: flex;
 	flex-direction: row;
-
 }
 
 .spanLink {
@@ -152,7 +152,6 @@ h6 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	
 }
 
 .orSignUp {
@@ -200,7 +199,7 @@ h6 {
 .apple {
 	width: 40%;
 	margin-top: 0.65rem;
-  height: 45px;
+	height: 45px;
 }
 .appDiv {
 	max-width: 400px;
