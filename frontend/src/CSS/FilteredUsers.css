@@ -35,4 +35,19 @@
   margin-right: 1rem;
   font-size: medium;
   color: black;
+  width: 5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.userInfo {
+  /* width: 60%; */
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: space-between;
+  display: inline-block;
+}
+.displayAllUsers {
+  padding-top: 1rem;
+  margin: 2rem;
 }

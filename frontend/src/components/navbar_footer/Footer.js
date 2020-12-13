@@ -4,7 +4,7 @@ import "../../CSS/Footer.css";
 export default function Footer({ className }) {
 	return (
 		<footer className={className}>
-			<div className="footerDiv">
+			<div className="footerDiv footerUser">
 				<a
 					className="link"
 					href={"https://about.instagram.com/about-us"}

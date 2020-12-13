@@ -12,7 +12,7 @@ import FilteredUsers from "./FilteredUsers";
 import Ads from "../ad/Ads";
 import "../../CSS/Ads.css"
 // import { CardContent } from "@material-ui/core";
-import { Paper } from "@material-ui/core";
+import { Paper, Container } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -50,7 +50,7 @@ export default function User() {
 		}
 	};
 	const redirect = () => {
-		history.push(`/${users.username}/edit`);
+		history.push(`/${users.username}/profile`);
 	};
 
 	useEffect(() => {
@@ -61,88 +61,77 @@ export default function User() {
 		<>
 			<NavBar />
 			<main className="mainUser">
-				<section className="userContainer ">
-					<div className={classes.root} id="leftDiv">
-						<Grid item md={12}>
-							{/* <Paper className="filteredUsers"> */}
-							<Grid
-								item
-								md={12}
-								direction="row"
-								justify="center"
-								alignItems="center"
-							>
+				<Grid className="userContainer ">
+					<Grid item sx={8}>
+						<div className={classes.root} id="leftDiv">
+							<Container>
 								<FilteredUsers />
-							</Grid>
-							{/* </Paper> */}
+							</Container>
 							<Ads className="adds" />
 							<Posts />
-						</Grid>
-					</div>
-
-					<div className={classes.root} id="rightDiv">
-						<div className="exploreUsers">
-							<Grid container spacing={3} alignItems="center">
-								<img
-									className="userProfileLogged"
-									src={loggedUser.profile_pic}
-									alt="user_profile_picture"
-									onClick={redirect}
-								/>
-								<span className="userUsernameLogged" onClick={redirect}>
-									{loggedUser.username}
-								</span>
-								<Grid item xs={12} sm={6}>
-									<a className="switch">Switch</a>
+						</div>
+					</Grid>
+					<Grid item sx={3}>
+						<div className={classes.root} id="rightDiv">
+							<div className="exploreUsers">
+								<Grid container spacing={3} alignItems="center">
+									<img
+										className="userProfileLogged"
+										src={loggedUser.profile_pic}
+										alt="user_profile_picture"
+										onClick={redirect}
+									/>
+									<span className="userUsernameLogged" onClick={redirect}>
+										{loggedUser.username}
+									</span>
+									<Grid item sx={4} sm={3}>
+										<a className="switch">Switch</a>
+									</Grid>
 								</Grid>
-							</Grid>
-						</div>
-						<div className="random_users">
-							<div className="suggestUsers">
-								<div>
-									<p className="suggest">Suggestions For You</p>
-								</div>
-
-								<div>
-									<a className="seeAll">See All</a>
-								</div>
 							</div>
+							<div className="random_users">
+								<div className="suggestUsers">
+									<div>
+										<p className="suggest">Suggestions For You</p>
+									</div>
 
-							<Grid
-								container
-								spacing={1}
-								// alignItems="left"
-								// container
-								// direction="row"
-								// justify="space-around"
-								// alignItems="baseline"
-							>
-								{users.map((user) => {
-									return (
-										<>
-											<Grid item xs={12} sm={6}>
-												<img
-													width="100%"
-													src={user.profile_pic}
-													alt="User Profile"
-													className="exploreImage"
-													onClick={redirect}
-												/>
-												<span className="exploreName" onClick={redirect}>
-													{user.username}
-												</span>
-											</Grid>
-											<Grid item xs={12} sm={6} width={12}>
-												<a>Follow</a>
-											</Grid>
-										</>
-									);
-								})}
+									<div>
+										<a className="seeAll">See All</a>
+									</div>
+								</div>
+
+								<Grid item xs={5}>
+									{users.map((user) => {
+										return (
+											<>
+												<div className="followUser">
+													<Grid spacing={3} alignItems="center">
+														<img
+															width="100%"
+															src={user.profile_pic}
+															alt="User Profile"
+															className="exploreImage"
+															onClick={redirect}
+														/>
+														<span className="exploreNameUser" onClick={redirect}>
+															{user.username}
+														</span>
+													</Grid>
+													<Grid item sx={4} sm={6}>
+														<a>Follow</a>
+													</Grid>
+												</div>
+											</>
+										);
+									})}
+								</Grid>
+							</div>
+							<Grid item sx={4} sm={6}>
+								<Footer className="userFooter" />
 							</Grid>
 						</div>
-						<Footer className="userFooter" />
-					</div>
-				</section>
+					</Grid>
+				</Grid>
 			</main>
 		</>
 	);

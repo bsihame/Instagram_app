@@ -17,10 +17,10 @@
 }
 
 .footerDiv {
-	max-width: 1012px;
+	/* max-width: 1012px; */
 	font-size: 12px;
 	font-weight: 600;
-	width: 101%;
+	/* width: 101%; */
 	position: sticky;
 	display: flex;
 	flex-direction: row;
@@ -50,4 +50,9 @@ nav {
 .insFacebook {
 	color: #8e8e8e;
 	padding-bottom: 4px;
+}
+
+.footerUser {
+	width: 40%;
+	flex-wrap: wrap;
 }
