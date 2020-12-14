@@ -56,3 +56,8 @@ nav {
 	font-size: 11px;
 	text-align: left;
 }
+
+.homeFooter {
+	display: flex;
+	flex-direction: row;
+}
