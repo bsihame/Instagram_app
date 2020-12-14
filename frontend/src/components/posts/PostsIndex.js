@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 540,
 		backgroundColor: theme.palette.background.paper,
+		marginBottom: 60,
 	},
 }));
 
@@ -39,12 +40,10 @@ const options = [
 ];
 
 export default function PostsIndex({ posts }) {
-	// console.log(posts)
 	const classes = useStyles();
 	const [user, setUser] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	let id = currentUser.id;
-	// const classes = useStyles();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -80,9 +79,6 @@ export default function PostsIndex({ posts }) {
 			<Container
 				className="post-container"
 				display="flex"
-				// justifyContent="center"
-				// alignItems="center"
-				// alignContent="center"
 			>
 				{posts.map((post) => {
 					return (
@@ -133,7 +129,6 @@ export default function PostsIndex({ posts }) {
 										</>
 								}
 								/>
-							<CardContent>
 								<div className="card" key={post.id}>
 									<img
 										className="img_post"
@@ -146,7 +141,6 @@ export default function PostsIndex({ posts }) {
 										<CommentsForm post_id={post.id} />
 									</div>
 								</div>
-							</CardContent>
 						</Card>
 					);
 				})}

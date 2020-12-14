@@ -48,7 +48,7 @@ export default function UserPost() {
 		return <h4>loading</h4>
 	}
 	return (
-		<div>
+		<div className="singleUserPost">
 			<h1>User Posts</h1>
 			<div>
 				<img src={post[0].profile_pic} alt="user_profile" />
