@@ -1,19 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../navbar_footer/NavBar";
 import Footer from "../navbar_footer/Footer";
-import { AuthContext } from "../../providers/AuthContext";
-import { getUserById } from "../../util/getRequests";
-import { getAllUsers } from "../../util/getRequests";
 import Posts from "../posts/Posts";
-import "../../CSS/User.css";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import FilteredUsers from "./FilteredUsers";
 import Ads from "../ad/Ads";
-import "../../CSS/Ads.css"
-// import { CardContent } from "@material-ui/core";
+import { AuthContext } from "../../providers/AuthContext";
+import { getUserById } from "../../util/getRequests";
+import { getAllUsers } from "../../util/getRequests";
+import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import "../../CSS/User.css";
+import "../../CSS/Ads.css";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
@@ -31,7 +30,7 @@ export default function User() {
 	const [loggedUser, setLoggedUser] = useState({});
 	const [users, setUsers] = useState([]);
 	let id = currentUser.id;
-
+	
 	const getSingleUser = async () => {
 		try {
 			const res = await getUserById(id);
@@ -40,6 +39,7 @@ export default function User() {
 			console.log(error);
 		}
 	};
+
 	const getUsers = async () => {
 		try {
 			const allUsers = await getAllUsers();
@@ -49,6 +49,7 @@ export default function User() {
 			console.log(error);
 		}
 	};
+
 	const redirect = () => {
 		history.push(`/${users.username}/profile`);
 	};
@@ -113,7 +114,10 @@ export default function User() {
 															className="exploreImage"
 															onClick={redirect}
 														/>
-														<span className="exploreNameUser" onClick={redirect}>
+														<span
+															className="exploreNameUser"
+															onClick={redirect}
+														>
 															{user.username}
 														</span>
 													</Grid>

@@ -1,123 +1,120 @@
 .mainUser {
-  width: 100%;
-  align-items: stretch;
-  position: relative;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
+	width: 100%;
+	align-items: stretch;
+	position: relative;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
 }
+
 .userContainer {
-  display: flex;
-  flex-direction: row;
-  /* max-width: 935px; */
-  max-width: 80%;
-  position: relative;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  border: 0 solid #000;
+	display: flex;
+	flex-direction: row;
+	max-width: 80%;
+	position: relative;
+	flex-flow: row nowrap;
+	align-items: stretch;
+	border: 0 solid #000;
 }
+
 .switchDiv {
-  align-content: center;
+	align-content: center;
 }
 
 .userProfileLogged {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: white;
-  border-style: double;
-  overflow: hidden;
-  margin: 0.5rem;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: white;
+	border-style: double;
+	overflow: hidden;
+	margin: 0.5rem;
 }
 .userUsernameLogged {
-  text-align: center;
-  margin-right: 2.5rem;
-  font-size: medium;
-  color: black;
+	text-align: center;
+	margin-right: 2.5rem;
+	font-size: medium;
+	color: black;
 }
 
 .adds {
-  width: 100%;
+	width: 100%;
 }
 
 .cardGrid {
-  background: red;
-  display: flex;
-  align-items: center;
-  align-self: center;
-  text-align: center;
-  justify-content: center;
+	background: red;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	text-align: center;
+	justify-content: center;
 }
-.random_users{
-  flex-direction: column;
-  align-items: flex-start;
+
+.random_users {
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .suggestUsers {
-
-  display: flex;
-    align-items: flex-start;
-    padding: 1rem;
-    justify-content: space-between;
-    width: 35%;
-    margin-top: 1rem
+	display: flex;
+	align-items: flex-start;
+	padding: 1rem;
+	justify-content: space-between;
+	width: 35%;
+	margin-top: 1rem;
 }
 
-.exploreUsers .followUser{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 3rem;
- justify-content: space-between;
- margin: 1rem;
+.exploreUsers .followUser {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 3rem;
+	justify-content: space-between;
+	margin: 1rem;
 }
+
 .exploreUsers {
-  padding-top: 4rem;
-  padding-left: 1rem;
+	padding-top: 4rem;
+	padding-left: 1rem;
 }
-.suggest .seeAll{
-  /* padding: 3rem;
-   align-content: space-between; */
-   font-size: 14px
+
+.suggest .seeAll {
+	font-size: 14px;
 }
 
 .exploreImage {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: white;
-  border-style: double;
-  /* overflow: hidden; */
-  /* margin: 0.5rem; */
-  
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: white;
+	border-style: double;
 }
 
-.exploreName .userUsernameLogged{
-  text-align: center;
-  margin-right: 1rem;
-  font-size: medium;
-  color: black;
-  /* padding-left: 1rem; */
+.exploreName .userUsernameLogged {
+	text-align: center;
+	margin-right: 1rem;
+	font-size: medium;
+	color: black;
 }
 
-.userFooter{
-  width: max-content;
-  /* padding-left: 1rem; */
-  position: inherit;
-  margin-top: 2rem;
+.userFooter {
+	width: max-content;
+	position: inherit;
+	margin-top: 2rem;
 }
+
 .followUser {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0.5rem;
 }
 
 .exploreNameUser {
-  text-align: center;
-    margin-right: 1rem;
-    font-size: medium;
-    color: black;
-    padding-left: 0.5rem;
+	text-align: center;
+	margin-right: 1rem;
+	font-size: medium;
+	color: black;
+	padding-left: 0.5rem;
 }

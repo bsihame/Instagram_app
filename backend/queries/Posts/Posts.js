@@ -1,9 +1,19 @@
 const db = require("../../db/index");
 
 const getAllPosts = async (req, res, next) => {
+	let sql = `SELECT 
+    DISTINCT posts.id, 
+    posts.picture, 
+    posts.content, 
+    users.username, 
+    users.profile_Pic,
+    created_at
+		FROM Posts 
+    LEFT JOIN Users ON posts.poster_id = users.id
+    LEFT JOIN friends ON users.id = user_id
+ORDER BY created_at DESC`;
 	try {
-		let posts = await db.any("SELECT DISTINCT posts.id, posts.picture, posts.content, users.username, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id LEFT JOIN friends ON users.id = user_id LEFT JOIN likes ON posts.poster_id = users.id -- ORDER BY created_at DESC")
-		// let posts = await db.any("SELECT * FROM posts ORDER BY id DESC");
+		let posts = await db.any(sql);
 		res.status(200).json({
 			status: "ok",
 			message: "Retrieve all friends posts",
@@ -21,11 +31,11 @@ const getAllPosts = async (req, res, next) => {
 
 const getUsersPosts = async (req, res, next) => {
 	try {
-		let posts = await db.any("SELECT posts.id, posts.picture, posts.content, users.username, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id LEFT JOIN friends ON users.id = user_id ORDER BY created_at DESC WHERE posts.id= $1, posts.picture= $2, posts.content =$3, users.username =$4, users.profile_pic=$5 "); 
-		console.log(posts)
-			req.params.poster_id
-			// `SELECT * FROM where poster_id=$1`,
-		// console.log(posts)
+		let posts = await db.any(
+			"SELECT posts.id, posts.picture, posts.content, users.username, users.profile_Pic FROM Posts LEFT JOIN Users ON posts.poster_id = users.id LEFT JOIN friends ON users.id = user_id ORDER BY created_at DESC WHERE posts.id= $1, posts.picture= $2, posts.content =$3, users.username =$4, users.profile_pic=$5 "
+		);
+		console.log(posts);
+		req.params.poster_id;
 		res.status(200).json({
 			status: "ok",
 			message: "Get all users post",
@@ -84,16 +94,18 @@ const getSinglePost = async (req, res, next) => {
 const updatePosts = async (req, res, next) => {
 	try {
 		let { picture } = req.body;
-		 let { posts } = req.body
+		let { posts } = req.body;
 		let { userId } = req.params;
-		let post = await db.one("UPDATE posts SET picture= $1, post = $2, WHERE = $3", [picture, posts, userId])
-
+		let post = await db.one(
+			"UPDATE posts SET picture= $1, post = $2, WHERE = $3",
+			[picture, posts, userId]
+		);
 	} catch (error) {
 		console.log(error);
 		res.status(400).json({
 			status: "error",
 			message: "Could not update posts",
-		})
+		});
 	}
 };
 
