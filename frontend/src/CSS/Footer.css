@@ -16,7 +16,7 @@
 	width: 100%;
 }
 
-.footerDiv {
+.footerHome {
 	/* max-width: 1012px; */
 	font-size: 12px;
 	font-weight: 600;
@@ -53,6 +53,6 @@ nav {
 }
 
 .footerUser {
-	width: 40%;
-	flex-wrap: wrap;
+	font-size: 11px;
+	text-align: left;
 }

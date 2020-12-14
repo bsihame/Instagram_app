@@ -23,7 +23,6 @@ import { CardHeader, Container, CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: 540,
 		backgroundColor: theme.palette.background.paper,
 		marginBottom: 60,
 	},
@@ -123,24 +122,20 @@ export default function PostsIndex({ posts }) {
 								}
 								title={
 									<>
-									<h4
-										className="usernameTitle"
-									>{post.username}</h4>
-										</>
+										<h4 className="usernameTitle">{post.username}</h4>
+									</>
 								}
-								/>
-								<div className="card" key={post.id}>
-									<img
-										className="img_post"
-										src={post.picture}
-										alt="Card image"
-									/>
-									<h4 className="post-content">{post.content}</h4>
-									<Likes className="card-like" post_id={post.id} />
+							/>
+							<div className="card" key={post.id}>
+								<img className="img_post" src={post.picture} alt="Card image" />
+								<h4 className="post-content">{post.content}</h4>
+								<Likes className="card-like" post_id={post.id} />
+				
 									<div className="comments-div">
 										<CommentsForm post_id={post.id} />
 									</div>
-								</div>
+							
+							</div>
 						</Card>
 					);
 				})}

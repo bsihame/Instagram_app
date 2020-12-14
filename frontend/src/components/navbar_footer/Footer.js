@@ -4,7 +4,7 @@ import "../../CSS/Footer.css";
 export default function Footer({ className }) {
 	return (
 		<footer className={className}>
-			<div className="footerDiv footerUser">
+			
 				<a
 					className="link"
 					href={"https://about.instagram.com/about-us"}
@@ -89,7 +89,6 @@ export default function Footer({ className }) {
 				<span className="insFacebook" to={"/press"}>
 					&copy;{new Date().getFullYear()} INSTAGRAM FROM FACEBOOK
 				</span>
-			</div>
 		</footer>
 	);
 }

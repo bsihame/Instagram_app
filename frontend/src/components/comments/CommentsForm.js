@@ -2,6 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
 import { createComments, getCommentsByPostId } from "../../util/getRequests";
+import Card from "@material-ui/core/Card";
+import Box from "@material-ui/core/Box";
+
 import "../../CSS/CommentsForm.css";
 
 export default function CommentsForm({ post_id }) {
@@ -79,7 +82,8 @@ export default function CommentsForm({ post_id }) {
 					);
 				})
 			)}
-			<div className="create-comments">
+			{/* <Card> */}
+			<Box border={1} className="create-comments">
 				<form onSubmit={handleSubmit} className="display-comments-form">
 					<input
 						type="text"
@@ -94,7 +98,8 @@ export default function CommentsForm({ post_id }) {
 						</button>
 					</span>
 				</form>
-			</div>
+			</Box>
+			{/* </Card> */}
 		</>
 	);
 }

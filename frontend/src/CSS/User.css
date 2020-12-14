@@ -9,13 +9,15 @@
 }
 
 .userContainer {
-	display: flex;
-	flex-direction: row;
-	max-width: 80%;
+	display: grid;
+	grid-template-columns: 70% 30%;
+	max-width: 70%;
 	position: relative;
-	flex-flow: row nowrap;
 	align-items: stretch;
-	border: 0 solid #000;
+	border: 1px solid #000;
+}
+#rightDiv {
+	width: 300px;
 }
 
 .switchDiv {
@@ -29,7 +31,7 @@
 	background: white;
 	border-style: double;
 	overflow: hidden;
-	margin: 0.5rem;
+	margin: 0.5rem 0.5rem 0.5rem 0;
 }
 .userUsernameLogged {
 	text-align: center;
@@ -51,17 +53,16 @@
 	justify-content: center;
 }
 
-.random_users {
+/* .random_users {
 	flex-direction: column;
 	align-items: flex-start;
-}
+} */
 
 .suggestUsers {
 	display: flex;
 	align-items: flex-start;
-	padding: 1rem;
+	padding: 1rem 0;
 	justify-content: space-between;
-	width: 35%;
 	margin-top: 1rem;
 }
 
@@ -76,7 +77,10 @@
 
 .exploreUsers {
 	padding-top: 4rem;
-	padding-left: 1rem;
+	justify-content: space-between;
+	display: flex;
+  align-items: center;
+
 }
 
 .suggest .seeAll {
@@ -98,17 +102,17 @@
 	color: black;
 }
 
-.userFooter {
+/* .userFooter {
 	width: max-content;
 	position: inherit;
 	margin-top: 2rem;
-}
+} */
 
 .followUser {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0.5rem;
+	margin: 0.5rem 0;
 }
 
 .exploreNameUser {

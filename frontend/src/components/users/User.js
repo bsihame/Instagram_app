@@ -62,8 +62,8 @@ export default function User() {
 		<>
 			<NavBar />
 			<main className="mainUser">
-				<Grid className="userContainer ">
-					<Grid item sx={8}>
+				<div className="userContainer ">
+					{/* <Grid item sx={12}> */}
 						<div className={classes.root} id="leftDiv">
 							<Container>
 								<FilteredUsers />
@@ -71,11 +71,11 @@ export default function User() {
 							<Ads className="adds" />
 							<Posts />
 						</div>
-					</Grid>
-					<Grid item sx={3}>
+					{/* </Grid> */}
+					{/* <Grid item sx={3}> */}
 						<div className={classes.root} id="rightDiv">
 							<div className="exploreUsers">
-								<Grid container spacing={3} alignItems="center">
+								<Grid spacing={3} alignItems="center">
 									<img
 										className="userProfileLogged"
 										src={loggedUser.profile_pic}
@@ -85,23 +85,18 @@ export default function User() {
 									<span className="userUsernameLogged" onClick={redirect}>
 										{loggedUser.username}
 									</span>
-									<Grid item sx={4} sm={3}>
-										<a className="switch">Switch</a>
-									</Grid>
 								</Grid>
+									<a className="switch">Switch</a>
 							</div>
 							<div className="random_users">
 								<div className="suggestUsers">
-									<div>
+									<Grid spacing={3} alignItems="center">
 										<p className="suggest">Suggestions For You</p>
-									</div>
-
-									<div>
-										<a className="seeAll">See All</a>
-									</div>
+									</Grid>
+									<a className="seeAll">See All</a>
 								</div>
 
-								<Grid item xs={5}>
+								<div item xs={5}>
 									{users.map((user) => {
 										return (
 											<>
@@ -121,21 +116,21 @@ export default function User() {
 															{user.username}
 														</span>
 													</Grid>
-													<Grid item sx={4} sm={6}>
-														<a>Follow</a>
-													</Grid>
+													{/* <Grid item sx={4} sm={6}> */}
+													<a>Follow</a>
+													{/* </Grid> */}
 												</div>
 											</>
 										);
 									})}
-								</Grid>
+								</div>
 							</div>
-							<Grid item sx={4} sm={6}>
-								<Footer className="userFooter" />
-							</Grid>
+							<div>
+								<Footer className="footerUser" />
+							</div>
 						</div>
-					</Grid>
-				</Grid>
+					</div>
+				{/* </Grid> */}
 			</main>
 		</>
 	);
