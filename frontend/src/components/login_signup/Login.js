@@ -9,15 +9,15 @@ import Paper from "@material-ui/core/Paper";
 // import withStyles from "@material-ui/core/styles/withStyles";
 // import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 // import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 // import { apiURL } from "../../util/apiURL";
-import Footer from "../navbar_footer/Footer";
-import "../../CSS/Login.css"
+// import Footer from "../navbar_footer/Footer";
+import "../../CSS/Login.css";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
@@ -41,7 +41,7 @@ export default function Login() {
 			</div>
 			<div className="rightDiv">
 				<Paper className="paper">
-					<div className="title">
+					<div className="loginTitle">
 						<h1 className="instagram">Instagram</h1>
 					</div>
 					{error ? (
@@ -101,7 +101,6 @@ export default function Login() {
 				</Paper>
 
 				<Paper className="redirectButton">
-
 					<Link to="/accounts/emailsignup/" className="signUp">
 						Don't have an account?
 						<span className="spanLink"> Sign up </span>
@@ -112,8 +111,12 @@ export default function Login() {
 					<h4>get the app.</h4>
 					<div className="appDiv">
 						<img src={appleApp} alt="apple_app" className="logo apple"></img>
-						<img src={googlePlayApp} alt="googlePlayApp" className="logo google"></img>
-						</div>
+						<img
+							src={googlePlayApp}
+							alt="googlePlayApp"
+							className="logo google"
+						></img>
+					</div>
 				</div>
 			</div>
 		</div>

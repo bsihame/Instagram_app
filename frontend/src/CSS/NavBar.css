@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 60px;
+	max-height: 60px;
 	background-color: #ffffff;
 	border-bottom: 2px solid #dbdbdb;
 }
@@ -13,7 +13,7 @@
 	align-items: center;
 }
 
-.title {
+.titleInst {
 	font-family: "Lobster Two", cursive;
 	color: black;
 	font-size: 400px;

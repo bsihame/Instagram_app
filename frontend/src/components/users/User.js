@@ -63,7 +63,6 @@ export default function User() {
 			<NavBar />
 			<main className="mainUser">
 				<div className="userContainer ">
-					{/* <Grid item sx={12}> */}
 						<div className={classes.root} id="leftDiv">
 							<Container>
 								<FilteredUsers />
@@ -71,8 +70,6 @@ export default function User() {
 							<Ads className="adds" />
 							<Posts />
 						</div>
-					{/* </Grid> */}
-					{/* <Grid item sx={3}> */}
 						<div className={classes.root} id="rightDiv">
 							<div className="exploreUsers">
 								<Grid spacing={3} alignItems="center">
@@ -116,9 +113,7 @@ export default function User() {
 															{user.username}
 														</span>
 													</Grid>
-													{/* <Grid item sx={4} sm={6}> */}
 													<a>Follow</a>
-													{/* </Grid> */}
 												</div>
 											</>
 										);
@@ -130,7 +125,6 @@ export default function User() {
 							</div>
 						</div>
 					</div>
-				{/* </Grid> */}
 			</main>
 		</>
 	);

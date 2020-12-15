@@ -16,6 +16,7 @@
 	align-items: stretch;
 	border: 1px solid #000;
 }
+
 #rightDiv {
 	width: 300px;
 }
@@ -33,6 +34,7 @@
 	overflow: hidden;
 	margin: 0.5rem 0.5rem 0.5rem 0;
 }
+
 .userUsernameLogged {
 	text-align: center;
 	margin-right: 2.5rem;

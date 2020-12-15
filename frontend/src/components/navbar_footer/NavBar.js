@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
 	menuButton: {
 		marginRight: theme.spacing(2),
 	},
-	title: {
-		display: "none",
-		[theme.breakpoints.up("sm")]: {
-			display: "block",
-			alignItems: "center",
-			justifyContent: "center",
-		},
-	},
+	// title: {
+	// 	display: "none",
+	// 	[theme.breakpoints.up("sm")]: {
+	// 		display: "block",
+	// 		alignItems: "center",
+	// 		justifyContent: "center",
+	// 	},
+	// },
 	search: {
 		position: "relative",
 		borderRadius: theme.shape.borderRadius,
@@ -195,7 +195,7 @@ export default function PrimarySearchAppBar() {
 			<AppBar position="static" color="#fff">
 				<Toolbar className="title">
 					<NavLink exact to={"/"}>
-						<h2 className="title">Instagram</h2>
+						<h2 className="titleInst">Instagram</h2>
 					</NavLink>
 
 					<section className={classes.search} id="search">

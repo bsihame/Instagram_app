@@ -137,6 +137,7 @@ export default function PostsIndex({ posts }) {
 							
 							</div>
 						</Card>
+						
 					);
 				})}
 			</Container>

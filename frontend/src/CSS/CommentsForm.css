@@ -30,6 +30,7 @@
 	margin-left: 5%;
 }
 
-.comment-button {
-	margin: 2%;
+#comment-button {
+	font-size: initial;
+	color:#B2DFFC;	
 }

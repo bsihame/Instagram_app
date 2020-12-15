@@ -2,8 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
 import { createComments, getCommentsByPostId } from "../../util/getRequests";
-import Card from "@material-ui/core/Card";
+import Divider from "@material-ui/core/Divider";
+
 import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
 
 import "../../CSS/CommentsForm.css";
 
@@ -15,6 +20,23 @@ export default function CommentsForm({ post_id }) {
 	const [content, setContent] = useState("");
 	const [short, setShort] = useState(true);
 	const [shortComments, setShortComments] = useState([]);
+	const useStyles = makeStyles((theme) => ({
+		root: {
+			padding: "2px 4px",
+			display: "flex",
+			alignItems: "center",
+		},
+		input: {
+			marginLeft: theme.spacing(1),
+			flex: 1,
+			fontFamily: "inherit",
+			fontSize: "initial",
+		},
+		iconButton: {
+			padding: 10,	
+		},
+	}));
+	const classes = useStyles();
 
 	const getComments = async () => {
 		const res = await getCommentsByPostId(post_id);
@@ -82,24 +104,26 @@ export default function CommentsForm({ post_id }) {
 					);
 				})
 			)}
-			{/* <Card> */}
-			<Box border={1} className="create-comments">
-				<form onSubmit={handleSubmit} className="display-comments-form">
-					<input
+			<Divider className={classes.divider} orientation="horizontal" />
+			<form onSubmit={handleSubmit} className="display-comments-form">
+				<div component="form" className={classes.root}>
+					<InputBase
+						className={classes.input}
+						placeholder="Add a comment…"
 						type="text"
 						name="comments"
 						value={content}
-						className="comment-input"
 						onChange={(e) => setContent(e.currentTarget.value)}
 					/>
-					<span>
-						<button type="submit" className="comment-button">
-							Post
-						</button>
-					</span>
-				</form>
-			</Box>
-			{/* </Card> */}
+					<IconButton
+						className={classes.iconButton}
+						id="comment-button"
+						type="submit"
+					>
+						Post
+					</IconButton>
+				</div>
+			</form>
 		</>
 	);
 }
