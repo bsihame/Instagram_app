@@ -1,4 +1,15 @@
+.postFormDiv {
+  margin: 3rem 3rem 10rem 3rem;
+  width: 60%;
+  
+}
 
+.profilePic {
+  margin: 3rem 0rem 1rem 0rem;
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+}
 .userProfile {
   width: 5rem;
   height: 5rem;
@@ -8,10 +19,45 @@
   overflow: hidden;
   margin-right: 1rem;
 }
+.userNamePost {
+  margin: 1rem;
+}
+
+.createPost, .uploadDiv {
+ padding: 1rem;
+}
 
 .usersUserName {
   margin-right: 1rem;
   font-size: medium;
   color: black;
+}
+
+.inputPost {
+  margin: 1rem;
+  width: 400px;
+}
+
+.textPost {
+  width: 405px;
+  height: 45px;
+}
+
+.buttonUploadPost {
+  height: 45px;
+  font-size: medium;
+  color:#ffff;
+  background: #148FED;
+  border-radius: 5%;
+}
+
+.buttonPost {
+  width: 115px;
+  height: 45px;
+  align-items: center;
+  font-size: larger;
+  color:#ffff;
+  background: #148FED;
+  border-radius: 5%;
 }
 

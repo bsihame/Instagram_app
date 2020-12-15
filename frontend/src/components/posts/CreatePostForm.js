@@ -11,7 +11,8 @@ import "../../CSS/CreatePostForm.css";
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 600,
+		// maxWidth: 600,
+		maxWidth: 1600,
 	},
 });
 
@@ -84,9 +85,9 @@ export default function CreatePostForm() {
 		<div className="postFormDiv">
 			<Card className={classes.root}>
 				<CardActionArea className="card_area">
-					<h2 className="postTittle">Create a Post</h2>
+					{/* <h2 className="postTittle">Create a Post</h2> */}
 					<img className="profilePic" src={profilePic} alt="profile_picture" />
-					<h4 className="userName">{currentUserName}</h4>
+					<h4 className="userNamePost">{currentUserName}</h4>
 					<div className="createPost">
 						<div className="uploadDiv">
 							<input
@@ -94,7 +95,7 @@ export default function CreatePostForm() {
 								type="file"
 								onChange={handleChange}
 							/>
-							<button className="buttonPost" onClick={handleUpload}>
+							<button className="buttonUploadPost" onClick={handleUpload}>
 								Upload Image
 							</button>
 							<div>
