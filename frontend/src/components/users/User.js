@@ -10,7 +10,9 @@ import { getUserById } from "../../util/getRequests";
 import { getAllUsers } from "../../util/getRequests";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { getUserByUserName } from "../../util/getRequests";
+import { Link } from "react-router-dom";
 import "../../CSS/User.css";
 import "../../CSS/Ads.css";
 const useStyles = makeStyles((theme) => ({
@@ -26,9 +28,12 @@ const useStyles = makeStyles((theme) => ({
 export default function User() {
 	const classes = useStyles();
 	const history = useHistory();
+	// const { username } = useParams();
 	const { currentUser } = useContext(AuthContext);
 	const [loggedUser, setLoggedUser] = useState({});
 	const [users, setUsers] = useState([]);
+	const [user, setUser] = useState({});
+	const [userName, setUserName]= ("")
 	let id = currentUser.id;
 	
 	const getSingleUser = async () => {
@@ -49,82 +54,92 @@ export default function User() {
 			console.log(error);
 		}
 	};
-
-	const redirect = () => {
-		history.push(`/${users.username}/profile`);
-	};
-
+	
 	useEffect(() => {
 		getSingleUser();
 		getUsers();
-	}, [users.username]);
+	},[userName]);
 	return (
 		<>
 			<NavBar />
 			<main className="mainUser">
 				<div className="userContainer ">
-						<div className={classes.root} id="leftDiv">
-							<Container>
-								<FilteredUsers />
-							</Container>
-							<Ads className="adds" />
-							<Posts />
-						</div>
-						<div className={classes.root} id="rightDiv">
-							<div className="exploreUsers">
-								<Grid spacing={3} alignItems="center">
-									<img
-										className="userProfileLogged"
-										src={loggedUser.profile_pic}
-										alt="user_profile_picture"
-										onClick={redirect}
-									/>
-									<span className="userUsernameLogged" onClick={redirect}>
-										{loggedUser.username}
-									</span>
-								</Grid>
-									<a className="switch">Switch</a>
-							</div>
-							<div className="random_users">
-								<div className="suggestUsers">
-									<Grid spacing={3} alignItems="center">
-										<p className="suggest">Suggestions For You</p>
-									</Grid>
-									<a className="seeAll">See All</a>
-								</div>
+					<div className={classes.root} id="leftDiv">
+						<Container>
+							<FilteredUsers />
+						</Container>
+						<Ads className="adds" />
+						<Posts />
+					</div>
+					<div className={classes.root} id="rightDiv">
+						<div className="exploreUsers">
+							<Grid spacing={3} alignItems="center">
+								<img
+									className="userProfileLogged"
+									src={loggedUser.profile_pic}
+									id={loggedUser.id}
+									alt="user_profile_picture"
+									onClick={() =>
+										history.push(`/${loggedUser.username}/profile`)
+									}
+								/>
 
-								<div item xs={5}>
-									{users.map((user) => {
-										return (
-											<>
-												<div className="followUser">
-													<Grid spacing={3} alignItems="center">
-														<img
-															width="100%"
-															src={user.profile_pic}
-															alt="User Profile"
-															className="exploreImage"
-															onClick={redirect}
-														/>
-														<span
-															className="exploreNameUser"
-															onClick={redirect}
-														>
-															{user.username}
-														</span>
-													</Grid>
-													<a>Follow</a>
-												</div>
-											</>
-										);
-									})}
-								</div>
+								<span
+									className="userUsernameLogged"
+									onClick={() =>
+										history.push(`/${loggedUser.username}/profile`)
+									}
+								>
+									{loggedUser.username}
+								</span>
+							</Grid>
+							<a className="switch">Switch</a>
+						</div>
+						<div className="random_users">
+							<div className="suggestUsers">
+								<Grid spacing={3} alignItems="center">
+									<p className="suggest">Suggestions For You</p>
+								</Grid>
+								<a className="seeAll">See All</a>
 							</div>
-							<div>
-								<Footer className="footerUser" />
+
+							<div item xs={5}>
+								{users.map((user) => {
+									return (
+										<>
+											<div className="followUser">
+												<Grid spacing={3} alignItems="center">
+													<img
+														width="100%"
+														src={user.profile_pic}
+														alt="User Profile"
+														className="exploreImage"
+														onClick={() => {
+															history.push(`/${user.username}/profile`);
+														}}
+													/>
+
+													<span
+														className="exploreNameUser"
+														onClick={() => {
+															history.push(`/${user.username}/profile`);
+														}}
+													>
+														{user.username}
+													</span>
+												</Grid>
+												<a>Follow</a>
+											</div>
+										</>
+									);
+								})}
 							</div>
+						</div>
+						<div>
+							<Footer className="footerUser" />
 						</div>
 					</div>
+				</div>
 			</main>
 		</>
 	);

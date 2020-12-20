@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom"
 import CommentsForm from "../comments/CommentsForm";
 import { makeStyles } from "@material-ui/core/styles";
 import { AuthContext } from "../../providers/AuthContext";
@@ -39,6 +40,7 @@ const options = [
 ];
 
 export default function PostsIndex({ posts }) {
+		const history = useHistory();
 	const classes = useStyles();
 	const [user, setUser] = useState("");
 	const { currentUser } = useContext(AuthContext);
@@ -88,6 +90,9 @@ export default function PostsIndex({ posts }) {
 										aria-label="userAvatar"
 										className={classes.avatar}
 										src={post.profile_pic}
+										onClick={() => {
+											history.push(`/${post.username}/profile`);
+										}}
 									></Avatar>
 								}
 								action={
@@ -122,7 +127,14 @@ export default function PostsIndex({ posts }) {
 								}
 								title={
 									<>
-										<h4 className="usernameTitle">{post.username}</h4>
+										<h4
+											className="usernameTitle"
+											onClick={() => {
+												history.push(`/${post.username}/profile`);
+											}}
+										>
+											{post.username}
+										</h4>
 									</>
 								}
 							/>
@@ -130,14 +142,12 @@ export default function PostsIndex({ posts }) {
 								<img className="img_post" src={post.picture} alt="Card image" />
 								<h4 className="post-content">{post.content}</h4>
 								<Likes className="card-like" post_id={post.id} />
-				
-									<div className="comments-div">
-										<CommentsForm post_id={post.id} />
-									</div>
-							
+
+								<div className="comments-div">
+									<CommentsForm post_id={post.id} />
+								</div>
 							</div>
 						</Card>
-						
 					);
 				})}
 			</Container>

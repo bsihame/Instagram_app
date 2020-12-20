@@ -23,9 +23,6 @@ export default function FilteredUsers() {
 			console.log(error);
     }
 	};
-	const redirect = () => {
-		history.push(`/${users.username}/profile`);
-	};
 	useEffect(() => {
 		getUsers();
 	}, [username]);
@@ -41,9 +38,16 @@ export default function FilteredUsers() {
 								src={user.profile_pic}
 								alt="User Profile"
 								className="userProfile"
-								onClick={redirect}
+								onClick={() => {
+									history.push(`/${user.username}/profile`);
+								}}
 							/>
-							<p className="usersUserName" onClick={redirect}>
+							<p
+								className="usersUserName"
+								onClick={() => {
+									history.push(`/${user.username}/profile`);
+								}}
+							>
 								{user.username}
 							</p>
 						</div>
