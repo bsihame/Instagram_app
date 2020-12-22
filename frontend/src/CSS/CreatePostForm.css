@@ -36,6 +36,7 @@
 .inputPost {
   margin: 1rem;
   width: 400px;
+  overflow: hidden;
 }
 
 .textPost {
