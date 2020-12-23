@@ -10,9 +10,7 @@ import { getUserById } from "../../util/getRequests";
 import { getAllUsers } from "../../util/getRequests";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
-import { useHistory, useParams } from "react-router-dom";
-import { getUserByUserName } from "../../util/getRequests";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "../../CSS/User.css";
 import "../../CSS/Ads.css";
 const useStyles = makeStyles((theme) => ({

@@ -26,11 +26,22 @@
 	color: black;
 	text-align: left;
 	list-style: none;
-	padding: 2%;
-	margin-left: 5%;
+	margin-left: 1rem;
 }
 
 #comment-button {
 	font-size: initial;
 	color:#B2DFFC;	
+}
+
+.commentsAndLikes {
+	display: flex;
+	flex-direction: column;
+}
+.displayList {
+	float: left;
+}
+
+.commentListWithLikesDiv {
+	justify-content: space-between;
 }

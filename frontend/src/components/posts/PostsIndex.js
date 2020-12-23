@@ -140,8 +140,14 @@ export default function PostsIndex({ posts }) {
 							/>
 							<div className="card" key={post.id}>
 								<img className="img_post" src={post.picture} alt="Card image" />
-								<h4 className="post-content">{post.content}</h4>
-								<Likes className="card-like" post_id={post.id} />
+								<div className="cardLikeAndComments">
+									<Likes className="card-like" post_id={post.id} />
+									<div className="posterUsernameAndContent">
+									<h4 className="poster-username">{post.username} </h4>
+										<h4 className="post-content">{post.content}</h4>
+										</div>
+								</div>
+								{/* <Likes className="card-like" post_id={post.id} /> */}
 
 								<div className="comments-div">
 									<CommentsForm post_id={post.id} />

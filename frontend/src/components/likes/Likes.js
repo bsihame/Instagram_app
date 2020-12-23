@@ -45,15 +45,22 @@ export default function Likes({ post_id }) {
 	const loveIt = () => {
 		if (loveIt) return;
 	};
+	const likeText = () => {
+		if (likes.length > 1) {
+			return "likes"
+		} else {
+			return "like"
+		}
+	}
 
 	return (
 		<>
-			<div>
+			<div className="likesDiv">
 				<IconButton
 					aria-label="account of current user"
 					aria-controls="primary-search-account-menu"
 					aria-haspopup="true"
-					className="icon"
+					className="iconHeart"
 				>
 					{isLiked ? (
 						<Icon
@@ -71,8 +78,11 @@ export default function Likes({ post_id }) {
 							className="disliked"
 						/>
 					)}
-					<h5 color="black" className="likesLength">{likes.length}</h5>
+					{/* <h5 color="black" className="likesLength">{likes.length}</h5> */}
 				</IconButton>
+				<h5 color="black" className="likesLength">
+					{likes.length} {likeText()}
+				</h5>
 			</div>
 		</>
 	);

@@ -38,9 +38,8 @@
 }
 
 .post-content {
-	font-size: x-large;
-	font-style: oblique;
-	margin: 1%;
+	font-size: 1.25rem;
+  color: rgb(65, 64, 64);
 }
 
 .comments-div {
@@ -51,3 +50,25 @@
 .img_post {
 	width: 100%;
 }
+
+.cardLikeAndComments {
+	width: 100%;
+	flex-direction: column;
+	text-align: left;
+}
+
+.card-like {
+	text-align: left;
+}
+
+.posterUsernameAndContent{
+	display: flex;
+	flex-direction: row;
+}
+
+.poster-username {
+	font-size: 1.25rem;
+  margin: 0rem 0.5rem 1rem 1rem;
+  color: black;
+}
+

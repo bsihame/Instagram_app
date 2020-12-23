@@ -1,11 +1,16 @@
 .likesLength {
-	text-align: center;
-	align-items: center;
 	font-size: 1.25rem;
-	margin: 0.50rem;
+	margin: 1rem;
 	color: black;
 }
 
-/* .MuiIconButton-root{
-	padding-top: 0;
-} */
+.iconHeart, .loveIt, .disliked{
+	text-align: left;
+	font-size: 3rem;
+}
+
+.loveIt{
+	text-align: left;
+	font-size: 3rem;
+}
+
