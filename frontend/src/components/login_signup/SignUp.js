@@ -7,6 +7,7 @@ import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Footer from "../navbar_footer/Footer";
+import Paper from "@material-ui/core/Paper";
 import "../../CSS/signUp.css";
 import { storage } from "../../firebase";
 
@@ -66,98 +67,105 @@ export default function SignUpForm() {
 	return (
 		<>
 			<div className="signup">
-				<div className="signUpContainer">
-					<div className="title">
-						<h1 className="instagramSignUp">Instagram</h1>
-						<p>Sign up to see photos and videos from your friends</p>
-					</div>
-					<div className="facebookDivSignUp">
-						<button className="facebookButton">
-							<img
-								src={facebookIcon}
-								alt="facebookIcon"
-								className="facebookIcon"
+				<Paper className="paper">
+					<div className="signUpContainer">
+						<div className="title">
+							<h1 className="instagram">Instagram</h1>
+							<p>Sign up to see photos and videos from your friends</p>
+						</div>
+						<div className="facebookDivSignUp">
+							<button className="facebookButton">
+								<img
+									src={facebookIcon}
+									alt="facebookIcon"
+									className="facebookIcon"
+								/>
+								Log in with Facebook
+							</button>
+						</div>
+						<div className="or">
+							<h4>
+								<span> OR </span>
+							</h4>
+						</div>
+						{error ? <div>{error}</div> : null}
+
+						<form className="form" onSubmit={handleSubmit}>
+							<input
+								placeholder="Email"
+								value={email}
+								type="email"
+								onChange={(e) => setEmail(e.currentTarget.value)}
 							/>
-							Log in with Facebook
-						</button>
+							<input
+								placeholder="Full Name"
+								value={full_name}
+								onChange={(e) => setFullName(e.currentTarget.value)}
+							/>
+							<input
+								placeholder="Username"
+								value={username}
+								onChange={(e) => setUserName(e.currentTarget.value)}
+							/>
+							<input
+								placeholder="Bio: "
+								value={bio}
+								onChange={(e) => setBio(e.currentTarget.value)}
+							/>
+
+							<input type="file" onChange={handleChange} />
+							<button onClick={handleUpload}>Upload Image</button>
+							<br />
+
+							<input
+								placeholder="Password"
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.currentTarget.value)}
+								autoComplete="on"
+								required
+							/>
+							{/* <div><ProfilePic/></div> */}
+
+							<button type="submit" className="signUpButton">
+								Sign up
+							</button>
+						</form>
+						<div className="agreementDiv">
+							<p>
+								By signing up, you agree to our Terms, Data Policy and Cookies
+								Policy .
+							</p>
+						</div>
 					</div>
-					<div className="or">
-						<h4>
-							<span> OR </span>
-						</h4>
-					</div>
-					{error ? <div>{error}</div> : null}
+				</Paper>
 
-					<form className="form" onSubmit={handleSubmit}>
-						<input
-							placeholder="Email"
-							value={email}
-							type="email"
-							onChange={(e) => setEmail(e.currentTarget.value)}
-						/>
-						<input
-							placeholder="Full Name"
-							value={full_name}
-							onChange={(e) => setFullName(e.currentTarget.value)}
-						/>
-						<input
-							placeholder="Username"
-							value={username}
-							onChange={(e) => setUserName(e.currentTarget.value)}
-						/>
-						<input
-							placeholder="Bio: "
-							value={bio}
-							onChange={(e) => setBio(e.currentTarget.value)}
-						/>
-
-						<input type="file" onChange={handleChange} />
-						<button onClick={handleUpload}>Upload Image</button>
-						<br />
-
-						<input
-							placeholder="Password"
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.currentTarget.value)}
-							autoComplete="on"
-							required
-						/>
-						{/* <div><ProfilePic/></div> */}
-
-						<button type="submit" className="signUpButton">
-							Sign up
-						</button>
-					</form>
-					<div className="agreementDiv">
-						<p>
-							By signing up, you agree to our Terms, Data Policy and Cookies
-							Policy .
-						</p>
-					</div>
+				{/* <div className="logInButtonSignUp"> */}
+				<div className="linkToLogIN">
+					<Paper className="paper">
+						<Link to="/">
+							Have an account?<span>Log in</span>
+						</Link>
+					</Paper>
 				</div>
-
-				<div className="logInButtonSignUp">
-					<Link to="/">
-						Have an account?<span>Log in</span>
-					</Link>
-					<div>
-						<h4>get the app.</h4>
-						<div className="appDiv">
-							<img
-								className="appAppleSignUp"
-								src={appleApp}
-								alt="apple_app"
-							></img>
+				<div>
+					<Paper>
+						<div className="getApp">
+							<h4>get the app.</h4>
+							<div className="appDiv">
+								<img
+									src={appleApp}
+									alt="apple_app"
+									className="logo apple"
+								></img>
+								<img
+									src={googlePlayApp}
+									alt="googlePlayApp"
+									className="logo google"
+								></img>
+							</div>
 						</div>
-						<div>
-							<img
-								className="appGoogleSignUp"
-								src={googlePlayApp}
-								alt="googlePlayApp"
-							></img>
-						</div>
-					</div>
+					</Paper>
 				</div>
 			</div>
 			<Footer />

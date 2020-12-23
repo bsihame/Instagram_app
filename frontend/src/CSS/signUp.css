@@ -6,8 +6,8 @@
 	justify-content: auto;
 	flex-direction: column;
 	text-align: center;
-	width: 30%;
-	padding-left: 40%;
+	width: 25%;
+	padding-top: 2%;
 }
 
 .signUpContainer {
@@ -139,6 +139,8 @@ input {
 	font-size: 14px;
 	font-weight: bold;
 	color: white;
+}
+.linkToLogIN {
 	width: 100%;
 }
 .appDiv {

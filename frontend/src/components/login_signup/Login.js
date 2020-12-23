@@ -1,29 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../util/firebaseFunctions";
-// import FormControl from "@material-ui/core/FormControl";
-// import InputLabel from "@material-ui/core/InputLabel";
 import TextField from "@material-ui/core/TextField";
-// import Input from "@material-ui/core/Input";
 import Paper from "@material-ui/core/Paper";
-// import withStyles from "@material-ui/core/styles/withStyles";
-// import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-// import Button from "@material-ui/core/Button";
-// import { useInputs } from "../../util/customHooks"
 import phone from "../../images/phone.png";
 import facebookBlueIcon from "../../images/facebookBlue.png";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
-// import { apiURL } from "../../util/apiURL";
-// import Footer from "../navbar_footer/Footer";
 import "../../CSS/Login.css";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(false);
-	// const history = useHistory();
 
 	const handleSignIn = async (e) => {
 		e.preventDefault();
