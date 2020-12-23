@@ -44,6 +44,8 @@ export default function SignUpForm() {
 		});
 	};
 
+	
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -90,7 +92,7 @@ export default function SignUpForm() {
 						</div>
 						{error ? <div>{error}</div> : null}
 
-						<form className="form" onSubmit={handleSubmit}>
+						<form className="formSignUp" onSubmit={handleSubmit}>
 							<input
 								placeholder="Email"
 								value={email}
@@ -98,26 +100,36 @@ export default function SignUpForm() {
 								onChange={(e) => setEmail(e.currentTarget.value)}
 							/>
 							<input
+								className="signUpInput"
 								placeholder="Full Name"
 								value={full_name}
 								onChange={(e) => setFullName(e.currentTarget.value)}
 							/>
 							<input
+								className="signUpInput"
 								placeholder="Username"
 								value={username}
 								onChange={(e) => setUserName(e.currentTarget.value)}
 							/>
 							<input
+								className="signUpInput"
 								placeholder="Bio: "
 								value={bio}
 								onChange={(e) => setBio(e.currentTarget.value)}
 							/>
 
-							<input type="file" onChange={handleChange} />
-							<button onClick={handleUpload}>Upload Image</button>
+							<input
+								className="signUpInput"
+								type="file"
+								onChange={handleChange}
+							/>
+							<button className="signUpInput" onClick={handleUpload}>
+								Upload Image
+							</button>
 							<br />
 
 							<input
+								className="signUpInput"
 								placeholder="Password"
 								type="password"
 								value={password}
@@ -127,7 +139,11 @@ export default function SignUpForm() {
 							/>
 							{/* <div><ProfilePic/></div> */}
 
-							<button type="submit" className="signUpButton">
+							<button
+								className="signUpInput"
+								type="submit"
+								className="signUpButton"
+							>
 								Sign up
 							</button>
 						</form>
@@ -143,32 +159,39 @@ export default function SignUpForm() {
 				{/* <div className="logInButtonSignUp"> */}
 				<div className="linkToLogIN">
 					<Paper className="paper">
+						Have an account?
 						<Link to="/">
-							Have an account?<span>Log in</span>
+							<span> Log in</span>
 						</Link>
 					</Paper>
 				</div>
 				<div>
-					<Paper>
-						<div className="getApp">
-							<h4>get the app.</h4>
-							<div className="appDiv">
+					<div className="getApp">
+						<h4 className="getAppSignUp">Get the app.</h4>
+						<div className="appDiv">
+							<a
+								className="link"
+								href={"https://apps.apple.com/app/instagram/id389801252?vt=lo"}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<img
 									src={appleApp}
 									alt="apple_app"
 									className="logo apple"
-								></img>
+								/>
+								</a>
 								<img
 									src={googlePlayApp}
 									alt="googlePlayApp"
 									className="logo google"
-								></img>
-							</div>
+								/>
+					
 						</div>
-					</Paper>
+					</div>
 				</div>
 			</div>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 }

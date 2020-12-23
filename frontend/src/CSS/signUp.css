@@ -18,12 +18,17 @@
 	justify-content: space-evenly;
 	background-color: #ffffff;
 }
-.form {
+.formSignUp {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
 }
+
+.signUpInput {
+	margin: 0.5rem;
+}
+
 .instagramSignUp {
 	font-family: "Lobster Two", cursive;
 	text-align: center;
@@ -33,6 +38,11 @@ h1,
 h6 {
 	font-family: "Lobster Two", cursive;
 	align-items: center;
+}
+
+.getAppSignUp {
+	font-size: medium;
+	font-weight: bold;
 }
 
 .facebookDivSignUp {
@@ -157,4 +167,8 @@ input {
 .appGoogleSignUp {
 	height: 57px;
 	width: 300px;
+}
+
+.getApp {
+	background-color: #ffffff;
 }
