@@ -175,23 +175,27 @@ export default function SignUpForm() {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<img
-									src={appleApp}
-									alt="apple_app"
-									className="logo apple"
-								/>
-								</a>
+								<img src={appleApp} alt="apple_app" className="appApple" />
+							</a>
+
+							<a
+								className="link"
+								href={
+									"https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3DC269AE6F-692C-4A6A-8705-616ACC7C83EA%26utm_content%3Dlo%26utm_medium%3Dbadge"
+								}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<img
 									src={googlePlayApp}
 									alt="googlePlayApp"
-									className="logo google"
+									className="appGoogle"
 								/>
-					
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			{/* <Footer /> */}
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 .signup {
-	background-color: #fafafa;
+	background-color: #fff;
 	flex-direction: column;
 	display: flex;
 	align-items: center;
@@ -150,25 +150,30 @@ input {
 	font-weight: bold;
 	color: white;
 }
+
 .linkToLogIN {
 	width: 100%;
 }
+
 .appDiv {
 	display: flex;
 	flex-direction: row;
-}
-
-.appAppleSignUp {
-	height: 40px;
-	width: 260px;
-	padding-left: 18px;
-}
-
-.appGoogleSignUp {
-	height: 57px;
-	width: 300px;
+	justify-content: center;
 }
 
 .getApp {
 	background-color: #ffffff;
 }
+
+.appApple {
+	height: 50px;
+	width: 150px;
+	padding-top: 7px;
+	padding-left: 20px;
+}
+
+.appGoogle {
+	height: 60px;
+	width: 146px;
+}
+
