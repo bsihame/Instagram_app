@@ -83,9 +83,13 @@ img {
 .emailInput,
 .passwordInput,
 .login {
-	margin: 1rem;
+	margin: 2rem;
 	max-width: 80%;
 }
+.passwordInput {
+	padding-top: 2rem;
+}
+
 .redirectButton {
 	height: 65px;
 	display: flex;
@@ -101,7 +105,6 @@ img {
 
 #outlined-basic {
 	padding: 20px;
-	/* width: 80%; */
 	height: 0.75rem;
 }
 
@@ -181,44 +184,28 @@ h6 {
 .getApp {
 	display: flex;
 	flex-direction: column;
-	/* text-align: center;
-	align-items: center;
-	justify-content: space-between; */
-	/* max-width: 935px; */
-	/* margin-top: 8px; */
 	border-radius: 4px;
 	font-size: 14px;
 	font-weight: bold;
 	color: #262626;
 }
-/* .google {
-	width: 40%;
-	height: 63px;
-	margin: 0;
-}
-
-.apple {
-	width: 40%;
-	margin-top: 0.65rem;
-	height: 45px;
-} */
 
 .appDiv {
 	max-width: 400px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	background-color: #fff
+	background-color: #fff;
 }
 
-.appApple {
-	height: 40px;
+.appleLogin {
+	height: 50px;
 	width: 150px;
-	/* padding-top: 7px; */
+	padding-top: 7px;
+	margin-left: 1.5rem;
 }
 
-.appGoogle {
-	height: 45px;
+.googleLogIn {
+	height: 60px;
 	width: 146px;
-	/* margin-left: 20px; */
 }

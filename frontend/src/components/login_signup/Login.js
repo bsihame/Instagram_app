@@ -39,32 +39,33 @@ export default function Login() {
 							{error}
 						</Typography>
 					) : null}
-
 					<form onSubmit={handleSignIn} className="signIn form">
-						<TextField
-							id="outlined-basic"
-							label="	Enter Your Email"
-							variant="outlined"
-							value={email}
-							onFocus={() => setError(false)}
-							onChange={(e) => setEmail(e.currentTarget.value)}
-							required
-							className="emailInput"
-						/>
+						<div>
+							<TextField
+								id="outlined-basic"
+								label="	Enter Your Email"
+								variant="outlined"
+								value={email}
+								onFocus={() => setError(false)}
+								onChange={(e) => setEmail(e.currentTarget.value)}
+								required
+								className="emailInput"
+							/>
+						</div>
 						<br />
-						<TextField
-							id="outlined-basic"
-							label="	Enter Your password"
-							variant="outlined"
-							type="password"
-							value={password}
-							onFocus={() => setError(false)}
-							onChange={(e) => setPassword(e.currentTarget.value)}
-							required
-							className="passwordInput"
-						/>
-						<br />
-
+						<div>
+							<TextField
+								id="outlined-basic"
+								label="	Enter Your password"
+								variant="outlined"
+								type="password"
+								value={password}
+								onFocus={() => setError(false)}
+								onChange={(e) => setPassword(e.currentTarget.value)}
+								required
+								className="passwordInput"
+							/>
+						</div>
 						<button
 							type="submit"
 							variant="contained"
@@ -89,14 +90,12 @@ export default function Login() {
 					<button className="forgotPassword">Forgot password?</button>
 					<div />
 				</Paper>
-
 				<Paper className="redirectButton">
 					<Link to="/accounts/emailsignup/" className="signUp">
 						Don't have an account?
 						<span className="spanLink"> Sign up </span>
 					</Link>
 				</Paper>
-
 				<div className="getApp">
 					<h4 className="getAppSignUp">Get the app.</h4>
 					<div className="appDiv">
@@ -106,7 +105,7 @@ export default function Login() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<img src={appleApp} alt="apple_app" className="logo apple" />
+							<img src={appleApp} alt="apple_app" className="appleLogin" />
 						</a>
 
 						<a
@@ -120,7 +119,7 @@ export default function Login() {
 							<img
 								src={googlePlayApp}
 								alt="googlePlayApp"
-								className="logo google"
+								className="googleLogIn"
 							/>
 						</a>
 					</div>
