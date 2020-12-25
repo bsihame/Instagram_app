@@ -8,6 +8,7 @@
 	text-align: center;
 	width: 25%;
 	padding-top: 2%;
+	max-height: 100vh;
 }
 
 .signUpContainer {
@@ -140,7 +141,6 @@ input {
 	font-size: 12px;
 	line-height: 16px;
 	margin: 10px 40px;
-	/* text-align: center; */
 	color: #8e8e8e;
 }
 
