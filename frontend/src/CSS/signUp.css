@@ -18,6 +18,7 @@
 	justify-content: space-evenly;
 	background-color: #ffffff;
 }
+
 .formSignUp {
 	display: flex;
 	flex-direction: column;
@@ -27,6 +28,7 @@
 
 .signUpInput {
 	margin: 0.5rem;
+	overflow: hidden;
 }
 
 .instagramSignUp {
@@ -51,6 +53,7 @@ h6 {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	margin-top: 1rem;
 }
 
 .facebookButton {
@@ -61,7 +64,7 @@ h6 {
 	display: block;
 	font-size: 15px;
 	font-weight: bolder;
-	padding: 10px 0px;
+	padding: 5px 0px;
 	text-align: center;
 	border-radius: 6px;
 	color: #fff;
@@ -79,7 +82,6 @@ h6 {
 .or {
 	width: 100%;
 	text-align: center;
-	/* border-bottom: 1px solid #8f8f8f; */
 	line-height: 0.1em;
 	color: #8f8f8f;
 	margin: 0;
@@ -111,30 +113,35 @@ input {
 }
 
 .signUpButton {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
-	justify-content: space-evenly;
-	background-color: #b3dffc;
-	line-height: 20px;
-	border-radius: 4px;
-	font-size: 14px;
-	font-weight: bold;
+	width: 18.75rem;
+	background: #b2dffc;
 	color: white;
+	border: 2px solid #b2dffc;
+	height: 35px;
+	border-radius: 2.5%;
+	font-size: large;
+	font-weight: bolder;
+	margin: 0.5rem 1rem 1rem 1rem;
 }
 
 .agreementDiv {
 	color: #8f8f8f;
 	font-size: 13px;
 	line-height: 18px;
-	width: 50%;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
 	justify-content: space-evenly;
 	background-color: #ffffff;
+}
+
+.signUpAgreement {
+	font-size: 12px;
+	line-height: 16px;
+	margin: 10px 40px;
+	/* text-align: center; */
+	color: #8e8e8e;
 }
 
 .logInButtonSignUp {
@@ -177,3 +184,16 @@ input {
 	width: 146px;
 }
 
+.signUpIntro {
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 20px;
+	margin: 1rem;
+	color: #8e8e8e;
+}
+.or {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 15px;
+	margin: 0 18px;
+}

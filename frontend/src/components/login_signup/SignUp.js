@@ -6,7 +6,6 @@ import axios from "axios";
 import appleApp from "../../images/appleApp.png";
 import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
-import Footer from "../navbar_footer/Footer";
 import Paper from "@material-ui/core/Paper";
 import "../../CSS/signUp.css";
 import { storage } from "../../firebase";
@@ -19,12 +18,9 @@ export default function SignUpForm() {
 	const [bio, setBio] = useState("");
 	const [url, setUrl] = useState("");
 	const [image, setImage] = useState(null);
-
-	// const [loading, setLoading] = useState("")
 	const [error, setError] = useState(null);
 	const history = useHistory();
 	const API = apiURL();
-	//console.log(email,username, password);
 
 	const handleChange = (e) => {
 		if (e.target.files[0]) {
@@ -44,15 +40,11 @@ export default function SignUpForm() {
 		});
 	};
 
-	
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
 			let res = await signUp(email, password);
-			//  await signUp(email, password);
-
 			await axios.post(`${API}/api/users`, {
 				id: res.user.uid,
 				full_name: full_name,
@@ -73,7 +65,7 @@ export default function SignUpForm() {
 					<div className="signUpContainer">
 						<div className="title">
 							<h1 className="instagram">Instagram</h1>
-							<p>Sign up to see photos and videos from your friends</p>
+							<p className="signUpIntro">Sign up to see photos and videos from your friends</p>
 						</div>
 						<div className="facebookDivSignUp">
 							<button className="facebookButton">
@@ -87,11 +79,10 @@ export default function SignUpForm() {
 						</div>
 						<div className="or">
 							<h4>
-								<span> OR </span>
+								<span className="or"> OR </span>
 							</h4>
 						</div>
 						{error ? <div>{error}</div> : null}
-
 						<form className="formSignUp" onSubmit={handleSubmit}>
 							<input
 								placeholder="Email"
@@ -117,7 +108,6 @@ export default function SignUpForm() {
 								value={bio}
 								onChange={(e) => setBio(e.currentTarget.value)}
 							/>
-
 							<input
 								className="signUpInput"
 								type="file"
@@ -126,8 +116,6 @@ export default function SignUpForm() {
 							<button className="signUpInput" onClick={handleUpload}>
 								Upload Image
 							</button>
-							<br />
-
 							<input
 								className="signUpInput"
 								placeholder="Password"
@@ -137,8 +125,6 @@ export default function SignUpForm() {
 								autoComplete="on"
 								required
 							/>
-							{/* <div><ProfilePic/></div> */}
-
 							<button
 								className="signUpInput"
 								type="submit"
@@ -148,15 +134,13 @@ export default function SignUpForm() {
 							</button>
 						</form>
 						<div className="agreementDiv">
-							<p>
+							<p className="signUpAgreement">
 								By signing up, you agree to our Terms, Data Policy and Cookies
 								Policy .
 							</p>
 						</div>
 					</div>
 				</Paper>
-
-				{/* <div className="logInButtonSignUp"> */}
 				<div className="linkToLogIN">
 					<Paper className="paper">
 						Have an account?
