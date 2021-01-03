@@ -11,6 +11,7 @@ import DisplayPost from "../posts/DisplayPost";
 // import { ReactComponent as Brightness5SharpIcon } from "./Brightness5Sharp.svg";
 import Icon from "@material-ui/core/Icon";
 import Brightness5Icon from "@material-ui/icons/Brightness5";
+import PageAnimation from "./PageAnimation";
 export default function UserProfile() {
 	const { username } = useParams()
 	const { currentUser, token } = useContext(AuthContext);
@@ -23,7 +24,7 @@ export default function UserProfile() {
 	const [error, setError] = useState(null)
 	const useStyles = makeStyles({
 		root: {
-			maxWidth: 600,
+			maxWidth: "100%",
 		},
 	});
 	const classes = useStyles();
@@ -110,19 +111,32 @@ export default function UserProfile() {
 							alt="User_Profile_Picture"
 							className="userProfilePicture"
 						/>
-						<h2 className="greeting">{user.username}</h2>
-						<div className="editProfileButton">{editingUser()}</div>
-						<div>
-							<Brightness5Icon className="IconBrightness" fontSize="large" />
+						{/* <div> */}
+						<div className="userEditDiv">
+							<div className="userProfileBox">
+								<div className="userNameProfile">
+									<h2 className="greeting">{user.username}</h2>
+								</div>
+								<div className="editProfileButton">{editingUser()}</div>
+								<div>
+									<Brightness5Icon
+										className="IconBrightness"
+										fontSize="large"
+									/>
+								</div>
+							</div>
+
+							<div className="postAndFollowers">
+								<div className="postAndFollowersText">
+									{PostLength} {postText()}
+								</div>
+								<div className="postAndFollowersText">{followersText()}</div>
+								<div className="postAndFollowersText">{followingText()}</div>
+							</div>
 						</div>
-						<div>
-							{PostLength} {postText()}
-						</div>
-						<div>{followersText()}</div>
-						<div>{followingText()}</div>
 					</div>
 
-					<div className="aboutParagraph">
+					{/* <div className="aboutParagraph">
 						<div className="profile_info">
 							<p className="profileP">
 								<span className="boldFont">Full Name: </span>
@@ -139,11 +153,14 @@ export default function UserProfile() {
 								<span className="boldFont">Bio: </span>
 								{user.bio}
 							</p>
-						</div>
-						{/* <div className="editProfileButton">{editingUser()}</div>
 						</div> */}
-					</div>
+					{/* <div className="editProfileButton">{editingUser()}</div>
+						</div> */}
+					{/* </div> */}
 					<div>
+						<div>
+							<PageAnimation />
+						</div>
 						<DisplayPost />
 					</div>
 				</CardActionArea>

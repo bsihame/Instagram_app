@@ -3,33 +3,57 @@
 	flex-direction: column;
 	margin: 2rem;
 	max-height: 80%;
-	width: 500px;
+	width: 80%;
 }
 
 .userProfileDiv {
 	align-content: center;
 	justify-content: center;
-	align-items: center;
-	align-items: center;
+	align-items: flex-start;
 	margin: 2rem;
+	background: #FFFFFF;
+	display: flex;
 }
 
 .greeting {
 	font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-	margin: 2rem;
-	font-weight: 500;
-	line-height: 1.2;
-	color: #385185;
+	font-weight: 500px;
+	color: #262626;
 }
 
 .userProfilePicture {
 	align-content: center;
 	justify-content: center;
 	align-items: center;
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 	object-fit: cover;
+	margin-right: 10%;
+}
+.greeting, .editProfileButton, .IconBrightness{
+	margin: 1rem;
+}
+
+.userEditDiv {
+	display: flex;
+	flex-direction: column;
+}
+
+.userProfileBox {
+	display: flex;
+	align-items: center;
+}
+
+.postAndFollowers {
+	display: flex;
+	align-items: flex-start;
+}
+
+.postAndFollowersText {
+	font-size: medium;
+	margin-right: 1.5rem;
+	margin-left: 1rem;
 }
 
 .aboutParagraph {
@@ -50,7 +74,7 @@
 }
 
 .editButton {
-	background-color: #0095f6;
+	background-color: #FFFFFF;
 	border: 1px solid transparent;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -58,9 +82,8 @@
 	font-weight: bolder;
 	text-align: center;
 	border-radius: 6px;
-	color: #fff;
-	width: 150px;
-	margin: 2rem;
+	color: #262626;
+	/* width: 150px; */
 }
 .IconBrightness {
 	width: 200px;
