@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import React, { UseState, useEffect } from "react";
+// import { useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { AuthContext } from "../../providers/AuthContext";
 import {
 	getPostByPostId,
@@ -8,15 +8,15 @@ import {
 } from "../../util/getRequests";
 
 export default function DisplayPost() {
+	// const { currentUser } = useContext(AuthContext);
 	const { currentUser, token } = useContext(AuthContext);
 	const [post, setPost] = useState([]);
+	let id = currentUser.id;
 	const [error, setError] = useState(null);
-	let poster_id = currentUser.id;
+	let poster_id = id;
 	console.log(poster_id);
 	const getUserPost = async () => {
 		const res = await getPostByPostId(poster_id, token);
-		debugger;
-
 		setPost(res);
 		try {
 			if (res) {
@@ -40,8 +40,8 @@ export default function DisplayPost() {
 					<>
 						<ul key={post.id}>
 							<img src={post.picture} alt="user_Post" />
-							<li>{post.content}</li>
-							<li>{new Date(post.created_at).toLocaleString()}</li>
+							{/* <li>{post.content}</li>
+							<li>{new Date(post.created_at).toLocaleString()}</li> */}
 						</ul>
 					</>
 				);

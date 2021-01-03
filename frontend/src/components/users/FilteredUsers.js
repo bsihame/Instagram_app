@@ -16,8 +16,6 @@ export default function FilteredUsers() {
 		try {
 			const allUsers = await getAllUsers(username);
 			const filtered = allUsers.filter(user => (user.id !== id))
-			// debugger
-
 			setUsers(filtered);
 		} catch (error) {
 			console.log(error);

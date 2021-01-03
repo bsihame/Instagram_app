@@ -39,7 +39,6 @@ export const createPost = async (dataObj) => {
 	}
 };
 export const getPostByPostId = async (id) => {
-	debugger
 	try {
 		const res = await axios.get(API + `/api/posts/post/${id}`);
 	
@@ -51,9 +50,9 @@ export const getPostByPostId = async (id) => {
 };
 
 export const getPostsById = async (id) => {
-	debugger 
 	try {
 		const res = await axios.get(API + `/api/posts/${id}`);
+		debugger
 		return res.data.payload;
 	} catch (error) {
 		console.log(error)
@@ -114,7 +113,6 @@ export const updateUser = async (id, data, token) => {
 export const getUserByUserName = async (username) => {
 	try {
 		let res = await axios.get(API + "/api/users/username/" + username);
-		debugger
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);
