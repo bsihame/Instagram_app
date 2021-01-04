@@ -1,14 +1,12 @@
-// import { useEffect } from "react";
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import "../../CSS/DisplayPost.css";
+
 import { AuthContext } from "../../providers/AuthContext";
-import {
-	getPostByPostId,
-	getUserById,
-	getUsersPosts,
-} from "../../util/getRequests";
+import { getPostByPostId } from "../../util/getRequests";
 
 export default function DisplayPost() {
-	// const { currentUser } = useContext(AuthContext);
 	const { currentUser, token } = useContext(AuthContext);
 	const [post, setPost] = useState([]);
 	let id = currentUser.id;
@@ -33,19 +31,26 @@ export default function DisplayPost() {
 	useEffect(() => {
 		getUserPost();
 	}, []);
+
 	return (
-		<div>
-			{post.map((post) => {
-				return (
-					<>
-						<ul key={post.id}>
-							<img src={post.picture} alt="user_Post" />
-							{/* <li>{post.content}</li>
-							<li>{new Date(post.created_at).toLocaleString()}</li> */}
-						</ul>
-					</>
-				);
-			})}
+		<div className="displayPostDiv">
+			<GridList className="gridList">
+				{post.map((post) => {
+					return (
+						<GridListTile key={post.picture} className="GridListTile">
+							<>
+								<ul key={post.id} className="displayPost">
+									<img
+										src={post.picture}
+										alt="user_Post"
+										className="displayPicturesPost"
+									/>
+								</ul>
+							</>
+						</GridListTile>
+					);
+				})}
+			</GridList>
 		</div>
 	);
 }
