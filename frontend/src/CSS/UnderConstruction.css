@@ -1,0 +1,15 @@
+.underConstructionDiv {
+	margin: 6rem 0 6rem 0;
+	width: 100%;
+	justify-content: center;
+}
+
+.sorryText {
+	font-size: 50px;
+	font-family: "PT Sans Narrow", sans-serif;
+	color: black;
+}
+
+.underConstructionText {
+	font-size: 30px;
+}
