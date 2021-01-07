@@ -1,0 +1,29 @@
+.PostsGalleryDiv {
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+}
+
+/* .displayPicturesPost {
+	width: 100%;
+	height: 100%;
+	margin: 1rem;
+} */
+
+.GridListTile {
+	width: 70%;
+	height: 100%;
+	padding: 1rem;
+}
+
+/* .gridList {
+	width: 100%;
+	height: 100%;
+} */
+.PostsGalleryUl {
+	padding: 1rem;
+}
+.PostsGallery {
+	height: 100%;
+	width: 80%;
+}

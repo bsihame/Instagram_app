@@ -4,12 +4,14 @@ import { apiURL } from "../../util/apiURL";
 import { AuthContext } from "../../providers/AuthContext";
 // import { getUserById } from "../../util/getRequests";
 import {
-	getPostByPostId,
+	getPostByPosterId,
 	getUserById,
 	getUsersPosts,
-
 } from "../../util/getRequests";
-import { getFirebaseIdToken, uploadPicture } from "../../util/firebaseFunctions";
+import {
+	getFirebaseIdToken,
+	uploadPicture,
+} from "../../util/firebaseFunctions";
 import { useHistory } from "react-router-dom";
 // import  getFirebaseIdToken from "../../util/firebaseFunctions";
 
@@ -23,29 +25,29 @@ export default function UserPost() {
 	const { currentUser, token } = useContext(AuthContext);
 	const [post, setPost] = useState([]);
 	const [error, setError] = useState(null);
-	let poster_id = currentUser.id
-	console.log(poster_id)
+	let poster_id = currentUser.id;
+	console.log(poster_id);
 
 	const getUserPost = async () => {
-		const res = await getPostByPostId(poster_id, token);
-		setPost(res)
+		const res = await getPostByPosterId(poster_id, token);
+		setPost(res);
 		try {
 			if (res) {
-        setPost(res);
-        setError(null)
-      }
-    } catch (error) {
-      console.log(error)
-      setError(error.message);
+				setPost(res);
+				setError(null);
+			}
+		} catch (error) {
+			console.log(error);
+			setError(error.message);
 			setPost([]);
-    }
-};
-	
+		}
+	};
+
 	useEffect(() => {
-		getUserPost(); 
+		getUserPost();
 	}, []);
 	if (!post.length) {
-		return <h4>loading</h4>
+		return <h4>loading</h4>;
 	}
 	return (
 		<div className="singleUserPost">

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getPostByPostId, getUserByUserName } from "../../util/getRequests";
+import { getPostByPosterId, getUserByUserName } from "../../util/getRequests";
 import { AuthContext } from "../../providers/AuthContext";
 import { useHistory, useParams } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/UserProfile.css";
-import DisplayPost from "../posts/DisplayPost";
+import PostsGallery from "../posts/PostsGallery";
 // import { Brightness5SharpIcon } from "@material-ui/icons";
 // import { ReactComponent as Brightness5SharpIcon } from "./Brightness5Sharp.svg";
 import Icon from "@material-ui/core/Icon";
@@ -23,7 +23,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
-import "../../CSS/Footer.css"
+import "../../CSS/Footer.css";
 const styles = (theme) => ({
 	root: {
 		margin: 0,
@@ -34,7 +34,6 @@ const styles = (theme) => ({
 		right: theme.spacing(1),
 		top: theme.spacing(1),
 		color: theme.palette.grey[500],
-		
 	},
 });
 const DialogTitle = withStyles(styles)((props) => {
@@ -59,7 +58,7 @@ const DialogContent = withStyles((theme) => ({
 		width: 500,
 		padding: theme.spacing(1),
 		display: "flex",
-		justifyContent:"center",
+		justifyContent: "center",
 	},
 }))(MuiDialogContent);
 
@@ -73,7 +72,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function UserProfile() {
-	const { username } = useParams()
+	const { username } = useParams();
 	const { currentUser, token } = useContext(AuthContext);
 	let id = currentUser.id;
 	let poster_id = id;
@@ -81,7 +80,7 @@ export default function UserProfile() {
 	const [user, setUser] = useState({});
 	const [post, setPost] = useState([]);
 	const [PostLength, setPostLength] = useState("");
-	const [error, setError] = useState(null)
+	const [error, setError] = useState(null);
 	const [open, setOpen] = React.useState(false);
 
 	const handleClickOpen = () => {
@@ -108,14 +107,14 @@ export default function UserProfile() {
 		}
 	};
 	const getPostLength = async () => {
-		const res = await getPostByPostId(poster_id, token);
-		debugger
+		const res = await getPostByPosterId(poster_id, token);
+		debugger;
 		setPost(res);
 		setPostLength(res.length);
 		try {
 			if (res) {
 				setPost(res);
-				setPostLength(res.length)
+				setPostLength(res.length);
 				setError(null);
 			}
 		} catch (error) {
@@ -123,14 +122,14 @@ export default function UserProfile() {
 			setError(error.message);
 			setPost([]);
 		}
-	}
+	};
 	const postText = () => {
 		if (post.length > 1) {
-			return " Posts"
+			return " Posts";
 		} else {
-			return " Post"
+			return " Post";
 		}
-	}
+	};
 
 	const followersText = () => {
 		return "0 follower";
@@ -281,7 +280,7 @@ export default function UserProfile() {
 						<div>
 							<PageAnimation />
 						</div>
-						<DisplayPost />
+						{/* <PostsGallery /> */}
 					</div>
 				</CardActionArea>
 			</Card>

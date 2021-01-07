@@ -38,27 +38,34 @@ export const createPost = async (dataObj) => {
 		console.log(error);
 	}
 };
-export const getPostByPostId = async (id) => {
+export const getPostByPosterId = async (id) => {
 	try {
 		const res = await axios.get(API + `/api/posts/post/${id}`);
-	
-		console.log(res + "45 get request")
+
+		console.log(res + "45 get request");
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);
+	}
+};
+export const getPostsByUserName = async (username) => {
+	try {
+		const res = await axios.get(API + `/api/posts/username/${username}`);
+		return res.data.payload;
+	} catch (error) {
+		console.log(error)
 	}
 };
 
 export const getPostsById = async (id) => {
 	try {
 		const res = await axios.get(API + `/api/posts/${id}`);
-		debugger
+		debugger;
 		return res.data.payload;
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 	}
-}
-
+};
 
 export const createComments = async (dataObj) => {
 	try {
@@ -98,7 +105,7 @@ export const updateUser = async (id, data, token) => {
 	try {
 		let res = await axios({
 			method: "PATCH",
-			url: API + "/api/users/"+ id ,
+			url: API + "/api/users/" + id,
 			headers: {
 				AuthToken: token,
 			},
