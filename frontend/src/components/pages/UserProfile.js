@@ -180,8 +180,6 @@ export default function UserProfile() {
 							alt="User_Profile_Picture"
 							className="userProfilePicture"
 							onClick={handleClickOpen}
-
-							// }}
 						/>
 						<Dialog
 							onClose={handleClose}
@@ -197,7 +195,6 @@ export default function UserProfile() {
 							</DialogTitle>
 							<DialogContent dividers>
 								<DialogActions
-									// {/* <Button */}
 									className="buttonDialog"
 									id="uploadPhoto"
 									autoFocus
@@ -210,7 +207,6 @@ export default function UserProfile() {
 							</DialogContent>
 							<DialogContent dividers>
 								<DialogActions
-									// {/* <Button */}
 									className="buttonDialog"
 									id="removeCurrentPhoto"
 									autoFocus
@@ -230,7 +226,7 @@ export default function UserProfile() {
 								Cancel
 							</DialogActions>
 						</Dialog>
-						{/* <div> */}
+			
 						<div className="userEditDiv">
 							<div className="userProfileBox">
 								<div className="userNameProfile">
@@ -255,32 +251,8 @@ export default function UserProfile() {
 						</div>
 					</div>
 
-					{/* <div className="aboutParagraph">
-						<div className="profile_info">
-							<p className="profileP">
-								<span className="boldFont">Full Name: </span>
-								{user.full_name}
-							</p>
-							<p className="profileP">
-								<span className="boldFont">User Name: </span>
-								{user.username}
-							</p>
-							<p className="profileP">
-								<span className="boldFont">Email: </span> {user.email}
-							</p>
-							<p className="profileP">
-								<span className="boldFont">Bio: </span>
-								{user.bio}
-							</p>
-						</div> */}
-					{/* <div className="editProfileButton">{editingUser()}</div>
-						</div> */}
-					{/* </div> */}
 					<div>
-						<div>
-							<PageAnimation />
-						</div>
-						{/* <PostsGallery /> */}
+						<PageAnimation />
 					</div>
 				</CardActionArea>
 			</Card>

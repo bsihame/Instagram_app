@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/PostsGallery.css";
-
-import { AuthContext } from "../../providers/AuthContext";
 import { getPostsByUserName } from "../../util/getRequests";
 import { useParams } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		overflow: "hidden",
+		backgroundColor: theme.palette.background.paper,
+	},
+
+	title: {
+		flexGrow: 1,
+	},
+	gridList: {
+		width: 1000,
+		height: 1000,
+	},
+}));
 export default function PostsGallery() {
 	const { username } = useParams();
-	// const history = useHistory();
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState(null);
+	const classes = useStyles();
 
 	const getUserPosts = async () => {
 		try {
@@ -33,20 +49,23 @@ export default function PostsGallery() {
 	}, []);
 
 	return (
-		<div className="PostsGalleryDiv">
-			<GridList className="gridList" cols={3}>
+		<div id="PostsGalleryDiv" className={classes.root}>
+			<GridList
+				id="gridList"
+				cols={3}
+				cellHeight={300}
+				spacing={30}
+				className={classes.GridList}
+			>
 				{posts.map((post) => {
 					return (
-						<GridListTile key={post.picture} className="GridListTile">
-							
-								<img
-									key={post.id}
-									// className="PostsGallery"
-									src={post.picture}
-									alt="user_Post"
-									className="displayPicturesPost"
-								/>
-						
+						<GridListTile key={post.picture} id="GridListTile">
+							<img
+								key={post.id}
+								src={post.picture}
+								alt="user_Post"
+								className="displayPicturesPost"
+							/>
 						</GridListTile>
 					);
 				})}
