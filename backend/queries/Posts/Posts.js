@@ -49,6 +49,28 @@ const getUsersPosts = async (req, res, next) => {
 		});
 	}
 };
+const getPostsByUserName = async (req, res, next) => {
+	try {
+		let username  = req.params.username
+		let posts = await db.any(
+			`SELECT posts.id, posts.picture, posts.content, users.username, users.profile_Pic 
+				FROM Posts 
+				LEFT JOIN Users ON posts.poster_id = users.id 
+				WHERE users.username = $1 ORDER BY created_at DESC`, [username]
+		);
+		res.status(200).json({
+			status: "ok",
+			message: "Get all posts by username",
+			payload: posts,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			status: "error",
+			message: "Could not get user posts by username",
+		});
+	}
+};
 
 const createPost = async (req, res, next) => {
 	try {
@@ -134,4 +156,5 @@ module.exports = {
 	getUsersPosts,
 	deletePost,
 	getSinglePost,
+	getPostsByUserName,
 };
