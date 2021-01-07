@@ -164,6 +164,9 @@ export default function UserProfile() {
 			return null;
 		}
 	};
+	const handleMenuItemClick = () => {
+		alert(`SORRY! This feature is under construction! `);
+	};
 
 	useEffect(() => {
 		getUser();
@@ -202,7 +205,6 @@ export default function UserProfile() {
 									color="primary"
 								>
 									Upload Photo
-									{/* </Button> */}
 								</DialogActions>
 							</DialogContent>
 							<DialogContent dividers>
@@ -214,7 +216,6 @@ export default function UserProfile() {
 									color="secondary"
 								>
 									Remove Current Photo
-									{/* </Button> */}
 								</DialogActions>
 							</DialogContent>
 							<DialogActions
@@ -226,7 +227,7 @@ export default function UserProfile() {
 								Cancel
 							</DialogActions>
 						</Dialog>
-			
+
 						<div className="userEditDiv">
 							<div className="userProfileBox">
 								<div className="userNameProfile">
@@ -245,8 +246,18 @@ export default function UserProfile() {
 								<div className="postAndFollowersText">
 									{PostLength} {postText()}
 								</div>
-								<div className="postAndFollowersText">{followersText()}</div>
-								<div className="postAndFollowersText">{followingText()}</div>
+								<div
+									className="postAndFollowersText"
+									onClick={() => handleMenuItemClick()}
+								>
+									{followersText()}
+								</div>
+								<div
+									className="postAndFollowersText"
+									onClick={() => handleMenuItemClick()}
+								>
+									{followingText()}
+								</div>
 							</div>
 						</div>
 					</div>
