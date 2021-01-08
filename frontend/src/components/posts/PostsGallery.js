@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom"
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/PostsGallery.css";
 import { getPostsByUserName } from "../../util/getRequests";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import PostCarousel from "./PostCarousel";
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -27,6 +31,7 @@ export default function PostsGallery() {
 	const { username } = useParams();
 	const [posts, setPosts] = useState([]);
 	const [error, setError] = useState(null);
+	const history = useHistory();
 	const classes = useStyles();
 
 	const getUserPosts = async () => {
@@ -43,6 +48,15 @@ export default function PostsGallery() {
 			setPosts([]);
 		}
 	};
+	
+	// const imageClick = () => {
+	// 	debugger
+		
+	// 	// history.push(`p/${username}`);
+	// 	return
+	// 	 <PostCarousel />;
+		
+	// };         
 
 	useEffect(() => {
 		getUserPosts();
@@ -59,12 +73,17 @@ export default function PostsGallery() {
 			>
 				{posts.map((post) => {
 					return (
-						<GridListTile key={post.picture} id="GridListTile">
+						<GridListTile
+							key={post.picture}
+							id="GridListTile"
+							// onClick={imageClick()}
+						>
 							<img
 								key={post.id}
 								src={post.picture}
 								alt="user_Post"
 								className="displayPicturesPost"
+								// onClick={imageClick(post.id)}
 							/>
 						</GridListTile>
 					);

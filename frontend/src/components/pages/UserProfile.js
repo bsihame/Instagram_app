@@ -7,8 +7,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/UserProfile.css";
 import PostsGallery from "../posts/PostsGallery";
-// import { Brightness5SharpIcon } from "@material-ui/icons";
-// import { ReactComponent as Brightness5SharpIcon } from "./Brightness5Sharp.svg";
 import Icon from "@material-ui/core/Icon";
 import Brightness5Icon from "@material-ui/icons/Brightness5";
 import PageAnimation from "./PageAnimation";
@@ -133,20 +131,10 @@ export default function UserProfile() {
 
 	const followersText = () => {
 		return "0 follower";
-		// if (post.length > 1) {
-		// 	return " followers";
-		// } else {
-		// 	return " follower";
-		// }
 	};
 
 	const followingText = () => {
 		return "0 following";
-		// if (post.length > 1) {
-		// 	return " followings";
-		// } else {
-		// 	return " following";
-		// }
 	};
 
 	const redirect = () => {

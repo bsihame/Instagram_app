@@ -20,6 +20,7 @@ import UserPageEdit from "./components/users/UserPageEdit";
 import Explore from "./components/pages/Explore";
 import UserPost from "./components/posts/UserPost";
 import Messages from "./components/pages/Messages";
+import PostCarousel from "./components/posts/PostCarousel";
 
 
 function App() {
@@ -66,6 +67,10 @@ function App() {
 						<UserProfile />
 					</ProtectedRoute>
 
+					<ProtectedRoute exact path={`p/:username`}>
+						<PostCarousel />
+					</ProtectedRoute>
+
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />
 						<UserPageEdit />
@@ -80,7 +85,6 @@ function App() {
 					<Route>
 						<NotFound />
 					</Route>
-
 				</Switch>
 			</AuthProvider>
 		</div>

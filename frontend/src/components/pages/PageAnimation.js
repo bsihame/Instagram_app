@@ -1,19 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
-// // import clsx from "clsx";
-// // import SwipeableViews from 'react-swipeable-views';
-// import { makeStyles, useTheme } from "@material-ui/core/styles";
-// import AppBar from "@material-ui/core/AppBar";
-// import Tabs from "@material-ui/core/Tabs";
-// import Tab from "@material-ui/core/Tab";
-// import Typography from "@material-ui/core/Typography";
-// import Zoom from "@material-ui/core/Zoom";
-// import Fab from "@material-ui/core/Fab";
-// import AddIcon from "@material-ui/icons/Add";
-// import EditIcon from "@material-ui/icons/Edit";
-// import UpIcon from "@material-ui/icons/KeyboardArrowUp";
-// import { green } from '@material-ui/core/colors';
-// import Box from '@material-ui/core/Box';
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // import Paper from "@material-ui/core/Paper";
@@ -68,7 +53,7 @@ export default function PageAnimation() {
 		value: PropTypes.any.isRequired,
 	};
 
-	function a11yProps(index) {
+	function switchButton(index) {
 		return {
 			id: `simple-tab-${index}`,
 			"aria-controls": `simple-tabpanel-${index}`,
@@ -79,6 +64,7 @@ export default function PageAnimation() {
 	// };
 
 	return (
+		<>
 		<div className={classes.root}>
 			<Tabs
 				value={value}
@@ -91,19 +77,20 @@ export default function PageAnimation() {
 					label="POSTS"
 					icon={<ViewModuleOutlinedIcon />}
 					// onClick={handlePostsGallery}
-					{...a11yProps(0)}
+					{...switchButton(0)}
 				/>
-				<Tab label="IGTV" icon={<LiveTvOutlinedIcon />} {...a11yProps(1)} />
+				<Tab label="IGTV" icon={<LiveTvOutlinedIcon />} {...switchButton(1)} />
 				<Tab
 					label="SAVED"
-					icon={<BookmarkBorderOutlinedIcon {...a11yProps(2)} />}
+					icon={<BookmarkBorderOutlinedIcon {...switchButton(2)} />}
 					// onClick={(event) => handleMenuItemClick(event)}
 				/>
 				<Tab
 					label="TAGGED"
-					icon={<AssignmentIndOutlinedIcon {...a11yProps(3)} />}
+					icon={<AssignmentIndOutlinedIcon {...switchButton(3)} />}
 				/>
 			</Tabs>
+			</div>
 			<div>
 				<TabPanel value={value} index={0}>
 					<PostsGallery />
@@ -118,7 +105,8 @@ export default function PageAnimation() {
 					<UnderConstruction />
 				</TabPanel>
 			</div>
-		</div>
+		{/* </div> */}
+		</>
 	);
 
 }
