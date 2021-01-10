@@ -3,6 +3,7 @@ import axios from "axios";
 import { apiURL } from "../util/apiURL";
 
 const API = apiURL();
+
 export const getAllUsers = async () => {
 	try {
 		let res = await axios.get(API + "/api/users");
@@ -11,6 +12,21 @@ export const getAllUsers = async () => {
 		console.log(error);
 	}
 };
+
+// export const getAllUsers = async (token) => {
+// 	try {
+// 		let res = await axios({
+// 			method: "get",
+// 			url: API + "/api/users",
+// 			headers: {
+// 				AuthToken: token,
+// 			},
+// 		});
+// 		return res.data.payload;
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// };
 
 export const getUserById = async (id) => {
 	try {
@@ -125,3 +141,18 @@ export const getUserByUserName = async (username) => {
 		console.log(error);
 	}
 };
+
+// export const getUserByUserName = async (username, token) => {
+// 	try {
+// 		let res = await axios({
+// 			method: "get",
+// 			url: API + "/api/users/username/" + username,
+// 			headers: {
+// 				AuthToken: token,
+// 			},
+// 		});
+// 		return res.data.payload;
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// };

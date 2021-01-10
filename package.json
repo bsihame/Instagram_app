@@ -1,0 +1,24 @@
+{
+  "name": "social_media",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "start": "cd backend && npm install && npm start",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsihame/Instagram_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsihame/Instagram_app/issues"
+  },
+  "homepage": "https://github.com/bsihame/Instagram_app#readme"
+}

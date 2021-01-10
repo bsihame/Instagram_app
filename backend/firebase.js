@@ -19,4 +19,4 @@ admin.initializeApp({
 });
 
 
-module.exports =  admin ;
+module.exports =  admin;

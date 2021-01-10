@@ -16,7 +16,7 @@ const { checkFirebaseToken } = require("../../middleware/auth");
 // const { getAllUsersFirebase } = require("../../firebaseUtil/firebaseUtil");
 
 //  users.get("/:id", checkFirebaseToken, getUserById);
-// users.get("/",checkFirebaseToken , getAllUsersFirebase);
+// users.get("/",checkFirebaseToken , getAllUsers);
 
 users.get("/", getAllUsers);
 
@@ -24,7 +24,7 @@ users.post("/", createNewUser);
 users.post("/login", logIn);
 
 users.get("/:id", getUserById);
-users.get("/username/:username", getUserByUserName)
+users.get("/username/:username",checkFirebaseToken, getUserByUserName)
 users.get("/email/:email", getUserByEmail)
 
 users.patch("/:id",checkFirebaseToken, updateUser);
