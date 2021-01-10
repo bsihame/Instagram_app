@@ -59,9 +59,6 @@ export default function PageAnimation() {
 			"aria-controls": `simple-tabpanel-${index}`,
 		};
 	}
-	// const handleMenuItemClick = (event, index) => {
-	// 	alert(`${[index]} feature under construction! `);
-	// };
 
 	return (
 		<>
@@ -76,8 +73,7 @@ export default function PageAnimation() {
 				<Tab
 					label="POSTS"
 					icon={<ViewModuleOutlinedIcon />}
-					// onClick={handlePostsGallery}
-					{...switchButton(0)}
+					// {...switchButton(0)}
 				/>
 				<Tab label="IGTV" icon={<LiveTvOutlinedIcon />} {...switchButton(1)} />
 				<Tab

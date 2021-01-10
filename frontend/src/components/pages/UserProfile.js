@@ -250,11 +250,11 @@ export default function UserProfile() {
 						</div>
 					</div>
 
+				</CardActionArea>
+			</Card>
 					<div>
 						<PageAnimation />
 					</div>
-				</CardActionArea>
-			</Card>
 			<div>
 				<Footer className="userProfileFooter" />
 			</div>

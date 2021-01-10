@@ -49,17 +49,20 @@ export default function PostsGallery() {
 		}
 	};
 	
-	// const imageClick = () => {
-	// 	debugger
-		
-	// 	// history.push(`p/${username}`);
-	// 	return
-	// 	 <PostCarousel />;
-		
+	// const handleDisplay = () => {
+	// 	// if (posts.username === username) {
+	// 	// 	return (
+	// 	// 		history.push(`/${username}/carousel`)
+	// 	// 	)
+	// 	// }
+	// 	history.push(`/${username}/carousel`);
+	
+		 
 	// };         
 
 	useEffect(() => {
 		getUserPosts();
+		
 	}, []);
 
 	return (
@@ -83,7 +86,7 @@ export default function PostsGallery() {
 								src={post.picture}
 								alt="user_Post"
 								className="displayPicturesPost"
-								// onClick={imageClick(post.id)}
+								// onClick={handleDisplay()}
 							/>
 						</GridListTile>
 					);

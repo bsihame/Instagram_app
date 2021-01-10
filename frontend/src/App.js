@@ -67,10 +67,6 @@ function App() {
 						<UserProfile />
 					</ProtectedRoute>
 
-					<ProtectedRoute exact path={`p/:username`}>
-						<PostCarousel />
-					</ProtectedRoute>
-
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />
 						<UserPageEdit />
@@ -80,6 +76,9 @@ function App() {
 						<NavBar />
 						<CreatePostForm />
 						<Footer />
+					</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/carousel`}>
+						<PostCarousel />
 					</ProtectedRoute>
 
 					<Route>
