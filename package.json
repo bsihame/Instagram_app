@@ -5,8 +5,9 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
-  "start": "cd backend && npm install && npm start",
   "scripts": {
+    "start": "cd backend && npm start",
+    "heroku-prebuild": "cd backend && npm install && cd ../frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
