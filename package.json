@@ -7,7 +7,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "cd backend && npm start",
-    "heroku-prebuild": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "heroku-prebuild": "cd backend && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
