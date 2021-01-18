@@ -79,13 +79,20 @@ export default function UserProfile() {
 	const [post, setPost] = useState([]);
 	const [PostLength, setPostLength] = useState("");
 	const [error, setError] = useState(null);
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [openSetting, setOpenSetting] = useState(false)
 
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
 	const handleClose = () => {
 		setOpen(false);
+	};
+	const openSettingDialog = () => {
+		setOpenSetting(true);
+	};
+	const closeSettingDialog = () => {
+		setOpenSetting(false);
 	};
 
 	const useStyles = makeStyles({
@@ -98,7 +105,8 @@ export default function UserProfile() {
 
 	const getUser = async () => {
 		try {
-			const res = await getUserByUserName(username);
+			const res = await getUserByUserName(username, token);
+			debugger
 			setUser(res);
 		} catch (error) {
 			console.log(error);
@@ -106,7 +114,6 @@ export default function UserProfile() {
 	};
 	const getPostLength = async () => {
 		const res = await getPostByPosterId(poster_id, token);
-		debugger;
 		setPost(res);
 		setPostLength(res.length);
 		try {
@@ -141,7 +148,7 @@ export default function UserProfile() {
 		history.push(`/${user.username}/edit`);
 	};
 
-	const editingUser = () => {
+	const renderEditUserButton = () => {
 		if (currentUser.id === user.id) {
 			return (
 				<button className="editButton" onClick={redirect}>
@@ -221,13 +228,59 @@ export default function UserProfile() {
 								<div className="userNameProfile">
 									<h2 className="greeting">{user.username}</h2>
 								</div>
-								<div className="editProfileButton">{editingUser()}</div>
+								<div className="editProfileButton">
+									{renderEditUserButton()}
+								</div>
 								<div>
 									<Brightness5Icon
 										className="IconBrightness"
 										fontSize="large"
+										onClick={openSettingDialog}
 									/>
 								</div>
+								<Dialog
+									onClose={closeSettingDialog}
+									aria-labelledby="customized-dialog-title"
+									open={openSetting}
+								>
+									<DialogTitle
+										className="dialogTitle"
+										id="customized-dialog-title"
+										onClose={closeSettingDialog}
+									>
+										Profile
+									</DialogTitle>
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="uploadPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											hello
+										</DialogActions>
+									</DialogContent>
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="removeCurrentPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="secondary"
+										>
+											Photo
+										</DialogActions>
+									</DialogContent>
+									<DialogActions
+										className="buttonDialog"
+										autoFocus
+										onClick={closeSettingDialog}
+										color="primary"
+									>
+										Cancel
+									</DialogActions>
+								</Dialog>
 							</div>
 
 							<div className="postAndFollowers">
@@ -249,12 +302,11 @@ export default function UserProfile() {
 							</div>
 						</div>
 					</div>
-
 				</CardActionArea>
 			</Card>
-					<div>
-						<PageAnimation />
-					</div>
+			<div>
+				<PageAnimation />
+			</div>
 			<div>
 				<Footer className="userProfileFooter" />
 			</div>

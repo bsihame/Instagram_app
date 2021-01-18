@@ -133,26 +133,35 @@ export const updateUser = async (id, data, token) => {
 	}
 };
 
-export const getUserByUserName = async (username) => {
-	try {
-		let res = await axios.get(API + "/api/users/username/" + username);
-		return res.data.payload;
-	} catch (error) {
-		console.log(error);
-	}
-};
-
-// export const getUserByUserName = async (username, token) => {
+// export const getUserByUserName = async (username) => {
 // 	try {
-// 		let res = await axios({
-// 			method: "get",
-// 			url: API + "/api/users/username/" + username,
-// 			headers: {
-// 				AuthToken: token,
-// 			},
-// 		});
+// 		let res = await axios.get(API + "/api/users/username/" + username);
+// 		debugger
 // 		return res.data.payload;
 // 	} catch (error) {
 // 		console.log(error);
 // 	}
 // };
+// export const getUserByUserName = async(username) => {
+// 	try {
+// 		let res = await axios.get(API + "/api/users/username/" + username);
+// 		return res.data.payload;
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// }
+
+export const getUserByUserName = async (username, token) => {
+	try {
+		let res = await axios({
+			method: "get",
+			url: API + "/api/users/username/" + username,
+			headers: {
+				AuthToken: token,
+			},
+		});
+		return res.data.payload;
+	} catch (error) {
+		console.log(error);
+	}
+};

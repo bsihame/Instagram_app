@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
-import { storage } from "../../firebase";
+import firebase, { storage } from "../../firebase";
 import "../../CSS/CreatePostForm.css";
 
 const useStyles = makeStyles({
@@ -35,15 +35,20 @@ export default function CreatePostForm() {
 	};
 	const handleUpload = () => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on("state_changed", () => {
-			storage
-				.ref("images")
-				.child(image.name)
-				.getDownloadURL()
-				.then((url) => {
-					setUrl(url);
-				});
-		});
+		uploadTask.on(
+			firebase.storage.TaskEvent.STATE_CHANGED,
+			(snapshot)=> { },
+			(error)=> {console.log(error)},
+			() => {
+				storage
+					.ref("images")
+					.child(image.name)
+					.getDownloadURL()
+					.then((url) => {
+						setUrl(url);
+					});
+			}
+		);
 	};
 
 	const getUserCall = async () => {

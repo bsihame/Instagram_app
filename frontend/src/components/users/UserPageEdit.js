@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContext";
 import { getUserById, updateUser } from "../../util/getRequests";
-import { storage } from "../../firebase";
+import firebase, { storage } from "../../firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -51,7 +51,11 @@ export default function UserPageEdit(username) {
 
 	const handleUpload = (image) => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on("state_changed", () => {
+		uploadTask.on(
+			firebase.storage.TaskEvent.STATE_CHANGED,
+			(snapshot) => { },
+			(error)=> {console.log(error)},
+			() => {
 			storage
 				.ref("images")
 				.child(image.name)

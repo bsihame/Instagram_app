@@ -8,7 +8,7 @@ import googlePlayApp from "../../images/googlePlayApp.png";
 import facebookIcon from "../../images/white-facebook-icon-transparent-background-72.png";
 import Paper from "@material-ui/core/Paper";
 import "../../CSS/signUp.css";
-import { storage } from "../../firebase";
+import firebase, { storage } from "../../firebase";
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
@@ -29,7 +29,11 @@ export default function SignUpForm() {
 	};
 	const handleUpload = () => {
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on("state_changed", () => {
+		uploadTask.on(
+			firebase.storage.TaskEvent.STATE_CHANGED,
+			(snapshot) => { },
+			(error) => { console.log(error) },
+			()=> {
 			storage
 				.ref("images")
 				.child(image.name)
