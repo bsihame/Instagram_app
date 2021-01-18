@@ -243,13 +243,13 @@ export default function UserProfile() {
 									aria-labelledby="customized-dialog-title"
 									open={openSetting}
 								>
-									<DialogTitle
+									{/* <DialogTitle
 										className="dialogTitle"
 										id="customized-dialog-title"
 										onClose={closeSettingDialog}
 									>
 										Profile
-									</DialogTitle>
+									</DialogTitle> */}
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
@@ -258,7 +258,7 @@ export default function UserProfile() {
 											onClick={closeSettingDialog}
 											color="primary"
 										>
-											hello
+											Change Password
 										</DialogActions>
 									</DialogContent>
 									<DialogContent dividers>
@@ -269,7 +269,55 @@ export default function UserProfile() {
 											onClick={closeSettingDialog}
 											color="secondary"
 										>
-											Photo
+											Nametag
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="uploadPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Apps and Websites
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="uploadPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Notifications
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="uploadPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Privacy and Security
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											id="uploadPhoto"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Login Activity
 										</DialogActions>
 									</DialogContent>
 									<DialogActions
