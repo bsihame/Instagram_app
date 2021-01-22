@@ -105,7 +105,10 @@ export default function UserProfile() {
 			history.push(`/emails/settings/`);
 		} else if (event.currentTarget.innerText === "Privacy and Security") {
 			history.push(`/accounts/privacy_and_security/`);
+		} else if (event.currentTarget.innerText === "Login Activity") {
+			history.push(`/session/login_activity/`);
 		}
+
 	};
 
 	const useStyles = makeStyles({

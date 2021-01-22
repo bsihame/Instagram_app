@@ -93,6 +93,13 @@ function App() {
 						<Footer />
 					</ProtectedRoute>
 
+					<ProtectedRoute exact path={`/session/login_activity/`}>
+						<NavBar />
+						<h2>this is session login activity</h2>
+						<UserPageEdit />
+						<Footer />
+					</ProtectedRoute>
+
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />
 						<UserPageEdit />
