@@ -22,6 +22,9 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
 import "../../CSS/Footer.css";
+import Logout from "../login_signup/Logout";
+import { logout } from "../../util/firebaseFunctions";
+// import { logout } from "../../util/firebaseFunctions";
 const styles = (theme) => ({
 	root: {
 		margin: 0,
@@ -109,6 +112,8 @@ export default function UserProfile() {
 			history.push(`/session/login_activity/`);
 		} else if (event.currentTarget.innerText === "Emails from Instagram") {
 			history.push(`/emails/emails_sent/`);
+		} else if (event.currentTarget.innerText === "Cancel") {
+			setOpenSetting(false)
 		}
 
 	};
@@ -224,7 +229,7 @@ export default function UserProfile() {
 									className="buttonDialog"
 									id="removeCurrentPhoto"
 									autoFocus
-									onClick={handleClose}
+									onClick={logout}
 									color="secondary"
 								>
 									Remove Current Photo
@@ -351,7 +356,7 @@ export default function UserProfile() {
 										<DialogActions
 											className="buttonDialog"
 											autoFocus
-											onClick={closeSettingDialog}
+											onClick={logout}
 											color="primary"
 										>
 											Log Out
