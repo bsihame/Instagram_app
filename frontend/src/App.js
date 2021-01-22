@@ -100,6 +100,13 @@ function App() {
 						<Footer />
 					</ProtectedRoute>
 
+					<ProtectedRoute exact path={`/emails/emails_sent/`}>
+						<NavBar />
+						<h2>this is Emails from Instagram</h2>
+						<UserPageEdit />
+						<Footer />
+					</ProtectedRoute>
+
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />
 						<UserPageEdit />

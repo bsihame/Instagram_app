@@ -107,6 +107,8 @@ export default function UserProfile() {
 			history.push(`/accounts/privacy_and_security/`);
 		} else if (event.currentTarget.innerText === "Login Activity") {
 			history.push(`/session/login_activity/`);
+		} else if (event.currentTarget.innerText === "Emails from Instagram") {
+			history.push(`/emails/emails_sent/`);
 		}
 
 	};
@@ -261,7 +263,6 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											// to={`/${username}/edit/password`}
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
