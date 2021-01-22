@@ -31,47 +31,58 @@ function App() {
 					<AuthRoute exact path="/">
 						<Home />
 					</AuthRoute>
-
 					<AuthRoute path="/accounts/emailsignup/">
 						<SignUpForm />
 					</AuthRoute>
-
 					<ProtectedRoute exact path="/posts">
 						<NavBar />
 						<Posts />
 					</ProtectedRoute>
-
 					<ProtectedRoute path="/post/:id">
 						<NavBar />
 						<UserPost />
 					</ProtectedRoute>
-
 					<ProtectedRoute exact path="/explore">
 						<NavBar />
 						<Explore />
 					</ProtectedRoute>
-
 					<ProtectedRoute path={"/direct/inbox"}>
 						<NavBar />
 						<h2>direct message</h2>
 						{/* <Messages /> */}
 						<Footer />
 					</ProtectedRoute>
-
 					<ProtectedRoute exact path={`/:username`}>
 						<User />
 					</ProtectedRoute>
-
 					<ProtectedRoute exact path={`/:username/profile`}>
 						<NavBar />
 						<UserProfile />
+					</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/edit/password/change/`}>
+						<NavBar />
+						<h2>this is password</h2>
+						<UserPageEdit />
+						<Footer />
+					</ProtectedRoute>
+					<ProtectedRoute exact path={`/:username/edit/nametag/`}>
+						<NavBar />
+						<h2>this is nametag</h2>
+						<UserPageEdit />
+						<Footer />
+					</ProtectedRoute>
+					
+					<ProtectedRoute exact path={`/:username/edit/manage_access`}>
+						<NavBar />
+						<h2>this is Apps and Websites</h2>
+						<UserPageEdit />
+						<Footer />
 					</ProtectedRoute>
 
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />
 						<UserPageEdit />
 					</ProtectedRoute>
-
 					<ProtectedRoute exact path={`/:username/createPost`}>
 						<NavBar />
 						<CreatePostForm />
@@ -80,7 +91,6 @@ function App() {
 					<ProtectedRoute exact path={`/:username/carousel`}>
 						<PostCarousel />
 					</ProtectedRoute>
-
 					<Route>
 						<NotFound />
 					</Route>

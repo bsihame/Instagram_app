@@ -80,7 +80,8 @@ export default function UserProfile() {
 	const [PostLength, setPostLength] = useState("");
 	const [error, setError] = useState(null);
 	const [open, setOpen] = useState(false);
-	const [openSetting, setOpenSetting] = useState(false)
+	const [openSetting, setOpenSetting] = useState(false);
+	const [target, setTarget] = useState("");
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -91,8 +92,19 @@ export default function UserProfile() {
 	const openSettingDialog = () => {
 		setOpenSetting(true);
 	};
-	const closeSettingDialog = () => {
-		setOpenSetting(false);
+	const closeSettingDialog = (event) => {
+	// 	setTarget(event.currentTarget);
+	// 	debugger
+		if (event.currentTarget.innerText === "Change Password") {
+			history.push(`/${user.username}/edit/password/change/`);
+		} else if (event.currentTarget.innerText === "Nametag") {
+			history.push(`/${user.username}/edit/Nametag/`);
+		} else if (event.currentTarget.innerText === "Apps and Websites") {
+			history.push(`/${user.username}/edit/manage_access`);
+		}
+	
+	// 	// setOpenSetting(false);
+	// 	// history.push(`/{user.username}/edit/`)
 	};
 
 	const useStyles = makeStyles({
@@ -106,7 +118,7 @@ export default function UserProfile() {
 	const getUser = async () => {
 		try {
 			const res = await getUserByUserName(username, token);
-			debugger
+			debugger;
 			setUser(res);
 		} catch (error) {
 			console.log(error);
@@ -194,7 +206,6 @@ export default function UserProfile() {
 							<DialogContent dividers>
 								<DialogActions
 									className="buttonDialog"
-									id="uploadPhoto"
 									autoFocus
 									onClick={handleClose}
 									color="primary"
@@ -239,21 +250,14 @@ export default function UserProfile() {
 									/>
 								</div>
 								<Dialog
-									onClose={closeSettingDialog}
+									// onClose={closeSettingDialog}
 									aria-labelledby="customized-dialog-title"
 									open={openSetting}
 								>
-									{/* <DialogTitle
-										className="dialogTitle"
-										id="customized-dialog-title"
-										onClose={closeSettingDialog}
-									>
-										Profile
-									</DialogTitle> */}
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="uploadPhoto"
+											// to={`/${username}/edit/password`}
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
@@ -264,10 +268,9 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="removeCurrentPhoto"
 											autoFocus
 											onClick={closeSettingDialog}
-											color="secondary"
+											color="primary"
 										>
 											Nametag
 										</DialogActions>
@@ -276,7 +279,6 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="uploadPhoto"
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
@@ -288,7 +290,6 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="uploadPhoto"
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
@@ -300,7 +301,6 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="uploadPhoto"
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
@@ -312,12 +312,44 @@ export default function UserProfile() {
 									<DialogContent dividers>
 										<DialogActions
 											className="buttonDialog"
-											id="uploadPhoto"
 											autoFocus
 											onClick={closeSettingDialog}
 											color="primary"
 										>
 											Login Activity
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Emails from Instagram
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Report Problem
+										</DialogActions>
+									</DialogContent>
+
+									<DialogContent dividers>
+										<DialogActions
+											className="buttonDialog"
+											autoFocus
+											onClick={closeSettingDialog}
+											color="primary"
+										>
+											Log Out
 										</DialogActions>
 									</DialogContent>
 									<DialogActions
