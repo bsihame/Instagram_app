@@ -101,10 +101,9 @@ export default function UserProfile() {
 			history.push(`/${user.username}/edit/Nametag/`);
 		} else if (event.currentTarget.innerText === "Apps and Websites") {
 			history.push(`/${user.username}/edit/manage_access`);
+		} else if (event.currentTarget.innerText === "Notifications") {
+			history.push(`/emails/settings/`);
 		}
-	
-	// 	// setOpenSetting(false);
-	// 	// history.push(`/{user.username}/edit/`)
 	};
 
 	const useStyles = makeStyles({
