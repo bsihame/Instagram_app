@@ -85,7 +85,13 @@ function App() {
 						<UserPageEdit />
 						<Footer />
 					</ProtectedRoute>
-					
+
+					<ProtectedRoute exact path={`/accounts/privacy_and_security/`}>
+						<NavBar />
+						<h2>this is privacy_and_security</h2>
+						<UserPageEdit />
+						<Footer />
+					</ProtectedRoute>
 
 					<ProtectedRoute exact path={`/:username/edit`}>
 						<NavBar />

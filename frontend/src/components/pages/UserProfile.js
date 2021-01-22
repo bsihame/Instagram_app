@@ -103,6 +103,8 @@ export default function UserProfile() {
 			history.push(`/${user.username}/edit/manage_access`);
 		} else if (event.currentTarget.innerText === "Notifications") {
 			history.push(`/emails/settings/`);
+		} else if (event.currentTarget.innerText === "Privacy and Security") {
+			history.push(`/accounts/privacy_and_security/`);
 		}
 	};
 
