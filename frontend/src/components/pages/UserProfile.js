@@ -84,6 +84,7 @@ export default function UserProfile() {
 	const [error, setError] = useState(null);
 	const [open, setOpen] = useState(false);
 	const [openSetting, setOpenSetting] = useState(false);
+	const [openReportProblem,setOpenReportProblem]=useState(false);
 	const [target, setTarget] = useState("");
 
 	const handleClickOpen = () => {
@@ -96,8 +97,6 @@ export default function UserProfile() {
 		setOpenSetting(true);
 	};
 	const closeSettingDialog = (event) => {
-	// 	setTarget(event.currentTarget);
-	// 	debugger
 		if (event.currentTarget.innerText === "Change Password") {
 			history.push(`/${user.username}/edit/password/change/`);
 		} else if (event.currentTarget.innerText === "Nametag") {
@@ -112,11 +111,41 @@ export default function UserProfile() {
 			history.push(`/session/login_activity/`);
 		} else if (event.currentTarget.innerText === "Emails from Instagram") {
 			history.push(`/emails/emails_sent/`);
+		// }
+		// else if (event.currentTarget.innerText === "Report Problem") {
+			// openNewDialog();
+			// setOpenSetting(false);
+			// openReportProblem(true);
+			
 		} else if (event.currentTarget.innerText === "Cancel") {
-			setOpenSetting(false)
+			setOpenSetting(false);
+			
 		}
-
 	};
+	const openNewDialog = (event) => {
+		if (event.currentTarget.innerText === "Report Problem") {
+			return (<>
+				<Dialog
+					onClose={handleCloseReportProblem}
+					aria-labelledby="customized-dialog-title"
+					open={openReportProblem}
+				>
+					<DialogTitle className="dialogReportTitle" onClose={handleClose}>
+						Report a Problem
+				</DialogTitle>
+
+					<DialogContent dividers>
+						<DialogActions> Problem</DialogActions>
+					</DialogContent>
+				</Dialog>;
+			</>
+			)
+		}
+	}
+
+	const handleCloseReportProblem = () => {
+		setOpenReportProblem(false)
+	}
 
 	const useStyles = makeStyles({
 		root: {
@@ -261,7 +290,6 @@ export default function UserProfile() {
 									/>
 								</div>
 								<Dialog
-									// onClose={closeSettingDialog}
 									aria-labelledby="customized-dialog-title"
 									open={openSetting}
 								>
@@ -345,7 +373,7 @@ export default function UserProfile() {
 										<DialogActions
 											className="buttonDialog"
 											autoFocus
-											onClick={closeSettingDialog}
+											onClick={openNewDialog}
 											color="primary"
 										>
 											Report Problem

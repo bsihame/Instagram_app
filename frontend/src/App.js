@@ -21,6 +21,7 @@ import Explore from "./components/pages/Explore";
 import UserPost from "./components/posts/UserPost";
 import Messages from "./components/pages/Messages";
 import PostCarousel from "./components/posts/PostCarousel";
+import EditPassword from "./components/pages/EditPassword";
 
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
 					<ProtectedRoute exact path={`/:username/edit/password/change/`}>
 						<NavBar />
 						<h2>this is password</h2>
-						<UserPageEdit />
+						<EditPassword />
 						<Footer />
 					</ProtectedRoute>
 					<ProtectedRoute exact path={`/:username/edit/nametag/`}>
