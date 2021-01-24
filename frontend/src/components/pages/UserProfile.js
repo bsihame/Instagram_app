@@ -100,6 +100,7 @@ export default function UserProfile() {
 		if (event.currentTarget.innerText === "Change Password") {
 			history.push(`/${user.username}/edit/password/change/`);
 		} else if (event.currentTarget.innerText === "Nametag") {
+			// <a href="https://www.instagram.com/nametag/"></a>;
 			history.push(`/${user.username}/edit/Nametag/`);
 		} else if (event.currentTarget.innerText === "Apps and Websites") {
 			history.push(`/${user.username}/edit/manage_access`);
@@ -307,7 +308,8 @@ export default function UserProfile() {
 										<DialogActions
 											className="buttonDialog"
 											autoFocus
-											onClick={closeSettingDialog}
+											// onClick={closeSettingDialog}
+											onClick={()=> <a href = "https://www.instagram.com/nametag/"></a>}
 											color="primary"
 										>
 											Nametag
