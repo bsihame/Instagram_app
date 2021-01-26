@@ -309,10 +309,10 @@ export default function UserProfile() {
 											className="buttonDialog"
 											autoFocus
 											// onClick={closeSettingDialog}
-											onClick={()=> <a href = "https://www.instagram.com/nametag/"></a>}
+											// onClick={()=> <a href = "https://www.instagram.com/nametag/"></a>}
 											color="primary"
 										>
-											Nametag
+											<a href="https://www.instagram.com/nametag/">Nametag</a>
 										</DialogActions>
 									</DialogContent>
 

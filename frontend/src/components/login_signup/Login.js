@@ -85,7 +85,7 @@ export default function Login() {
 							alt="facebookBlueIcon"
 							className="facebookIcon"
 						/>
-						<h4>Log in with Facebook</h4>
+						<a href={"https://www.facebook.com"}>Log in with Facebook</a>
 					</div>
 					<button className="forgotPassword">Forgot password?</button>
 					<div />
