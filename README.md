@@ -17,8 +17,8 @@
 
 Users can:
 
-- [Create an account](.doc/../docs/signUp.png) and [login](.doc/../docs/login.png) with Firebase
-- View user [profile](.doc/../docs/userProfile.png) by other users
+- [Create an account](./docs/signUp.png) and [login](./docs/login.png) with Firebase
+- View user [profile](./docs/userProfile.png) by other users
 - View all posts by other users
 - Like and comment on other users posts
 - Search for other users
