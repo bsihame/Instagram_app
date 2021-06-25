@@ -7,8 +7,12 @@ export const AuthRoute = ({ children, ...rest }) => {
 	const [username, setUserName] = useState("");
 	const { currentUser } = useContext(AuthContext);
 	const getUserName = async () => {
-		const data = await getUserById(currentUser.id);
-		setUserName(data.username);
+		try {
+			const data = await getUserById(currentUser.id);
+			setUserName(data.username);
+		} catch (error) {
+			console.log(error)
+		}
 	};
 
 	useEffect(() => {

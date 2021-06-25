@@ -117,7 +117,7 @@ export default function SignUpForm() {
 								type="file"
 								onChange={handleChange}
 							/>
-							<button className="signUpInput" onClick={handleUpload}>
+							<button className="signUpInput" type="button" onClick={handleUpload}>
 								Upload Image
 							</button>
 							<input

@@ -111,13 +111,7 @@ export default function UserProfile() {
 		} else if (event.currentTarget.innerText === "Login Activity") {
 			history.push(`/session/login_activity/`);
 		} else if (event.currentTarget.innerText === "Emails from Instagram") {
-			history.push(`/emails/emails_sent/`);
-		// }
-		// else if (event.currentTarget.innerText === "Report Problem") {
-			// openNewDialog();
-			// setOpenSetting(false);
-			// openReportProblem(true);
-			
+			history.push(`/emails/emails_sent/`);	
 		} else if (event.currentTarget.innerText === "Cancel") {
 			setOpenSetting(false);
 			
