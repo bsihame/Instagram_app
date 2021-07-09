@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import { Switch,Route } from "react-router-dom"
 import "./App.css";
 import Home from "./components/pages/Home";
@@ -12,14 +12,10 @@ import AuthProvider from "./providers/AuthContext";
 import { AuthRoute, ProtectedRoute } from "./util/routesUtil";
 import User from "./components/users/User";
 import CreatePostForm from "./components/posts/CreatePostForm";
-import UploadPostImage from "./components/posts/UploadPostImage";
-import CommentsForm from "./components/comments/CommentsForm";
-import { AuthContext } from "./providers/AuthContext";
-import { getUserById } from "./util/getRequests";
 import UserPageEdit from "./components/users/UserPageEdit";
 import Explore from "./components/pages/Explore";
 import UserPost from "./components/posts/UserPost";
-import Messages from "./components/pages/Messages";
+// import Messages from "./components/pages/Messages";
 import PostCarousel from "./components/posts/PostCarousel";
 import EditPassword from "./components/pages/EditPassword";
 

@@ -7,16 +7,16 @@ import Likes from "../../components/likes/Likes";
 import { getUserById } from "../../util/getRequests";
 import Card from "@material-ui/core/Card";
 import Popover from "@material-ui/core/Popover";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+// import List from "@material-ui/core/List";
+// import ListItem from "@material-ui/core/ListItem";
+// import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+// import Menu from "@material-ui/core/Menu";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import "../../CSS/PostsIndex.css";
-import { CardHeader, Container, CardContent } from "@material-ui/core";
+import { CardHeader, Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	root: {

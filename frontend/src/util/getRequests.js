@@ -13,21 +13,6 @@ export const getAllUsers = async () => {
 	}
 };
 
-// export const getAllUsers = async (token) => {
-// 	try {
-// 		let res = await axios({
-// 			method: "get",
-// 			url: API + "/api/users",
-// 			headers: {
-// 				AuthToken: token,
-// 			},
-// 		});
-// 		return res.data.payload;
-// 	} catch (error) {
-// 		console.log(error);
-// 	}
-// };
-
 export const getUserById = async (id) => {
 	try {
 		let res = await axios.get(API + `/api/users/${id}`);
@@ -58,8 +43,6 @@ export const createPost = async (dataObj) => {
 export const getPostByPosterId = async (id) => {
 	try {
 		const res = await axios.get(API + `/api/posts/post/${id}`);
-
-		console.log(res + "45 get request");
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);
@@ -77,7 +60,6 @@ export const getPostsByUserName = async (username) => {
 export const getPostsById = async (id) => {
 	try {
 		const res = await axios.get(API + `/api/posts/${id}`);
-		debugger;
 		return res.data.payload;
 	} catch (error) {
 		console.log(error);

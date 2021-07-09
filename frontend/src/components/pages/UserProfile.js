@@ -153,7 +153,6 @@ export default function UserProfile() {
 	const getUser = async () => {
 		try {
 			const res = await getUserByUserName(username, token);
-			debugger;
 			setUser(res);
 		} catch (error) {
 			console.log(error);
@@ -217,7 +216,7 @@ export default function UserProfile() {
 
 	return (
 		<div className="profile_container">
-			<Card ClassName={classes.root} id="root">
+			<Card className={classes.root} id="root">
 				<CardActionArea>
 					<div className="userProfileDiv">
 						<img

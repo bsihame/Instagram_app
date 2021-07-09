@@ -9,7 +9,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import { getUserById } from "../../util/getRequests";
 import { getAllUsers } from "../../util/getRequests";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import "../../CSS/User.css";
 import "../../CSS/Ads.css";

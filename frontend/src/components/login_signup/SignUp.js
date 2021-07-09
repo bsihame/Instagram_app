@@ -9,6 +9,8 @@ import facebookIcon from "../../images/white-facebook-icon-transparent-backgroun
 import Paper from "@material-ui/core/Paper";
 import "../../CSS/signUp.css";
 import firebase, { storage } from "../../firebase";
+import TextField from "@material-ui/core/TextField";
+
 
 export default function SignUpForm() {
 	const [email, setEmail] = useState("");
@@ -21,28 +23,56 @@ export default function SignUpForm() {
 	const [error, setError] = useState(null);
 	const history = useHistory();
 	const API = apiURL();
+	
+	// const handleChange = (e) => {
+	// 	if (e.target.files[0]) {
+	// 		setImage(e.target.files[0]);
+	// 	}
+	// };
+	// const handleUpload = () => {
 
-	const handleChange = (e) => {
-		if (e.target.files[0]) {
-			setImage(e.target.files[0]);
+	// 	const uploadTask = storage.ref(`images/${image.name}`).put(image);
+	// 	uploadTask.on(
+	// 		firebase.storage.TaskEvent.STATE_CHANGED,
+	// 		(snapshot) => { },
+	// 		(error) => { console.log(error) },
+	// 		()=> {
+	// 		storage
+	// 			.ref("images")
+	// 			.child(image.name)
+	// 			.getDownloadURL()
+	// 			.then((url) => {
+	// 				setUrl(url);
+	// 			});
+	// 	});
+	// };
+
+	// const handleChange = (e) => {
+	// 	if (e.target.files[0]) {
+	// 		setImage(e.target.files[0]);
+	// 	}
+	// };
+	const handleUpload = (e) => {
+		const stagedImage = e.target.files[0]
+		if (stagedImage) {
+			setImage(stagedImage);
+			const uploadTask = storage.ref(`images/${stagedImage.name}`).put(stagedImage);
+			uploadTask.on(
+				firebase.storage.TaskEvent.STATE_CHANGED,
+				(snapshot) => { },
+				(error) => { console.log(error) },
+				()=> {
+				storage
+					.ref("images")
+					.child(stagedImage.name)
+					.getDownloadURL()
+					.then((url) => {
+						setUrl(url);
+					});
+			});
 		}
 	};
-	const handleUpload = () => {
-		const uploadTask = storage.ref(`images/${image.name}`).put(image);
-		uploadTask.on(
-			firebase.storage.TaskEvent.STATE_CHANGED,
-			(snapshot) => { },
-			(error) => { console.log(error) },
-			()=> {
-			storage
-				.ref("images")
-				.child(image.name)
-				.getDownloadURL()
-				.then((url) => {
-					setUrl(url);
-				});
-		});
-	};
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -57,6 +87,7 @@ export default function SignUpForm() {
 				bio: bio,
 				profile_pic: url,
 			});
+			history.push(`/${username}`)
 		} catch (error) {
 			setError(error.message);
 		}
@@ -88,40 +119,77 @@ export default function SignUpForm() {
 						</div>
 						{error ? <div>{error}</div> : null}
 						<form className="formSignUp" onSubmit={handleSubmit}>
+						<div className="uploadImage">
 							<input
+								className="uploadImageInput"
+								type="file"
+								onChange={handleUpload}
+							/>
+							{/* <button className="uploadImageInputButton" type="button" onClick={handleUpload}>
+								Upload Image
+							</button> */}
+							</div>
+							<div className="signUpInput">
+							<TextField
+								id="outlined-basic"
+								className="signUpInput"
+								label=" Email"
+								variant="outlined"
 								placeholder="Email"
+								onFocus={() => setError(false)}
 								value={email}
 								type="email"
 								onChange={(e) => setEmail(e.currentTarget.value)}
+								required
 							/>
-							<input
+							</div>
+							<div className="signUpInput">
+							<TextField
 								className="signUpInput"
+								id="outlined-basic"
+								label=" Full Name"
+								variant="outlined"
+								onFocus={() => setError(false)}
 								placeholder="Full Name"
 								value={full_name}
 								onChange={(e) => setFullName(e.currentTarget.value)}
+								required
 							/>
-							<input
+							</div>
+							<div className="signUpInput">
+							<TextField
 								className="signUpInput"
+								id="outlined-basic"
+								label=" Username"
+								variant="outlined"
+								onFocus={() => setError(false)}
 								placeholder="Username"
 								value={username}
 								onChange={(e) => setUserName(e.currentTarget.value)}
+								required
 							/>
-							<input
+							</div>
+							<div className="signUpInput">
+							<TextField
 								className="signUpInput"
+								id="outlined-basic"
+								label=" Bio"
+								variant="outlined"
+								onFocus={() => setError(false)}
 								placeholder="Bio: "
 								value={bio}
 								onChange={(e) => setBio(e.currentTarget.value)}
 							/>
-							<input
+							</div>
+							
+							
+							<div className="signUpInput">
+							<TextField
 								className="signUpInput"
-								type="file"
-								onChange={handleChange}
-							/>
-							<button className="signUpInput" type="button" onClick={handleUpload}>
-								Upload Image
-							</button>
-							<input
-								className="signUpInput"
+								id="outlined-basic"
+								label=" Password"
+								variant="outlined"
+								onFocus={() => setError(false)}
 								placeholder="Password"
 								type="password"
 								value={password}
@@ -129,6 +197,7 @@ export default function SignUpForm() {
 								autoComplete="on"
 								required
 							/>
+							</div>
 							<button
 								className="signUpInput"
 								type="submit"

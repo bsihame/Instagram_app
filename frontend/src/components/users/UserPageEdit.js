@@ -29,7 +29,6 @@ export default function UserPageEdit(username) {
 
 	const getUserCall = async () => {
 		const data = await getUserById(currentUser.id);
-		debugger;
 		setProfilePicture(data.profile_pic);
 		setCurrentFullName(data.full_name);
 		setCurrentUserName(data.username);
@@ -68,6 +67,7 @@ export default function UserPageEdit(username) {
 	};
 
 	const returnToProfile = (username) => {
+		// console.log(71, username)
 		if (username) {
 			console.log("returnToProfile", username);
 			history.push(`/${username}/profile`);
