@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function User() {
+
 	const classes = useStyles();
 	const history = useHistory();
-	// const { username } = useParams();
 	const { currentUser } = useContext(AuthContext);
 	const [loggedUser, setLoggedUser] = useState({});
 	const [users, setUsers] = useState([]);
@@ -35,6 +35,7 @@ export default function User() {
 	let id = currentUser.id;
 	
 	const getSingleUser = async () => {
+
 		try {
 			const res = await getUserById(id);
 			setLoggedUser(res);
@@ -44,6 +45,7 @@ export default function User() {
 	};
 
 	const getUsers = async () => {
+
 		try {
 			const allUsers = await getAllUsers();
 			const filtered = allUsers.filter((user) => user.id !== id);
@@ -54,6 +56,7 @@ export default function User() {
 	};
 	
 	useEffect(() => {
+		
 		getSingleUser();
 		getUsers();
 	},[userName]);

@@ -23,34 +23,6 @@ export default function SignUpForm() {
   const history = useHistory();
   const API = apiURL();
 
-  // const handleChange = (e) => {
-  // 	if (e.target.files[0]) {
-  // 		setImage(e.target.files[0]);
-  // 	}
-  // };
-  // const handleUpload = () => {
-
-  // 	const uploadTask = storage.ref(`images/${image.name}`).put(image);
-  // 	uploadTask.on(
-  // 		firebase.storage.TaskEvent.STATE_CHANGED,
-  // 		(snapshot) => { },
-  // 		(error) => { console.log(error) },
-  // 		()=> {
-  // 		storage
-  // 			.ref("images")
-  // 			.child(image.name)
-  // 			.getDownloadURL()
-  // 			.then((url) => {
-  // 				setUrl(url);
-  // 			});
-  // 	});
-  // };
-
-  // const handleChange = (e) => {
-  // 	if (e.target.files[0]) {
-  // 		setImage(e.target.files[0]);
-  // 	}
-  // };
   const handleUpload = (e) => {
     const stagedImage = e.target.files[0];
     if (stagedImage) {

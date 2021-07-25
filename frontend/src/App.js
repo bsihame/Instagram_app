@@ -15,7 +15,7 @@ import CreatePostForm from "./components/posts/CreatePostForm";
 import UserPageEdit from "./components/users/UserPageEdit";
 import Explore from "./components/pages/Explore";
 import UserPost from "./components/posts/UserPost";
-// import Messages from "./components/pages/Messages";
+import Messages from "./components/pages/Messages";
 import PostCarousel from "./components/posts/PostCarousel";
 import EditPassword from "./components/pages/EditPassword";
 
@@ -46,7 +46,7 @@ function App() {
 					<ProtectedRoute path={"/direct/inbox"}>
 						<NavBar />
 						<h2>direct message</h2>
-						{/* <Messages /> */}
+						<Messages />
 						<Footer />
 					</ProtectedRoute>
 					<ProtectedRoute exact path={`/:username`}>

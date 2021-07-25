@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ChatList from "../../ChatList/ChatList";
-import firebase from "../../firebase";
+// import firebase from "../../firebase";
+import firebase from '../../firebase';
+import 'firebase/firestore';
 import { useHistory } from "react-router-dom";
 import ChatView from "../../ChatList/ChatView";
 import ChatTextBox from "../../ChatList/ChatTextBox";
