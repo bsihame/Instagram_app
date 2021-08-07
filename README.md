@@ -8,10 +8,21 @@
 
 ## Table of Contents
 
-- [Features](feature)
-- [Installation Instructions](#installation-instructions)
-- [Technologies](#technologies)
-- [Learn More](#learn-more)
+  - [Installation Instructions](#installation-instructions)
+  - [Features](#features)
+  - [Technologies](#technologies)
+  - [Learn More](#learn-more)
+
+## Installation Instructions
+
+1. Fork and clone this repository
+2. To install the all necessary package for backend cd to backend then run `npm i` or `npm install `
+3. From the root folder in the backend run `psql -f backend/db/schema.sql` (This will create the local database)
+   - You might want to check to make sure the database was correctly created.
+4. In the root folder run `nodemon` (This will run the backend)
+5. After you run the backend, now you can `cd frontend` and run `npm i` or `npm install` to install all necessary packages
+6. Start coding! (to check the live test run `npm start` in the frontend folder
+7. For login, sign up, and upload pictures make sure you read the [Firebase documentation](https://firebase.google.com/).
 
 ## Features
 
@@ -32,36 +43,22 @@ Users can:
 - Search for other users
 - Update their own profile
 
-## Installation Instructions
-
-1. Fork and clone this repository
-2. In the root folder run `npm start` (This will install and run the backend)
-3. From the root folder still run `psql -f backend/db/schema.sql` (This will create the local database)
-   - You might want to check to make sure the database was correctly created.
-4. After the database is installed you can `cd frontend` and run `npm i` or `npm install` to install all necessary packages
-5. Start coding! (to check the live test run `npm start` in the frontend folder
-
 ## Technologies
 
 Instagram_app was created using
 
 - React
-- React Hooks
 - Express.js
 - Firebase
 - SQL
 - Material UI
 - Bootstrap
-- Netlify
-- Heroku
 
 ## Learn More
 
 To learn more about how to [Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-To learn about [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 To learn about [Express.js](https://www.guru99.com/node-js-express.html).
 
@@ -72,7 +69,3 @@ To learn about [SQL](https://www.postgresql.org/docs/current/index.html).
 To learn about [Material UI](https://material-ui.com/).
 
 To learn about [Bootstrap](https://react-bootstrap.github.io/).
-
-To learn about [Netlify](https://www.netlify.com/).
-
-To learn about [Heroku](https://www.heroku.com).
