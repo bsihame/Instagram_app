@@ -6,13 +6,13 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/UserProfile.css";
-import PostsGallery from "../posts/PostsGallery";
+// import PostsGallery from "../posts/PostsGallery";
 import Icon from "@material-ui/core/Icon";
 import Brightness5Icon from "@material-ui/icons/Brightness5";
 import PageAnimation from "./PageAnimation";
 import Footer from "../navbar_footer/Footer";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
@@ -22,7 +22,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
 import "../../CSS/Footer.css";
-import Logout from "../login_signup/Logout";
+// import Logout from "../login_signup/Logout";
 import { logout } from "../../util/firebaseFunctions";
 // import { logout } from "../../util/firebaseFunctions";
 const styles = (theme) => ({
@@ -86,6 +86,7 @@ export default function UserProfile() {
 	const [openSetting, setOpenSetting] = useState(false);
 	const [openReportProblem,setOpenReportProblem]=useState(false);
 	const [target, setTarget] = useState("");
+	const [url, setUrl] = useState("")
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -220,12 +221,15 @@ export default function UserProfile() {
 			<Card className={classes.root} id="root">
 				<CardActionArea>
 					<div className="userProfileDiv">
+						{url?<div>
 						<img
 							src={user.profile_pic || PLACEHOLDER_IMAGE}
 							alt="User_Profile_Picture"
 							className="userProfilePicture"
 							onClick={handleClickOpen}
 						/>
+						</div>:null
+						}
 						<Dialog
 							onClose={handleClose}
 							aria-labelledby="customized-dialog-title"
