@@ -210,21 +210,30 @@ export default function UserProfile() {
 		getPostLength();
 	}, [username]);
 
-	const PLACEHOLDER_IMAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNQQXVYu8V7iUBRekboHCW_YS2hZ-0J5nd2ySA4Bcnznc8oX_CEcfZr_OIJhGd3a5txVs&usqp=CAU"
+	// const PLACEHOLDER_IMAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNQQXVYu8V7iUBRekboHCW_YS2hZ-0J5nd2ySA4Bcnznc8oX_CEcfZr_OIJhGd3a5txVs&usqp=CAU"
 	return (
 		<div className="profile_container">
 			<Card className={classes.root} id="root">
 				<CardActionArea>
 					<div className="userProfileDiv">
-						{url?<div>
+						{/* {url?<div>
 						<img
-							src={user.profile_pic || PLACEHOLDER_IMAGE}
+							// src={user.profile_pic || PLACEHOLDER_IMAGE}
+							src={user.profile_pic }
+
 							alt="User_Profile_Picture"
 							className="userProfilePicture"
 							onClick={handleClickOpen}
 						/>
 						</div>:null
-						}
+						} */}
+
+						<img
+							src={user.profile_pic}
+							alt="User_Profile_Picture"
+							className="userProfilePicture"
+							onClick={handleClickOpen}
+						/>
 						<Dialog
 							onClose={handleClose}
 							aria-labelledby="customized-dialog-title"

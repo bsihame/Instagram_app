@@ -192,7 +192,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static" color="#fff">
         <Toolbar className="title">
           <NavLink exact to={"/"}>
-            <h2 className="titleInst">Instagram</h2>
+            <h2 className="titleInst">InstaClone</h2>
           </NavLink>
 
           <section className={classes.search} id="search">
