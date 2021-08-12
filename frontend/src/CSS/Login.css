@@ -66,12 +66,10 @@ img {
 	font-size: 45px;
 	font-weight: 550;
 	height: 51px;
-	width: 313px;
 	justify-content: space-around;
 	text-align: center;
 	align-items: center;
 	color: #262626;
-	margin-left: 1rem;
 }
 
 .signIn,

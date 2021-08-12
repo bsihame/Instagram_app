@@ -32,7 +32,7 @@ export default function Login() {
 			<div className="rightDiv">
 				<Paper className="paper">
 					<div className="loginTitle">
-						<h1 className="instagram">Instagram</h1>
+						<h1 className="instagram">InstaClone</h1>
 					</div>
 					{error ? (
 						<Typography className="errorText" component="h5" variant="h6">

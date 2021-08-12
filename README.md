@@ -1,10 +1,10 @@
-# Instagram_app
+# InstaClone
 
-![Instagram_app](.doc/../docs/login.png)
+![InstaClone](.doc/../docs/login.png)
 
-**Instagram_app** is a clone of a Social Media Web App Instagram. It is a Full-Stack Web App that allows user to connect with their friends and their families. Users can publish their photos, comments and likes the posts.
+**InstaClone** is a clone of a Social Media Web App Instagram. It is a Full-Stack Web App that allows user to connect with their friends and their families. Users can publish their photos, comments and likes the posts.
 
-# Live Site @ [Instagram_app](https://sihame-instagram-clone.netlify.app)
+# Live Site @ [InstaClone](https://sihame-instagram-clone.netlify.app)
 
 ## Table of Contents
 
@@ -15,11 +15,12 @@
 
 ## Installation Instructions
 
-1. Fork and clone this repository
+1. Clone this repository
 2. To install the all necessary package for backend cd to backend then run `npm i` or `npm install `
 3. From the root folder in the backend run `psql -f db/schema.sql` (This will create the local database)
    - You might want to check to make sure the database was correctly created.
 4. In the backend folder create `.env` file and insert the key values from [Firebase documentation](https://firebase.google.com/) follow the instructions.
+      Example of the `.env` file:
    
             DATABASE_URL=postgres://localhost:5432/instagram2_database
             PORT = 3001
@@ -32,7 +33,7 @@
             AUTH_URI= ...
             TOKEN_URI= ...
             AUTH_PROVIDER_X509_CERT_URL= ...
-   CLIENT_X509_CERT_URL= ...
+            CLIENT_X509_CERT_URL= ...
 
 5. In the root folder run `nodemon` (This will run the backend)
 6. After you run the backend, now you can `cd frontend` and run `npm i` or `npm install` to install all necessary packages
@@ -47,8 +48,8 @@
             REACT_APP_ID = ...
             REACT_APP_MEASUREMENTID = ...
             
-1. Start coding! (to check the live test run `npm start` in the frontend folder
-2.  For login, sign up, and upload pictures make sure you read the [Firebase documentation](https://firebase.google.com/).
+9. Start coding! (to check the live test run `npm start` in the frontend folder
+10. For login, sign up, and upload pictures make sure you read the [Firebase documentation](https://firebase.google.com/).
 
 ## Features
 
@@ -71,7 +72,7 @@ Users can:
 
 ## Technologies
 
-Instagram_app was created using
+InstaClone was created using
 
 - React
 - Express.js

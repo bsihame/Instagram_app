@@ -74,7 +74,7 @@ export default function SignUpForm() {
         <Paper className="paper">
           <div className="signUpContainer">
             <div className="title">
-              <h1 className="instagram">Instagram</h1>
+              <h1 className="instagram">InstaClone</h1>
               <p className="signUpIntro">
                 Sign up to see photos and videos from your friends
               </p>
