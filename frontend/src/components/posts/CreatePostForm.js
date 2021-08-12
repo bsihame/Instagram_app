@@ -85,7 +85,7 @@ export default function CreatePostForm() {
 			getUserCall();
 		}
 	}, []);
-
+	const PLACEHOLDER_IMAGE = "https://tridevcampus.edu.np/img/no-image-2.png"
 	return (
 		<div className="postFormDiv">
 			<Card className={classes.root}>
@@ -103,15 +103,28 @@ export default function CreatePostForm() {
 							<button className="buttonUploadPost" onClick={handleUpload}>
 								Upload Image
 							</button>
+							</div>
 							<div>
-								{url ? (
+								{url? (
 									<div>
 										<b>Preview: </b>
 										<img src={url} alt="Image_Preview" />
 									</div>
 								) : null}
 							</div>
-						</div>
+							
+							{/* <div>
+									<b>Preview: </b>
+								{url?<div>
+									<img 
+									src={url || PLACEHOLDER_IMAGE} 
+									alt="Image_Preview" 
+									/>
+									</div>:null
+								}
+							</div> */}
+							{/* </div> */}
+
 						<div className="form">
 							<form onSubmit={handleSubmit} className="displayComment">
 								<input

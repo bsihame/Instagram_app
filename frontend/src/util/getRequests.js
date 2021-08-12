@@ -101,6 +101,7 @@ export const getLikeCommentByPostId = async (postId) => {
 };
 
 export const updateUser = async (id, data, token) => {
+	debugger
 	try {
 		let res = await axios({
 			method: "PATCH",

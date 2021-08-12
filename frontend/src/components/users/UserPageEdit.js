@@ -45,6 +45,7 @@ export default function UserPageEdit(username) {
     };
 
     const response = await updateUser(currentUser.id, userData, token);
+    debugger
     returnToProfile(response.username);
   };
 

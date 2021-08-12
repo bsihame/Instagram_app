@@ -6,13 +6,11 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../CSS/UserProfile.css";
-// import PostsGallery from "../posts/PostsGallery";
 import Icon from "@material-ui/core/Icon";
 import Brightness5Icon from "@material-ui/icons/Brightness5";
 import PageAnimation from "./PageAnimation";
 import Footer from "../navbar_footer/Footer";
 import { withStyles } from "@material-ui/core/styles";
-// import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
@@ -20,11 +18,9 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-
 import "../../CSS/Footer.css";
-// import Logout from "../login_signup/Logout";
 import { logout } from "../../util/firebaseFunctions";
-// import { logout } from "../../util/firebaseFunctions";
+
 const styles = (theme) => ({
 	root: {
 		margin: 0,
@@ -101,7 +97,6 @@ export default function UserProfile() {
 		if (event.currentTarget.innerText === "Change Password") {
 			history.push(`/${user.username}/edit/password/change/`);
 		} else if (event.currentTarget.innerText === "Nametag") {
-			// <a href="https://www.instagram.com/nametag/"></a>;
 			history.push(`/${user.username}/edit/Nametag/`);
 		} else if (event.currentTarget.innerText === "Apps and Websites") {
 			history.push(`/${user.username}/edit/manage_access`);
