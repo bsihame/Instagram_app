@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-// import Loader from "../images/loading.gif"
 import Loader from "../images/710.gif";
 
 import firebase from "../firebase";
